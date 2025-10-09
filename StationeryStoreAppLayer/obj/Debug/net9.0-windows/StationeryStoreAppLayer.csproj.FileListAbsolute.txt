@@ -1,0 +1,17 @@
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\bin\Debug\net9.0-windows\StationeryStoreAppLayer.exe
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\bin\Debug\net9.0-windows\StationeryStoreAppLayer.deps.json
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\bin\Debug\net9.0-windows\StationeryStoreAppLayer.runtimeconfig.json
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\bin\Debug\net9.0-windows\StationeryStoreAppLayer.dll
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\bin\Debug\net9.0-windows\StationeryStoreAppLayer.pdb
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\StationeryStoreAppLayer.Form1.resources
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\StationeryStoreAppLayer.csproj.GenerateResource.cache
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\StationeryStoreAppLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\StationeryStoreAppLayer.AssemblyInfoInputs.cache
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\StationeryStoreAppLayer.AssemblyInfo.cs
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\StationeryStoreAppLayer.csproj.CoreCompileInputs.cache
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\StationeryStoreAppLayer.sourcelink.json
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\StationeryStoreAppLayer.dll
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\refint\StationeryStoreAppLayer.dll
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\StationeryStoreAppLayer.pdb
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\StationeryStoreAppLayer.genruntimeconfig.cache
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\ref\StationeryStoreAppLayer.dll

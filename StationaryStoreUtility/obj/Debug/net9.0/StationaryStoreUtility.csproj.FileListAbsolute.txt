@@ -1,0 +1,12 @@
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationaryStoreUtility\bin\Debug\net9.0\StationaryStoreUtility.deps.json
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationaryStoreUtility\bin\Debug\net9.0\StationaryStoreUtility.dll
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationaryStoreUtility\bin\Debug\net9.0\StationaryStoreUtility.pdb
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationaryStoreUtility\obj\Debug\net9.0\StationaryStoreUtility.GeneratedMSBuildEditorConfig.editorconfig
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationaryStoreUtility\obj\Debug\net9.0\StationaryStoreUtility.AssemblyInfoInputs.cache
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationaryStoreUtility\obj\Debug\net9.0\StationaryStoreUtility.AssemblyInfo.cs
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationaryStoreUtility\obj\Debug\net9.0\StationaryStoreUtility.csproj.CoreCompileInputs.cache
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationaryStoreUtility\obj\Debug\net9.0\StationaryStoreUtility.sourcelink.json
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationaryStoreUtility\obj\Debug\net9.0\StationaryStoreUtility.dll
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationaryStoreUtility\obj\Debug\net9.0\refint\StationaryStoreUtility.dll
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationaryStoreUtility\obj\Debug\net9.0\StationaryStoreUtility.pdb
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationaryStoreUtility\obj\Debug\net9.0\ref\StationaryStoreUtility.dll
