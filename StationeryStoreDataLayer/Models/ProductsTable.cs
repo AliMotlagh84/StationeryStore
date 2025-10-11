@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace StationeryStoreDataLayer.Models;
+namespace StationeryStore.DataLayer.Models;
 
-public partial class ProductsTable
+public partial class ProductsTable 
 {
     public int ProductId { get; set; }
 
