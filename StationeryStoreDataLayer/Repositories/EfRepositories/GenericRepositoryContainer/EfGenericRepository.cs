@@ -13,8 +13,8 @@ namespace StationeryStoreDataLayer.Repositories.EfRepositories.GenericRepository
 {
     public class EfGenericRepository<T> : IGenericRepository<T> where T : class 
     {
-        private DbContext db;
-        private DbSet<T> dbSet;
+        protected DbContext db;
+        protected DbSet<T> dbSet;
         public EfGenericRepository(DbContext db)
         {
             this.db = db;

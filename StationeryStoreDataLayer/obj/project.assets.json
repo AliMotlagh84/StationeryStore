@@ -1598,6 +1598,16 @@
             "rid": "win"
           }
         }
+      },
+      "StationaryStoreViewModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/StationaryStoreViewModels.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/StationaryStoreViewModels.dll": {}
+        }
       }
     }
   },
@@ -4701,13 +4711,19 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "StationaryStoreViewModels/1.0.0": {
+      "type": "project",
+      "path": "../StationaryStoreViewModels/StationaryStoreViewModels.csproj",
+      "msbuildProject": "../StationaryStoreViewModels/StationaryStoreViewModels.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
       "Microsoft.EntityFrameworkCore >= 9.0.9",
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.9",
-      "Microsoft.EntityFrameworkCore.Tools >= 9.0.9"
+      "Microsoft.EntityFrameworkCore.Tools >= 9.0.9",
+      "StationaryStoreViewModels >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -4741,7 +4757,11 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationaryStoreViewModels\\StationaryStoreViewModels.csproj": {
+              "projectPath": "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationaryStoreViewModels\\StationaryStoreViewModels.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -1,4 +1,5 @@
-﻿using StationeryStore.DataLayer.Models;
+﻿using StationaryStoreViewModels.EfViewModels.UserTableViewModels;
+using StationeryStore.DataLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace StationeryStoreDataLayer.Repositories.EfRepositories.UserRepositoryCon
 {
     public interface IUserRepository :IGenericRepository<UserTable>
     {
-
+        public bool HasUser(LoginUserVM user);
+        public bool IsAdmin(LoginUserVM user);
     }
 }

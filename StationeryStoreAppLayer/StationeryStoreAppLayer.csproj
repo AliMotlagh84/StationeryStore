@@ -9,7 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="LoginForms\LoginUtilities\" />
+    <ProjectReference Include="..\StationaryStoreUtility\StationaryStoreUtility.csproj" />
+    <ProjectReference Include="..\StationaryStoreViewModels\StationaryStoreViewModels.csproj" />
+    <ProjectReference Include="..\StationeryStoreDataLayer\StationeryStoreDataLayer.csproj" />
   </ItemGroup>
 
 </Project>

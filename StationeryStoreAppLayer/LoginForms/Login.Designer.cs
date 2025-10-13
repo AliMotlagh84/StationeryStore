@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
+            txtUserName = new TextBox();
             UserName = new Label();
             PasswordLbl = new Label();
-            textBox2 = new TextBox();
+            txtPassword = new TextBox();
             BtnLogin = new Button();
             SingUpLink = new LinkLabel();
             SuspendLayout();
             // 
-            // textBox1
+            // txtUserName
             // 
-            textBox1.Location = new Point(46, 26);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(234, 26);
-            textBox1.TabIndex = 0;
+            txtUserName.Location = new Point(46, 26);
+            txtUserName.Name = "txtUserName";
+            txtUserName.Size = new Size(234, 26);
+            txtUserName.TabIndex = 0;
             // 
             // UserName
             // 
@@ -61,12 +61,12 @@
             PasswordLbl.TabIndex = 3;
             PasswordLbl.Text = "رمز عبور :";
             // 
-            // textBox2
+            // txtPassword
             // 
-            textBox2.Location = new Point(46, 69);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(234, 26);
-            textBox2.TabIndex = 2;
+            txtPassword.Location = new Point(46, 69);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(234, 26);
+            txtPassword.TabIndex = 2;
             // 
             // BtnLogin
             // 
@@ -76,6 +76,7 @@
             BtnLogin.TabIndex = 4;
             BtnLogin.Text = "ورود";
             BtnLogin.UseVisualStyleBackColor = true;
+            BtnLogin.Click += BtnLogin_Click;
             // 
             // SingUpLink
             // 
@@ -99,12 +100,13 @@
             Controls.Add(SingUpLink);
             Controls.Add(BtnLogin);
             Controls.Add(PasswordLbl);
-            Controls.Add(textBox2);
+            Controls.Add(txtPassword);
             Controls.Add(UserName);
-            Controls.Add(textBox1);
+            Controls.Add(txtUserName);
             Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Name = "Login";
             RightToLeft = RightToLeft.Yes;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ورود به برنامه";
             Load += Login_Load;
             ResumeLayout(false);
@@ -113,10 +115,10 @@
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox txtUserName;
         private Label UserName;
         private Label PasswordLbl;
-        private TextBox textBox2;
+        private TextBox txtPassword;
         private Button BtnLogin;
         private LinkLabel SingUpLink;
     }

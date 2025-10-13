@@ -2,6 +2,8 @@
 using StationeryStore.DataLayer.Models;
 using StationeryStoreDataLayer.Repositories.EfRepositories.BrandRepositoryContiner;
 using StationeryStoreDataLayer.Repositories.EfRepositories.ProductRepository;
+using StationeryStoreDataLayer.Repositories.EfRepositories.ProductRepositoryContainer;
+using StationeryStoreDataLayer.Repositories.EfRepositories.UserRepositoryContainer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +30,8 @@ namespace StationeryStoreDataLayer.UnitOfWorks
                 return _productsRepository;
             }
         }
+
+
         private IBrandRepository _brandRepository;
 
         public IBrandRepository BrandRepository
@@ -39,6 +43,50 @@ namespace StationeryStoreDataLayer.UnitOfWorks
                     _brandRepository = new BrandRepository(dbContext);
                 }
                 return _brandRepository;
+            }
+        }
+
+
+        private IUserRepository _userRepository;
+
+        public IUserRepository UserRepository
+        {
+            get
+            {
+                if (_userRepository == null)
+                {
+                    _userRepository = new UserRepository(dbContext);
+                }
+                return _userRepository;
+            }
+        }
+
+
+        private IAdressRepository _adressRepository;
+
+        public IAdressRepository AdressRepository
+        {
+            get
+            {
+                if (_adressRepository == null)
+                {
+                    _adressRepository = new AdressRepository(dbContext);
+                }
+                return _adressRepository;
+            }
+        }
+
+        private IOrderRepository _orderRepository;
+
+        public IOrderRepository OrderRepository
+        {
+            get
+            {
+                if (_orderRepository == null)
+                {
+                    _orderRepository = new OrderRepository(dbContext);
+                }
+                return _orderRepository;
             }
         }
 

@@ -17,3 +17,6 @@ D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فرو�
 D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreDataLayer\obj\Debug\net9.0\StationeryStoreDataLayer.pdb
 D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreDataLayer\obj\Debug\net9.0\StationeryStoreDataLayer.genruntimeconfig.cache
 D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreDataLayer\obj\Debug\net9.0\ref\StationeryStoreDataLayer.dll
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreDataLayer\bin\Debug\net9.0\Debug\net9.0\StationaryStoreViewModels.dll
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreDataLayer\bin\Debug\net9.0\Debug\net9.0\StationaryStoreViewModels.pdb
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreDataLayer\obj\Debug\net9.0\Statione.E3868798.Up2Date

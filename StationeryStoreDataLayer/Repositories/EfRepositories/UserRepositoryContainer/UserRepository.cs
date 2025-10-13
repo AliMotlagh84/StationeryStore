@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using StationaryStoreViewModels.EfViewModels.UserTableViewModels;
 using StationeryStore.DataLayer.Models;
 using StationeryStoreDataLayer.Repositories.EfRepositories.GenericRepositoryContainer;
 using System;
@@ -13,6 +14,19 @@ namespace StationeryStoreDataLayer.Repositories.EfRepositories.UserRepositoryCon
     {
         public UserRepository(DbContext db) : base(db)
         {
+
+        }
+
+        public bool HasUser(LoginUserVM user)
+        {
+           return dbSet.Any(u =>u.UserName == user.UserName && u.Password == user.Password);
+        }
+
+        public bool IsAdmin(LoginUserVM user)
+        {
+            var User = dbSet.FirstOrDefault(u => u.UserName == user.UserName && u.Password == user.Password);
+            if(User == null) return false;
+            else  return User.IsAdmin;
 
         }
     }
