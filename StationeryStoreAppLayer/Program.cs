@@ -17,7 +17,7 @@ namespace StationeryStoreAppLayer
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Login(new LoginUserValidator(),new HomeFormOpener() , new AdminChecker(),new NullOrWhiteSpaceValidator()));
+            Application.Run(new Login(new LoginUserValidator(),new HomeFormOpener<Form1>(new Form1()) , new AdminChecker(),new NullOrWhiteSpaceValidator()));
         }
     }
 }

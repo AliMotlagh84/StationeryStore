@@ -12,19 +12,9 @@ namespace StationeryStoreAppLayer.LoginForms.LoginHelpers.UserValidators
     {
         public bool ValidateUser(string username, string password)
         {
-            bool dataBaseHasUser;
             using (EfUnitOfWork db = new EfUnitOfWork())
             {
-                if (db.UserRepository.HasUser(new LoginUserVM(username, password)))
-                {
-                    dataBaseHasUser = true;
-                }
-                else
-                {
-                    dataBaseHasUser = false;
-                }
-
-                return dataBaseHasUser;
+                return db.UserRepository.HasUser(new LoginUserVM(username, password)); 
             }
 
 

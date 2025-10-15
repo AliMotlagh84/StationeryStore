@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace StationeryStoreAppLayer.LoginForms
 {
-    public partial class Login : Form, ILoginForm, ITextValidator
+    public partial class Login : Form, ILoginForm
     {
         private ILoginUserValidator _loginUserValidator;
         private IHomeFormOpener _homeFormOpener;
@@ -69,10 +69,7 @@ namespace StationeryStoreAppLayer.LoginForms
             return _loginUserValidator.ValidateUser(username, password);
         }
 
-        public void OpenHomeForm(bool isAdmin)
-        {
-            _homeFormOpener.OpenHomeForm(isAdmin);
-        }
+
 
         public bool IsAdmin(string userName, string Password)
         {
@@ -82,6 +79,11 @@ namespace StationeryStoreAppLayer.LoginForms
         public bool ValidateText(string text)
         {
             return _textValidator.ValidateText(text);
+        }
+
+        public void OpenHomeForm(bool isAdmin)
+        {
+            _homeFormOpener.OpenHomeForm(isAdmin);
         }
     }
 }

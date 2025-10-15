@@ -1,17 +1,20 @@
 namespace StationeryStoreAppLayer
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form, IHomeForm
     {
-        private bool IsAdmin;
-        public Form1(bool isAdmin)
+
+        bool IHomeForm.IsAdmin { get; set; } = false;
+
+        public Form1()
         {
             InitializeComponent();
-            IsAdmin = isAdmin;
+
         }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (IsAdmin)
+            if (((IHomeForm)this).IsAdmin)
             {
                 MessageBox.Show("HiAdmin");
             }

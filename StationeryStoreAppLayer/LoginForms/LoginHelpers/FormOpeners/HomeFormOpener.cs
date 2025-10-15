@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace StationeryStoreAppLayer.LoginForms.LoginHelpers.FormOpeners
 {
-    public class HomeFormOpener : IHomeFormOpener
+    public class HomeFormOpener<T> : IHomeFormOpener where T : Form, IHomeForm
     {
-        public void OpenHomeForm(bool isAdmin)
+        private T homeForm;
+        public HomeFormOpener(T homeForm)
         {
-            Form1 homeForm = new Form1(isAdmin);
-            homeForm.ShowDialog();
+            this.homeForm = homeForm;
+        }
+        public void OpenHomeForm(bool isAdmin) 
+        {
+            homeForm.IsAdmin = isAdmin;
+            homeForm?.ShowDialog();
+
         }
     }
 }
