@@ -70,9 +70,10 @@
             // 
             // BtnLogin
             // 
-            BtnLogin.Location = new Point(132, 110);
+            BtnLogin.FlatStyle = FlatStyle.Flat;
+            BtnLogin.Location = new Point(137, 110);
             BtnLogin.Name = "BtnLogin";
-            BtnLogin.Size = new Size(94, 26);
+            BtnLogin.Size = new Size(94, 36);
             BtnLogin.TabIndex = 4;
             BtnLogin.Text = "ورود";
             BtnLogin.UseVisualStyleBackColor = true;
@@ -96,6 +97,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(0, 192, 192);
             ClientSize = new Size(380, 176);
             Controls.Add(SingUpLink);
             Controls.Add(BtnLogin);
@@ -104,6 +106,7 @@
             Controls.Add(UserName);
             Controls.Add(txtUserName);
             Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ForeColor = SystemColors.ControlLightLight;
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Login";
             RightToLeft = RightToLeft.Yes;
