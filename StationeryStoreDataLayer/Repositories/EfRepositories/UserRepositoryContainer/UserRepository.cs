@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using StationaryStoreViewModels.EfViewModels.UserTableViewModels;
 using StationeryStore.DataLayer.Models;
 using StationeryStoreDataLayer.Repositories.EfRepositories.GenericRepositoryContainer;
@@ -19,14 +20,24 @@ namespace StationeryStoreDataLayer.Repositories.EfRepositories.UserRepositoryCon
 
         public bool HasUser(LoginUserVM user)
         {
-           return dbSet.Any(u =>u.UserName == user.UserName && u.Password == user.Password);
+            return dbSet.Any(u => u.UserName == user.UserName && u.Password == user.Password);
         }
 
         public bool IsAdmin(LoginUserVM user)
         {
             var User = dbSet.FirstOrDefault(u => u.UserName == user.UserName && u.Password == user.Password);
-            if(User == null) return false;
-            else  return User.IsAdmin;
+            if (User == null) return false;
+            else return User.IsAdmin;
+
+        }
+
+        public bool IsUniqe(SignUpVM user)
+        {
+            if (user.Email.IsNullOrEmpty())
+            {
+                return !(dbSet.Any(u => u.UserName == user.UserName || u.Password == user.Password));
+            }
+            return !(dbSet.Any(u => u.UserName == user.UserName || u.Password == user.Password || u.Email == user.Email));
 
         }
     }

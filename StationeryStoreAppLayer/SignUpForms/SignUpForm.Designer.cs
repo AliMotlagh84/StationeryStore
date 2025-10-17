@@ -127,6 +127,7 @@
             RbUser.TabStop = true;
             RbUser.Text = "کاربر عادی";
             RbUser.UseVisualStyleBackColor = true;
+            RbUser.CheckedChanged += RbUser_CheckedChanged;
             // 
             // RbAdmin
             // 
@@ -138,6 +139,7 @@
             RbAdmin.TabStop = true;
             RbAdmin.Text = "ادمین";
             RbAdmin.UseVisualStyleBackColor = true;
+            RbAdmin.CheckedChanged += RbAdmin_CheckedChanged;
             // 
             // button1
             // 
@@ -150,6 +152,7 @@
             button1.TabIndex = 15;
             button1.Text = "ثبت نام";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // SignUpForm
             // 
@@ -176,6 +179,7 @@
             RightToLeft = RightToLeft.Yes;
             StartPosition = FormStartPosition.CenterParent;
             Text = "SignUpForm";
+            Load += SignUpForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

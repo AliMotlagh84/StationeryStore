@@ -12,5 +12,6 @@ namespace StationeryStoreDataLayer.Repositories.EfRepositories.UserRepositoryCon
     {
         public bool HasUser(LoginUserVM user);
         public bool IsAdmin(LoginUserVM user);
+        public bool IsUniqe(SignUpVM user);
     }
 }
