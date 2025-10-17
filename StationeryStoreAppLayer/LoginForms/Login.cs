@@ -2,6 +2,7 @@
 using StationeryStoreAppLayer.LoginForms.LoginHelpers.AdminCheckers;
 using StationeryStoreAppLayer.LoginForms.LoginHelpers.FormOpeners;
 using StationeryStoreAppLayer.LoginForms.LoginHelpers.UserValidators;
+using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,11 +21,15 @@ namespace StationeryStoreAppLayer.LoginForms
         private IHomeFormOpener _homeFormOpener;
         private IAdminChecker _adminChecker;
         private ITextValidator _textValidator;
+        private ISignUpFormOpener _signUpFormOpener;
+        private ITextBoxRestartor _textBoxRestartor;
         public Login(
           ILoginUserValidator loginUserValidator,
           IHomeFormOpener homeFormOpener,
           IAdminChecker adminChecker,
-          ITextValidator textValidator
+          ITextValidator textValidator,
+          ISignUpFormOpener signUpFormOpener,
+          ITextBoxRestartor textBoxRestartor
           )
         {
             InitializeComponent();
@@ -32,6 +37,8 @@ namespace StationeryStoreAppLayer.LoginForms
             _homeFormOpener = homeFormOpener;
             _adminChecker = adminChecker;
             _textValidator = textValidator;
+            _signUpFormOpener = signUpFormOpener;
+            _textBoxRestartor = textBoxRestartor;
         }
         private void handelLogin(string userName, string password)
         {
@@ -40,15 +47,16 @@ namespace StationeryStoreAppLayer.LoginForms
                 if (ValidateUser(userName, password))
                 {
                     OpenHomeForm(IsAdmin(userName, password));
+                    this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("کاربر یافت نشد","خطا",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("کاربر یافت نشد", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("نام یا رمز عبور خالیست","خطا",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("نام یا رمز عبور خالیست", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -84,6 +92,22 @@ namespace StationeryStoreAppLayer.LoginForms
         public void OpenHomeForm(bool isAdmin)
         {
             _homeFormOpener.OpenHomeForm(isAdmin);
+        }
+
+        public void OpenSignUpForm()
+        {
+            _signUpFormOpener.OpenSignUpForm();
+        }
+
+        private void SingUpLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RestartTextBox(txtUserName,txtPassword);
+            OpenSignUpForm();
+        }
+
+        public void RestartTextBox(params TextBox[] textBoxes)
+        {
+            _textBoxRestartor.RestartTextBox(textBoxes);
         }
     }
 }

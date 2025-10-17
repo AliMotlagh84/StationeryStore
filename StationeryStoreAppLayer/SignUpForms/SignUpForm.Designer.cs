@@ -34,12 +34,13 @@
             txtUserName = new TextBox();
             AdminiCodeLbl = new Label();
             txtAdminiCode = new TextBox();
-            Emailtxt = new Label();
+            EmailLbl = new Label();
             txtEmail = new TextBox();
             label1 = new Label();
             RbUser = new RadioButton();
             RbAdmin = new RadioButton();
             button1 = new Button();
+            LoginLink = new LinkLabel();
             SuspendLayout();
             // 
             // PasswordLbl
@@ -92,14 +93,14 @@
             txtAdminiCode.TabIndex = 10;
             txtAdminiCode.Visible = false;
             // 
-            // Emailtxt
+            // EmailLbl
             // 
-            Emailtxt.AutoSize = true;
-            Emailtxt.Location = new Point(274, 101);
-            Emailtxt.Name = "Emailtxt";
-            Emailtxt.Size = new Size(51, 18);
-            Emailtxt.TabIndex = 9;
-            Emailtxt.Text = "ایمیل :";
+            EmailLbl.AutoSize = true;
+            EmailLbl.Location = new Point(274, 101);
+            EmailLbl.Name = "EmailLbl";
+            EmailLbl.Size = new Size(51, 18);
+            EmailLbl.TabIndex = 9;
+            EmailLbl.Text = "ایمیل :";
             // 
             // txtEmail
             // 
@@ -154,19 +155,36 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // LoginLink
+            // 
+            LoginLink.AutoSize = true;
+            LoginLink.DisabledLinkColor = Color.Red;
+            LoginLink.LinkBehavior = LinkBehavior.NeverUnderline;
+            LoginLink.LinkColor = Color.Green;
+            LoginLink.Location = new Point(122, 258);
+            LoginLink.Name = "LoginLink";
+            LoginLink.Size = new Size(128, 18);
+            LoginLink.TabIndex = 16;
+            LoginLink.TabStop = true;
+            LoginLink.Text = "برگشت به فرم ورود";
+            LoginLink.TextAlign = ContentAlignment.MiddleCenter;
+            LoginLink.VisitedLinkColor = Color.Black;
+            LoginLink.LinkClicked += SingUpLink_LinkClicked;
+            // 
             // SignUpForm
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.GreenYellow;
-            ClientSize = new Size(380, 274);
+            ClientSize = new Size(380, 285);
+            Controls.Add(LoginLink);
             Controls.Add(button1);
             Controls.Add(RbAdmin);
             Controls.Add(RbUser);
             Controls.Add(label1);
             Controls.Add(AdminiCodeLbl);
             Controls.Add(txtAdminiCode);
-            Controls.Add(Emailtxt);
+            Controls.Add(EmailLbl);
             Controls.Add(txtEmail);
             Controls.Add(PasswordLbl);
             Controls.Add(txtPassword);
@@ -192,11 +210,12 @@
         private TextBox txtUserName;
         private Label AdminiCodeLbl;
         private TextBox txtAdminiCode;
-        private Label Emailtxt;
+        private Label EmailLbl;
         private TextBox txtEmail;
         private Label label1;
         private RadioButton RbUser;
         private RadioButton RbAdmin;
         private Button button1;
+        private LinkLabel LoginLink;
     }
 }

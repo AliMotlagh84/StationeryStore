@@ -1,5 +1,6 @@
 ﻿using StationaryStoreUtility.Validators.textValidators;
 using StationeryStore.DataLayer.Models;
+using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
 using StationeryStoreAppLayer.SignUpForms.SignUpHelpers.AdminiCodeValidator;
 using StationeryStoreAppLayer.SignUpForms.SignUpHelpers.AdminModeChanger;
 using StationeryStoreAppLayer.SignUpForms.SignUpHelpers.UniqeUserValidators;
@@ -25,13 +26,15 @@ namespace StationeryStoreAppLayer.SignUpForms
         private IAdminModeChanger _adminModeChanger;
         private IAdminiCodeValidator _adminiCodeValidator;
         private IUserBuilder _userBuilder;
+        private ITextBoxRestartor _textBoxRestartor;
 
         public SignUpForm(
             ITextValidator textValidator,
             IUniqeUserValidator uniqeUserValidator,
             IAdminModeChanger adminModeChanger,
             IAdminiCodeValidator adminiCodeValidator,
-            IUserBuilder userBuilder
+            IUserBuilder userBuilder,
+            ITextBoxRestartor textBoxRestartor
             )
         {
             InitializeComponent();
@@ -40,6 +43,7 @@ namespace StationeryStoreAppLayer.SignUpForms
             _adminModeChanger = adminModeChanger;
             _adminiCodeValidator = adminiCodeValidator;
             _userBuilder = userBuilder;
+            _textBoxRestartor = textBoxRestartor;
         }
 
         private void handelSignUp(string userName, string password, string? email, string adminiCode)
@@ -57,7 +61,8 @@ namespace StationeryStoreAppLayer.SignUpForms
                                 db.UserRepository.Add(BuildUser(userName, password, email, true));
                                 db.Save();
                             }
-                            MessageBox.Show("کاربر با موفقیت به جدول افزوده شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            RestartTextBox(txtUserName,txtPassword,txtEmail,txtAdminiCode);
+                            MessageBox.Show("ادمین با موفقیت به جدول افزوده شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
@@ -86,6 +91,7 @@ namespace StationeryStoreAppLayer.SignUpForms
                             db.Save();
 
                         }
+                        RestartTextBox(txtUserName, txtPassword, txtEmail, txtAdminiCode);
                         MessageBox.Show("کاربر با موفقیت به جدول افزوده شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
@@ -143,7 +149,17 @@ namespace StationeryStoreAppLayer.SignUpForms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            handelSignUp(txtUserName.Text,txtPassword.Text,txtEmail.Text,txtAdminiCode.Text);
+            handelSignUp(txtUserName.Text, txtPassword.Text, txtEmail.Text, txtAdminiCode.Text);
+        }
+
+        private void SingUpLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Close();
+        }
+
+        public void RestartTextBox(params TextBox[] textBoxes)
+        {
+            _textBoxRestartor.RestartTextBox(textBoxes);
         }
     }
 }

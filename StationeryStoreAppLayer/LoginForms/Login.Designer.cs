@@ -65,6 +65,7 @@
             // 
             txtPassword.Location = new Point(46, 69);
             txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '*';
             txtPassword.Size = new Size(234, 26);
             txtPassword.TabIndex = 2;
             // 
@@ -82,23 +83,25 @@
             // SingUpLink
             // 
             SingUpLink.AutoSize = true;
+            SingUpLink.DisabledLinkColor = Color.Red;
             SingUpLink.LinkBehavior = LinkBehavior.NeverUnderline;
-            SingUpLink.LinkColor = Color.FromArgb(0, 192, 192);
-            SingUpLink.Location = new Point(151, 149);
+            SingUpLink.LinkColor = Color.White;
+            SingUpLink.Location = new Point(157, 157);
             SingUpLink.Name = "SingUpLink";
             SingUpLink.Size = new Size(53, 18);
             SingUpLink.TabIndex = 5;
             SingUpLink.TabStop = true;
             SingUpLink.Text = "ثبت نام";
             SingUpLink.TextAlign = ContentAlignment.MiddleCenter;
-            SingUpLink.VisitedLinkColor = Color.FromArgb(192, 64, 0);
+            SingUpLink.VisitedLinkColor = Color.Black;
+            SingUpLink.LinkClicked += SingUpLink_LinkClicked;
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 192, 192);
-            ClientSize = new Size(380, 176);
+            ClientSize = new Size(380, 193);
             Controls.Add(SingUpLink);
             Controls.Add(BtnLogin);
             Controls.Add(PasswordLbl);
