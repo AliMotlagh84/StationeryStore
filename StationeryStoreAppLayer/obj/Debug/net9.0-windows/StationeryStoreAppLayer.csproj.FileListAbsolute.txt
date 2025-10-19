@@ -64,4 +64,4 @@ D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فرو�
 D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\bin\Debug\net9.0-windows\StationeryStoreDataLayer.pdb
 D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\Statione.60745728.Up2Date
 D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\StationeryStoreAppLayer.Properties.Resources.resources
-D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\StationeryStoreAppLayer.SignUpForms.SignUpForm.resources
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\StationeryStoreAppLayer.Forms.SignUpForms.SignUpForm.resources

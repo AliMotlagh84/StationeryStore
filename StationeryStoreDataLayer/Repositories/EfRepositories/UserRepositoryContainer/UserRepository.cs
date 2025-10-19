@@ -25,7 +25,7 @@ namespace StationeryStoreDataLayer.Repositories.EfRepositories.UserRepositoryCon
 
         public bool IsAdmin(LoginUserVM user)
         {
-            var User = dbSet.FirstOrDefault(u => u.UserName == user.UserName && u.Password == user.Password);
+            var User = dbSet.FirstOrDefault(u => u.UserName == user.UserName && u.Password == user.Password && u.IsAdmin == true);
             if (User == null) return false;
             else return User.IsAdmin;
 

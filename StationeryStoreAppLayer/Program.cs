@@ -1,15 +1,16 @@
 using StationaryStoreUtility.Validators.textValidators;
 using StationaryStoreUtility.Validators.TextValidators;
 using StationeryStoreAppLayer.LoginForms;
-using StationeryStoreAppLayer.LoginForms.LoginHelpers.AdminCheckers;
-using StationeryStoreAppLayer.LoginForms.LoginHelpers.FormOpeners;
-using StationeryStoreAppLayer.LoginForms.LoginHelpers.UserValidators;
+using StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.AdminCheckers;
+using StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.FormOpeners;
+using StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.UserValidators;
 using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
-using StationeryStoreAppLayer.SignUpForms;
-using StationeryStoreAppLayer.SignUpForms.SignUpHelpers.AdminiCodeValidator;
-using StationeryStoreAppLayer.SignUpForms.SignUpHelpers.AdminModeChanger;
-using StationeryStoreAppLayer.SignUpForms.SignUpHelpers.UniqeUserValidators;
-using StationeryStoreAppLayer.SignUpForms.SignUpHelpers.UserBulider;
+using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.AdminiCodeValidator;
+using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.AdminModeChanger;
+using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.UniqeUserValidators;
+using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.UserBulider;
+using StationeryStoreAppLayer.Forms.SignUpForms;
+using StationeryStoreAppLayer.Forms.SignUpForms;
 
 namespace StationeryStoreAppLayer
 {
