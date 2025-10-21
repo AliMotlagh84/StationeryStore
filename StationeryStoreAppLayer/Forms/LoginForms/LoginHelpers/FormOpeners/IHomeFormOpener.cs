@@ -8,6 +8,6 @@ namespace StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.FormOpeners
 {
     public interface IHomeFormOpener
     {
-        void OpenHomeForm(bool isAdmin);
+        void OpenHomeForm(bool isAdmin,string userName);
     }
 }

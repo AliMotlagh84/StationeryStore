@@ -47,8 +47,8 @@ namespace StationeryStoreAppLayer.LoginForms
             {
                 if (ValidateUser(userName, password))
                 {
-                    OpenHomeForm(IsAdmin(userName, password));
-                    this.Close();
+                    OpenHomeForm(IsAdmin(userName, password),userName);
+                    
                 }
                 else
                 {
@@ -90,9 +90,9 @@ namespace StationeryStoreAppLayer.LoginForms
             return _textValidator.ValidateText(text);
         }
 
-        public void OpenHomeForm(bool isAdmin)
+        public void OpenHomeForm(bool isAdmin,string userName)
         {
-            _homeFormOpener.OpenHomeForm(isAdmin);
+            _homeFormOpener.OpenHomeForm(isAdmin, userName);
         }
 
         public void OpenSignUpForm()
