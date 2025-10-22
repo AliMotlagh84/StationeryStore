@@ -119,6 +119,7 @@
             ProductsManageBtn.Size = new Size(129, 61);
             ProductsManageBtn.Text = "مدیریت محصولات";
             ProductsManageBtn.TextImageRelation = TextImageRelation.ImageAboveText;
+            ProductsManageBtn.Click += ProductsManageBtn_Click;
             // 
             // OrdersGB
             // 

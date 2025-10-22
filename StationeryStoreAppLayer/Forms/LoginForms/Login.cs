@@ -28,7 +28,7 @@ namespace StationeryStoreAppLayer.LoginForms
           ILoginUserValidator loginUserValidator,
           IHomeFormOpener homeFormOpener,
           IAdminChecker adminChecker,
-          ITextValidator textValidator,
+          ITextValidator textValidator, 
           ISignUpFormOpener signUpFormOpener,
           ITextBoxRestartor textBoxRestartor
           )
@@ -47,7 +47,7 @@ namespace StationeryStoreAppLayer.LoginForms
             {
                 if (ValidateUser(userName, password))
                 {
-                    OpenHomeForm(IsAdmin(userName, password),userName);
+                    OpenHomeForm(IsAdmin(userName, password),userName,this);
                     
                 }
                 else
@@ -90,9 +90,9 @@ namespace StationeryStoreAppLayer.LoginForms
             return _textValidator.ValidateText(text);
         }
 
-        public void OpenHomeForm(bool isAdmin,string userName)
+        public void OpenHomeForm(bool isAdmin,string userName,Form senderForm)
         {
-            _homeFormOpener.OpenHomeForm(isAdmin, userName);
+            _homeFormOpener.OpenHomeForm(isAdmin, userName, senderForm);
         }
 
         public void OpenSignUpForm()

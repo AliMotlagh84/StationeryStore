@@ -1,4 +1,19 @@
-﻿using StationeryStoreAppLayer.Forms.HomeForms;
+﻿using StationaryStoreUtility.Convertores.DateConvertors;
+using StationaryStoreUtility.Validators.TextValidators;
+using StationeryStoreAppLayer.ApplicationContexts;
+using StationeryStoreAppLayer.FormManagers;
+using StationeryStoreAppLayer.Forms.HomeForms;
+using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.FormClosers;
+using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.LableSeters;
+using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.ProductManagemenAccessControllers;
+using StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.AdminCheckers;
+using StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.UserValidators;
+using StationeryStoreAppLayer.Forms.SignUpForms;
+using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.AdminiCodeValidator;
+using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.AdminModeChanger;
+using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.UniqeUserValidators;
+using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.UserBulider;
+using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,16 +25,18 @@ namespace StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.FormOpeners
 {
     public class HomeFormOpener<T> : IHomeFormOpener where T : Form, IHomeForm
     {
-        private T homeForm;
+        private T _homeForm;
         public HomeFormOpener(T homeForm)
         {
-            this.homeForm = homeForm;
+            _homeForm = homeForm;
         }
-        public void OpenHomeForm(bool isAdmin, string userName) 
+        public void OpenHomeForm(bool isAdmin, string userName, Form senderForm) 
         {
-            homeForm.IsAdmin = isAdmin;
-            homeForm.UserName = userName;
-            homeForm?.ShowDialog();        
+            _homeForm.IsAdmin = isAdmin;
+            _homeForm.UserName = userName;
+            _homeForm.SenderForm = senderForm;
+            _homeForm?.Show();
+
 
         }
     }

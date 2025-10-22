@@ -10,10 +10,12 @@ using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.AdminModeChanger;
 using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.UniqeUserValidators;
 using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.UserBulider;
 using StationeryStoreAppLayer.Forms.SignUpForms;
-using StationeryStoreAppLayer.Forms.SignUpForms;
 using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.ProductManagemenAccessControllers;
 using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.LableSeters;
 using StationaryStoreUtility.Convertores.DateConvertors;
+using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.FormClosers;
+using StationeryStoreAppLayer.ApplicationContexts;
+using StationeryStoreAppLayer.FormManagers;
 
 namespace StationeryStoreAppLayer
 {
@@ -30,8 +32,8 @@ namespace StationeryStoreAppLayer
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             SignUpForm signUpForm = new SignUpForm(new NullOrWhiteSpaceValidator(), new UniqeUserAndPasswordValidator(), new AdminModeChanger(), new AdminiCodeValidator(), new UserBuilder(),new TextBoxRestartor());
-            Form1 homeForm = new Form1(new ProductManagementAccessController(),new TimeLabelSeter(),new DateLabelSeter(new MiladiToPersianDateConvertor()),new IntroducingLabelSeter(),new AdminLabelSeter());
-            Application.Run(new Login(new LoginUserValidator(),new HomeFormOpener<Form1>(homeForm),new AdminChecker(),new NullOrWhiteSpaceValidator(),new SignUpFormOpener<SignUpForm>(signUpForm),new TextBoxRestartor()));
+            Form1 homeForm = new Form1(new ProductManagementAccessController(),new TimeLabelSeter(),new DateLabelSeter(new MiladiToPersianDateConvertor()),new IntroducingLabelSeter(),new AdminLabelSeter(),new FormCloser(),new FormManager());
+            Application.Run(new StationeryApplicationContext(new LoginUserValidator(),new HomeFormOpener<Form1>(homeForm),new AdminChecker(),new NullOrWhiteSpaceValidator(),new SignUpFormOpener<SignUpForm>(signUpForm),new TextBoxRestartor(),new FormManager()));
         }
     }
 }
