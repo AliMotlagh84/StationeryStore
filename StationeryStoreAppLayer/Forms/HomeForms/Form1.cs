@@ -1,8 +1,12 @@
-﻿using StationeryStoreAppLayer.FormManagers;
+﻿using StationeryStore.DataLayer.Models;
+using StationeryStoreAppLayer.FormManagers;
 using StationeryStoreAppLayer.Forms.HomeForms;
 using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.FormClosers;
 using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.LableSeters;
 using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.ProductManagemenAccessControllers;
+using StationeryStoreAppLayer.PublicHelpers.DataGeters.OrdersGeters;
+using StationeryStoreAppLayer.PublicHelpers.DataGeters.ProductGeters;
+using StationeryStoreAppLayer.PublicHelpers.DgFillers;
 
 namespace StationeryStoreAppLayer
 {
@@ -19,6 +23,10 @@ namespace StationeryStoreAppLayer
         private IAdminLabelSeter _adminLabelSeter;
         private IFormCloser _formCloser;
         private IFormManager _formManager;
+        private IDgFiller _dgFiller;
+        private IDgOrdersFiller _dgOrdersFiller;
+        private IProductsDataGeter _productsGeter;
+        private IOrdersDataGeter _ordersDataGeter;
         bool IHomeForm.IsAdmin { get => isAdmin; set => isAdmin = value; }
         string IHomeForm.UserName { get => userName; set => userName = value; }
         Form IHomeForm.SenderForm { get => senderForm; set => senderForm = value; }
@@ -29,7 +37,11 @@ namespace StationeryStoreAppLayer
             IIntroducingLabelSeter introducingLabelSeter,
             IAdminLabelSeter adminLabelSeter,
             IFormCloser formCloser,
-            IFormManager formManager
+            IFormManager formManager,
+            IDgFiller dgFiller,
+            IDgOrdersFiller dgOrdersFiller,
+            IProductsDataGeter productsGeter,
+            IOrdersDataGeter ordersDataGeter
             )
         {
             InitializeComponent();
@@ -40,6 +52,10 @@ namespace StationeryStoreAppLayer
             _adminLabelSeter = adminLabelSeter;
             _formCloser = formCloser;
             _formManager = formManager;
+            _dgFiller = dgFiller;
+            _dgOrdersFiller = dgOrdersFiller;
+            _productsGeter = productsGeter;
+            _ordersDataGeter = ordersDataGeter;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -52,6 +68,9 @@ namespace StationeryStoreAppLayer
             SetIntrducingLabel(UseLbl, "برای افزودن هر محصول به سبد خرید روی ردیف آن در جدول کلیک کرده و در فرمی که باز میشود تعداد را انتخاب کنید");
             SetTime(TimeValueLbl, DateTime.Now);
             SetDate(DateValueLbl, DateTime.Now);
+            //DGPruducts.DataSource = GetProducts();
+            FillDg<ProductsTable>(DGPruducts,GetProductsData);
+            FillDgOrders(DgOrders,GetOrdersData);
             ManageForm(this);
             CloseForm(senderForm);         
             MessageBox.Show($"Hi {userName}  Your AdminiState is {isAdmin}");
@@ -100,6 +119,26 @@ namespace StationeryStoreAppLayer
         public void ManageForm(Form form)
         {
             _formManager.ManageForm(form);
+        }
+
+        public void FillDg<T> (DataGridView dg, Func<List<T>> dataGeterMethod)
+        {
+            _dgFiller.FillDg(dg , dataGeterMethod);
+        }
+
+        public List<ProductsTable> GetProductsData()
+        {
+            return _productsGeter.GetProductsData();
+        }
+
+        public void FillDgOrders(DataGridView dg, Func<List<OrdersTable>> dataGeterMethod)
+        {
+            _dgOrdersFiller.FillDgOrders(dg , dataGeterMethod);
+        }
+
+        public List<OrdersTable> GetOrdersData()
+        {
+           return _ordersDataGeter.GetOrdersData();
         }
     }
 }

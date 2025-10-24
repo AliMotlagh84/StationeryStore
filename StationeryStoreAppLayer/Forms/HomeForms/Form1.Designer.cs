@@ -29,12 +29,24 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             HeaderMenu = new ToolStrip();
             AdminLbl = new ToolStripLabel();
             ShoppingCartBtn = new ToolStripButton();
             ProductsManageBtn = new ToolStripButton();
             OrdersGB = new GroupBox();
             DgOrders = new DataGridView();
+            OrderId = new DataGridViewTextBoxColumn();
+            OrderUserId = new DataGridViewTextBoxColumn();
+            OrderUserName = new DataGridViewTextBoxColumn();
+            OrderAmount = new DataGridViewTextBoxColumn();
+            OrderDate = new DataGridViewTextBoxColumn();
+            OrderInfo = new DataGridViewTextBoxColumn();
             IntroducingLbl = new Label();
             UseLbl = new Label();
             WelcomLbl = new Label();
@@ -48,6 +60,12 @@
             txtNewProductName = new TextBox();
             NewProductNameLbl = new Label();
             DGNewProducts = new DataGridView();
+            NewProductId = new DataGridViewTextBoxColumn();
+            NewProductName = new DataGridViewTextBoxColumn();
+            NewBrandId = new DataGridViewTextBoxColumn();
+            NewBrandName = new DataGridViewTextBoxColumn();
+            NewCount = new DataGridViewTextBoxColumn();
+            NewAmount = new DataGridViewTextBoxColumn();
             ProductGB = new GroupBox();
             ProductsSearchBox = new GroupBox();
             btnProductsSearch = new Button();
@@ -56,6 +74,12 @@
             txtProductName = new TextBox();
             ProductNameLbl = new Label();
             DGPruducts = new DataGridView();
+            ProductId = new DataGridViewTextBoxColumn();
+            ProductName = new DataGridViewTextBoxColumn();
+            BrandId = new DataGridViewTextBoxColumn();
+            BrandName = new DataGridViewTextBoxColumn();
+            Count = new DataGridViewTextBoxColumn();
+            Amount = new DataGridViewTextBoxColumn();
             Footer = new ToolStrip();
             DateLbl = new ToolStripLabel();
             DateValueLbl = new ToolStripLabel();
@@ -135,7 +159,25 @@
             // 
             DgOrders.AllowUserToAddRows = false;
             DgOrders.AllowUserToDeleteRows = false;
+            DgOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            DgOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             DgOrders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DgOrders.Columns.AddRange(new DataGridViewColumn[] { OrderId, OrderUserId, OrderUserName, OrderAmount, OrderDate, OrderInfo });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            DgOrders.DefaultCellStyle = dataGridViewCellStyle2;
             DgOrders.Dock = DockStyle.Fill;
             DgOrders.Location = new Point(3, 23);
             DgOrders.Name = "DgOrders";
@@ -143,6 +185,56 @@
             DgOrders.RowHeadersWidth = 51;
             DgOrders.Size = new Size(863, 196);
             DgOrders.TabIndex = 0;
+            // 
+            // OrderId
+            // 
+            OrderId.DataPropertyName = "OrderId";
+            OrderId.HeaderText = "آی دی سفارش";
+            OrderId.MinimumWidth = 6;
+            OrderId.Name = "OrderId";
+            OrderId.ReadOnly = true;
+            OrderId.Visible = false;
+            // 
+            // OrderUserId
+            // 
+            OrderUserId.DataPropertyName = "UserId";
+            OrderUserId.HeaderText = "آی دی کاربر";
+            OrderUserId.MinimumWidth = 6;
+            OrderUserId.Name = "OrderUserId";
+            OrderUserId.ReadOnly = true;
+            OrderUserId.Visible = false;
+            // 
+            // OrderUserName
+            // 
+            OrderUserName.DataPropertyName = "UserName";
+            OrderUserName.HeaderText = "نام سفارش دهنده";
+            OrderUserName.MinimumWidth = 6;
+            OrderUserName.Name = "OrderUserName";
+            OrderUserName.ReadOnly = true;
+            // 
+            // OrderAmount
+            // 
+            OrderAmount.DataPropertyName = "Amount";
+            OrderAmount.HeaderText = "مبلغ سفارش";
+            OrderAmount.MinimumWidth = 6;
+            OrderAmount.Name = "OrderAmount";
+            OrderAmount.ReadOnly = true;
+            // 
+            // OrderDate
+            // 
+            OrderDate.DataPropertyName = "Date";
+            OrderDate.HeaderText = "تاریخ سفارش";
+            OrderDate.MinimumWidth = 6;
+            OrderDate.Name = "OrderDate";
+            OrderDate.ReadOnly = true;
+            // 
+            // OrderInfo
+            // 
+            OrderInfo.DataPropertyName = "OrderInfo";
+            OrderInfo.HeaderText = "جزِئیات سفارش";
+            OrderInfo.MinimumWidth = 6;
+            OrderInfo.Name = "OrderInfo";
+            OrderInfo.ReadOnly = true;
             // 
             // IntroducingLbl
             // 
@@ -274,13 +366,81 @@
             // 
             DGNewProducts.AllowUserToAddRows = false;
             DGNewProducts.AllowUserToDeleteRows = false;
+            DGNewProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            DGNewProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             DGNewProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGNewProducts.Location = new Point(0, 113);
+            DGNewProducts.Columns.AddRange(new DataGridViewColumn[] { NewProductId, NewProductName, NewBrandId, NewBrandName, NewCount, NewAmount });
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            DGNewProducts.DefaultCellStyle = dataGridViewCellStyle4;
+            DGNewProducts.Location = new Point(2, 111);
             DGNewProducts.Name = "DGNewProducts";
             DGNewProducts.ReadOnly = true;
             DGNewProducts.RowHeadersWidth = 51;
             DGNewProducts.Size = new Size(863, 221);
             DGNewProducts.TabIndex = 0;
+            // 
+            // NewProductId
+            // 
+            NewProductId.DataPropertyName = "ProductId";
+            NewProductId.HeaderText = "آی دی محصول";
+            NewProductId.MinimumWidth = 6;
+            NewProductId.Name = "NewProductId";
+            NewProductId.ReadOnly = true;
+            NewProductId.Visible = false;
+            // 
+            // NewProductName
+            // 
+            NewProductName.DataPropertyName = "ProductName";
+            NewProductName.HeaderText = "نام محصول";
+            NewProductName.MinimumWidth = 6;
+            NewProductName.Name = "NewProductName";
+            NewProductName.ReadOnly = true;
+            // 
+            // NewBrandId
+            // 
+            NewBrandId.DataPropertyName = "BrandId";
+            NewBrandId.HeaderText = "آی دی برند";
+            NewBrandId.MinimumWidth = 6;
+            NewBrandId.Name = "NewBrandId";
+            NewBrandId.ReadOnly = true;
+            NewBrandId.Visible = false;
+            // 
+            // NewBrandName
+            // 
+            NewBrandName.DataPropertyName = "BrandName";
+            NewBrandName.HeaderText = "نام برند";
+            NewBrandName.MinimumWidth = 6;
+            NewBrandName.Name = "NewBrandName";
+            NewBrandName.ReadOnly = true;
+            // 
+            // NewCount
+            // 
+            NewCount.DataPropertyName = "Count";
+            NewCount.HeaderText = "تعداد";
+            NewCount.MinimumWidth = 6;
+            NewCount.Name = "NewCount";
+            NewCount.ReadOnly = true;
+            // 
+            // NewAmount
+            // 
+            NewAmount.DataPropertyName = "Amount";
+            NewAmount.HeaderText = "قیمت";
+            NewAmount.MinimumWidth = 6;
+            NewAmount.Name = "NewAmount";
+            NewAmount.ReadOnly = true;
             // 
             // ProductGB
             // 
@@ -352,13 +512,81 @@
             // 
             DGPruducts.AllowUserToAddRows = false;
             DGPruducts.AllowUserToDeleteRows = false;
+            DGPruducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = SystemColors.Control;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            DGPruducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             DGPruducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DGPruducts.Columns.AddRange(new DataGridViewColumn[] { ProductId, ProductName, BrandId, BrandName, Count, Amount });
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            DGPruducts.DefaultCellStyle = dataGridViewCellStyle6;
             DGPruducts.Location = new Point(0, 113);
             DGPruducts.Name = "DGPruducts";
             DGPruducts.ReadOnly = true;
             DGPruducts.RowHeadersWidth = 51;
             DGPruducts.Size = new Size(863, 306);
             DGPruducts.TabIndex = 0;
+            // 
+            // ProductId
+            // 
+            ProductId.DataPropertyName = "ProductId";
+            ProductId.HeaderText = "آی دی محصول";
+            ProductId.MinimumWidth = 6;
+            ProductId.Name = "ProductId";
+            ProductId.ReadOnly = true;
+            ProductId.Visible = false;
+            // 
+            // ProductName
+            // 
+            ProductName.DataPropertyName = "ProductName";
+            ProductName.HeaderText = "نام محصول";
+            ProductName.MinimumWidth = 6;
+            ProductName.Name = "ProductName";
+            ProductName.ReadOnly = true;
+            // 
+            // BrandId
+            // 
+            BrandId.DataPropertyName = "BrandId";
+            BrandId.HeaderText = "آی دی برند";
+            BrandId.MinimumWidth = 6;
+            BrandId.Name = "BrandId";
+            BrandId.ReadOnly = true;
+            BrandId.Visible = false;
+            // 
+            // BrandName
+            // 
+            BrandName.DataPropertyName = "BrandName";
+            BrandName.HeaderText = "نام برند";
+            BrandName.MinimumWidth = 6;
+            BrandName.Name = "BrandName";
+            BrandName.ReadOnly = true;
+            // 
+            // Count
+            // 
+            Count.DataPropertyName = "Count";
+            Count.HeaderText = "تعداد";
+            Count.MinimumWidth = 6;
+            Count.Name = "Count";
+            Count.ReadOnly = true;
+            // 
+            // Amount
+            // 
+            Amount.DataPropertyName = "Amount";
+            Amount.HeaderText = "قیمت";
+            Amount.MinimumWidth = 6;
+            Amount.Name = "Amount";
+            Amount.ReadOnly = true;
             // 
             // Footer
             // 
@@ -469,5 +697,23 @@
         public ToolStripButton ShoppingCartBtn;
         private ToolStripLabel AdminLbl;
         private TableLayoutPanel tableLayoutPanel1;
+        private DataGridViewTextBoxColumn NewProductId;
+        private DataGridViewTextBoxColumn NewProductName;
+        private DataGridViewTextBoxColumn NewBrandId;
+        private DataGridViewTextBoxColumn NewBrandName;
+        private DataGridViewTextBoxColumn NewCount;
+        private DataGridViewTextBoxColumn NewAmount;
+        private DataGridViewTextBoxColumn ProductId;
+        private DataGridViewTextBoxColumn ProductName;
+        private DataGridViewTextBoxColumn BrandId;
+        private DataGridViewTextBoxColumn BrandName;
+        private DataGridViewTextBoxColumn Count;
+        private DataGridViewTextBoxColumn Amount;
+        private DataGridViewTextBoxColumn OrderId;
+        private DataGridViewTextBoxColumn OrderUserId;
+        private DataGridViewTextBoxColumn OrderUserName;
+        private DataGridViewTextBoxColumn OrderAmount;
+        private DataGridViewTextBoxColumn OrderDate;
+        private DataGridViewTextBoxColumn OrderInfo;
     }
 }

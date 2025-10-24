@@ -16,6 +16,9 @@ using StationaryStoreUtility.Convertores.DateConvertors;
 using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.FormClosers;
 using StationeryStoreAppLayer.ApplicationContexts;
 using StationeryStoreAppLayer.FormManagers;
+using StationeryStoreAppLayer.PublicHelpers.DgFillers;
+using StationeryStoreAppLayer.PublicHelpers.DataGeters.ProductGeters;
+using StationeryStoreAppLayer.PublicHelpers.DataGeters.OrdersGeters;
 
 namespace StationeryStoreAppLayer
 {
@@ -32,7 +35,7 @@ namespace StationeryStoreAppLayer
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             SignUpForm signUpForm = new SignUpForm(new NullOrWhiteSpaceValidator(), new UniqeUserAndPasswordValidator(), new AdminModeChanger(), new AdminiCodeValidator(), new UserBuilder(),new TextBoxRestartor());
-            Form1 homeForm = new Form1(new ProductManagementAccessController(),new TimeLabelSeter(),new DateLabelSeter(new MiladiToPersianDateConvertor()),new IntroducingLabelSeter(),new AdminLabelSeter(),new FormCloser(),new FormManager());
+            Form1 homeForm = new Form1(new ProductManagementAccessController(),new TimeLabelSeter(),new DateLabelSeter(new MiladiToPersianDateConvertor()),new IntroducingLabelSeter(),new AdminLabelSeter(),new FormCloser(),new FormManager(),new DgFiller(),new DgOrdersFiller(),new ProductsDataGeter(),new OrdersDataGeter());
             Application.Run(new StationeryApplicationContext(new LoginUserValidator(),new HomeFormOpener<Form1>(homeForm),new AdminChecker(),new NullOrWhiteSpaceValidator(),new SignUpFormOpener<SignUpForm>(signUpForm),new TextBoxRestartor(),new FormManager()));
         }
     }

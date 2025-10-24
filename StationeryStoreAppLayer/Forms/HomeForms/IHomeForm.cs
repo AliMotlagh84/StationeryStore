@@ -2,6 +2,9 @@
 using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.FormClosers;
 using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.LableSeters;
 using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.ProductManagemenAccessControllers;
+using StationeryStoreAppLayer.PublicHelpers.DataGeters.OrdersGeters;
+using StationeryStoreAppLayer.PublicHelpers.DataGeters.ProductGeters;
+using StationeryStoreAppLayer.PublicHelpers.DgFillers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +19,11 @@ namespace StationeryStoreAppLayer.Forms.HomeForms
         IAdminLabelSeter,
         IIntroducingLabelSeter,
         IFormCloser,
-        IFormManager
+        IFormManager,
+        IDgFiller,
+        IDgOrdersFiller,
+        IProductsDataGeter,
+        IOrdersDataGeter
     {
         public bool IsAdmin { get; set; }
         public string UserName { get; set; }
