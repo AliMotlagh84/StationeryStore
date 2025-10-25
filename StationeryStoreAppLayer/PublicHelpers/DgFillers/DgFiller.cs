@@ -9,10 +9,10 @@ namespace StationeryStoreAppLayer.PublicHelpers.DgFillers
 {
     public class DgFiller :IDgFiller
     {
-        public void FillDg<T>(DataGridView dg, Func<List<T>> dataGeterMethod)
+        public void FillDg<T>(DataGridView dg, List<T> data)
         {
             dg.AutoGenerateColumns = false;
-            dg.DataSource = dataGeterMethod();
+            dg.DataSource = data;
         }
     }
 }

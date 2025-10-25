@@ -27,6 +27,7 @@ namespace StationeryStoreAppLayer
         private IDgOrdersFiller _dgOrdersFiller;
         private IProductsDataGeter _productsGeter;
         private IOrdersDataGeter _ordersDataGeter;
+        private INewProductsDataGeter _newProductsDataGeter;
         bool IHomeForm.IsAdmin { get => isAdmin; set => isAdmin = value; }
         string IHomeForm.UserName { get => userName; set => userName = value; }
         Form IHomeForm.SenderForm { get => senderForm; set => senderForm = value; }
@@ -41,7 +42,8 @@ namespace StationeryStoreAppLayer
             IDgFiller dgFiller,
             IDgOrdersFiller dgOrdersFiller,
             IProductsDataGeter productsGeter,
-            IOrdersDataGeter ordersDataGeter
+            IOrdersDataGeter ordersDataGeter,
+            INewProductsDataGeter newProductsDataGeter
             )
         {
             InitializeComponent();
@@ -56,6 +58,7 @@ namespace StationeryStoreAppLayer
             _dgOrdersFiller = dgOrdersFiller;
             _productsGeter = productsGeter;
             _ordersDataGeter = ordersDataGeter;
+            _newProductsDataGeter = newProductsDataGeter;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -69,7 +72,8 @@ namespace StationeryStoreAppLayer
             SetTime(TimeValueLbl, DateTime.Now);
             SetDate(DateValueLbl, DateTime.Now);
             //DGPruducts.DataSource = GetProducts();
-            FillDg<ProductsTable>(DGPruducts,GetProductsData);
+            FillDg<ProductsTable>(DGPruducts,GetProductsData());           
+            FillDg<ProductsTable>(DGNewProducts,GetNewProductsData(7));           
             FillDgOrders(DgOrders,GetOrdersData);
             ManageForm(this);
             CloseForm(senderForm);         
@@ -121,9 +125,9 @@ namespace StationeryStoreAppLayer
             _formManager.ManageForm(form);
         }
 
-        public void FillDg<T> (DataGridView dg, Func<List<T>> dataGeterMethod)
+        public void FillDg<T> (DataGridView dg, List<T> data)
         {
-            _dgFiller.FillDg(dg , dataGeterMethod);
+            _dgFiller.FillDg(dg , data);
         }
 
         public List<ProductsTable> GetProductsData()
@@ -139,6 +143,11 @@ namespace StationeryStoreAppLayer
         public List<OrdersTable> GetOrdersData()
         {
            return _ordersDataGeter.GetOrdersData();
+        }
+
+        public List<ProductsTable> GetNewProductsData(int ExpDays)
+        {
+           return _newProductsDataGeter.GetNewProductsData(ExpDays);
         }
     }
 }

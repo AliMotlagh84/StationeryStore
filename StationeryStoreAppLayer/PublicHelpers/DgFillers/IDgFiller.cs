@@ -9,6 +9,7 @@ namespace StationeryStoreAppLayer.PublicHelpers.DgFillers
 {
     public interface IDgFiller
     {
-        void FillDg<T>(DataGridView dg, Func<List<T>> dataGeterMethod);
+        public void FillDg<T>(DataGridView dg, List<T> data);
+
     }
 }

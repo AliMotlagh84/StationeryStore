@@ -23,7 +23,8 @@ namespace StationeryStoreAppLayer.Forms.HomeForms
         IDgFiller,
         IDgOrdersFiller,
         IProductsDataGeter,
-        IOrdersDataGeter
+        IOrdersDataGeter,
+        INewProductsDataGeter
     {
         public bool IsAdmin { get; set; }
         public string UserName { get; set; }
