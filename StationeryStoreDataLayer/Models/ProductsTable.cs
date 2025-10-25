@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace StationeryStore.DataLayer.Models;
 
-public partial class ProductsTable 
+public partial class ProductsTable
 {
     public int ProductId { get; set; }
 
@@ -16,6 +16,8 @@ public partial class ProductsTable
     public int Count { get; set; }
 
     public long Amount { get; set; }
+
+    public DateTime AddTime { get; set; }
 
     public virtual BrandsTable Brand { get; set; } = null!;
 }

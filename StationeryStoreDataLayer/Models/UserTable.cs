@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace StationeryStore.DataLayer.Models;
 
-public partial class UserTable 
+public partial class UserTable
 {
     public int UserId { get; set; }
 

@@ -79,6 +79,8 @@ public partial class StationeryStoreContext : DbContext
 
             entity.ToTable("ProductsTable");
 
+            entity.Property(e => e.AddTime).HasColumnType("datetime");
+
             entity.HasOne(d => d.Brand).WithMany(p => p.ProductsTables)
                 .HasForeignKey(d => d.BrandId)
                 .OnDelete(DeleteBehavior.ClientSetNull)

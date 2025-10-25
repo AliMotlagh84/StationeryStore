@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace StationeryStore.DataLayer.Models;
 
-public partial class OrdersTable 
+public partial class OrdersTable
 {
     public int OrderId { get; set; }
 
