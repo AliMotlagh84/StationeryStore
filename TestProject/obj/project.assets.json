@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net9.0": {}
+    "net9.0": {
+      "StationaryStoreUtility/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/StationaryStoreUtility.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/StationaryStoreUtility.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "StationaryStoreUtility/1.0.0": {
+      "type": "project",
+      "path": "../StationaryStoreUtility/StationaryStoreUtility.csproj",
+      "msbuildProject": "../StationaryStoreUtility/StationaryStoreUtility.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net9.0": []
+    "net9.0": [
+      "StationaryStoreUtility >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Ara Computer\\.nuget\\packages\\": {},
@@ -38,7 +57,11 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationaryStoreUtility\\StationaryStoreUtility.csproj": {
+              "projectPath": "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationaryStoreUtility\\StationaryStoreUtility.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
