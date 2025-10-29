@@ -9,7 +9,7 @@ namespace StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers.Avail
 {
     public interface IProductAvailablitySearcher
     {
-        public IEnumerable<ProductsTable> SearchInProductAvailablities(IEnumerable<ProductsTable> products,int? minCount = null);
+        public IEnumerable<ProductsTable> SearchInProductAvailablities(IEnumerable<ProductsTable> products,bool? availablity=null);
 
     }
 }

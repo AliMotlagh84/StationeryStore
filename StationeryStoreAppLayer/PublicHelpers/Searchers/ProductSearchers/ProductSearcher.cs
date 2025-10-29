@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers
 {
-    public class ProductSearcher : IProductSearcher
+    public class ProductSearcher : IProductSearcher , IProductNameSearcher, IProductBrandSearcher, IProductDateSearcher, IProductAmountSearcher, IProductAvailablitySearcher
     {
         private IEnumerable<ProductsTable> products { get; set; }
         private IProductNameSearcher _productNameSearcher;
@@ -36,14 +36,14 @@ namespace StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers
 
         }
 
-        public List<ProductsTable> SearchInProducts(IEnumerable<ProductsTable> products, string? productName = null, int? brandId = null, int? minCount = null, long? minAmount = null, long? maxAmount = null, string? minDate = null, string? maxDate = null)
+        public List<ProductsTable> SearchInProducts(IEnumerable<ProductsTable> products, string? productName = null, int? brandId = null,bool? availablity = null, long? minAmount = null, long? maxAmount = null, string? minDate = null, string? maxDate = null)
         {
             this.products = products;
             var nameFiltered = SearchInProductNames(products, productName);
             var brandFiltered = SearchInProductBrands(nameFiltered, brandId);
             var amountFiltered = SearchInProductAmounts(brandFiltered,minAmount,maxAmount);
             var dateFiltered = SearchInProductAddTimes(amountFiltered,minDate,maxDate);
-            var filtered = SearchInProductAvailablities(dateFiltered,minCount);
+            var filtered = SearchInProductAvailablities(dateFiltered,availablity);
 
             return filtered.ToList();
 
@@ -54,9 +54,9 @@ namespace StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers
             return _productAmountSearcher.SearchInProductAmounts(products,minAmount,maxAmount);
         }
 
-        public IEnumerable<ProductsTable> SearchInProductAvailablities(IEnumerable<ProductsTable> products, int? minCount = null)
+        public IEnumerable<ProductsTable> SearchInProductAvailablities(IEnumerable<ProductsTable> products, bool? availablity = null)
         {
-            return _productAvailablitySearcher.SearchInProductAvailablities(products,minCount);
+            return _productAvailablitySearcher.SearchInProductAvailablities(products, availablity);
         }
 
         public IEnumerable<ProductsTable> SearchInProductBrands(IEnumerable<ProductsTable> products, int? brandId = null)

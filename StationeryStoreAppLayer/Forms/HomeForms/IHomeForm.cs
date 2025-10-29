@@ -19,12 +19,7 @@ namespace StationeryStoreAppLayer.Forms.HomeForms
         IAdminLabelSeter,
         IIntroducingLabelSeter,
         IFormCloser,
-        IFormManager,
-        IDgFiller,
-        IDgOrdersFiller,
-        IProductsDataGeter,
-        IOrdersDataGeter,
-        INewProductsDataGeter
+        IFormManager       
     {
         public bool IsAdmin { get; set; }
         public string UserName { get; set; }

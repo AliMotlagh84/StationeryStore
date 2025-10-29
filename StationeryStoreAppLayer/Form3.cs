@@ -2,6 +2,7 @@
 using StationaryStoreUtility.Convertores.DateConvertors;
 using StationeryStore.DataLayer.Models;
 using StationeryStoreAppLayer.PublicHelpers.DataGeters.ProductGeters;
+using StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters;
 using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers;
 using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers.AmountSearchers;
 using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers.AvailablitySearchers;
@@ -24,15 +25,39 @@ namespace StationeryStoreAppLayer
     {
         ProductsDataGeter pdg = new ProductsDataGeter();
         ProductSearcher ps = new ProductSearcher(new ProductNameSearcher(), new ProductBrandSearcher(), new ProductAmountSearcher(), new ProductDateSearcher(new PersianToMiladiDateConvertor()), new ProductAvailablitySearcher());
+        NumericUdDefaultValueSeter numericUdDefaultValueSeter = new NumericUdDefaultValueSeter();
+        //List<int, string> brandData = new Dictionary<int, string>();
+
+
+
+
         public Form3()
         {
             InitializeComponent();
         }
 
+
         private void Form3_Load(object sender, EventArgs e)
         {
-            AvailablityCombo.DisplayMember = "Name";
-            AvailablityCombo.ValueMember = "Id";
+            List<Brand> brands = new List<Brand>()
+        {
+            new Brand(){BrandId = 0 , BrandName = "همه" },
+            new Brand(){BrandId = 1 , BrandName = "FabelCastle" },
+            new Brand(){BrandId = 2 , BrandName = "Bike" },
+            new Brand(){BrandId = 3 , BrandName = "دوکا" },
+
+        };
+            AvailablityCombo.DisplayMember = "BrandName";
+            AvailablityCombo.ValueMember = "BrandId";
+            AvailablityCombo.DataSource = brands;
+
+            //    brandData.Add(0,"همه");
+            //    brandData.Add(brands[0].BrandId, brands[0].BrandName);
+            //    brandData.Add(brands[1].BrandId, brands[1].BrandName);
+            //    brandData.Add(brands[2].BrandId, brands[2].BrandName);
+            numericUdDefaultValueSeter.SetNumericUdDefaultValue(0, MinAmounttxt, MaxAmountTxt);
+
+
 
         }
 
@@ -43,7 +68,13 @@ namespace StationeryStoreAppLayer
         IEnumerable<ProductsTable> test1()
         {
             var data = pdg.GetProductsData();
-            return ps.SearchInProducts(data, txtProductName.Text, (int)BrandIdtxt.Value, null, (int)MinAmounttxt.Value, (int)MaxAmountTxt.Value, maskedAsDatetxt.Text, maskedToDatetxt.Text);
+            return ps.SearchInProducts(data, txtProductName.Text,(int?)AvailablityCombo.SelectedValue, null, (int?)MinAmounttxt.Value, (int?)MaxAmountTxt.Value, maskedAsDatetxt.Text, maskedToDatetxt.Text);
         }
+    }
+
+    class Brand
+    {
+        public int BrandId {  get; set; }
+        public string BrandName { get; set; }
     }
 }

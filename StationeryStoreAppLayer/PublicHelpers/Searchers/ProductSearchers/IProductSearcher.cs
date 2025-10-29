@@ -12,8 +12,8 @@ using System.Threading.Tasks;
 
 namespace StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers
 {
-    public interface IProductSearcher : IProductNameSearcher, IProductBrandSearcher, IProductDateSearcher, IProductAmountSearcher,IProductAvailablitySearcher
+    public interface IProductSearcher
     {
-        List<ProductsTable> SearchInProducts(IEnumerable<ProductsTable> products,string? productName = null , int? brandId=null, int? minCount = null,long? minAmount = null , long? maxAmount = null, string? minDate = null, string? maxDate = null);
+        List<ProductsTable> SearchInProducts(IEnumerable<ProductsTable> products, string? productName = null, int? brandId = null, bool? availablity = null, long? minAmount = null, long? maxAmount = null, string? minDate = null, string? maxDate = null);
     }
 }

@@ -9,13 +9,21 @@ namespace StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers.Avail
 {
     public class ProductAvailablitySearcher : IProductAvailablitySearcher
     {
-        public IEnumerable<ProductsTable> SearchInProductAvailablities(IEnumerable<ProductsTable> products, int? minCount=null)
+        public IEnumerable<ProductsTable> SearchInProductAvailablities(IEnumerable<ProductsTable> products, bool? availablity)
         {
-            if ((minCount == null)|| (minCount == 0))
+            if ((availablity == null))
             {
                 return products;
             }
-            return products.Where(p => p.Count >= minCount);
+            else if (availablity == true)
+            {
+                return products.Where(p => p.Count > 0);
+            }
+            else
+            {
+                return products.Where(p => p.Count <= 0);
+            }
         }
     }
 }
+

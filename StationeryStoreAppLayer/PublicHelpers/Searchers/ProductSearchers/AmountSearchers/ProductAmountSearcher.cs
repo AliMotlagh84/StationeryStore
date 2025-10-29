@@ -11,15 +11,15 @@ namespace StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers.Amoun
     {
         public IEnumerable<ProductsTable> SearchInProductAmounts(IEnumerable<ProductsTable> products, long? minAmount = null, long? maxAmount = null)
         {
-            if (((maxAmount == 0) && (minAmount == 0)))
+            if (((maxAmount == 0) || (maxAmount == null)) && ((minAmount == 0) || (minAmount == null)))
             {
                 return products;
             }
-            else if ((maxAmount == 0))
+            else if ((maxAmount == 0) || (maxAmount == null))
             {
                 return products.Where(p => minAmount <= p.Amount);
             }
-            else if ((minAmount == 0))
+            else if ((minAmount == 0) || (minAmount == null))
             {
                 return products.Where(p => p.Amount <= maxAmount);
             }
