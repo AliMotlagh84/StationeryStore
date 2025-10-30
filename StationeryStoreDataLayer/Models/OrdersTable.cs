@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace StationeryStore.DataLayer.Models;
+namespace StationeryStoreDataLayer.Models;
 
 public partial class OrdersTable
 {

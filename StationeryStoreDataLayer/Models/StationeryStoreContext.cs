@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace StationeryStore.DataLayer.Models;
+namespace StationeryStoreDataLayer.Models;
 
 public partial class StationeryStoreContext : DbContext
 {
@@ -18,6 +18,8 @@ public partial class StationeryStoreContext : DbContext
     public virtual DbSet<AdressTable> AdressTables { get; set; }
 
     public virtual DbSet<BrandsTable> BrandsTables { get; set; }
+
+    public virtual DbSet<DraftOrdersTable> DraftOrdersTables { get; set; }
 
     public virtual DbSet<OrdersTable> OrdersTables { get; set; }
 
@@ -56,6 +58,30 @@ public partial class StationeryStoreContext : DbContext
             entity.ToTable("BrandsTable");
 
             entity.Property(e => e.BrandName).HasMaxLength(100);
+        });
+
+        modelBuilder.Entity<DraftOrdersTable>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToTable("DraftOrdersTable");
+
+            entity.Property(e => e.UserName).HasMaxLength(100);
+
+            entity.HasOne(d => d.Brand).WithMany()
+                .HasForeignKey(d => d.BrandId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_DraftOrdersTable_BrandsTable");
+
+            entity.HasOne(d => d.Product).WithMany()
+                .HasForeignKey(d => d.ProductId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_DraftOrdersTable_ProductsTable");
+
+            entity.HasOne(d => d.User).WithMany()
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_DraftOrdersTable_UserTable");
         });
 
         modelBuilder.Entity<OrdersTable>(entity =>

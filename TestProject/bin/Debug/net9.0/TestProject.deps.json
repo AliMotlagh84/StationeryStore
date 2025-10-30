@@ -7,14 +7,30 @@
   "targets": {
     ".NETCoreApp,Version=v9.0": {
       "TestProject/1.0.0": {
+        "dependencies": {
+          "StationaryStoreUtility": "1.0.0"
+        },
         "runtime": {
           "TestProject.dll": {}
+        }
+      },
+      "StationaryStoreUtility/1.0.0": {
+        "runtime": {
+          "StationaryStoreUtility.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
   },
   "libraries": {
     "TestProject/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "StationaryStoreUtility/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

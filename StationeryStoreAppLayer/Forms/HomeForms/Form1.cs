@@ -229,5 +229,12 @@ namespace StationeryStoreAppLayer
         {
             FillDg(DGNewProducts, SearchInProducts(GetNewProductsData(7), NewProductNametxt.Text, (int?)(NewBrandIdCombo.SelectedValue), (bool?)(NewAvailblityCombo.SelectedValue), (int?)(NewMinAmounttxt.Value), (int?)(NewMaxAmounttxt.Value), null, null));
         }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+
+            //SetTime(TimeValueLbl, DateTime.Now);
+            //SetDate(DateValueLbl, DateTime.Now);
+        }
     }
 }

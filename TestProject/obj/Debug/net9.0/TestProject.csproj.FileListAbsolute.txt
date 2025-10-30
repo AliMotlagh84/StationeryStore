@@ -13,3 +13,7 @@ D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فرو�
 D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\TestProject\obj\Debug\net9.0\TestProject.pdb
 D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\TestProject\obj\Debug\net9.0\TestProject.genruntimeconfig.cache
 D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\TestProject\obj\Debug\net9.0\ref\TestProject.dll
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\TestProject\bin\Debug\net9.0\StationaryStoreUtility.dll
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\TestProject\bin\Debug\net9.0\StationaryStoreUtility.pdb
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\TestProject\obj\Debug\net9.0\TestProject.csproj.AssemblyReference.cache
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\TestProject\obj\Debug\net9.0\TestProj.121896E9.Up2Date
