@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace StationeryStoreAppLayer.PublicHelpers.DataGeters.ProductGeters
 {
-    public interface INewProductsDataGeter
+    public interface ISingleProductDataGeter
     {
- 
-       List<ProductsTable> GetNewProductsData(int ExpDays);
-      
+        ProductsTable GetSigleProduct(object Id);
     }
 }

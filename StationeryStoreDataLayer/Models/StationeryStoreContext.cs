@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace StationeryStore.DataLayer.Models;
+namespace StationeryStoreDataLayer.Models;
 
 public partial class StationeryStoreContext : DbContext
 {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using StationaryStoreViewModels.EfViewModels.UserTableViewModels;
-using StationeryStore.DataLayer.Models;
+using StationeryStoreDataLayer.Models;
 using StationeryStoreDataLayer.Repositories.EfRepositories.GenericRepositoryContainer;
 using System;
 using System.Collections.Generic;

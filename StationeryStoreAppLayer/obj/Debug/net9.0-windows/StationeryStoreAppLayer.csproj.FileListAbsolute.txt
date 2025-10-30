@@ -66,3 +66,4 @@ D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فرو�
 D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\StationeryStoreAppLayer.Properties.Resources.resources
 D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\StationeryStoreAppLayer.Forms.SignUpForms.SignUpForm.resources
 D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\StationeryStoreAppLayer.Form3.resources
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\StationeryStoreAppLayer.Forms.DraftOrderForms.DraftOrderForm.resources

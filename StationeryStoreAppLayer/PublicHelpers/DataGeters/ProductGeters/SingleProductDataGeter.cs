@@ -1,4 +1,5 @@
-﻿using StationeryStoreDataLayer.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using StationeryStoreDataLayer.Models;
 using StationeryStoreDataLayer.UnitOfWorks;
 using System;
 using System.Collections.Generic;
@@ -8,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace StationeryStoreAppLayer.PublicHelpers.DataGeters.ProductGeters
 {
-    public class NewProductsDataGeter : INewProductsDataGeter
+    public class SingleProductDataGeter : ISingleProductDataGeter
     {
-        public List<ProductsTable> GetNewProductsData(int ExpDays)
+        public ProductsTable GetSigleProduct(object Id)
         {
             using (EfUnitOfWork db = new EfUnitOfWork())
             {
-                return db.ProductsRepository.GetAll(p => ((DateTime.Now.AddDays(-ExpDays))< (p.AddTime)));
+              return  db.ProductsRepository.GetById(Id);
             }
         }
     }

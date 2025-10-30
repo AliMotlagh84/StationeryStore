@@ -1,4 +1,4 @@
-﻿using StationeryStore.DataLayer.Models;
+﻿using StationeryStoreDataLayer.Models;
 using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers.AmountSearchers;
 using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers.AvailablitySearchers;
 using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers.BrandSearchers;

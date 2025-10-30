@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using StationeryStore.DataLayer.Models;
+using StationeryStoreDataLayer.Models;
 using StationeryStoreDataLayer.Repositories.EfRepositories.BrandRepositoryContiner;
 using StationeryStoreDataLayer.Repositories.EfRepositories.ProductRepository;
 using StationeryStoreDataLayer.Repositories.EfRepositories.ProductRepositoryContainer;

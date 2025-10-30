@@ -1,5 +1,5 @@
 ﻿using StationaryStoreUtility.Validators.textValidators;
-using StationeryStore.DataLayer.Models;
+using StationeryStoreDataLayer.Models;
 using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.AdminiCodeValidator;
 using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.AdminModeChanger;
 using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.UniqeUserValidators;

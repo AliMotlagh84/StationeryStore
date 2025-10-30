@@ -81,7 +81,9 @@
             Name = "DraftOrderForm";
             Padding = new Padding(2, 0, 0, 0);
             RightToLeft = RightToLeft.Yes;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "افزودن به سبد خرید";
+            Load += DraftOrderForm_Load;
             ((System.ComponentModel.ISupportInitialize)RequestedProductCounttxt).EndInit();
             ResumeLayout(false);
             PerformLayout();

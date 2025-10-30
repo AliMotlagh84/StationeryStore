@@ -1,4 +1,4 @@
-﻿using StationeryStore.DataLayer.Models;
+﻿using StationeryStoreDataLayer.Models;
 using StationeryStoreDataLayer.UnitOfWorks;
 using System;
 using System.Collections.Generic;

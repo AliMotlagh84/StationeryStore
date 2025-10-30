@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage;
 using StationaryStoreUtility.Convertores.DateConvertors;
-using StationeryStore.DataLayer.Models;
+using StationeryStoreDataLayer.Models;
 using StationeryStoreAppLayer.PublicHelpers.DataGeters.ProductGeters;
 using StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters;
 using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers;

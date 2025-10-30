@@ -1,4 +1,4 @@
-﻿using StationeryStore.DataLayer.Models;
+﻿using StationeryStoreDataLayer.Models;
 using StationeryStoreAppLayer.FormManagers;
 using StationeryStoreAppLayer.Forms.HomeForms;
 using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.FormClosers;
@@ -11,7 +11,7 @@ using StationeryStoreAppLayer.PublicHelpers.DataGeters.ProductGeters;
 using StationeryStoreAppLayer.PublicHelpers.DgFillers;
 using StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters;
 using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers;
-using StationeryStore.DataLayer.Models;
+using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.FormOpeners;
 
 namespace StationeryStoreAppLayer
 {
@@ -22,11 +22,13 @@ namespace StationeryStoreAppLayer
         IOrdersDataGeter,
         IBrandDataGeter,
         INewProductsDataGeter,
+        ISingleProductDataGeter,
         INumericUdDefaultValueSeter,
         IProductSearcher,
         IComboBoxFiller,
         IBoolComboFiller,
-        IBrandsComboDataGeter
+        IBrandsComboDataGeter,
+        IDraftOrderFormOpener
 
     {
 
@@ -45,12 +47,14 @@ namespace StationeryStoreAppLayer
         private IProductsDataGeter _productsGeter;
         private IOrdersDataGeter _ordersDataGeter;
         private INewProductsDataGeter _newProductsDataGeter;
+        private ISingleProductDataGeter _singleProductDataGeter;
         private IBrandDataGeter _brandDataGeter;
         private INumericUdDefaultValueSeter _numericUdDefaultValueSeter;
         private IProductSearcher _productSearcher;
         private IComboBoxFiller _comboBoxFiller;
         private IBrandsComboDataGeter _brandsComboDataGeter;
         private IBoolComboFiller _boolComboFiller;
+        private IDraftOrderFormOpener _draftOrderFormOpener;
         bool IHomeForm.IsAdmin { get => isAdmin; set => isAdmin = value; }
         string IHomeForm.UserName { get => userName; set => userName = value; }
         Form IHomeForm.SenderForm { get => senderForm; set => senderForm = value; }
@@ -71,8 +75,10 @@ namespace StationeryStoreAppLayer
             IBrandDataGeter brandDataGeter,
             IBrandsComboDataGeter brandsComboDataGeter,
             INewProductsDataGeter newProductsDataGeter,
+            ISingleProductDataGeter singleProductDataGeter,
             INumericUdDefaultValueSeter numericUdDefaultValueSeter,
-            IProductSearcher productSearcher
+            IProductSearcher productSearcher,
+            IDraftOrderFormOpener draftOrderFormOpener
 
             )
         {
@@ -95,6 +101,8 @@ namespace StationeryStoreAppLayer
             _brandDataGeter = brandDataGeter;
             _brandsComboDataGeter = brandsComboDataGeter;
             _boolComboFiller = boolComboFiller;
+            _draftOrderFormOpener = draftOrderFormOpener;
+            _singleProductDataGeter = singleProductDataGeter;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -236,6 +244,21 @@ namespace StationeryStoreAppLayer
 
             //SetTime(TimeValueLbl, DateTime.Now);
             //SetDate(DateValueLbl, DateTime.Now);
+        }
+
+        public void OpenDraftOrderForm(ProductsTable productInfo, UserTable ordererInfo)
+        {
+            _draftOrderFormOpener.OpenDraftOrderForm(productInfo, ordererInfo);
+        }
+
+        public ProductsTable GetSigleProduct(object Id)
+        {
+            return _singleProductDataGeter.GetSigleProduct(Id);
+        }
+
+        private void DGPruducts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
         }
     }
 }

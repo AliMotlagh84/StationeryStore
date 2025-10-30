@@ -727,6 +727,7 @@
             DGPruducts.RowHeadersWidth = 51;
             DGPruducts.Size = new Size(863, 297);
             DGPruducts.TabIndex = 0;
+            DGPruducts.CellClick += DGPruducts_CellClick;
             // 
             // ProductId
             // 
