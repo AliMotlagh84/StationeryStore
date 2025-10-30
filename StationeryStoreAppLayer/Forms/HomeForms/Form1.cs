@@ -11,6 +11,7 @@ using StationeryStoreAppLayer.PublicHelpers.DataGeters.ProductGeters;
 using StationeryStoreAppLayer.PublicHelpers.DgFillers;
 using StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters;
 using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers;
+using StationeryStore.DataLayer.Models;
 
 namespace StationeryStoreAppLayer
 {
