@@ -5,6 +5,7 @@ using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.ProductManagemenAcc
 using StationeryStoreAppLayer.PublicHelpers.DataGeters.OrdersGeters;
 using StationeryStoreAppLayer.PublicHelpers.DataGeters.ProductGeters;
 using StationeryStoreAppLayer.PublicHelpers.DgFillers;
+using StationeryStoreDataLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,8 +22,7 @@ namespace StationeryStoreAppLayer.Forms.HomeForms
         IFormCloser,
         IFormManager       
     {
-        public bool IsAdmin { get; set; }
-        public string UserName { get; set; }
+        public UserTable UserInfo { get; set; }
         public Form SenderForm { get; set; }
     }
 }

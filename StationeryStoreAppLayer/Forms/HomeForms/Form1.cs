@@ -32,8 +32,7 @@ namespace StationeryStoreAppLayer
 
     {
 
-        private bool isAdmin;
-        private string userName;
+        private UserTable userInfo;
         private Form senderForm;
         private IProductManagementAccessController _productManagementAccessController;
         private ITimeLabelSeter _timeLabelSeter;
@@ -55,9 +54,9 @@ namespace StationeryStoreAppLayer
         private IBrandsComboDataGeter _brandsComboDataGeter;
         private IBoolComboFiller _boolComboFiller;
         private IDraftOrderFormOpener _draftOrderFormOpener;
-        bool IHomeForm.IsAdmin { get => isAdmin; set => isAdmin = value; }
-        string IHomeForm.UserName { get => userName; set => userName = value; }
+
         Form IHomeForm.SenderForm { get => senderForm; set => senderForm = value; }
+        UserTable IHomeForm.UserInfo { get => userInfo; set => userInfo = value; }
 
         public Form1(IProductManagementAccessController productManagementAccessController,
             ITimeLabelSeter timeLabelSeter,
@@ -108,8 +107,8 @@ namespace StationeryStoreAppLayer
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            AllowProductsManagement(ProductsManageBtn, isAdmin);
-            SetAdminLabel(AdminLbl, userName, isAdmin);
+            AllowProductsManagement(ProductsManageBtn, userInfo.IsAdmin);
+            SetAdminLabel(AdminLbl, userInfo.UserName, userInfo.IsAdmin);
             SetIntrducingLabel(WelcomLbl, "به فروشگاه نوشت افزار خوش آمدید");
             SetIntrducingLabel(IntroducingLbl, " این یک  پروژه ی شخصی است که توسط علی مطلق نوشته شده است");
             SetIntrducingLabel(UseLbl, "برای افزودن هر محصول به سبد خرید روی ردیف آن در جدول کلیک کرده و در فرمی که باز میشود تعداد را انتخاب کنید");
@@ -126,7 +125,7 @@ namespace StationeryStoreAppLayer
             FillBoolCombo(NewAvailblityCombo, "همه", "موجود", "ناموجود");
             ManageForm(this);
             CloseForm(senderForm);
-            MessageBox.Show($"Hi {userName}  Your AdminiState is {isAdmin}");
+            MessageBox.Show($"Hi {userInfo.UserName}  Your AdminiState is {userInfo.IsAdmin}");
         }
 
         private void WelcomeGB_Enter(object sender, EventArgs e)
@@ -258,7 +257,7 @@ namespace StationeryStoreAppLayer
 
         private void DGPruducts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+            OpenDraftOrderForm(GetSigleProduct(DGPruducts.CurrentRow.Cells[0].Value),userInfo);
         }
     }
 }

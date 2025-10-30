@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StationeryStoreDataLayer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.FormOpeners
 {
     public interface IHomeFormOpener
     {
-        void OpenHomeForm(bool isAdmin,string userName,Form senderForm);
+        void OpenHomeForm(UserTable userInfo,Form senderForm);
     }
 }

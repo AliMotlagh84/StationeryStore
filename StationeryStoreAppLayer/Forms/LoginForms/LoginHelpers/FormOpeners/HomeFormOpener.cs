@@ -14,6 +14,7 @@ using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.AdminModeChanger;
 using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.UniqeUserValidators;
 using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.UserBulider;
 using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
+using StationeryStoreDataLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,14 +31,12 @@ namespace StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.FormOpeners
         {
             _homeForm = homeForm;
         }
-        public void OpenHomeForm(bool isAdmin, string userName, Form senderForm) 
+
+        public void OpenHomeForm(UserTable userInfo, Form senderForm)
         {
-            _homeForm.IsAdmin = isAdmin;
-            _homeForm.UserName = userName;
+            _homeForm.UserInfo = userInfo;
             _homeForm.SenderForm = senderForm;
             _homeForm?.Show();
-
-
         }
     }
 }

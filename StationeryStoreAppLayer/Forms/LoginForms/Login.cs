@@ -3,7 +3,9 @@ using StationeryStoreAppLayer.Forms.LoginForms;
 using StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.AdminCheckers;
 using StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.FormOpeners;
 using StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.UserValidators;
+using StationeryStoreAppLayer.PublicHelpers.DataGeters.UserDataGeters;
 using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
+using StationeryStoreDataLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,23 +22,24 @@ namespace StationeryStoreAppLayer.LoginForms
     {
         private ILoginUserValidator _loginUserValidator;
         private IHomeFormOpener _homeFormOpener;
-        private IAdminChecker _adminChecker;
+        private ISingleUserDataGeterByNameAndPassword _singleUserDataGeterByNameAndPassword;
         private ITextValidator _textValidator;
         private ISignUpFormOpener _signUpFormOpener;
         private ITextBoxRestartor _textBoxRestartor;
         public Login(
           ILoginUserValidator loginUserValidator,
           IHomeFormOpener homeFormOpener,
-          IAdminChecker adminChecker,
-          ITextValidator textValidator, 
+          ISingleUserDataGeterByNameAndPassword singleUserDataGeterByNameAndPassword,
+          ITextValidator textValidator,
           ISignUpFormOpener signUpFormOpener,
           ITextBoxRestartor textBoxRestartor
+
           )
         {
             InitializeComponent();
             _loginUserValidator = loginUserValidator;
             _homeFormOpener = homeFormOpener;
-            _adminChecker = adminChecker;
+            _singleUserDataGeterByNameAndPassword = singleUserDataGeterByNameAndPassword;
             _textValidator = textValidator;
             _signUpFormOpener = signUpFormOpener;
             _textBoxRestartor = textBoxRestartor;
@@ -47,7 +50,7 @@ namespace StationeryStoreAppLayer.LoginForms
             {
                 if (ValidateUser(userName, password))
                 {
-                    OpenHomeForm(IsAdmin(userName, password),userName,this);
+                    OpenHomeForm(GetSingleUserDataByNameAndPassword(userName,password),this);
                     
                 }
                 else
@@ -78,21 +81,9 @@ namespace StationeryStoreAppLayer.LoginForms
             return _loginUserValidator.ValidateUser(username, password);
         }
 
-
-
-        public bool IsAdmin(string userName, string Password)
-        {
-            return _adminChecker.IsAdmin(userName, Password);
-        }
-
         public bool ValidateText(string text)
         {
             return _textValidator.ValidateText(text);
-        }
-
-        public void OpenHomeForm(bool isAdmin,string userName,Form senderForm)
-        {
-            _homeFormOpener.OpenHomeForm(isAdmin, userName, senderForm);
         }
 
         public void OpenSignUpForm()
@@ -109,6 +100,16 @@ namespace StationeryStoreAppLayer.LoginForms
         public void RestartTextBox(params TextBox[] textBoxes)
         {
             _textBoxRestartor.RestartTextBox(textBoxes);
+        }
+
+        public void OpenHomeForm(UserTable userInfo, Form senderForm)
+        {
+            _homeFormOpener.OpenHomeForm(userInfo, senderForm);
+        }
+
+        public UserTable GetSingleUserDataByNameAndPassword(string username, string password)
+        {
+            return _singleUserDataGeterByNameAndPassword.GetSingleUserDataByNameAndPassword(username, password);
         }
     }
 }

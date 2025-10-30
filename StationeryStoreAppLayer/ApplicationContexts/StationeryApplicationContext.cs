@@ -8,6 +8,7 @@ using StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.AdminCheckers;
 using StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.FormOpeners;
 using StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.UserValidators;
 using StationeryStoreAppLayer.LoginForms;
+using StationeryStoreAppLayer.PublicHelpers.DataGeters.UserDataGeters;
 using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
 using System;
 using System.Collections.Generic;
@@ -23,14 +24,14 @@ namespace StationeryStoreAppLayer.ApplicationContexts
         private IFormManager formManager;
         public StationeryApplicationContext(ILoginUserValidator loginUserValidator,
           IHomeFormOpener homeFormOpener,
-          IAdminChecker adminChecker,
+          ISingleUserDataGeterByNameAndPassword singleUserDataGeterByNameAndPassword,
           ITextValidator textValidator,
           ISignUpFormOpener signUpFormOpener,
           ITextBoxRestartor textBoxRestartor,
           IFormManager formManager)
         {
             this.formManager = formManager;
-            loginForm = new Login(loginUserValidator, homeFormOpener, adminChecker, textValidator, signUpFormOpener, textBoxRestartor);
+            loginForm = new Login(loginUserValidator, homeFormOpener, singleUserDataGeterByNameAndPassword, textValidator, signUpFormOpener, textBoxRestartor);
             ManageForm(loginForm);
             loginForm.Show();
         }
