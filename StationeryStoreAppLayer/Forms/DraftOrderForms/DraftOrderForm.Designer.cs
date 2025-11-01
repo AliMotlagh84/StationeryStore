@@ -40,9 +40,12 @@
             RequestedProductCounttxt.BorderStyle = BorderStyle.FixedSingle;
             RequestedProductCounttxt.ForeColor = SystemColors.Info;
             RequestedProductCounttxt.Location = new Point(102, 69);
+            RequestedProductCounttxt.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
+            RequestedProductCounttxt.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             RequestedProductCounttxt.Name = "RequestedProductCounttxt";
             RequestedProductCounttxt.Size = new Size(128, 27);
             RequestedProductCounttxt.TabIndex = 0;
+            RequestedProductCounttxt.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // NumberQuestionLbl
             // 

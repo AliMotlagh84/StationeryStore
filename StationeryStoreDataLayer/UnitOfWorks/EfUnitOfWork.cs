@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StationeryStoreDataLayer.Models;
 using StationeryStoreDataLayer.Repositories.EfRepositories.BrandRepositoryContiner;
+using StationeryStoreDataLayer.Repositories.EfRepositories.DraftOrderRepository;
+using StationeryStoreDataLayer.Repositories.EfRepositories.DraftOrderRepositoryContainer;
 using StationeryStoreDataLayer.Repositories.EfRepositories.ProductRepository;
 using StationeryStoreDataLayer.Repositories.EfRepositories.ProductRepositoryContainer;
 using StationeryStoreDataLayer.Repositories.EfRepositories.UserRepositoryContainer;
@@ -87,6 +89,20 @@ namespace StationeryStoreDataLayer.UnitOfWorks
                     _orderRepository = new OrderRepository(dbContext);
                 }
                 return _orderRepository;
+            }
+        }
+
+        private IDarftOrderRepository _draftOrderRepository;
+
+        public IDarftOrderRepository DraftOrderRepository
+        {
+            get
+            {
+                if (_draftOrderRepository == null)
+                {
+                    _draftOrderRepository = new DraftOrderRepository(dbContext);
+                }
+                return _draftOrderRepository;
             }
         }
 
