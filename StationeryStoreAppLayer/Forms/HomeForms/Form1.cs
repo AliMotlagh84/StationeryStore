@@ -258,6 +258,9 @@ namespace StationeryStoreAppLayer
         private void DGPruducts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             OpenDraftOrderForm(GetSigleProduct(DGPruducts.CurrentRow.Cells[0].Value),userInfo);
+            FillDg<ProductsTable>(DGPruducts, GetProductsData());
+            FillDg<ProductsTable>(DGNewProducts, GetNewProductsData(7));
+            FillDgOrders(DgOrders, GetOrdersData);
         }
     }
 }

@@ -15,6 +15,7 @@ namespace StationeryStoreAppLayer.PublicHelpers.DataAdders.DraftOrderSenders
             using (EfUnitOfWork db = new EfUnitOfWork())
             {
                 db.DraftOrderRepository.Add(draftOrder);
+                db.Save();
             }
         }
     }

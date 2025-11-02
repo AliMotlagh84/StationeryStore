@@ -58,7 +58,7 @@ namespace StationeryStoreAppLayer.Forms.DraftOrderForms
             if (CheckProductCount(selectedProduct.Count, (int)RequestedProductCounttxt.Value))
             {
                 AddDraftOrderData(BuildDraftOrderData(orderer,selectedProduct, (int)RequestedProductCounttxt.Value));
-                EditProductData(BuildProductData(selectedProduct.ProductName, selectedProduct.BrandId, selectedProduct.BrandName, selectedProduct.Amount,selectedProduct.Count,selectedProduct.AddTime));
+                EditProductData(BuildProductData(selectedProduct.ProductName, selectedProduct.BrandId, selectedProduct.BrandName, selectedProduct.Amount,((selectedProduct.Count)-((int)RequestedProductCounttxt.Value)),selectedProduct.AddTime,selectedProduct.ProductId));
                 MessageBox.Show("محصول به سبد خرید اضافه شد","",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
 
@@ -103,7 +103,7 @@ namespace StationeryStoreAppLayer.Forms.DraftOrderForms
 
         public ProductsTable BuildProductData(string newProductName, int newBrandId, string newBrandName, long newProductAmount, int newProductCount, DateTime addTime, int? ProductIdForEdit = null)
         {
-            return _productDataBuilder.BuildProductData(newProductName, newBrandId, newBrandName, newProductAmount, newProductCount, addTime);
+            return _productDataBuilder.BuildProductData(newProductName, newBrandId, newBrandName, newProductAmount, newProductCount, addTime,ProductIdForEdit);
         }
 
     }

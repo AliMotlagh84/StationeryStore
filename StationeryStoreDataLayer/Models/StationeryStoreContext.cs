@@ -62,23 +62,23 @@ public partial class StationeryStoreContext : DbContext
 
         modelBuilder.Entity<DraftOrdersTable>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("DraftOrdersTable");
+            entity.HasKey(e => e.DraftOrderId);
+
+            entity.ToTable("DraftOrdersTable");
 
             entity.Property(e => e.UserName).HasMaxLength(100);
 
-            entity.HasOne(d => d.Brand).WithMany()
+            entity.HasOne(d => d.Brand).WithMany(p => p.DraftOrdersTables)
                 .HasForeignKey(d => d.BrandId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_DraftOrdersTable_BrandsTable");
 
-            entity.HasOne(d => d.Product).WithMany()
+            entity.HasOne(d => d.Product).WithMany(p => p.DraftOrdersTables)
                 .HasForeignKey(d => d.ProductId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_DraftOrdersTable_ProductsTable");
 
-            entity.HasOne(d => d.User).WithMany()
+            entity.HasOne(d => d.User).WithMany(p => p.DraftOrdersTables)
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_DraftOrdersTable_UserTable");

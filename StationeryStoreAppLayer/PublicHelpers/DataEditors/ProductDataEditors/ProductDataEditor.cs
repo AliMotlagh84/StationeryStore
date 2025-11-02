@@ -15,6 +15,7 @@ namespace StationeryStoreAppLayer.PublicHelpers.DataEditors.ProductDataEditors
             using (EfUnitOfWork db = new EfUnitOfWork())
             {
                 db.ProductsRepository.Update(newProduct);
+                db.Save();
             }
         }
     }

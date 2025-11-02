@@ -20,4 +20,6 @@ public partial class ProductsTable
     public DateTime AddTime { get; set; }
 
     public virtual BrandsTable Brand { get; set; } = null!;
+
+    public virtual ICollection<DraftOrdersTable> DraftOrdersTables { get; set; } = new List<DraftOrdersTable>();
 }
