@@ -38,6 +38,7 @@
             timer2 = new System.Windows.Forms.Timer(components);
             HeaderMenu = new ToolStrip();
             AdminLbl = new ToolStripLabel();
+            EditUserFormBtn = new ToolStripButton();
             ShoppingCartBtn = new ToolStripButton();
             ProductsManageBtn = new ToolStripButton();
             OrdersGB = new GroupBox();
@@ -130,7 +131,7 @@
             // 
             HeaderMenu.AutoSize = false;
             HeaderMenu.ImageScalingSize = new Size(20, 20);
-            HeaderMenu.Items.AddRange(new ToolStripItem[] { AdminLbl, ShoppingCartBtn, ProductsManageBtn });
+            HeaderMenu.Items.AddRange(new ToolStripItem[] { AdminLbl, EditUserFormBtn, ShoppingCartBtn, ProductsManageBtn });
             HeaderMenu.Location = new Point(0, 0);
             HeaderMenu.Name = "HeaderMenu";
             HeaderMenu.Size = new Size(884, 64);
@@ -148,6 +149,18 @@
             AdminLbl.Padding = new Padding(15, 0, 15, 0);
             AdminLbl.Size = new Size(158, 61);
             AdminLbl.Text = "علی مطلق";
+            // 
+            // EditUserFormBtn
+            // 
+            EditUserFormBtn.Image = Properties.Resources._1371475973_document_edit;
+            EditUserFormBtn.ImageScaling = ToolStripItemImageScaling.None;
+            EditUserFormBtn.ImageTransparentColor = Color.Magenta;
+            EditUserFormBtn.Margin = new Padding(20, 1, 0, 2);
+            EditUserFormBtn.Name = "EditUserFormBtn";
+            EditUserFormBtn.Size = new Size(108, 61);
+            EditUserFormBtn.Text = "ویرایش پروفایل";
+            EditUserFormBtn.TextImageRelation = TextImageRelation.ImageAboveText;
+            EditUserFormBtn.Click += EditUserFormBtn_Click;
             // 
             // ShoppingCartBtn
             // 
@@ -926,5 +939,6 @@
         private ComboBox NewBrandIdCombo;
         private ComboBox BarndIdCombo;
         private System.Windows.Forms.Timer timer2;
+        private ToolStripButton EditUserFormBtn;
     }
 }

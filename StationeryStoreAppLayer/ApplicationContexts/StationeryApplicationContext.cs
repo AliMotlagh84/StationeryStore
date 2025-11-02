@@ -40,5 +40,10 @@ namespace StationeryStoreAppLayer.ApplicationContexts
         {
             formManager.ManageForm(form);
         }
+
+        public void ResetApp()
+        {
+            Application.Restart();
+        }
     }
 }

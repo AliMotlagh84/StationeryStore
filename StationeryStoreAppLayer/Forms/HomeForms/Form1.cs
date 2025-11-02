@@ -12,6 +12,7 @@ using StationeryStoreAppLayer.PublicHelpers.DgFillers;
 using StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters;
 using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers;
 using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.FormOpeners;
+using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.GropBoxTextSeters;
 
 namespace StationeryStoreAppLayer
 {
@@ -24,11 +25,13 @@ namespace StationeryStoreAppLayer
         INewProductsDataGeter,
         ISingleProductDataGeter,
         INumericUdDefaultValueSeter,
+        IGroupBoxTextSeter,
         IProductSearcher,
         IComboBoxFiller,
         IBoolComboFiller,
         IBrandsComboDataGeter,
-        IDraftOrderFormOpener
+        IDraftOrderFormOpener,
+        IUserEditorFormOpener
 
     {
 
@@ -39,6 +42,7 @@ namespace StationeryStoreAppLayer
         private IDateLabelSeter _dateLabelSeter;
         private IIntroducingLabelSeter _introducingLabelSeter;
         private IAdminLabelSeter _adminLabelSeter;
+        private IGroupBoxTextSeter _groupBoxTextSeter;
         private IFormCloser _formCloser;
         private IFormManager _formManager;
         private IDgFiller _dgFiller;
@@ -54,6 +58,7 @@ namespace StationeryStoreAppLayer
         private IBrandsComboDataGeter _brandsComboDataGeter;
         private IBoolComboFiller _boolComboFiller;
         private IDraftOrderFormOpener _draftOrderFormOpener;
+        private IUserEditorFormOpener _userEditorFormOpener;
 
         Form IHomeForm.SenderForm { get => senderForm; set => senderForm = value; }
         UserTable IHomeForm.UserInfo { get => userInfo; set => userInfo = value; }
@@ -61,6 +66,7 @@ namespace StationeryStoreAppLayer
         public Form1(IProductManagementAccessController productManagementAccessController,
             ITimeLabelSeter timeLabelSeter,
             IDateLabelSeter dateLabelSeter,
+            IGroupBoxTextSeter groupBoxTextSeter,
             IIntroducingLabelSeter introducingLabelSeter,
             IAdminLabelSeter adminLabelSeter,
             IFormCloser formCloser,
@@ -77,8 +83,8 @@ namespace StationeryStoreAppLayer
             ISingleProductDataGeter singleProductDataGeter,
             INumericUdDefaultValueSeter numericUdDefaultValueSeter,
             IProductSearcher productSearcher,
-            IDraftOrderFormOpener draftOrderFormOpener
-
+            IDraftOrderFormOpener draftOrderFormOpener,
+            IUserEditorFormOpener userEditorFormOpener
             )
         {
             InitializeComponent();
@@ -87,6 +93,7 @@ namespace StationeryStoreAppLayer
             _dateLabelSeter = dateLabelSeter;
             _introducingLabelSeter = introducingLabelSeter;
             _adminLabelSeter = adminLabelSeter;
+            _groupBoxTextSeter = groupBoxTextSeter;
             _formCloser = formCloser;
             _formManager = formManager;
             _dgFiller = dgFiller;
@@ -102,6 +109,7 @@ namespace StationeryStoreAppLayer
             _boolComboFiller = boolComboFiller;
             _draftOrderFormOpener = draftOrderFormOpener;
             _singleProductDataGeter = singleProductDataGeter;
+            _userEditorFormOpener = userEditorFormOpener;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -112,6 +120,7 @@ namespace StationeryStoreAppLayer
             SetIntrducingLabel(WelcomLbl, "به فروشگاه نوشت افزار خوش آمدید");
             SetIntrducingLabel(IntroducingLbl, " این یک  پروژه ی شخصی است که توسط علی مطلق نوشته شده است");
             SetIntrducingLabel(UseLbl, "برای افزودن هر محصول به سبد خرید روی ردیف آن در جدول کلیک کرده و در فرمی که باز میشود تعداد را انتخاب کنید");
+            SetGroupBoxText(OrdersGB, "سفارشات", userInfo.IsAdmin == true);
             SetTime(TimeValueLbl, DateTime.Now);
             SetDate(DateValueLbl, DateTime.Now);
             SetNumericUdDefaultValue(0, MinAmounttxt, MaxAmountTxt, NewMaxAmounttxt, NewMinAmounttxt);
@@ -257,10 +266,25 @@ namespace StationeryStoreAppLayer
 
         private void DGPruducts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            OpenDraftOrderForm(GetSigleProduct(DGPruducts.CurrentRow.Cells[0].Value),userInfo);
+            OpenDraftOrderForm(GetSigleProduct(DGPruducts.CurrentRow.Cells[0].Value), userInfo);
             FillDg<ProductsTable>(DGPruducts, GetProductsData());
             FillDg<ProductsTable>(DGNewProducts, GetNewProductsData(7));
             FillDgOrders(DgOrders, GetOrdersData);
+        }
+
+        public void SetGroupBoxText(GroupBox gb, string text, bool? where = null)
+        {
+            _groupBoxTextSeter.SetGroupBoxText(gb, text, where);
+        }
+
+        public void OpenUserEditorForm(UserTable userInfo)
+        {
+            _userEditorFormOpener.OpenUserEditorForm(userInfo);
+        }
+
+        private void EditUserFormBtn_Click(object sender, EventArgs e)
+        {
+            OpenUserEditorForm(userInfo);
         }
     }
 }

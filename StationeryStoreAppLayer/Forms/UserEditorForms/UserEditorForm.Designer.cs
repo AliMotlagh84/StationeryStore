@@ -1,4 +1,5 @@
-﻿namespace StationeryStoreAppLayer.Forms.UserEditorForms
+﻿
+namespace StationeryStoreAppLayer.Forms.UserEditorForms
 {
     partial class UserEditorForm
     {
@@ -64,7 +65,6 @@
             NewEmaitxt.Name = "NewEmaitxt";
             NewEmaitxt.Size = new Size(256, 27);
             NewEmaitxt.TabIndex = 3;
-            NewEmaitxt.TextChanged += textBox2_TextChanged;
             // 
             // label2
             // 
@@ -75,7 +75,7 @@
             label2.Size = new Size(53, 20);
             label2.TabIndex = 2;
             label2.Text = "ایمیل : ";
-            label2.Click += this.label2_Click;
+            label2.Click += label2_Click;
             // 
             // EditUserBtn
             // 
@@ -88,6 +88,7 @@
             EditUserBtn.TabIndex = 4;
             EditUserBtn.Text = "تایید";
             EditUserBtn.UseVisualStyleBackColor = false;
+            EditUserBtn.Click += EditUserBtn_Click;
             // 
             // UserEditorForm
             // 
@@ -105,8 +106,14 @@
             RightToLeft = RightToLeft.Yes;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ویرایش اطلاعات کاربر";
+            Load += UserEditorForm_Load;
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
