@@ -36,9 +36,8 @@ namespace StationeryStoreAppLayer
         IDraftOrderFormOpener,
         IUserEditorFormOpener,
         IAppRestartor,
-        IUserDataDeleterById
-
-
+        IUserDataDeleterById,
+        IProductsManagerFormOpener
     {
 
         private UserTable userInfo;
@@ -67,6 +66,7 @@ namespace StationeryStoreAppLayer
         private IUserEditorFormOpener _userEditorFormOpener;
         private IAppRestartor _appRestartor;
         private IUserDataDeleterById _userDataDeleterById;
+        private IProductsManagerFormOpener _productsManagerFormOpener;
 
 
         Form IHomeForm.SenderForm { get => senderForm; set => senderForm = value; }
@@ -95,7 +95,8 @@ namespace StationeryStoreAppLayer
             IDraftOrderFormOpener draftOrderFormOpener,
             IUserEditorFormOpener userEditorFormOpener,
             IAppRestartor appRestartor,
-            IUserDataDeleterById userDataDeleterById
+            IUserDataDeleterById userDataDeleterById,
+            IProductsManagerFormOpener productsManagerFormOpener
             )
         {
             InitializeComponent();
@@ -123,6 +124,7 @@ namespace StationeryStoreAppLayer
             _userEditorFormOpener = userEditorFormOpener;
             _appRestartor = appRestartor;
             _userDataDeleterById = userDataDeleterById;
+            _productsManagerFormOpener = productsManagerFormOpener;
 
         }
 
@@ -188,7 +190,7 @@ namespace StationeryStoreAppLayer
 
         private void ProductsManageBtn_Click(object sender, EventArgs e)
         {
-
+            OpenProductsManagerForm(this);
         }
 
         public void ManageForm(Form form)
@@ -319,6 +321,11 @@ namespace StationeryStoreAppLayer
         public void DeleteUserData(object userId)
         {
             _userDataDeleterById.DeleteUserData(userId);
+        }
+
+        public void OpenProductsManagerForm(Form? senderForm = null)
+        {
+            _productsManagerFormOpener.OpenProductsManagerForm(senderForm);
         }
     }
 }
