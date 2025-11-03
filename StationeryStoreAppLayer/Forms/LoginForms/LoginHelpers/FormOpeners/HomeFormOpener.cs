@@ -1,7 +1,5 @@
 ﻿using StationaryStoreUtility.Convertores.DateConvertors;
 using StationaryStoreUtility.Validators.TextValidators;
-using StationeryStoreAppLayer.ApplicationContexts;
-using StationeryStoreAppLayer.FormManagers;
 using StationeryStoreAppLayer.Forms.HomeForms;
 using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.FormClosers;
 using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.LableSeters;

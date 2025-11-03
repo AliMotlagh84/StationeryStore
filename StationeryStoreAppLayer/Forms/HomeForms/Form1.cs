@@ -1,5 +1,4 @@
 ﻿using StationeryStoreDataLayer.Models;
-using StationeryStoreAppLayer.FormManagers;
 using StationeryStoreAppLayer.Forms.HomeForms;
 using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.FormClosers;
 using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.LableSeters;
@@ -13,6 +12,10 @@ using StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters;
 using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers;
 using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.FormOpeners;
 using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.GropBoxTextSeters;
+using StationeryStoreAppLayer.AppManagers.FormManagers;
+using StationeryStoreAppLayer.AppManagers.AppRestartors;
+using StationeryStoreAppLayer.AppManagers.AppClosers;
+using StationeryStoreAppLayer.PublicHelpers.DataDeleter.UserDataDeleters;
 
 namespace StationeryStoreAppLayer
 {
@@ -31,7 +34,10 @@ namespace StationeryStoreAppLayer
         IBoolComboFiller,
         IBrandsComboDataGeter,
         IDraftOrderFormOpener,
-        IUserEditorFormOpener
+        IUserEditorFormOpener,
+        IAppRestartor,
+        IUserDataDeleterById
+
 
     {
 
@@ -59,6 +65,9 @@ namespace StationeryStoreAppLayer
         private IBoolComboFiller _boolComboFiller;
         private IDraftOrderFormOpener _draftOrderFormOpener;
         private IUserEditorFormOpener _userEditorFormOpener;
+        private IAppRestartor _appRestartor;
+        private IUserDataDeleterById _userDataDeleterById;
+
 
         Form IHomeForm.SenderForm { get => senderForm; set => senderForm = value; }
         UserTable IHomeForm.UserInfo { get => userInfo; set => userInfo = value; }
@@ -84,7 +93,9 @@ namespace StationeryStoreAppLayer
             INumericUdDefaultValueSeter numericUdDefaultValueSeter,
             IProductSearcher productSearcher,
             IDraftOrderFormOpener draftOrderFormOpener,
-            IUserEditorFormOpener userEditorFormOpener
+            IUserEditorFormOpener userEditorFormOpener,
+            IAppRestartor appRestartor,
+            IUserDataDeleterById userDataDeleterById
             )
         {
             InitializeComponent();
@@ -110,6 +121,9 @@ namespace StationeryStoreAppLayer
             _draftOrderFormOpener = draftOrderFormOpener;
             _singleProductDataGeter = singleProductDataGeter;
             _userEditorFormOpener = userEditorFormOpener;
+            _appRestartor = appRestartor;
+            _userDataDeleterById = userDataDeleterById;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -285,6 +299,26 @@ namespace StationeryStoreAppLayer
         private void EditUserFormBtn_Click(object sender, EventArgs e)
         {
             OpenUserEditorForm(userInfo);
+            ResetApp();
+        }
+
+        public void ResetApp()
+        {
+            _appRestartor.ResetApp();
+        }
+
+        private void LogOutBtn_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("از حذف اکانت خود مطمئن هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                DeleteUserData(userInfo.UserId);
+                ResetApp();
+            }
+        }
+
+        public void DeleteUserData(object userId)
+        {
+            _userDataDeleterById.DeleteUserData(userId);
         }
     }
 }

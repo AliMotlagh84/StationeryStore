@@ -14,8 +14,6 @@ using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.ProductManagemenAcc
 using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.LableSeters;
 using StationaryStoreUtility.Convertores.DateConvertors;
 using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.FormClosers;
-using StationeryStoreAppLayer.ApplicationContexts;
-using StationeryStoreAppLayer.FormManagers;
 using StationeryStoreAppLayer.PublicHelpers.DgFillers;
 using StationeryStoreAppLayer.PublicHelpers.DataGeters.ProductGeters;
 using StationeryStoreAppLayer.PublicHelpers.DataGeters.OrdersGeters;
@@ -41,6 +39,10 @@ using StationeryStoreAppLayer.PublicHelpers.TextBoxFillers;
 using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.GropBoxTextSeters;
 using StationeryStoreAppLayer.PublicHelpers.DataBuilders.UserDataBuilder;
 using StationeryStoreAppLayer.PublicHelpers.DataEditors.UserDataEditors;
+using StationeryStoreAppLayer.AppManagers.ApplicationContexts;
+using StationeryStoreAppLayer.AppManagers.AppRestartors;
+using StationeryStoreAppLayer.AppManagers.FormManagers;
+using StationeryStoreAppLayer.PublicHelpers.DataDeleter.UserDataDeleters;
 
 namespace StationeryStoreAppLayer
 {
@@ -59,7 +61,7 @@ namespace StationeryStoreAppLayer
             //Application.Run(new Form3());
             SignUpForm signUpForm = new SignUpForm(new NullOrWhiteSpaceValidator(), new UniqeUserAndPasswordValidator(), new AdminModeChanger(), new AdminiCodeValidator(), new UserBuilder(), new TextBoxRestartor());
             ProductSearcher productSearcher = new ProductSearcher(new ProductNameSearcher(), new ProductBrandSearcher(), new ProductAmountSearcher(), new ProductDateSearcher(new PersianToMiladiDateConvertor()), new ProductAvailablitySearcher());
-            Form1 homeForm = new Form1(new ProductManagementAccessController(), new TimeLabelSeter(), new DateLabelSeter(new MiladiToPersianDateConvertor()),new GroupBoxTextSeter(), new IntroducingLabelSeter(), new AdminLabelSeter(), new FormCloser(), new FormManager(), new DgFiller(), new DgOrdersFiller(), new ComboBoxFiller(),new BoolComboFiller(), new ProductsDataGeter(), new OrdersDataGeter(),new BrandDataGeter(), new BrandsComboDataGeter(new BrandDataGeter()), new NewProductsDataGeter(),new SingleProductDataGeter(), new NumericUdDefaultValueSeter(), productSearcher,new DraftOrderFormOpener<DraftOrderForm>(new DraftOrderForm(new ProductCountChecker(),new ProductDataEditor(),new ProductDataBuilder(),new DraftOrderDataBulider(),new DraftOrderDataAdder(),new NumericUdDefaultValueSeter())),new UserEditorFormOpener<UserEditorForm>(new UserEditorForm(new TextBoxFiller(),new UserDataBuilder(),new UserDataEditor())));
+            Form1 homeForm = new Form1(new ProductManagementAccessController(), new TimeLabelSeter(), new DateLabelSeter(new MiladiToPersianDateConvertor()),new GroupBoxTextSeter(), new IntroducingLabelSeter(), new AdminLabelSeter(), new FormCloser(), new FormManager(), new DgFiller(), new DgOrdersFiller(), new ComboBoxFiller(),new BoolComboFiller(), new ProductsDataGeter(), new OrdersDataGeter(),new BrandDataGeter(), new BrandsComboDataGeter(new BrandDataGeter()), new NewProductsDataGeter(),new SingleProductDataGeter(), new NumericUdDefaultValueSeter(), productSearcher,new DraftOrderFormOpener<DraftOrderForm>(new DraftOrderForm(new ProductCountChecker(),new ProductDataEditor(),new ProductDataBuilder(),new DraftOrderDataBulider(),new DraftOrderDataAdder(),new NumericUdDefaultValueSeter())),new UserEditorFormOpener<UserEditorForm>(new UserEditorForm(new TextBoxFiller(),new UserDataBuilder(),new UserDataEditor())),new AppRestartor(),new UserDataDeleterById());
             Application.Run(new StationeryApplicationContext(new LoginUserValidator(), new HomeFormOpener<Form1>(homeForm), new SingleUserDataGeterByNameAndPassword(), new NullOrWhiteSpaceValidator(), new SignUpFormOpener<SignUpForm>(signUpForm), new TextBoxRestartor(), new FormManager()));
         }
     }

@@ -38,6 +38,7 @@
             timer2 = new System.Windows.Forms.Timer(components);
             HeaderMenu = new ToolStrip();
             AdminLbl = new ToolStripLabel();
+            LogOutBtn = new ToolStripButton();
             EditUserFormBtn = new ToolStripButton();
             ShoppingCartBtn = new ToolStripButton();
             ProductsManageBtn = new ToolStripButton();
@@ -131,7 +132,7 @@
             // 
             HeaderMenu.AutoSize = false;
             HeaderMenu.ImageScalingSize = new Size(20, 20);
-            HeaderMenu.Items.AddRange(new ToolStripItem[] { AdminLbl, EditUserFormBtn, ShoppingCartBtn, ProductsManageBtn });
+            HeaderMenu.Items.AddRange(new ToolStripItem[] { AdminLbl, LogOutBtn, EditUserFormBtn, ShoppingCartBtn, ProductsManageBtn });
             HeaderMenu.Location = new Point(0, 0);
             HeaderMenu.Name = "HeaderMenu";
             HeaderMenu.Size = new Size(884, 64);
@@ -150,6 +151,19 @@
             AdminLbl.Size = new Size(158, 61);
             AdminLbl.Text = "علی مطلق";
             // 
+            // LogOutBtn
+            // 
+            LogOutBtn.Image = Properties.Resources.icons8_logout_33;
+            LogOutBtn.ImageScaling = ToolStripItemImageScaling.None;
+            LogOutBtn.ImageTransparentColor = Color.Magenta;
+            LogOutBtn.Margin = new Padding(20, 1, 0, 2);
+            LogOutBtn.Name = "LogOutBtn";
+            LogOutBtn.Size = new Size(84, 61);
+            LogOutBtn.Text = "حذف اکانت";
+            LogOutBtn.TextAlign = ContentAlignment.BottomCenter;
+            LogOutBtn.TextImageRelation = TextImageRelation.ImageAboveText;
+            LogOutBtn.Click += LogOutBtn_Click;
+            // 
             // EditUserFormBtn
             // 
             EditUserFormBtn.Image = Properties.Resources._1371475973_document_edit;
@@ -159,6 +173,7 @@
             EditUserFormBtn.Name = "EditUserFormBtn";
             EditUserFormBtn.Size = new Size(108, 61);
             EditUserFormBtn.Text = "ویرایش پروفایل";
+            EditUserFormBtn.TextAlign = ContentAlignment.BottomCenter;
             EditUserFormBtn.TextImageRelation = TextImageRelation.ImageAboveText;
             EditUserFormBtn.Click += EditUserFormBtn_Click;
             // 
@@ -171,6 +186,7 @@
             ShoppingCartBtn.Name = "ShoppingCartBtn";
             ShoppingCartBtn.Size = new Size(72, 61);
             ShoppingCartBtn.Text = "سبد خرید";
+            ShoppingCartBtn.TextAlign = ContentAlignment.BottomCenter;
             ShoppingCartBtn.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
             // ProductsManageBtn
@@ -181,6 +197,7 @@
             ProductsManageBtn.Name = "ProductsManageBtn";
             ProductsManageBtn.Size = new Size(129, 61);
             ProductsManageBtn.Text = "مدیریت محصولات";
+            ProductsManageBtn.TextAlign = ContentAlignment.BottomCenter;
             ProductsManageBtn.TextImageRelation = TextImageRelation.ImageAboveText;
             ProductsManageBtn.Click += ProductsManageBtn_Click;
             // 
@@ -940,5 +957,6 @@
         private ComboBox BarndIdCombo;
         private System.Windows.Forms.Timer timer2;
         private ToolStripButton EditUserFormBtn;
+        private ToolStripButton LogOutBtn;
     }
 }

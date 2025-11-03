@@ -1,6 +1,6 @@
 ﻿using StationaryStoreUtility.Convertores.DateConvertors;
 using StationaryStoreUtility.Validators.textValidators;
-using StationeryStoreAppLayer.FormManagers;
+using StationeryStoreAppLayer.AppManagers.FormManagers;
 using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.FormClosers;
 using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.LableSeters;
 using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.ProductManagemenAccessControllers;
@@ -16,7 +16,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.ApplicationContexts
+namespace StationeryStoreAppLayer.AppManagers.ApplicationContexts
 {
     public class StationeryApplicationContext : ApplicationContext ,IFormManager
     {
