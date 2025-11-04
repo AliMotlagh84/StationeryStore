@@ -12,7 +12,7 @@ namespace StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors
         {
             foreach (var textBox in textBoxes)
             {
-                textBox.Text = null;    
+                textBox.ResetText();    
             }
         }
     }

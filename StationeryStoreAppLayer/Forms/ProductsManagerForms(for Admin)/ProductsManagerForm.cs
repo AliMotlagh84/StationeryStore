@@ -5,6 +5,10 @@ using StationeryStoreAppLayer.PublicHelpers.DataGeters.BrandsDataGeters;
 using StationeryStoreAppLayer.PublicHelpers.DataGeters.ProductGeters;
 using StationeryStoreAppLayer.PublicHelpers.DgFillers;
 using StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters;
+using StationeryStoreAppLayer.PublicHelpers.Restartors.ComboRestartors;
+using StationeryStoreAppLayer.PublicHelpers.Restartors.INumericUdRestartor;
+using StationeryStoreAppLayer.PublicHelpers.Restartors.MaskedTextBoxRestartors;
+using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
 using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers;
 using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers.DateSearchers;
 using StationeryStoreDataLayer.Models;
@@ -27,7 +31,14 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
         IDgFiller,
         INumericUdDefaultValueSeter,
         IComboBoxFiller,
-        IBoolComboFiller
+        IBoolComboFiller,
+        ITextBoxRestartor,
+        INumericUdRestartor,
+        IComboRestartor,
+        IMaskedTextBoxRestartor
+
+
+
 
 
     {
@@ -41,6 +52,10 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
         private INumericUdDefaultValueSeter _numericUdDefaultValueSeter;
         private IComboBoxFiller _comboBoxFiller;
         private IBoolComboFiller _boolComboFiller;
+        private ITextBoxRestartor _textBoxRestartors;
+        private INumericUdRestartor _numericUdRestartor;
+        private IComboRestartor _comboRestartor;
+        private IMaskedTextBoxRestartor _maskedTextBoxRestartors;
         public ProductsManagerForm(
             IProductDataBuilder productDataBuilder,
             IProductsDataGeter productsDataGeter,
@@ -50,7 +65,11 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
             IDgFiller dgFiller,
             IComboBoxFiller comboBoxFiller,
             IBoolComboFiller boolComboFiller,
-            INumericUdDefaultValueSeter numericUdDefaultValueSeter
+            INumericUdDefaultValueSeter numericUdDefaultValueSeter,
+            ITextBoxRestartor textBoxRestartor,
+            INumericUdRestartor numericUdRestartor,
+            IComboRestartor comboRestartor,
+            IMaskedTextBoxRestartor maskedTextBoxRestartor
             )
         {
             InitializeComponent();
@@ -64,6 +83,11 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
             _brandComboDataGeter = brandsComboDataGeter;
             _numericUdDefaultValueSeter = numericUdDefaultValueSeter;
             _productSearcher = productSearcher;
+            _textBoxRestartors = textBoxRestartor;
+            _numericUdRestartor = numericUdRestartor;
+            _comboRestartor = comboRestartor;
+            _maskedTextBoxRestartors = maskedTextBoxRestartor;
+
         }
 
         public ProductsTable BuildProductData(string newProductName, int newBrandId, string newBrandName, long newProductAmount, int newProductCount, DateTime addTime, int? ProductIdForEdit = null)
@@ -102,6 +126,26 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
             return _productDataGeter.GetProductsData();
         }
 
+        public void RestartCombo(params ComboBox[] comboBoxes)
+        {
+            _comboRestartor.RestartCombo(comboBoxes);
+        }
+
+        public void RestartMaskedTextBox(params MaskedTextBox[] maskedTextBoxes)
+        {
+            _maskedTextBoxRestartors.RestartMaskedTextBox(maskedTextBoxes);
+        }
+
+        public void RestartNumericUd(params NumericUpDown[] numericUpDowns)
+        {
+            _numericUdRestartor.RestartNumericUd(numericUpDowns);
+        }
+
+        public void RestartTextBox(params TextBox[] textBoxes)
+        {
+            _textBoxRestartors.RestartTextBox(textBoxes);
+        }
+
         public List<ProductsTable> SearchInProducts(IEnumerable<ProductsTable> products, string? productName = null, int? brandId = null, bool? availablity = null, long? minAmount = null, long? maxAmount = null, string? minDate = null, string? maxDate = null)
         {
             return _productSearcher.SearchInProducts(products, productName, brandId, availablity, minAmount, maxAmount, minDate, maxDate);
@@ -123,6 +167,15 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
         private void ProductsSearchBtn_Click(object sender, EventArgs e)
         {
             FillDg<ProductsTable>(DGPruducts, SearchInProducts(GetProductsData(), txtProductName.Text, (int?)(BrandIdCombo.SelectedValue), (bool?)AvailablityCombo.SelectedValue, (long?)MinAmounttxt.Value, (long?)MaxAmountTxt.Value, MinDatetxt.Text, MaxDatetxt.Text));
+        }
+
+        private void RefreshFrom_Click(object sender, EventArgs e)
+        {
+            RestartTextBox(txtProductName);
+            RestartNumericUd(MinAmounttxt, MaxAmountTxt);
+            RestartCombo(AvailablityCombo,BrandIdCombo);
+            RestartMaskedTextBox(MinDatetxt,MaxDatetxt);
+            FillDg<ProductsTable>(DGPruducts, GetProductsData());
         }
     }
 }
