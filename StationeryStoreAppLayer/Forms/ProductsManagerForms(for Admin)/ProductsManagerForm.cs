@@ -62,6 +62,7 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
             _comboBoxFiller = comboBoxFiller;
             _boolComboFiller = boolComboFiller;
             _brandComboDataGeter = brandsComboDataGeter;
+            _numericUdDefaultValueSeter = numericUdDefaultValueSeter;
             _productSearcher = productSearcher;
         }
 
