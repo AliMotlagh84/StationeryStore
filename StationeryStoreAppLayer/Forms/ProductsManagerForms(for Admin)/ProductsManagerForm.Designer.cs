@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             ProductGB = new GroupBox();
             ProductsSearchGB = new GroupBox();
-            BarndIdCombo = new ComboBox();
+            BrandIdCombo = new ComboBox();
             label5 = new Label();
             MaxDatetxt = new MaskedTextBox();
             label4 = new Label();
@@ -82,7 +82,7 @@
             // ProductsSearchGB
             // 
             ProductsSearchGB.BackColor = Color.FromArgb(255, 128, 128);
-            ProductsSearchGB.Controls.Add(BarndIdCombo);
+            ProductsSearchGB.Controls.Add(BrandIdCombo);
             ProductsSearchGB.Controls.Add(label5);
             ProductsSearchGB.Controls.Add(MaxDatetxt);
             ProductsSearchGB.Controls.Add(label4);
@@ -106,15 +106,15 @@
             ProductsSearchGB.TabStop = false;
             ProductsSearchGB.Text = "جستوجو در محصولات ";
             // 
-            // BarndIdCombo
+            // BrandIdCombo
             // 
-            BarndIdCombo.BackColor = Color.FromArgb(255, 128, 128);
-            BarndIdCombo.DropDownStyle = ComboBoxStyle.DropDownList;
-            BarndIdCombo.FormattingEnabled = true;
-            BarndIdCombo.Location = new Point(621, 84);
-            BarndIdCombo.Name = "BarndIdCombo";
-            BarndIdCombo.Size = new Size(117, 28);
-            BarndIdCombo.TabIndex = 20;
+            BrandIdCombo.BackColor = Color.FromArgb(255, 128, 128);
+            BrandIdCombo.DropDownStyle = ComboBoxStyle.DropDownList;
+            BrandIdCombo.FormattingEnabled = true;
+            BrandIdCombo.Location = new Point(621, 84);
+            BrandIdCombo.Name = "BrandIdCombo";
+            BrandIdCombo.Size = new Size(117, 28);
+            BrandIdCombo.TabIndex = 20;
             // 
             // label5
             // 
@@ -229,6 +229,7 @@
             ProductsSearchBtn.TabIndex = 4;
             ProductsSearchBtn.Text = "جستوجو";
             ProductsSearchBtn.UseVisualStyleBackColor = false;
+            ProductsSearchBtn.Click += ProductsSearchBtn_Click;
             // 
             // txtProductName
             // 
@@ -253,24 +254,24 @@
             DGPruducts.AllowUserToDeleteRows = false;
             DGPruducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DGPruducts.BackgroundColor = Color.FromArgb(255, 192, 192);
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            DGPruducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            DGPruducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             DGPruducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DGPruducts.Columns.AddRange(new DataGridViewColumn[] { ProductId, ProductName, BrandId, BrandName, Count, Amount });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            DGPruducts.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            DGPruducts.DefaultCellStyle = dataGridViewCellStyle4;
             DGPruducts.GridColor = Color.Firebrick;
             DGPruducts.Location = new Point(4, 147);
             DGPruducts.Name = "DGPruducts";
@@ -352,7 +353,7 @@
             RefreshFrom.ImageAlign = ContentAlignment.TopCenter;
             RefreshFrom.Location = new Point(9, 15);
             RefreshFrom.Name = "RefreshFrom";
-            RefreshFrom.Size = new Size(136, 79);
+            RefreshFrom.Size = new Size(143, 79);
             RefreshFrom.TabIndex = 4;
             RefreshFrom.Text = "رفرش کردن فرم";
             RefreshFrom.TextAlign = ContentAlignment.BottomCenter;
@@ -365,9 +366,9 @@
             DeleteProductBtn.ForeColor = Color.Maroon;
             DeleteProductBtn.Image = Properties.Resources.icons8_remove_60;
             DeleteProductBtn.ImageAlign = ContentAlignment.TopCenter;
-            DeleteProductBtn.Location = new Point(169, 15);
+            DeleteProductBtn.Location = new Point(175, 15);
             DeleteProductBtn.Name = "DeleteProductBtn";
-            DeleteProductBtn.Size = new Size(141, 79);
+            DeleteProductBtn.Size = new Size(148, 79);
             DeleteProductBtn.TabIndex = 3;
             DeleteProductBtn.Text = "حذف محصول";
             DeleteProductBtn.TextAlign = ContentAlignment.BottomCenter;
@@ -380,7 +381,7 @@
             UpdateProductBtn.ForeColor = Color.DarkGreen;
             UpdateProductBtn.Image = Properties.Resources.icons8_update_product_60;
             UpdateProductBtn.ImageAlign = ContentAlignment.TopCenter;
-            UpdateProductBtn.Location = new Point(338, 15);
+            UpdateProductBtn.Location = new Point(347, 15);
             UpdateProductBtn.Name = "UpdateProductBtn";
             UpdateProductBtn.Size = new Size(151, 79);
             UpdateProductBtn.TabIndex = 2;
@@ -395,7 +396,7 @@
             IncreaseCountBtn.ForeColor = Color.FromArgb(0, 0, 192);
             IncreaseCountBtn.Image = Properties.Resources.icons8_add_properties_60;
             IncreaseCountBtn.ImageAlign = ContentAlignment.TopCenter;
-            IncreaseCountBtn.Location = new Point(518, 15);
+            IncreaseCountBtn.Location = new Point(525, 15);
             IncreaseCountBtn.Name = "IncreaseCountBtn";
             IncreaseCountBtn.Size = new Size(153, 79);
             IncreaseCountBtn.TabIndex = 1;
@@ -430,7 +431,7 @@
             Name = "ProductsManagerForm";
             RightToLeft = RightToLeft.Yes;
             StartPosition = FormStartPosition.CenterParent;
-            Text = "ProductsManagerForm";
+            Text = "مدیریت محصولات";
             Load += ProductsManagerForm_Load;
             ProductGB.ResumeLayout(false);
             ProductsSearchGB.ResumeLayout(false);
@@ -446,7 +447,7 @@
 
         private GroupBox ProductGB;
         private GroupBox ProductsSearchGB;
-        private ComboBox BarndIdCombo;
+        private ComboBox BrandIdCombo;
         private Label label5;
         private MaskedTextBox MaxDatetxt;
         private Label label4;

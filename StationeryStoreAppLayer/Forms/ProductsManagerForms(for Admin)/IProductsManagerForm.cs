@@ -1,4 +1,7 @@
-﻿using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreAppLayer.PublicHelpers.DataBuilders.ProductDataBuilders;
+using StationeryStoreAppLayer.PublicHelpers.DataEditors.ProductDataEditors;
+using StationeryStoreAppLayer.PublicHelpers.DataGeters.ProductGeters;
+using StationeryStoreDataLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +10,11 @@ using System.Threading.Tasks;
 
 namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
 {
-    public interface IProductsManagerForm
-    {
+    public interface IProductsManagerForm :
+        IProductDataEditor,
+        IProductDataBuilder,      
+        IProductsDataGeter
+    { 
+
     }
 }
