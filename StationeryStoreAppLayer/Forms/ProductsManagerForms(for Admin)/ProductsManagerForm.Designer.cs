@@ -48,18 +48,19 @@
             txtProductName = new TextBox();
             ProductNameLbl = new Label();
             DGPruducts = new DataGridView();
-            ProductId = new DataGridViewTextBoxColumn();
-            ProductName = new DataGridViewTextBoxColumn();
-            BrandId = new DataGridViewTextBoxColumn();
-            BrandName = new DataGridViewTextBoxColumn();
-            Count = new DataGridViewTextBoxColumn();
-            Amount = new DataGridViewTextBoxColumn();
             groupBox1 = new GroupBox();
             RefreshFrom = new Button();
             DeleteProductBtn = new Button();
             UpdateProductBtn = new Button();
             IncreaseCountBtn = new Button();
             AddNewProductBtn = new Button();
+            ProductId = new DataGridViewTextBoxColumn();
+            ProductName = new DataGridViewTextBoxColumn();
+            BrandId = new DataGridViewTextBoxColumn();
+            BrandName = new DataGridViewTextBoxColumn();
+            Count = new DataGridViewTextBoxColumn();
+            Amount = new DataGridViewTextBoxColumn();
+            AddTime = new DataGridViewTextBoxColumn();
             ProductGB.SuspendLayout();
             ProductsSearchGB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)MaxAmountTxt).BeginInit();
@@ -263,7 +264,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             DGPruducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             DGPruducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGPruducts.Columns.AddRange(new DataGridViewColumn[] { ProductId, ProductName, BrandId, BrandName, Count, Amount });
+            DGPruducts.Columns.AddRange(new DataGridViewColumn[] { ProductId, ProductName, BrandId, BrandName, Count, Amount, AddTime });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -279,56 +280,6 @@
             DGPruducts.RowHeadersWidth = 51;
             DGPruducts.Size = new Size(863, 240);
             DGPruducts.TabIndex = 0;
-            // 
-            // ProductId
-            // 
-            ProductId.DataPropertyName = "ProductId";
-            ProductId.HeaderText = "آی دی محصول";
-            ProductId.MinimumWidth = 6;
-            ProductId.Name = "ProductId";
-            ProductId.ReadOnly = true;
-            ProductId.Visible = false;
-            // 
-            // ProductName
-            // 
-            ProductName.DataPropertyName = "ProductName";
-            ProductName.HeaderText = "نام محصول";
-            ProductName.MinimumWidth = 6;
-            ProductName.Name = "ProductName";
-            ProductName.ReadOnly = true;
-            // 
-            // BrandId
-            // 
-            BrandId.DataPropertyName = "BrandId";
-            BrandId.HeaderText = "آی دی برند";
-            BrandId.MinimumWidth = 6;
-            BrandId.Name = "BrandId";
-            BrandId.ReadOnly = true;
-            BrandId.Visible = false;
-            // 
-            // BrandName
-            // 
-            BrandName.DataPropertyName = "BrandName";
-            BrandName.HeaderText = "نام برند";
-            BrandName.MinimumWidth = 6;
-            BrandName.Name = "BrandName";
-            BrandName.ReadOnly = true;
-            // 
-            // Count
-            // 
-            Count.DataPropertyName = "Count";
-            Count.HeaderText = "تعداد";
-            Count.MinimumWidth = 6;
-            Count.Name = "Count";
-            Count.ReadOnly = true;
-            // 
-            // Amount
-            // 
-            Amount.DataPropertyName = "Amount";
-            Amount.HeaderText = "قیمت";
-            Amount.MinimumWidth = 6;
-            Amount.Name = "Amount";
-            Amount.ReadOnly = true;
             // 
             // groupBox1
             // 
@@ -389,6 +340,7 @@
             UpdateProductBtn.Text = "ویرایش محصول";
             UpdateProductBtn.TextAlign = ContentAlignment.BottomCenter;
             UpdateProductBtn.UseVisualStyleBackColor = false;
+            UpdateProductBtn.Click += UpdateProductBtn_Click;
             // 
             // IncreaseCountBtn
             // 
@@ -404,6 +356,7 @@
             IncreaseCountBtn.Text = "افزودن تعداد محصول";
             IncreaseCountBtn.TextAlign = ContentAlignment.BottomCenter;
             IncreaseCountBtn.UseVisualStyleBackColor = false;
+            IncreaseCountBtn.Click += IncreaseCountBtn_Click;
             // 
             // AddNewProductBtn
             // 
@@ -419,6 +372,66 @@
             AddNewProductBtn.Text = "افزودن محصول جدید";
             AddNewProductBtn.TextAlign = ContentAlignment.BottomCenter;
             AddNewProductBtn.UseVisualStyleBackColor = false;
+            AddNewProductBtn.Click += AddNewProductBtn_Click;
+            // 
+            // ProductId
+            // 
+            ProductId.DataPropertyName = "ProductId";
+            ProductId.HeaderText = "آی دی محصول";
+            ProductId.MinimumWidth = 6;
+            ProductId.Name = "ProductId";
+            ProductId.ReadOnly = true;
+            ProductId.Visible = false;
+            // 
+            // ProductName
+            // 
+            ProductName.DataPropertyName = "ProductName";
+            ProductName.HeaderText = "نام محصول";
+            ProductName.MinimumWidth = 6;
+            ProductName.Name = "ProductName";
+            ProductName.ReadOnly = true;
+            // 
+            // BrandId
+            // 
+            BrandId.DataPropertyName = "BrandId";
+            BrandId.HeaderText = "آی دی برند";
+            BrandId.MinimumWidth = 6;
+            BrandId.Name = "BrandId";
+            BrandId.ReadOnly = true;
+            BrandId.Visible = false;
+            // 
+            // BrandName
+            // 
+            BrandName.DataPropertyName = "BrandName";
+            BrandName.HeaderText = "نام برند";
+            BrandName.MinimumWidth = 6;
+            BrandName.Name = "BrandName";
+            BrandName.ReadOnly = true;
+            // 
+            // Count
+            // 
+            Count.DataPropertyName = "Count";
+            Count.HeaderText = "تعداد";
+            Count.MinimumWidth = 6;
+            Count.Name = "Count";
+            Count.ReadOnly = true;
+            // 
+            // Amount
+            // 
+            Amount.DataPropertyName = "Amount";
+            Amount.HeaderText = "قیمت";
+            Amount.MinimumWidth = 6;
+            Amount.Name = "Amount";
+            Amount.ReadOnly = true;
+            // 
+            // AddTime
+            // 
+            AddTime.DataPropertyName = "AddTime";
+            AddTime.HeaderText = "تاریخ اضافه شدن";
+            AddTime.MinimumWidth = 6;
+            AddTime.Name = "AddTime";
+            AddTime.ReadOnly = true;
+            AddTime.Visible = false;
             // 
             // ProductsManagerForm
             // 
@@ -464,17 +477,18 @@
         private TextBox txtProductName;
         private Label ProductNameLbl;
         private DataGridView DGPruducts;
-        private DataGridViewTextBoxColumn ProductId;
-        private DataGridViewTextBoxColumn ProductName;
-        private DataGridViewTextBoxColumn BrandId;
-        private DataGridViewTextBoxColumn BrandName;
-        private DataGridViewTextBoxColumn Count;
-        private DataGridViewTextBoxColumn Amount;
         private GroupBox groupBox1;
         private Button UpdateProductBtn;
         private Button IncreaseCountBtn;
         private Button AddNewProductBtn;
         private Button RefreshFrom;
         private Button DeleteProductBtn;
+        private DataGridViewTextBoxColumn ProductId;
+        private DataGridViewTextBoxColumn ProductName;
+        private DataGridViewTextBoxColumn BrandId;
+        private DataGridViewTextBoxColumn BrandName;
+        private DataGridViewTextBoxColumn Count;
+        private DataGridViewTextBoxColumn Amount;
+        private DataGridViewTextBoxColumn AddTime;
     }
 }

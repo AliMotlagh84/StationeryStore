@@ -1,4 +1,5 @@
-﻿using StationeryStoreAppLayer.PublicHelpers.ComboBoxFiilers;
+﻿using StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_.ProductsManagerHelpers.ProductsAdderOrEditorFormOpeners;
+using StationeryStoreAppLayer.PublicHelpers.ComboBoxFiilers;
 using StationeryStoreAppLayer.PublicHelpers.DataAdders.ProductDataAdders;
 using StationeryStoreAppLayer.PublicHelpers.DataBuilders.ProductDataBuilders;
 using StationeryStoreAppLayer.PublicHelpers.DataEditors.ProductDataEditors;
@@ -27,6 +28,7 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
 {
     public partial class ProductsManagerForm : Form,
         IProductsManagerForm,
+        IProductDataBuilder,
         IProductSearcher,
         IBrandsComboDataGeter,
         IDgFiller,
@@ -36,7 +38,8 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
         ITextBoxRestartor,
         INumericUdRestartor,
         IComboRestartor,
-        IMaskedTextBoxRestartor
+        IMaskedTextBoxRestartor,
+        IProductAdderOrEditorFormOpener
 
 
 
@@ -46,6 +49,7 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
 
         private IDgFiller _dgFiller;
         private IProductsDataGeter _productDataGeter;
+        private IProductDataBuilder _productDataBuilder;
         private IBrandsComboDataGeter _brandComboDataGeter;
         private IProductSearcher _productSearcher;
         private INumericUdDefaultValueSeter _numericUdDefaultValueSeter;
@@ -55,8 +59,10 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
         private INumericUdRestartor _numericUdRestartor;
         private IComboRestartor _comboRestartor;
         private IMaskedTextBoxRestartor _maskedTextBoxRestartors;
+        private IProductAdderOrEditorFormOpener _productAdderOrEditorFormOpener;
         public ProductsManagerForm(
             IProductsDataGeter productsDataGeter,
+            IProductDataBuilder productDataBuilder,
             IBrandsComboDataGeter brandsComboDataGeter,
             IProductSearcher productSearcher,
             IDgFiller dgFiller,
@@ -66,12 +72,14 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
             ITextBoxRestartor textBoxRestartor,
             INumericUdRestartor numericUdRestartor,
             IComboRestartor comboRestartor,
-            IMaskedTextBoxRestartor maskedTextBoxRestartor
+            IMaskedTextBoxRestartor maskedTextBoxRestartor,
+            IProductAdderOrEditorFormOpener productAdderOrEditorFormOpener
             )
         {
             InitializeComponent();
             _dgFiller = dgFiller;
             _productDataGeter = productsDataGeter;
+            _productDataBuilder = productDataBuilder;
             _productSearcher = productSearcher;
             _comboBoxFiller = comboBoxFiller;
             _boolComboFiller = boolComboFiller;
@@ -82,6 +90,7 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
             _numericUdRestartor = numericUdRestartor;
             _comboRestartor = comboRestartor;
             _maskedTextBoxRestartors = maskedTextBoxRestartor;
+            _productAdderOrEditorFormOpener = productAdderOrEditorFormOpener;
 
         }
 
@@ -110,6 +119,11 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
         public List<ProductsTable> GetProductsData()
         {
             return _productDataGeter.GetProductsData();
+        }
+
+        public void OpenProductAdderOrEditorForm(ProductsTable productInfo, bool editMode, Form senderForm)
+        {
+            _productAdderOrEditorFormOpener.OpenProductAdderOrEditorForm(productInfo, editMode, senderForm);
         }
 
         public void RestartCombo(params ComboBox[] comboBoxes)
@@ -159,9 +173,39 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
         {
             RestartTextBox(txtProductName);
             RestartNumericUd(MinAmounttxt, MaxAmountTxt);
-            RestartCombo(AvailablityCombo,BrandIdCombo);
-            RestartMaskedTextBox(MinDatetxt,MaxDatetxt);
+            RestartCombo(AvailablityCombo, BrandIdCombo);
+            RestartMaskedTextBox(MinDatetxt, MaxDatetxt);
             FillDg<ProductsTable>(DGPruducts, GetProductsData());
         }
-    }
+
+        private void IncreaseCountBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public ProductsTable BuildProductData(string newProductName, int newBrandId, string newBrandName, long newProductAmount, int newProductCount, DateTime addTime, int? ProductIdForEdit = null)
+        {
+            return _productDataBuilder.BuildProductData(newProductName, newBrandId, newBrandName, newProductAmount, newProductCount, addTime, ProductIdForEdit);
+        }
+
+        private void AddNewProductBtn_Click(object sender, EventArgs e)
+        {
+            if (DGPruducts.CurrentRow != null)
+            {
+                ProductsTable newProduct = BuildProductData((string)DGPruducts.CurrentRow.Cells[1].Value, (int)DGPruducts.CurrentRow.Cells[2].Value, (string)DGPruducts.CurrentRow.Cells[3].Value, (long)DGPruducts.CurrentRow.Cells[5].Value, (int)DGPruducts.CurrentRow.Cells[4].Value, (DateTime)DGPruducts.CurrentRow.Cells[6].Value);
+                OpenProductAdderOrEditorForm(newProduct, false, this);
+            }
+        }
+
+        private void UpdateProductBtn_Click(object sender, EventArgs e)
+        {
+            if (DGPruducts.CurrentRow != null)
+            {
+                ProductsTable newProduct = BuildProductData((string)DGPruducts.CurrentRow.Cells[1].Value, (int)DGPruducts.CurrentRow.Cells[2].Value, (string)DGPruducts.CurrentRow.Cells[3].Value, (long)DGPruducts.CurrentRow.Cells[5].Value, (int)DGPruducts.CurrentRow.Cells[4].Value, (DateTime)DGPruducts.CurrentRow.Cells[6].Value, (int)DGPruducts.CurrentRow.Cells[0].Value);
+                OpenProductAdderOrEditorForm(newProduct, true, this);
+            }
+        }
+
+
+}
 }
