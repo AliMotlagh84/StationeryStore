@@ -16,5 +16,10 @@ namespace StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms
         {
             InitializeComponent();
         }
+
+        private void ProductAdderOrEditorForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
