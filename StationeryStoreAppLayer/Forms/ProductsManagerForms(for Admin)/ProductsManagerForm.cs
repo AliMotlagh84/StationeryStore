@@ -1,4 +1,5 @@
 ﻿using StationeryStoreAppLayer.PublicHelpers.ComboBoxFiilers;
+using StationeryStoreAppLayer.PublicHelpers.DataAdders.ProductDataAdders;
 using StationeryStoreAppLayer.PublicHelpers.DataBuilders.ProductDataBuilders;
 using StationeryStoreAppLayer.PublicHelpers.DataEditors.ProductDataEditors;
 using StationeryStoreAppLayer.PublicHelpers.DataGeters.BrandsDataGeters;
@@ -44,8 +45,6 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
     {
 
         private IDgFiller _dgFiller;
-        private IProductDataEditor _productDataEditor;
-        private IProductDataBuilder _productDataBuilder;
         private IProductsDataGeter _productDataGeter;
         private IBrandsComboDataGeter _brandComboDataGeter;
         private IProductSearcher _productSearcher;
@@ -57,9 +56,7 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
         private IComboRestartor _comboRestartor;
         private IMaskedTextBoxRestartor _maskedTextBoxRestartors;
         public ProductsManagerForm(
-            IProductDataBuilder productDataBuilder,
             IProductsDataGeter productsDataGeter,
-            IProductDataEditor productDataEditor,
             IBrandsComboDataGeter brandsComboDataGeter,
             IProductSearcher productSearcher,
             IDgFiller dgFiller,
@@ -74,9 +71,7 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
         {
             InitializeComponent();
             _dgFiller = dgFiller;
-            _productDataBuilder = productDataBuilder;
             _productDataGeter = productsDataGeter;
-            _productDataEditor = productDataEditor;
             _productSearcher = productSearcher;
             _comboBoxFiller = comboBoxFiller;
             _boolComboFiller = boolComboFiller;
@@ -90,15 +85,6 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
 
         }
 
-        public ProductsTable BuildProductData(string newProductName, int newBrandId, string newBrandName, long newProductAmount, int newProductCount, DateTime addTime, int? ProductIdForEdit = null)
-        {
-            return _productDataBuilder.BuildProductData(newProductName, newBrandId, newBrandName, newProductAmount, newProductCount, addTime, ProductIdForEdit);
-        }
-
-        public void EditProductData(ProductsTable newProduct)
-        {
-            _productDataEditor.EditProductData(newProduct);
-        }
 
         public void FillBoolCombo(ComboBox comboBox, string allDisplay, string trueDispaly, string falseDispaly)
         {

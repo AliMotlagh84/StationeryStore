@@ -47,6 +47,7 @@ using StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_;
 using StationeryStoreAppLayer.PublicHelpers.Restartors.INumericUdRestartor;
 using StationeryStoreAppLayer.PublicHelpers.Restartors.ComboRestartors;
 using StationeryStoreAppLayer.PublicHelpers.Restartors.MaskedTextBoxRestartors;
+using StationeryStoreAppLayer.PublicHelpers.DataAdders.ProductDataAdders;
 
 namespace StationeryStoreAppLayer
 {
@@ -65,7 +66,7 @@ namespace StationeryStoreAppLayer
             //Application.Run(new Form3());
             SignUpForm signUpForm = new SignUpForm(new NullOrWhiteSpaceValidator(), new UniqeUserAndPasswordValidator(), new AdminModeChanger(), new AdminiCodeValidator(), new UserBuilder(), new TextBoxRestartor());
             ProductSearcher productSearcher = new ProductSearcher(new ProductNameSearcher(), new ProductBrandSearcher(), new ProductAmountSearcher(), new ProductDateSearcher(new PersianToMiladiDateConvertor()), new ProductAvailablitySearcher());
-            ProductsManagerForm productsManagerForm = new ProductsManagerForm(new ProductDataBuilder(),new ProductsDataGeter(),new ProductDataEditor(),new BrandsComboDataGeter(new BrandDataGeter()),productSearcher,new DgFiller(),new ComboBoxFiller(),new BoolComboFiller(),new NumericUdDefaultValueSeter(),new TextBoxRestartor(),new NumericUdRestartor(),new ComboRestartor(),new MaskedTextBoxRestartor());
+            ProductsManagerForm productsManagerForm = new ProductsManagerForm(new ProductsDataGeter(),new BrandsComboDataGeter(new BrandDataGeter()),productSearcher,new DgFiller(),new ComboBoxFiller(),new BoolComboFiller(),new NumericUdDefaultValueSeter(),new TextBoxRestartor(),new NumericUdRestartor(),new ComboRestartor(),new MaskedTextBoxRestartor());
             Form1 homeForm = new Form1(new ProductManagementAccessController(), new TimeLabelSeter(), new DateLabelSeter(new MiladiToPersianDateConvertor()),new GroupBoxTextSeter(), new IntroducingLabelSeter(), new AdminLabelSeter(), new FormCloser(), new FormManager(), new DgFiller(), new DgOrdersFiller(), new ComboBoxFiller(),new BoolComboFiller(), new ProductsDataGeter(), new OrdersDataGeter(),new BrandDataGeter(), new BrandsComboDataGeter(new BrandDataGeter()), new NewProductsDataGeter(),new SingleProductDataGeter(), new NumericUdDefaultValueSeter(), productSearcher,new DraftOrderFormOpener<DraftOrderForm>(new DraftOrderForm(new ProductCountChecker(),new ProductDataEditor(),new ProductDataBuilder(),new DraftOrderDataBulider(),new DraftOrderDataAdder(),new NumericUdDefaultValueSeter())),new UserEditorFormOpener<UserEditorForm>(new UserEditorForm(new TextBoxFiller(),new UserDataBuilder(),new UserDataEditor())),new AppRestartor(),new UserDataDeleterById(),new ProductsManagerFormOpener<ProductsManagerForm>(productsManagerForm));
             Application.Run(new StationeryApplicationContext(new LoginUserValidator(), new HomeFormOpener<Form1>(homeForm), new SingleUserDataGeterByNameAndPassword(), new NullOrWhiteSpaceValidator(), new SignUpFormOpener<SignUpForm>(signUpForm), new TextBoxRestartor(), new FormManager()));
         }
