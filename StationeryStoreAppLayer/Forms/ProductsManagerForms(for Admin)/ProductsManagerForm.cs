@@ -5,6 +5,7 @@ using StationeryStoreAppLayer.PublicHelpers.DataBuilders.ProductDataBuilders;
 using StationeryStoreAppLayer.PublicHelpers.DataEditors.ProductDataEditors;
 using StationeryStoreAppLayer.PublicHelpers.DataGeters.BrandsDataGeters;
 using StationeryStoreAppLayer.PublicHelpers.DataGeters.ProductGeters;
+using StationeryStoreAppLayer.PublicHelpers.Deleters.ProductDeleters;
 using StationeryStoreAppLayer.PublicHelpers.DgFillers;
 using StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters;
 using StationeryStoreAppLayer.PublicHelpers.Restartors.ComboRestartors;
@@ -30,6 +31,7 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
         IProductsManagerForm,
         IProductDataBuilder,
         IProductSearcher,
+        IProductDeleter,
         IBrandsComboDataGeter,
         IDgFiller,
         INumericUdDefaultValueSeter,
@@ -51,6 +53,7 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
         private IProductsDataGeter _productDataGeter;
         private IProductDataBuilder _productDataBuilder;
         private IBrandsComboDataGeter _brandComboDataGeter;
+        private IProductDeleter _productDeleter;
         private IProductSearcher _productSearcher;
         private INumericUdDefaultValueSeter _numericUdDefaultValueSeter;
         private IComboBoxFiller _comboBoxFiller;
@@ -73,7 +76,8 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
             INumericUdRestartor numericUdRestartor,
             IComboRestartor comboRestartor,
             IMaskedTextBoxRestartor maskedTextBoxRestartor,
-            IProductAdderOrEditorFormOpener productAdderOrEditorFormOpener
+            IProductAdderOrEditorFormOpener productAdderOrEditorFormOpener,
+            IProductDeleter productDeleter
             )
         {
             InitializeComponent();
@@ -91,6 +95,7 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
             _comboRestartor = comboRestartor;
             _maskedTextBoxRestartors = maskedTextBoxRestartor;
             _productAdderOrEditorFormOpener = productAdderOrEditorFormOpener;
+            _productDeleter = productDeleter;
 
         }
 
@@ -171,6 +176,11 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
 
         private void RefreshFrom_Click(object sender, EventArgs e)
         {
+            Refresh();
+        }
+
+        private void Refresh()
+        {
             RestartTextBox(txtProductName);
             RestartNumericUd(MinAmounttxt, MaxAmountTxt);
             RestartCombo(AvailablityCombo, BrandIdCombo);
@@ -206,6 +216,32 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
             }
         }
 
+        public void DeleteProduct(object id)
+        {
+            _productDeleter.DeleteProduct(id);
+        }
 
-}
+        public void DeleteProduct(ProductsTable product)
+        {
+            _productDeleter.DeleteProduct(product);
+        }
+
+        private void DeleteProductBtn_Click(object sender, EventArgs e)
+        {
+            if (DGPruducts.CurrentRow != null)
+            {
+                var currentRowCells = DGPruducts.CurrentRow.Cells;
+
+                if (MessageBox.Show($"از حذف {(string)currentRowCells[1].Value} مطمئن هستید", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    DeleteProduct(BuildProductData((string)currentRowCells[1].Value, (int)currentRowCells[2].Value, (string)currentRowCells[3].Value, (long)currentRowCells[5].Value, (int)currentRowCells[4].Value, (DateTime)currentRowCells[6].Value, (int)currentRowCells[0].Value));
+                    Refresh();
+                }
+                
+            }else
+            {
+                MessageBox.Show("محصولی  انتخاب نشده است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
 }

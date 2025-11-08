@@ -48,12 +48,6 @@
             txtProductName = new TextBox();
             ProductNameLbl = new Label();
             DGPruducts = new DataGridView();
-            groupBox1 = new GroupBox();
-            RefreshFrom = new Button();
-            DeleteProductBtn = new Button();
-            UpdateProductBtn = new Button();
-            IncreaseCountBtn = new Button();
-            AddNewProductBtn = new Button();
             ProductId = new DataGridViewTextBoxColumn();
             ProductName = new DataGridViewTextBoxColumn();
             BrandId = new DataGridViewTextBoxColumn();
@@ -61,6 +55,12 @@
             Count = new DataGridViewTextBoxColumn();
             Amount = new DataGridViewTextBoxColumn();
             AddTime = new DataGridViewTextBoxColumn();
+            groupBox1 = new GroupBox();
+            RefreshFrom = new Button();
+            DeleteProductBtn = new Button();
+            UpdateProductBtn = new Button();
+            IncreaseCountBtn = new Button();
+            AddNewProductBtn = new Button();
             ProductGB.SuspendLayout();
             ProductsSearchGB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)MaxAmountTxt).BeginInit();
@@ -281,99 +281,6 @@
             DGPruducts.Size = new Size(863, 240);
             DGPruducts.TabIndex = 0;
             // 
-            // groupBox1
-            // 
-            groupBox1.BackColor = Color.Salmon;
-            groupBox1.Controls.Add(RefreshFrom);
-            groupBox1.Controls.Add(DeleteProductBtn);
-            groupBox1.Controls.Add(UpdateProductBtn);
-            groupBox1.Controls.Add(IncreaseCountBtn);
-            groupBox1.Controls.Add(AddNewProductBtn);
-            groupBox1.Location = new Point(3, 405);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(863, 100);
-            groupBox1.TabIndex = 7;
-            groupBox1.TabStop = false;
-            // 
-            // RefreshFrom
-            // 
-            RefreshFrom.BackColor = Color.Thistle;
-            RefreshFrom.FlatStyle = FlatStyle.Popup;
-            RefreshFrom.ForeColor = Color.Indigo;
-            RefreshFrom.Image = Properties.Resources.icons8_refresh_60;
-            RefreshFrom.ImageAlign = ContentAlignment.TopCenter;
-            RefreshFrom.Location = new Point(9, 15);
-            RefreshFrom.Name = "RefreshFrom";
-            RefreshFrom.Size = new Size(143, 79);
-            RefreshFrom.TabIndex = 4;
-            RefreshFrom.Text = "رفرش کردن فرم";
-            RefreshFrom.TextAlign = ContentAlignment.BottomCenter;
-            RefreshFrom.UseVisualStyleBackColor = false;
-            RefreshFrom.Click += RefreshFrom_Click;
-            // 
-            // DeleteProductBtn
-            // 
-            DeleteProductBtn.BackColor = Color.FromArgb(255, 192, 192);
-            DeleteProductBtn.FlatStyle = FlatStyle.Popup;
-            DeleteProductBtn.ForeColor = Color.Maroon;
-            DeleteProductBtn.Image = Properties.Resources.icons8_remove_60;
-            DeleteProductBtn.ImageAlign = ContentAlignment.TopCenter;
-            DeleteProductBtn.Location = new Point(175, 15);
-            DeleteProductBtn.Name = "DeleteProductBtn";
-            DeleteProductBtn.Size = new Size(148, 79);
-            DeleteProductBtn.TabIndex = 3;
-            DeleteProductBtn.Text = "حذف محصول";
-            DeleteProductBtn.TextAlign = ContentAlignment.BottomCenter;
-            DeleteProductBtn.UseVisualStyleBackColor = false;
-            // 
-            // UpdateProductBtn
-            // 
-            UpdateProductBtn.BackColor = Color.FromArgb(192, 255, 192);
-            UpdateProductBtn.FlatStyle = FlatStyle.Popup;
-            UpdateProductBtn.ForeColor = Color.DarkGreen;
-            UpdateProductBtn.Image = Properties.Resources.icons8_update_product_60;
-            UpdateProductBtn.ImageAlign = ContentAlignment.TopCenter;
-            UpdateProductBtn.Location = new Point(347, 15);
-            UpdateProductBtn.Name = "UpdateProductBtn";
-            UpdateProductBtn.Size = new Size(151, 79);
-            UpdateProductBtn.TabIndex = 2;
-            UpdateProductBtn.Text = "ویرایش محصول";
-            UpdateProductBtn.TextAlign = ContentAlignment.BottomCenter;
-            UpdateProductBtn.UseVisualStyleBackColor = false;
-            UpdateProductBtn.Click += UpdateProductBtn_Click;
-            // 
-            // IncreaseCountBtn
-            // 
-            IncreaseCountBtn.BackColor = Color.Aquamarine;
-            IncreaseCountBtn.FlatStyle = FlatStyle.Popup;
-            IncreaseCountBtn.ForeColor = Color.FromArgb(0, 0, 192);
-            IncreaseCountBtn.Image = Properties.Resources.icons8_add_properties_60;
-            IncreaseCountBtn.ImageAlign = ContentAlignment.TopCenter;
-            IncreaseCountBtn.Location = new Point(525, 15);
-            IncreaseCountBtn.Name = "IncreaseCountBtn";
-            IncreaseCountBtn.Size = new Size(153, 79);
-            IncreaseCountBtn.TabIndex = 1;
-            IncreaseCountBtn.Text = "افزودن تعداد محصول";
-            IncreaseCountBtn.TextAlign = ContentAlignment.BottomCenter;
-            IncreaseCountBtn.UseVisualStyleBackColor = false;
-            IncreaseCountBtn.Click += IncreaseCountBtn_Click;
-            // 
-            // AddNewProductBtn
-            // 
-            AddNewProductBtn.BackColor = Color.FromArgb(255, 255, 128);
-            AddNewProductBtn.FlatStyle = FlatStyle.Popup;
-            AddNewProductBtn.ForeColor = Color.FromArgb(192, 64, 0);
-            AddNewProductBtn.Image = Properties.Resources.icons8_add_product_60;
-            AddNewProductBtn.ImageAlign = ContentAlignment.TopCenter;
-            AddNewProductBtn.Location = new Point(701, 15);
-            AddNewProductBtn.Name = "AddNewProductBtn";
-            AddNewProductBtn.Size = new Size(150, 79);
-            AddNewProductBtn.TabIndex = 0;
-            AddNewProductBtn.Text = "افزودن محصول جدید";
-            AddNewProductBtn.TextAlign = ContentAlignment.BottomCenter;
-            AddNewProductBtn.UseVisualStyleBackColor = false;
-            AddNewProductBtn.Click += AddNewProductBtn_Click;
-            // 
             // ProductId
             // 
             ProductId.DataPropertyName = "ProductId";
@@ -432,6 +339,100 @@
             AddTime.Name = "AddTime";
             AddTime.ReadOnly = true;
             AddTime.Visible = false;
+            // 
+            // groupBox1
+            // 
+            groupBox1.BackColor = Color.Salmon;
+            groupBox1.Controls.Add(RefreshFrom);
+            groupBox1.Controls.Add(DeleteProductBtn);
+            groupBox1.Controls.Add(UpdateProductBtn);
+            groupBox1.Controls.Add(IncreaseCountBtn);
+            groupBox1.Controls.Add(AddNewProductBtn);
+            groupBox1.Location = new Point(3, 405);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(863, 100);
+            groupBox1.TabIndex = 7;
+            groupBox1.TabStop = false;
+            // 
+            // RefreshFrom
+            // 
+            RefreshFrom.BackColor = Color.Thistle;
+            RefreshFrom.FlatStyle = FlatStyle.Popup;
+            RefreshFrom.ForeColor = Color.Indigo;
+            RefreshFrom.Image = Properties.Resources.icons8_refresh_60;
+            RefreshFrom.ImageAlign = ContentAlignment.TopCenter;
+            RefreshFrom.Location = new Point(9, 15);
+            RefreshFrom.Name = "RefreshFrom";
+            RefreshFrom.Size = new Size(143, 79);
+            RefreshFrom.TabIndex = 4;
+            RefreshFrom.Text = "رفرش کردن فرم";
+            RefreshFrom.TextAlign = ContentAlignment.BottomCenter;
+            RefreshFrom.UseVisualStyleBackColor = false;
+            RefreshFrom.Click += RefreshFrom_Click;
+            // 
+            // DeleteProductBtn
+            // 
+            DeleteProductBtn.BackColor = Color.FromArgb(255, 192, 192);
+            DeleteProductBtn.FlatStyle = FlatStyle.Popup;
+            DeleteProductBtn.ForeColor = Color.Maroon;
+            DeleteProductBtn.Image = Properties.Resources.icons8_remove_60;
+            DeleteProductBtn.ImageAlign = ContentAlignment.TopCenter;
+            DeleteProductBtn.Location = new Point(175, 15);
+            DeleteProductBtn.Name = "DeleteProductBtn";
+            DeleteProductBtn.Size = new Size(148, 79);
+            DeleteProductBtn.TabIndex = 3;
+            DeleteProductBtn.Text = "حذف محصول";
+            DeleteProductBtn.TextAlign = ContentAlignment.BottomCenter;
+            DeleteProductBtn.UseVisualStyleBackColor = false;
+            DeleteProductBtn.Click += DeleteProductBtn_Click;
+            // 
+            // UpdateProductBtn
+            // 
+            UpdateProductBtn.BackColor = Color.FromArgb(192, 255, 192);
+            UpdateProductBtn.FlatStyle = FlatStyle.Popup;
+            UpdateProductBtn.ForeColor = Color.DarkGreen;
+            UpdateProductBtn.Image = Properties.Resources.icons8_update_product_60;
+            UpdateProductBtn.ImageAlign = ContentAlignment.TopCenter;
+            UpdateProductBtn.Location = new Point(347, 15);
+            UpdateProductBtn.Name = "UpdateProductBtn";
+            UpdateProductBtn.Size = new Size(151, 79);
+            UpdateProductBtn.TabIndex = 2;
+            UpdateProductBtn.Text = "ویرایش محصول";
+            UpdateProductBtn.TextAlign = ContentAlignment.BottomCenter;
+            UpdateProductBtn.UseVisualStyleBackColor = false;
+            UpdateProductBtn.Click += UpdateProductBtn_Click;
+            // 
+            // IncreaseCountBtn
+            // 
+            IncreaseCountBtn.BackColor = Color.Aquamarine;
+            IncreaseCountBtn.FlatStyle = FlatStyle.Popup;
+            IncreaseCountBtn.ForeColor = Color.FromArgb(0, 0, 192);
+            IncreaseCountBtn.Image = Properties.Resources.icons8_add_properties_60;
+            IncreaseCountBtn.ImageAlign = ContentAlignment.TopCenter;
+            IncreaseCountBtn.Location = new Point(525, 15);
+            IncreaseCountBtn.Name = "IncreaseCountBtn";
+            IncreaseCountBtn.Size = new Size(153, 79);
+            IncreaseCountBtn.TabIndex = 1;
+            IncreaseCountBtn.Text = "افزودن تعداد محصول";
+            IncreaseCountBtn.TextAlign = ContentAlignment.BottomCenter;
+            IncreaseCountBtn.UseVisualStyleBackColor = false;
+            IncreaseCountBtn.Click += IncreaseCountBtn_Click;
+            // 
+            // AddNewProductBtn
+            // 
+            AddNewProductBtn.BackColor = Color.FromArgb(255, 255, 128);
+            AddNewProductBtn.FlatStyle = FlatStyle.Popup;
+            AddNewProductBtn.ForeColor = Color.FromArgb(192, 64, 0);
+            AddNewProductBtn.Image = Properties.Resources.icons8_add_product_60;
+            AddNewProductBtn.ImageAlign = ContentAlignment.TopCenter;
+            AddNewProductBtn.Location = new Point(701, 15);
+            AddNewProductBtn.Name = "AddNewProductBtn";
+            AddNewProductBtn.Size = new Size(150, 79);
+            AddNewProductBtn.TabIndex = 0;
+            AddNewProductBtn.Text = "افزودن محصول جدید";
+            AddNewProductBtn.TextAlign = ContentAlignment.BottomCenter;
+            AddNewProductBtn.UseVisualStyleBackColor = false;
+            AddNewProductBtn.Click += AddNewProductBtn_Click;
             // 
             // ProductsManagerForm
             // 

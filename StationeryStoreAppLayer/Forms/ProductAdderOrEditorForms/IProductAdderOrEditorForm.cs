@@ -14,6 +14,7 @@ namespace StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms
         IProductDataBuilder,
         IProductDataAdder,
         IProductDataEditor
+       
     {
         ProductsTable ProductsInfo { get; set; }
         bool EditMode { get; set; }

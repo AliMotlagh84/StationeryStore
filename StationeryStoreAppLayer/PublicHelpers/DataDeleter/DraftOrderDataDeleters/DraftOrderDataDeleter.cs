@@ -6,24 +6,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.PublicHelpers.DataDeleter.ProductDataDeleters
+namespace StationeryStoreAppLayer.PublicHelpers.DataDeleter.DraftOrderDataDeleters
 {
-    public class ProductDataDeleter : IProductDataDeleter
+    public class DraftOrderDataDeleter : IDraftOrderDataDeleter
     {
-        public void DeleteProductData(object id)
+        public void DeleteDraftOrderData(int darftOrderId)
         {
             using (EfUnitOfWork db = new EfUnitOfWork())
             {
-                db.ProductsRepository.Delete(id);
+                db.BrandRepository.Delete(darftOrderId);
                 db.Save();
             }
         }
 
-        public void DeleteProductData(ProductsTable product)
+        public void DeleteDraftOrderData(DraftOrdersTable draftOrder)
         {
             using (EfUnitOfWork db = new EfUnitOfWork())
             {
-                db.ProductsRepository.Delete(product);
+                db.BrandRepository.Delete(draftOrder);
                 db.Save();
             }
         }
