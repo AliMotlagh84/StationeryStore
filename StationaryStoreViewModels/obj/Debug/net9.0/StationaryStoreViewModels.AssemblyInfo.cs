@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StationaryStoreViewModels")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b75f0b25aa908e08b89a57a1454a65181a1237c3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c03c38b6a8ef1d051ea065300931fcf61831244")]
 [assembly: System.Reflection.AssemblyProductAttribute("StationaryStoreViewModels")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StationaryStoreViewModels")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
