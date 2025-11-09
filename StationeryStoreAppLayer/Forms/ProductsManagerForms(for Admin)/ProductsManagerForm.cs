@@ -1,4 +1,5 @@
-﻿using StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_.ProductsManagerHelpers.ProductsAdderOrEditorFormOpeners;
+﻿using StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_.ProductsManagerHelpers.FormOpeners;
+using StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_.ProductsManagerHelpers.ProductsAdderOrEditorFormOpeners;
 using StationeryStoreAppLayer.PublicHelpers.ComboBoxFiilers;
 using StationeryStoreAppLayer.PublicHelpers.DataAdders.ProductDataAdders;
 using StationeryStoreAppLayer.PublicHelpers.DataBuilders.ProductDataBuilders;
@@ -41,7 +42,8 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
         INumericUdRestartor,
         IComboRestartor,
         IMaskedTextBoxRestartor,
-        IProductAdderOrEditorFormOpener
+        IProductAdderOrEditorFormOpener,
+        IProductCountIncreaserFormOpener
 
 
 
@@ -63,6 +65,7 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
         private IComboRestartor _comboRestartor;
         private IMaskedTextBoxRestartor _maskedTextBoxRestartors;
         private IProductAdderOrEditorFormOpener _productAdderOrEditorFormOpener;
+        private IProductCountIncreaserFormOpener _productCountIncreaserFormOpener;
         public ProductsManagerForm(
             IProductsDataGeter productsDataGeter,
             IProductDataBuilder productDataBuilder,
@@ -77,6 +80,7 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
             IComboRestartor comboRestartor,
             IMaskedTextBoxRestartor maskedTextBoxRestartor,
             IProductAdderOrEditorFormOpener productAdderOrEditorFormOpener,
+            IProductCountIncreaserFormOpener productCountIncreaserFormOpener,
             IProductDeleter productDeleter
             )
         {
@@ -95,6 +99,7 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
             _comboRestartor = comboRestartor;
             _maskedTextBoxRestartors = maskedTextBoxRestartor;
             _productAdderOrEditorFormOpener = productAdderOrEditorFormOpener;
+            _productCountIncreaserFormOpener = productCountIncreaserFormOpener;
             _productDeleter = productDeleter;
 
         }
@@ -190,7 +195,16 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
 
         private void IncreaseCountBtn_Click(object sender, EventArgs e)
         {
-
+            if (DGPruducts.CurrentRow != null)
+            {
+                ProductsTable newProduct = BuildProductData((string)DGPruducts.CurrentRow.Cells[1].Value, (int)DGPruducts.CurrentRow.Cells[2].Value, (string)DGPruducts.CurrentRow.Cells[3].Value, (long)DGPruducts.CurrentRow.Cells[5].Value, (int)DGPruducts.CurrentRow.Cells[4].Value, (DateTime)DGPruducts.CurrentRow.Cells[6].Value, (int)DGPruducts.CurrentRow.Cells[0].Value);
+                OpenProductCountIncreaserForm(newProduct);
+                Refresh();
+            }
+            else
+            {
+                MessageBox.Show("محصولی  انتخاب نشده است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public ProductsTable BuildProductData(string newProductName, int newBrandId, string newBrandName, long newProductAmount, int newProductCount, DateTime addTime, int? ProductIdForEdit = null)
@@ -212,6 +226,10 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
                 ProductsTable newProduct = BuildProductData((string)DGPruducts.CurrentRow.Cells[1].Value, (int)DGPruducts.CurrentRow.Cells[2].Value, (string)DGPruducts.CurrentRow.Cells[3].Value, (long)DGPruducts.CurrentRow.Cells[5].Value, (int)DGPruducts.CurrentRow.Cells[4].Value, (DateTime)DGPruducts.CurrentRow.Cells[6].Value, (int)DGPruducts.CurrentRow.Cells[0].Value);
                 OpenProductAdderOrEditorForm(newProduct, true, this);
                 Refresh();
+            }
+            else
+            {
+                MessageBox.Show("محصولی  انتخاب نشده است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -242,6 +260,11 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
             {
                 MessageBox.Show("محصولی  انتخاب نشده است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        public void OpenProductCountIncreaserForm(ProductsTable productInfo)
+        {
+            _productCountIncreaserFormOpener.OpenProductCountIncreaserForm(productInfo);
         }
     }
 }

@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ProductConut = new NumericUpDown();
+            ProductCountTxt = new NumericUpDown();
             label1 = new Label();
             BtnSend = new Button();
-            ((System.ComponentModel.ISupportInitialize)ProductConut).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ProductCountTxt).BeginInit();
             SuspendLayout();
             // 
-            // ProductConut
+            // ProductCountTxt
             // 
-            ProductConut.BackColor = Color.Green;
-            ProductConut.ForeColor = Color.White;
-            ProductConut.Location = new Point(124, 62);
-            ProductConut.Name = "ProductConut";
-            ProductConut.Size = new Size(175, 27);
-            ProductConut.TabIndex = 0;
+            ProductCountTxt.BackColor = Color.Green;
+            ProductCountTxt.ForeColor = Color.White;
+            ProductCountTxt.Location = new Point(124, 62);
+            ProductCountTxt.Name = "ProductCountTxt";
+            ProductCountTxt.Size = new Size(175, 27);
+            ProductCountTxt.TabIndex = 0;
             // 
             // label1
             // 
@@ -73,21 +73,22 @@
             ClientSize = new Size(422, 197);
             Controls.Add(BtnSend);
             Controls.Add(label1);
-            Controls.Add(ProductConut);
+            Controls.Add(ProductCountTxt);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "ProductCountIncreaserForm";
             RightToLeft = RightToLeft.Yes;
             StartPosition = FormStartPosition.CenterParent;
             Text = "افزایش تعداد محصول";
-            ((System.ComponentModel.ISupportInitialize)ProductConut).EndInit();
+            Load += ProductCountIncreaserForm_Load;
+            ((System.ComponentModel.ISupportInitialize)ProductCountTxt).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private NumericUpDown ProductConut;
+        private NumericUpDown ProductCountTxt;
         private Label label1;
         private Button BtnSend;
     }

@@ -377,7 +377,7 @@
             DeleteProductBtn.ForeColor = Color.Maroon;
             DeleteProductBtn.Image = Properties.Resources.icons8_remove_60;
             DeleteProductBtn.ImageAlign = ContentAlignment.TopCenter;
-            DeleteProductBtn.Location = new Point(189, 15);
+            DeleteProductBtn.Location = new Point(175, 15);
             DeleteProductBtn.Name = "DeleteProductBtn";
             DeleteProductBtn.Size = new Size(148, 79);
             DeleteProductBtn.TabIndex = 3;
