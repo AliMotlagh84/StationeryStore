@@ -200,11 +200,9 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
 
         private void AddNewProductBtn_Click(object sender, EventArgs e)
         {
-            if (DGPruducts.CurrentRow != null)
-            {
-                ProductsTable newProduct = BuildProductData((string)DGPruducts.CurrentRow.Cells[1].Value, (int)DGPruducts.CurrentRow.Cells[2].Value, (string)DGPruducts.CurrentRow.Cells[3].Value, (long)DGPruducts.CurrentRow.Cells[5].Value, (int)DGPruducts.CurrentRow.Cells[4].Value, (DateTime)DGPruducts.CurrentRow.Cells[6].Value);
-                OpenProductAdderOrEditorForm(newProduct, false, this);
-            }
+            ProductsTable newProduct = BuildProductData((string)DGPruducts.CurrentRow.Cells[1].Value, (int)DGPruducts.CurrentRow.Cells[2].Value, (string)DGPruducts.CurrentRow.Cells[3].Value, (long)DGPruducts.CurrentRow.Cells[5].Value, (int)DGPruducts.CurrentRow.Cells[4].Value, (DateTime)DGPruducts.CurrentRow.Cells[6].Value);
+            OpenProductAdderOrEditorForm(newProduct, false, this);
+            Refresh();
         }
 
         private void UpdateProductBtn_Click(object sender, EventArgs e)
@@ -213,6 +211,7 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
             {
                 ProductsTable newProduct = BuildProductData((string)DGPruducts.CurrentRow.Cells[1].Value, (int)DGPruducts.CurrentRow.Cells[2].Value, (string)DGPruducts.CurrentRow.Cells[3].Value, (long)DGPruducts.CurrentRow.Cells[5].Value, (int)DGPruducts.CurrentRow.Cells[4].Value, (DateTime)DGPruducts.CurrentRow.Cells[6].Value, (int)DGPruducts.CurrentRow.Cells[0].Value);
                 OpenProductAdderOrEditorForm(newProduct, true, this);
+                Refresh();
             }
         }
 
@@ -237,8 +236,9 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
                     DeleteProduct(BuildProductData((string)currentRowCells[1].Value, (int)currentRowCells[2].Value, (string)currentRowCells[3].Value, (long)currentRowCells[5].Value, (int)currentRowCells[4].Value, (DateTime)currentRowCells[6].Value, (int)currentRowCells[0].Value));
                     Refresh();
                 }
-                
-            }else
+
+            }
+            else
             {
                 MessageBox.Show("محصولی  انتخاب نشده است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

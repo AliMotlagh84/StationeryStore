@@ -16,6 +16,9 @@
     <Compile Update="Forms\ProductAdderOrEditorForms\ProductAdderOrEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\ProductCountIncreaserForms\ProductCountIncreaserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\ProductsManagerForms%28for Admin%29\ProductsManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
