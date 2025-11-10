@@ -59,11 +59,9 @@
             CountTxt.ForeColor = Color.White;
             CountTxt.Location = new Point(260, 93);
             CountTxt.Maximum = new decimal(new int[] { 1569325056, 23283064, 0, 0 });
-            CountTxt.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             CountTxt.Name = "CountTxt";
             CountTxt.Size = new Size(148, 27);
             CountTxt.TabIndex = 30;
-            CountTxt.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // AmountTxt
             // 

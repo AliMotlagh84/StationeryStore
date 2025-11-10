@@ -27,7 +27,9 @@ using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.UniqeUserValidator
 using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.UserBulider;
 using StationeryStoreAppLayer.Forms.UserEditorForms;
 using StationeryStoreAppLayer.LoginForms;
+using StationeryStoreAppLayer.PublicHelpers.ButtonTextSeters;
 using StationeryStoreAppLayer.PublicHelpers.ComboBoxFiilers;
+using StationeryStoreAppLayer.PublicHelpers.ComboBoxValueSelectors;
 using StationeryStoreAppLayer.PublicHelpers.DataAdders.DraftOrderSenders;
 using StationeryStoreAppLayer.PublicHelpers.DataAdders.ProductDataAdders;
 using StationeryStoreAppLayer.PublicHelpers.DataBuilders.DraftOrderDataBuilders;
@@ -47,6 +49,8 @@ using StationeryStoreAppLayer.PublicHelpers.DataGeters.UserDataGeters;
 using StationeryStoreAppLayer.PublicHelpers.Deleters.ProductDeleters;
 using StationeryStoreAppLayer.PublicHelpers.DgFillers;
 using StationeryStoreAppLayer.PublicHelpers.Editors.ProductEditors;
+using StationeryStoreAppLayer.PublicHelpers.FormTextSeters;
+using StationeryStoreAppLayer.PublicHelpers.NumericUdFillers;
 using StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters;
 using StationeryStoreAppLayer.PublicHelpers.Restartors.ComboRestartors;
 using StationeryStoreAppLayer.PublicHelpers.Restartors.INumericUdRestartor;
@@ -89,7 +93,7 @@ namespace StationeryStoreAppLayer
             DraftOrderSearcher draftOrderSearcher = new DraftOrderSearcher(new DraftOrderSearcherByDraftOrderId(),new DraftOrderSearcherByUserId(),new DraftOrderSearcherByUserName(),new DraftOrderSearcherByBrandId(),new DraftOrderSearcherByBrandName(),new DraftOrderSearcherByProductId(),new DraftOrderSearcherByProductName(),new DraftOrderSearcherByProductAmount(),new DraftOrderSearcherByTotalAmount(),new DraftOrderSearcherByRequestedCount());
             ProductDeleter productDeleter = new ProductDeleter(new ProductDataDeleter(),new DraftOrderDataGeter(),draftOrderSearcher,new DraftOrderDataDeleter());
             ProductEditor productEditor = new ProductEditor(new ProductDataEditor(),new DraftOrderDataGeter(),draftOrderSearcher,new DraftOrderDataBulider(),new DraftOrderDataEditor());
-            ProductAdderOrEditorForm productAdderOrEditorForm = new ProductAdderOrEditorForm(new ProductDataBuilder(),new ProductDataAdder(),productEditor,new BrandsComboDataGeter(new BrandDataGeter()),new ComboBoxFiller());
+            ProductAdderOrEditorForm productAdderOrEditorForm = new ProductAdderOrEditorForm(new ProductDataBuilder(),new ProductDataAdder(),productEditor,new BrandsComboDataGeter(new BrandDataGeter()),new ComboBoxFiller(),new ComboBoxValueSelector(),new FormTextSeter(),new ButtonTextSeter(),new NumericUdFiller(),new TextBoxFiller(),new NumericUdRestartor(),new ComboRestartor(),new TextBoxRestartor());
             ProductCountIncreaserForm productCountIncreaserForm = new ProductCountIncreaserForm(new ProductDataEditor(),new ProductCountIncreaser(),new NumericUdDefaultValueSeter());
             ProductsManagerForm productsManagerForm = new ProductsManagerForm(new ProductsDataGeter(),new ProductDataBuilder(),new BrandsComboDataGeter(new BrandDataGeter()),productSearcher,new DgFiller(),new ComboBoxFiller(),new BoolComboFiller(),new NumericUdDefaultValueSeter(),new TextBoxRestartor(),new NumericUdRestartor(),new ComboRestartor(),new MaskedTextBoxRestartor(),new ProductAdderOrEditorFormOpener<ProductAdderOrEditorForm>(productAdderOrEditorForm),new ProductCountIncreaserFormOpener<ProductCountIncreaserForm>(productCountIncreaserForm),productDeleter);
             Form1 homeForm = new Form1(new ProductManagementAccessController(), new TimeLabelSeter(), new DateLabelSeter(new MiladiToPersianDateConvertor()),new GroupBoxTextSeter(), new IntroducingLabelSeter(), new AdminLabelSeter(), new FormCloser(), new FormManager(), new DgFiller(), new DgOrdersFiller(), new ComboBoxFiller(),new BoolComboFiller(), new ProductsDataGeter(), new OrdersDataGeter(),new BrandDataGeter(), new BrandsComboDataGeter(new BrandDataGeter()), new NewProductsDataGeter(),new SingleProductDataGeter(), new NumericUdDefaultValueSeter(), productSearcher,new DraftOrderFormOpener<DraftOrderForm>(new DraftOrderForm(new ProductCountChecker(),new ProductDataEditor(),new ProductDataBuilder(),new DraftOrderDataBulider(),new DraftOrderDataAdder(),new NumericUdDefaultValueSeter())),new UserEditorFormOpener<UserEditorForm>(new UserEditorForm(new TextBoxFiller(),new UserDataBuilder(),new UserDataEditor())),new AppRestartor(),new UserDataDeleterById(),new ProductsManagerFormOpener<ProductsManagerForm>(productsManagerForm));

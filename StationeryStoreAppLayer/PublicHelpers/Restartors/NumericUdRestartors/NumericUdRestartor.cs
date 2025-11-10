@@ -13,7 +13,7 @@ namespace StationeryStoreAppLayer.PublicHelpers.Restartors.INumericUdRestartor
             foreach (var numericUpDown in numericUpDowns)
             {
 
-                numericUpDown.Value = 0;
+                numericUpDown.Value = numericUpDown.Minimum;
                 numericUpDown.ResetText();
             }
         }
