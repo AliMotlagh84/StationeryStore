@@ -57,7 +57,7 @@ namespace StationeryStoreAppLayer.Forms.DraftOrderForms
         {
             if (CheckProductCount(selectedProduct.Count, (int)RequestedProductCounttxt.Value))
             {
-                AddDraftOrderData(BuildDraftOrderData(orderer,selectedProduct, (int)RequestedProductCounttxt.Value));
+                AddDraftOrderData(BuildDraftOrderData(orderer.UserId,orderer.UserName,selectedProduct.ProductId,selectedProduct.ProductName,selectedProduct.BrandId,selectedProduct.BrandName,selectedProduct.Amount, (int)RequestedProductCounttxt.Value));
                 EditProductData(BuildProductData(selectedProduct.ProductName, selectedProduct.BrandId, selectedProduct.BrandName, selectedProduct.Amount,((selectedProduct.Count)-((int)RequestedProductCounttxt.Value)),selectedProduct.AddTime,selectedProduct.ProductId));
                 MessageBox.Show("محصول به سبد خرید اضافه شد","",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
@@ -86,9 +86,9 @@ namespace StationeryStoreAppLayer.Forms.DraftOrderForms
             _draftOrderSender.AddDraftOrderData(draftOrder);
         }
 
-        public DraftOrdersTable BuildDraftOrderData(UserTable orderer, ProductsTable productInfo, int requestedCount, int? DraftOrderIdForEdit = null)
+        public DraftOrdersTable BuildDraftOrderData(int userId, string userName, int productId, string productName, int brandId, string brandName, long productAmount, int requestedCount, int? DraftOrderIdForEdit = null)
         {
-            return _draftOrderBuilder.BuildDraftOrderData(orderer, productInfo, requestedCount);
+            return _draftOrderBuilder.BuildDraftOrderData(userId,userName,productId,productName,brandId,brandName,productAmount,requestedCount,DraftOrderIdForEdit);
         }
 
         public void SetNumericUdDefaultValue(long defaultValue, params NumericUpDown[] numericUdCollection)

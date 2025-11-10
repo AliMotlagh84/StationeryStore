@@ -1,6 +1,7 @@
 ﻿using StationeryStoreAppLayer.PublicHelpers.DataAdders.ProductDataAdders;
 using StationeryStoreAppLayer.PublicHelpers.DataBuilders.ProductDataBuilders;
 using StationeryStoreAppLayer.PublicHelpers.DataEditors.ProductDataEditors;
+using StationeryStoreAppLayer.PublicHelpers.Editors.ProductEditors;
 using StationeryStoreDataLayer.Models;
 using System;
 using System.Collections.Generic;
@@ -13,8 +14,8 @@ namespace StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms
     public interface IProductAdderOrEditorForm:
         IProductDataBuilder,
         IProductDataAdder,
-        IProductDataEditor
-       
+        IProductEditor
+
     {
         ProductsTable ProductsInfo { get; set; }
         bool EditMode { get; set; }

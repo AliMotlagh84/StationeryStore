@@ -1,4 +1,5 @@
-﻿using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers.AmountSearchers;
+﻿using Microsoft.EntityFrameworkCore.Infrastructure;
+using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers.AmountSearchers;
 using StationeryStoreDataLayer.Models;
 using System;
 using System.Collections.Generic;
@@ -10,26 +11,26 @@ namespace StationeryStoreAppLayer.PublicHelpers.DataBuilders.DraftOrderDataBuild
 {
     public class DraftOrderDataBulider : IDraftOrderDataBuilder
     {
-        public DraftOrdersTable BuildDraftOrderData(UserTable orderer, ProductsTable productInfo , int requestedCount,int? DraftOrderIdForEdit=null)
+
+        public DraftOrdersTable BuildDraftOrderData(int userId, string userName, int productId, string productName, int brandId, string brandName, long productAmount, int requestedCount, int? DraftOrderIdForEdit = null)
         {
             var draftOrder = new DraftOrdersTable()
             {
-                UserId = orderer.UserId,
-                UserName = orderer.UserName,
-                ProductId = productInfo.ProductId,
-                ProductName = productInfo.ProductName,
-                BrandId = productInfo.BrandId,
-                BrandName = productInfo.BrandName,
-                Amount = productInfo.Amount,
+                UserId = userId,
+                UserName = userName,
+                ProductId = productId,
+                ProductName = productName,
+                BrandId = brandId,
+                BrandName = brandName,
+                Amount = productAmount,
                 RequestedCount = requestedCount,
-                TotalAmount = requestedCount * productInfo.Amount
+                TotalAmount = requestedCount * productAmount
             };
-            if (DraftOrderIdForEdit != null) {
+            if (DraftOrderIdForEdit != null)
+            {
                 draftOrder.DraftOrderId = (int)DraftOrderIdForEdit;
             }
             return draftOrder;
-
         }
-
     }
 }

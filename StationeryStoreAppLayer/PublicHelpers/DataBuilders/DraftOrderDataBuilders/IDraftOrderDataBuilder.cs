@@ -10,6 +10,7 @@ namespace StationeryStoreAppLayer.PublicHelpers.DataBuilders.DraftOrderDataBuild
 {
     public interface IDraftOrderDataBuilder
     {
-        DraftOrdersTable BuildDraftOrderData(UserTable orderer,ProductsTable productInfo, int requestedCount,int? DraftOrderIdForEdit=null);
+        public DraftOrdersTable BuildDraftOrderData(int userId, string userName, int productId, string productName, int brandId, string brandName, long productAmount, int requestedCount, int? DraftOrderIdForEdit = null);
+
     }
 }

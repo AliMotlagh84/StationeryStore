@@ -28,73 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
-            BarndIdCombo = new ComboBox();
-            MaxAmountTxt = new NumericUpDown();
-            MinAmounttxt = new NumericUpDown();
+            BarndCombo = new ComboBox();
+            CountTxt = new NumericUpDown();
+            AmountTxt = new NumericUpDown();
             label2 = new Label();
             label1 = new Label();
             BrandNameLbl = new Label();
             ProductNameLbl = new Label();
             txtProductName = new TextBox();
             SendBtn = new Button();
-            ((System.ComponentModel.ISupportInitialize)MaxAmountTxt).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)MinAmounttxt).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)CountTxt).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AmountTxt).BeginInit();
             SuspendLayout();
             // 
-            // BarndIdCombo
+            // BarndCombo
             // 
-            BarndIdCombo.BackColor = Color.SaddleBrown;
-            BarndIdCombo.DropDownStyle = ComboBoxStyle.DropDownList;
-            BarndIdCombo.ForeColor = Color.White;
-            BarndIdCombo.FormattingEnabled = true;
-            BarndIdCombo.Location = new Point(16, 24);
-            BarndIdCombo.Name = "BarndIdCombo";
-            BarndIdCombo.Size = new Size(138, 28);
-            BarndIdCombo.TabIndex = 35;
+            BarndCombo.BackColor = Color.SaddleBrown;
+            BarndCombo.DropDownStyle = ComboBoxStyle.DropDownList;
+            BarndCombo.ForeColor = Color.White;
+            BarndCombo.FormattingEnabled = true;
+            BarndCombo.Location = new Point(16, 24);
+            BarndCombo.Name = "BarndCombo";
+            BarndCombo.Size = new Size(138, 28);
+            BarndCombo.TabIndex = 35;
             // 
-            // MaxAmountTxt
+            // CountTxt
             // 
-            MaxAmountTxt.BackColor = Color.SaddleBrown;
-            MaxAmountTxt.BorderStyle = BorderStyle.FixedSingle;
-            MaxAmountTxt.ForeColor = Color.White;
-            MaxAmountTxt.Location = new Point(260, 93);
-            MaxAmountTxt.Maximum = new decimal(new int[] { 1569325056, 23283064, 0, 0 });
-            MaxAmountTxt.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            MaxAmountTxt.Name = "MaxAmountTxt";
-            MaxAmountTxt.Size = new Size(148, 27);
-            MaxAmountTxt.TabIndex = 30;
-            MaxAmountTxt.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            CountTxt.BackColor = Color.SaddleBrown;
+            CountTxt.BorderStyle = BorderStyle.FixedSingle;
+            CountTxt.ForeColor = Color.White;
+            CountTxt.Location = new Point(260, 93);
+            CountTxt.Maximum = new decimal(new int[] { 1569325056, 23283064, 0, 0 });
+            CountTxt.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            CountTxt.Name = "CountTxt";
+            CountTxt.Size = new Size(148, 27);
+            CountTxt.TabIndex = 30;
+            CountTxt.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // MinAmounttxt
+            // AmountTxt
             // 
-            MinAmounttxt.BackColor = Color.SaddleBrown;
-            MinAmounttxt.BorderStyle = BorderStyle.FixedSingle;
-            MinAmounttxt.ForeColor = Color.White;
-            MinAmounttxt.Location = new Point(16, 91);
-            MinAmounttxt.Maximum = new decimal(new int[] { 1569325056, 23283064, 0, 0 });
-            MinAmounttxt.Minimum = new decimal(new int[] { 1000, 0, 0, 0 });
-            MinAmounttxt.Name = "MinAmounttxt";
-            MinAmounttxt.Size = new Size(138, 27);
-            MinAmounttxt.TabIndex = 29;
-            MinAmounttxt.Value = new decimal(new int[] { 1000, 0, 0, 0 });
+            AmountTxt.BackColor = Color.SaddleBrown;
+            AmountTxt.BorderStyle = BorderStyle.FixedSingle;
+            AmountTxt.ForeColor = Color.White;
+            AmountTxt.Location = new Point(16, 91);
+            AmountTxt.Maximum = new decimal(new int[] { 1569325056, 23283064, 0, 0 });
+            AmountTxt.Minimum = new decimal(new int[] { 1000, 0, 0, 0 });
+            AmountTxt.Name = "AmountTxt";
+            AmountTxt.Size = new Size(138, 27);
+            AmountTxt.TabIndex = 29;
+            AmountTxt.Value = new decimal(new int[] { 1000, 0, 0, 0 });
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(420, 96);
             label2.Name = "label2";
-            label2.Size = new Size(65, 20);
+            label2.Size = new Size(50, 20);
             label2.TabIndex = 26;
-            label2.Text = "تا قیمت :";
+            label2.Text = "تعداد :";
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Location = new Point(168, 96);
             label1.Name = "label1";
-            label1.Size = new Size(66, 20);
+            label1.Size = new Size(52, 20);
             label1.TabIndex = 25;
-            label1.Text = "از قیمت :";
+            label1.Text = "قیمت :";
             // 
             // BrandNameLbl
             // 
@@ -135,6 +135,7 @@
             SendBtn.TabIndex = 36;
             SendBtn.Text = "افزودن محصول";
             SendBtn.UseVisualStyleBackColor = false;
+            SendBtn.Click += SendBtn_Click;
             // 
             // ProductAdderOrEditorForm
             // 
@@ -143,9 +144,9 @@
             BackColor = Color.SandyBrown;
             ClientSize = new Size(523, 213);
             Controls.Add(SendBtn);
-            Controls.Add(BarndIdCombo);
-            Controls.Add(MaxAmountTxt);
-            Controls.Add(MinAmounttxt);
+            Controls.Add(BarndCombo);
+            Controls.Add(CountTxt);
+            Controls.Add(AmountTxt);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(BrandNameLbl);
@@ -158,17 +159,17 @@
             StartPosition = FormStartPosition.CenterParent;
             Text = "افزودن محصول";
             Load += ProductAdderOrEditorForm_Load;
-            ((System.ComponentModel.ISupportInitialize)MaxAmountTxt).EndInit();
-            ((System.ComponentModel.ISupportInitialize)MinAmounttxt).EndInit();
+            ((System.ComponentModel.ISupportInitialize)CountTxt).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AmountTxt).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private ComboBox BarndIdCombo;
-        private NumericUpDown MaxAmountTxt;
-        private NumericUpDown MinAmounttxt;
+        private ComboBox BarndCombo;
+        private NumericUpDown CountTxt;
+        private NumericUpDown AmountTxt;
         private Label label2;
         private Label label1;
         private Label BrandNameLbl;
