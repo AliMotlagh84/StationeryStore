@@ -86,15 +86,15 @@ namespace StationeryStoreAppLayer.LoginForms
             return _textValidator.ValidateText(text);
         }
 
-        public void OpenSignUpForm()
+        public void OpenSignUpForm(Form senderForm)
         {
-            _signUpFormOpener.OpenSignUpForm();
+            _signUpFormOpener.OpenSignUpForm(senderForm);
         }
 
         private void SingUpLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             RestartTextBox(txtUserName,txtPassword);
-            OpenSignUpForm();
+            OpenSignUpForm(this);
         }
 
         public void RestartTextBox(params TextBox[] textBoxes)

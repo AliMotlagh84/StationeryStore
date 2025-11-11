@@ -15,9 +15,12 @@ namespace StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.FormOpeners
         {
             _signUpForm = signUpForm;
         }
-        public void OpenSignUpForm()
+        public void OpenSignUpForm(Form senderForm)
         {
+            senderForm.Hide();
             _signUpForm.ShowDialog();
+            senderForm.Show();
+
         }
     }
 }

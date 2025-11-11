@@ -65,7 +65,9 @@ namespace StationeryStoreAppLayer.Forms.SignUpForms
                 if (ValidateAdminSignUp(userName,password,email,adminiCode))
                 {
                     AddUserData(BuildUserData(userName,password,true,email));
-                    RestartTextBox(txtUserName,txtPassword,txtEmail,txtAdminiCode);
+                    MessageBox.Show("ادمین با موفقیت به جدول افزوده شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RestartTextBox(txtUserName, txtPassword, txtEmail, txtAdminiCode);
+                    DialogResult = DialogResult.OK;
                 }
             }
             else
@@ -73,9 +75,11 @@ namespace StationeryStoreAppLayer.Forms.SignUpForms
                 if (ValidateUserSignUp(userName,password,email))
                 {
                     AddUserData(BuildUserData(userName, password,false, email));
+                    MessageBox.Show("کاربر با موفقیت به جدول افزوده شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RestartTextBox(txtUserName, txtPassword, txtEmail, txtAdminiCode);
+                    DialogResult = DialogResult.OK;
                 }
-               
+
             }
         }
 

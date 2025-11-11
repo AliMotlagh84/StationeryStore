@@ -38,9 +38,7 @@ namespace StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.SignUpValidate
                 {
                     if (IsUserUniqe(userName, password, email))
                     {
-                        MessageBox.Show("کاربر با موفقیت به جدول افزوده شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return true;
-
                     }
                     else
                     {

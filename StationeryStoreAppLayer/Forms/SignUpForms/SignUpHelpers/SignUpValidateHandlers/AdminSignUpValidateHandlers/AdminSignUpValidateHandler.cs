@@ -55,7 +55,6 @@ namespace StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.SignUpHandlers
                     {
                         if (ValidateAdminiCode(adminiCode))
                         {
-                            MessageBox.Show("ادمین با موفقیت به جدول افزوده شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return true;
                         }
                         else

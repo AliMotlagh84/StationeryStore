@@ -8,6 +8,6 @@ namespace StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.FormOpeners
 {
     public interface ISignUpFormOpener
     {
-        void OpenSignUpForm();
+        void OpenSignUpForm(Form senderForm);
     }
 }
