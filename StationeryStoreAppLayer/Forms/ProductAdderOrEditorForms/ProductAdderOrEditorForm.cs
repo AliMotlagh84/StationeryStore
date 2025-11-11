@@ -1,4 +1,5 @@
-﻿using StationeryStoreAppLayer.PublicHelpers.ButtonTextSeters;
+﻿using StationaryStoreUtility.Validators.textValidators;
+using StationeryStoreAppLayer.PublicHelpers.ButtonTextSeters;
 using StationeryStoreAppLayer.PublicHelpers.ComboBoxFiilers;
 using StationeryStoreAppLayer.PublicHelpers.ComboBoxValueSelectors;
 using StationeryStoreAppLayer.PublicHelpers.DataAdders.ProductDataAdders;
@@ -36,8 +37,10 @@ namespace StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms
         IButtonTextSeter,
         INumericUdRestartor,
         ITextBoxRestartor,
-        IComboRestartor
-        
+        IComboRestartor,
+        IBrandDataGeter,
+        ITextValidator
+
 
     {
         private ProductsTable productInfo;
@@ -48,6 +51,7 @@ namespace StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms
         private IProductDataAdder _productDataAdder;
         private IProductEditor _productEditor;
         private IBrandsComboDataGeter _brandsComboDataGeter;
+        private IBrandDataGeter _brandDataGeter;
         private IComboBoxFiller _comboBoxFiller;
         private IComboBoxValueSelector _comboBoxValueSelector;
         private IFormTextSeter _formTextSeter;
@@ -57,6 +61,8 @@ namespace StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms
         private INumericUdRestartor _numericlUdRestartor;
         private IComboRestartor _comboRestartor;
         private ITextBoxRestartor _textBoxRestartor;
+        private ITextValidator _textValidator;
+
 
         public ProductAdderOrEditorForm(
             IProductDataBuilder productDataBuilder,
@@ -71,7 +77,9 @@ namespace StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms
             ITextBoxFiller textBoxFiller,
             INumericUdRestartor numericUdRestartor,
             IComboRestartor comboRestartor,
-            ITextBoxRestartor textBoxRestartor
+            ITextBoxRestartor textBoxRestartor,
+            IBrandDataGeter brandDataGeter,
+            ITextValidator textValidator
             )
         {
             InitializeComponent();
@@ -88,7 +96,9 @@ namespace StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms
             _numericlUdRestartor = numericUdRestartor;
             _comboRestartor = comboRestartor;
             _textBoxRestartor = textBoxRestartor;
-            
+            _brandDataGeter = brandDataGeter;
+            _textValidator = textValidator;
+            _comboBoxFiller = comboBoxFiller;
         }
 
 
@@ -104,23 +114,24 @@ namespace StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms
 
         private void ProductAdderOrEditorForm_Load(object sender, EventArgs e)
         {
-            FillCombo(BarndCombo, GetBrandsComboData(), "BrandName", "BrandId");
+            FillCombo(BarndCombo, GetBrandsData(), "BrandName", "BrandId");
 
             if (editMode)
             {
-                SetFormText(this,"ویرایش محصول");
-                SetButtonText(SendBtn,"ویرایش");
-                FillTextBox(txtProductName,productInfo.ProductName);
-                FillNumericUd(CountTxt,productInfo.Count);
-                FillNumericUd(AmountTxt,productInfo.Amount);
-                SelectComboBoxValue(BarndCombo,productInfo.BrandId);
+                SetFormText(this, "ویرایش محصول");
+                SetButtonText(SendBtn, "ویرایش");
+                FillTextBox(txtProductName, productInfo.ProductName);
+                FillNumericUd(CountTxt, productInfo.Count);
+                FillNumericUd(AmountTxt, productInfo.Amount);
+                SelectComboBoxValue(BarndCombo, productInfo.BrandId);
+
             }
             else
             {
                 SetFormText(this, "افزودن محصول جدید");
                 SetButtonText(SendBtn, "افزودن");
                 RestartTextBox(txtProductName);
-                RestartNumericUd(CountTxt,AmountTxt);
+                RestartNumericUd(CountTxt, AmountTxt);
                 RestartCombo(BarndCombo);
 
             }
@@ -128,21 +139,31 @@ namespace StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms
 
         private void SendBtn_Click(object sender, EventArgs e)
         {
-            if (editMode)
+            if (_textValidator.ValidateText(txtProductName.Text))
             {
-                EditProduct(BuildProductData(txtProductName.Text,(int)(BarndCombo.SelectedValue),(string)(BarndCombo.SelectedText),(long)(AmountTxt.Value),(int)(CountTxt.Value),productInfo.AddTime,productInfo.ProductId));
-                MessageBox.Show("محصول با موفقیت به روزرسانی شد","",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+
+                if (editMode)
+                {
+                    EditProduct(BuildProductData(txtProductName.Text, (int)(BarndCombo.SelectedValue), BarndCombo.GetItemText(BarndCombo.SelectedItem), (long)(AmountTxt.Value), (int)(CountTxt.Value), productInfo.AddTime, productInfo.ProductId));
+                    MessageBox.Show("محصول با موفقیت به روزرسانی شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    AddProductData(BuildProductData(txtProductName.Text, (int)BarndCombo.SelectedValue, BarndCombo.GetItemText(BarndCombo.SelectedItem), (long)AmountTxt.Value, (int)CountTxt.Value, DateTime.Now, null));
+                    MessageBox.Show("محصول با موفقیت به انبار اضافه شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                DialogResult = DialogResult.OK;
             }
             else
             {
-            
+                MessageBox.Show("لطفا نام محصول را مشخص کنید", "هشدار", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            DialogResult = DialogResult.OK;
         }
 
         public void EditProduct(ProductsTable product)
         {
-            _productEditor.EditProduct(product);            
+            _productEditor.EditProduct(product);
         }
 
         public List<BrandsTable> GetBrandsComboData()
@@ -152,22 +173,22 @@ namespace StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms
 
         public void FillCombo(ComboBox comboBox, object data, string displayMember, string ValueMember)
         {
-            _comboBoxFiller.FillCombo(comboBox,data,displayMember,ValueMember);
+            _comboBoxFiller.FillCombo(comboBox, data, displayMember, ValueMember);
         }
 
         public void SelectComboBoxValue(ComboBox comboBox, object? value)
         {
-            _comboBoxValueSelector.SelectComboBoxValue(comboBox,value);
+            _comboBoxValueSelector.SelectComboBoxValue(comboBox, value);
         }
 
         public void FillTextBox(TextBox textBox, string? text)
         {
-            _textBoxFiller.FillTextBox(textBox,text);
+            _textBoxFiller.FillTextBox(textBox, text);
         }
 
         public void FillNumericUd(NumericUpDown numericUpDown, decimal value)
         {
-            _numericlUdFiller.FillNumericUd(numericUpDown,value);
+            _numericlUdFiller.FillNumericUd(numericUpDown, value);
         }
 
         public void SetFormText(Form form, string text)
@@ -193,6 +214,16 @@ namespace StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms
         public void RestartCombo(params ComboBox[] comboBoxes)
         {
             _comboRestartor.RestartCombo(comboBoxes);
+        }
+
+        public List<BrandsTable> GetBrandsData()
+        {
+            return _brandDataGeter.GetBrandsData();
+        }
+
+        public bool ValidateText(string text)
+        {
+            return _textValidator.ValidateText(text);
         }
     }
 }
