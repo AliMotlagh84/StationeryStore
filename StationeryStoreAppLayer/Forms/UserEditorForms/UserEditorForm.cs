@@ -1,4 +1,6 @@
-﻿using StationeryStoreAppLayer.PublicHelpers.DataBuilders.UserDataBuilder;
+﻿using StationaryStoreUtility.Validators.EmailValidator;
+using StationaryStoreUtility.Validators.textValidators;
+using StationeryStoreAppLayer.PublicHelpers.DataBuilders.UserDataBuilder;
 using StationeryStoreAppLayer.PublicHelpers.DataEditors.UserDataEditors;
 using StationeryStoreAppLayer.PublicHelpers.TextBoxFillers;
 using StationeryStoreDataLayer.Models;
@@ -14,22 +16,32 @@ using System.Windows.Forms;
 
 namespace StationeryStoreAppLayer.Forms.UserEditorForms
 {
-    public partial class UserEditorForm : Form, IUserEditorForm, ITextBoxFiller
+    public partial class UserEditorForm : Form,
+        IUserEditorForm,
+        ITextBoxFiller,
+        ITextValidator,
+        IEmailValidator
     {
         private UserTable userInfo;
         private ITextBoxFiller _textBoxFiller;
         private IUserDataEditor _userDataEditor;
         private IUserDataBuilder _userDataBuilder;
+        private ITextValidator _textValidator;
+        private IEmailValidator _emailValidator;
         public UserEditorForm(
             ITextBoxFiller textBoxFiller,
             IUserDataBuilder userDataBuilder,
-            IUserDataEditor userDataEditor
+            IUserDataEditor userDataEditor,
+            ITextValidator textValidator,
+            IEmailValidator emailValidator
             )
         {
             InitializeComponent();
             _textBoxFiller = textBoxFiller;
             _userDataEditor = userDataEditor;
             _userDataBuilder = userDataBuilder;
+            _textValidator = textValidator;
+            _emailValidator = emailValidator;
         }
 
         UserTable IUserEditorForm.UserInfo { get => userInfo; set => userInfo = value; }
@@ -57,10 +69,35 @@ namespace StationeryStoreAppLayer.Forms.UserEditorForms
 
         private void EditUserBtn_Click(object sender, EventArgs e)
         {
-            var newUserData = BuildUserData(userInfo.UserName,NewPasswordtxt.Text,userInfo.IsAdmin,NewEmaitxt.Text,userInfo.UserId);           
-            EditUserData(newUserData);
-            MessageBox.Show("اطلاعات با موفقیت ویرایش شد","",MessageBoxButtons.OK,MessageBoxIcon.Information);           
-            DialogResult = DialogResult.OK;
+            if (ValidateText(NewPasswordtxt.Text) && ValidateText(NewEmaitxt.Text))
+            {
+                if (ValidateEmail(NewEmaitxt.Text))
+                {
+                    var newUserData = BuildUserData(userInfo.UserName, NewPasswordtxt.Text, userInfo.IsAdmin, NewEmaitxt.Text, userInfo.UserId);
+                    EditUserData(newUserData);
+                    MessageBox.Show("اطلاعات با موفقیت ویرایش شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    MessageBox.Show("ایمیل نامعتبر است", "هشدار", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("رمز عبور و ایمیل را وارد کنید", "هشدار", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        public bool ValidateText(string text)
+        {
+            return _textValidator.ValidateText(text);
+        }
+
+        public bool ValidateEmail(string email)
+        {
+            return _emailValidator.ValidateEmail(email);
         }
     }
 }
