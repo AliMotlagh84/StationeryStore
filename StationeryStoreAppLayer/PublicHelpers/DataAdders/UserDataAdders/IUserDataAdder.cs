@@ -9,6 +9,6 @@ namespace StationeryStoreAppLayer.PublicHelpers.DataAdders.UserDataAdders
 {
     public interface IUserDataAdder
     {
-        void Add(UserTable newUser);
+        void AddUserData(UserTable newUser);
     }
 }

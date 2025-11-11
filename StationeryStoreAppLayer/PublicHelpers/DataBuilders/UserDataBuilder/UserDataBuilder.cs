@@ -9,7 +9,7 @@ namespace StationeryStoreAppLayer.PublicHelpers.DataBuilders.UserDataBuilder
 {
     public class UserDataBuilder : IUserDataBuilder
     {
-        public UserTable BuildUserData(string userName, string userPassword, bool isAdmin, string? email, int? userIdForEdit)
+        public UserTable BuildUserData(string userName, string userPassword, bool isAdmin, string? email, int? userIdForEdit=null)
         {
             var newUserData = new UserTable()
             {

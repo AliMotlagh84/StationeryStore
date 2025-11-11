@@ -3,6 +3,8 @@ using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.AdminiCodeValidato
 using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.AdminModeChanger;
 using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.UniqeUserValidators;
 using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.UserBulider;
+using StationeryStoreAppLayer.PublicHelpers.DataAdders.UserDataAdders;
+using StationeryStoreAppLayer.PublicHelpers.DataBuilders.UserDataBuilder;
 using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
 using System;
 using System.Collections.Generic;
@@ -12,7 +14,9 @@ using System.Threading.Tasks;
 
 namespace StationeryStoreAppLayer.Forms.SignUpForms
 {
-    public interface ISignUpForm : ITextValidator , IUniqeUserValidator , IAdminModeChanger , IAdminiCodeValidator , IUserBuilder , ITextBoxRestartor
+    public interface ISignUpForm :    
+        IUserDataAdder,
+        IUserDataBuilder
     {
     }
 }

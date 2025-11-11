@@ -10,7 +10,7 @@ namespace StationeryStoreAppLayer.PublicHelpers.DataAdders.UserDataAdders
 {
     public class UserDataAdder : IUserDataAdder
     {
-        public void Add(UserTable newUser)
+        public void AddUserData(UserTable newUser)
         {
             using(EfUnitOfWork db = new EfUnitOfWork())
             {

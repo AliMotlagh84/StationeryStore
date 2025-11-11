@@ -15,34 +15,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StationaryStoreUtility.Validators.EmailValidator;
+using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.SignUpHandlers.AdminSignUpHandler;
+using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.SignUpValidateHandlers.UserValidate;
+using StationeryStoreAppLayer.PublicHelpers.DataAdders.UserDataAdders;
+using StationeryStoreAppLayer.PublicHelpers.DataBuilders.UserDataBuilder;
 
 namespace StationeryStoreAppLayer.Forms.SignUpForms
 {
-    public partial class SignUpForm : Form, ISignUpForm
+    public partial class SignUpForm : Form,
+        ISignUpForm,
+        IAdminSignUpValidateHandler,
+        IUserSignUpValidateHandler,
+        IAdminModeChanger,
+        ITextBoxRestartor
+
+
     {
         private bool _isAdmin = false;
-        private ITextValidator _textValidator;
-        private IUniqeUserValidator _uniqeUserValidator;
         private IAdminModeChanger _adminModeChanger;
-        private IAdminiCodeValidator _adminiCodeValidator;
-        private IUserBuilder _userBuilder;
+        private IUserDataBuilder _userDataBuilder;
+        private IUserDataAdder _userDataAdder;
         private ITextBoxRestartor _textBoxRestartor;
+        private IAdminSignUpValidateHandler _adminSignUpValidateHandler;
+        private IUserSignUpValidateHandler _userSignUpValidateHandlerHandler;
 
         public SignUpForm(
-            ITextValidator textValidator,
-            IUniqeUserValidator uniqeUserValidator,
+            IAdminSignUpValidateHandler adminSignUpValidateHandler,
+            IUserSignUpValidateHandler userSignUpValidateHandler,
+            IUserDataBuilder userDataBuilder,
+            IUserDataAdder userDataAdder,
             IAdminModeChanger adminModeChanger,
-            IAdminiCodeValidator adminiCodeValidator,
-            IUserBuilder userBuilder,
             ITextBoxRestartor textBoxRestartor
             )
         {
             InitializeComponent();
-            _textValidator = textValidator;
-            _uniqeUserValidator = uniqeUserValidator;
-            _adminModeChanger = adminModeChanger;
-            _adminiCodeValidator = adminiCodeValidator;
-            _userBuilder = userBuilder;
+            _adminSignUpValidateHandler = adminSignUpValidateHandler;
+            _userSignUpValidateHandlerHandler = userSignUpValidateHandler;
+            _userDataBuilder = userDataBuilder;
+            _userDataAdder = userDataAdder;
+            _adminModeChanger = adminModeChanger;       
             _textBoxRestartor = textBoxRestartor;
         }
 
@@ -50,76 +62,28 @@ namespace StationeryStoreAppLayer.Forms.SignUpForms
         {
             if (_isAdmin)
             {
-                if (ValidateText(userName) && ValidateText(password) && ValidateText(adminiCode))
+                if (ValidateAdminSignUp(userName,password,email,adminiCode))
                 {
-                    if (IsUserUniqe(userName, password, email))
-                    {
-                        if (ValidateAdminiCode(adminiCode))
-                        {
-                            using (EfUnitOfWork db = new EfUnitOfWork())
-                            {
-                                db.UserRepository.Add(BuildUser(userName, password, email, true));
-                                db.Save();
-                            }
-                            RestartTextBox(txtUserName,txtPassword,txtEmail,txtAdminiCode);
-                            MessageBox.Show("ادمین با موفقیت به جدول افزوده شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show("کد ادمینی اشتباه است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("این ادمبن از قبل وجود دارد", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("نام کاربری , رمز عبور و کد ادمین نباید خالی باشد", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    AddUserData(BuildUserData(userName,password,true,email));
+                    RestartTextBox(txtUserName,txtPassword,txtEmail,txtAdminiCode);
                 }
             }
             else
             {
-                if (ValidateText(userName) && ValidateText(password))
+                if (ValidateUserSignUp(userName,password,email))
                 {
-                    if (IsUserUniqe(userName, password, email))
-                    {
-                        using (EfUnitOfWork db = new EfUnitOfWork())
-                        {
-                            db.UserRepository.Add(BuildUser(userName, password, email, false                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ));
-                            db.Save();
-
-                        }
-                        RestartTextBox(txtUserName, txtPassword, txtEmail, txtAdminiCode);
-                        MessageBox.Show("کاربر با موفقیت به جدول افزوده شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("این کاربر از قبل وجود دارد", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    AddUserData(BuildUserData(userName, password,false, email));
+                    RestartTextBox(txtUserName, txtPassword, txtEmail, txtAdminiCode);
                 }
-                else
-                {
-                    MessageBox.Show("نام کاربری و رمز عبور نباید خالی باشد", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+               
             }
         }
 
-        public bool ValidateText(string text)
-        {
-            return _textValidator.ValidateText(text);
 
-        }
 
         private void SignUpForm_Load(object sender, EventArgs e)
         {
             RbUser.Checked = true;
-        }
-
-        public bool IsUserUniqe(string username, string password, string email)
-        {
-            return _uniqeUserValidator.IsUserUniqe(username, password, email);
         }
 
         public void ChangeAdminiMode(ref bool isAdmin, ref RadioButton rbAdmin, ref RadioButton rbUser, ref TextBox txtAdminiCode, ref Label AdminiLbl)
@@ -137,15 +101,6 @@ namespace StationeryStoreAppLayer.Forms.SignUpForms
             ChangeAdminiMode(ref _isAdmin, ref RbAdmin, ref RbUser, ref txtAdminiCode, ref AdminiCodeLbl);
         }
 
-        public bool ValidateAdminiCode(string adminiCode)
-        {
-            return _adminiCodeValidator.ValidateAdminiCode(adminiCode);
-        }
-
-        public UserTable BuildUser(string username, string password, string? email, bool isAdmin)
-        {
-            return _userBuilder.BuildUser(username, password, email, isAdmin);
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -160,6 +115,27 @@ namespace StationeryStoreAppLayer.Forms.SignUpForms
         public void RestartTextBox(params TextBox[] textBoxes)
         {
             _textBoxRestartor.RestartTextBox(textBoxes);
+        }
+
+        public bool ValidateAdminSignUp(string userName, string password, string? email, string adminiCode)
+        {
+            return _adminSignUpValidateHandler.ValidateAdminSignUp(userName, password, email, adminiCode);
+        }
+
+        public bool ValidateUserSignUp(string userName, string password, string? email)
+        {
+           return _userSignUpValidateHandlerHandler.ValidateUserSignUp(userName,password,email);
+        }
+
+        public void AddUserData(UserTable newUser)
+        {
+           _userDataAdder.AddUserData(newUser);
+        }
+
+        public UserTable BuildUserData(string userName, string userPassword, bool isAdmin, string? email, int? userIdForEdit = null)
+        {
+          return  _userDataBuilder.BuildUserData(userName,userPassword,isAdmin,email);
+
         }
     }
 }

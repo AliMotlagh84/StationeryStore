@@ -9,6 +9,6 @@ namespace StationeryStoreAppLayer.PublicHelpers.DataBuilders.UserDataBuilder
 {
     public interface IUserDataBuilder
     {
-        UserTable BuildUserData(string userName,string userPassword,bool isAdmin,string? email,int? userIdForEdit);
+        UserTable BuildUserData(string userName,string userPassword,bool isAdmin,string? email,int? userIdForEdit = null);
     }
 }
