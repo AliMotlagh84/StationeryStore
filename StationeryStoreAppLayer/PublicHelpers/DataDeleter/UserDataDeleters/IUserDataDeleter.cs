@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StationeryStoreDataLayer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace StationeryStoreAppLayer.PublicHelpers.DataDeleter.UserDataDeleters
 {
-    public interface IUserDataDeleterById
+    public interface IUserDataDeleter
     {
         void DeleteUserData(object userId);
+        void DeleteUserData(UserTable user);
     }
 }

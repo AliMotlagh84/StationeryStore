@@ -14,7 +14,7 @@ namespace StationeryStoreAppLayer.PublicHelpers.DataDeleter.DraftOrderDataDelete
         {
             using (EfUnitOfWork db = new EfUnitOfWork())
             {
-                db.BrandRepository.Delete(darftOrderId);
+                db.DraftOrderRepository.Delete(darftOrderId);
                 db.Save();
             }
         }
@@ -23,7 +23,7 @@ namespace StationeryStoreAppLayer.PublicHelpers.DataDeleter.DraftOrderDataDelete
         {
             using (EfUnitOfWork db = new EfUnitOfWork())
             {
-                db.BrandRepository.Delete(draftOrder);
+                db.DraftOrderRepository.Delete(draftOrder);
                 db.Save();
             }
         }

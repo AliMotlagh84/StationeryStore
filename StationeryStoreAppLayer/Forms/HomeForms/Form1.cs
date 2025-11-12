@@ -16,6 +16,7 @@ using StationeryStoreAppLayer.AppManagers.FormManagers;
 using StationeryStoreAppLayer.AppManagers.AppRestartors;
 using StationeryStoreAppLayer.AppManagers.AppClosers;
 using StationeryStoreAppLayer.PublicHelpers.DataDeleter.UserDataDeleters;
+using StationeryStoreAppLayer.PublicHelpers.Deleters.UserDeleters;
 
 namespace StationeryStoreAppLayer
 {
@@ -36,7 +37,7 @@ namespace StationeryStoreAppLayer
         IDraftOrderFormOpener,
         IUserEditorFormOpener,
         IAppRestartor,
-        IUserDataDeleterById,
+        IUserDeleter,
         IProductsManagerFormOpener
     {
 
@@ -65,7 +66,7 @@ namespace StationeryStoreAppLayer
         private IDraftOrderFormOpener _draftOrderFormOpener;
         private IUserEditorFormOpener _userEditorFormOpener;
         private IAppRestartor _appRestartor;
-        private IUserDataDeleterById _userDataDeleterById;
+        private IUserDeleter _userDeleter;
         private IProductsManagerFormOpener _productsManagerFormOpener;
 
 
@@ -95,7 +96,7 @@ namespace StationeryStoreAppLayer
             IDraftOrderFormOpener draftOrderFormOpener,
             IUserEditorFormOpener userEditorFormOpener,
             IAppRestartor appRestartor,
-            IUserDataDeleterById userDataDeleterById,
+            IUserDeleter userDeleter,
             IProductsManagerFormOpener productsManagerFormOpener
             )
         {
@@ -123,7 +124,7 @@ namespace StationeryStoreAppLayer
             _singleProductDataGeter = singleProductDataGeter;
             _userEditorFormOpener = userEditorFormOpener;
             _appRestartor = appRestartor;
-            _userDataDeleterById = userDataDeleterById;
+            _userDeleter = userDeleter;
             _productsManagerFormOpener = productsManagerFormOpener;
 
         }
@@ -312,19 +313,24 @@ namespace StationeryStoreAppLayer
         {
             if (MessageBox.Show("از حذف اکانت خود مطمئن هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                DeleteUserData(userInfo.UserId);
+                DeleteUser(userInfo);
                 ResetApp();
             }
-        }
-
-        public void DeleteUserData(object userId)
-        {
-            _userDataDeleterById.DeleteUserData(userId);
         }
 
         public void OpenProductsManagerForm(Form? senderForm = null)
         {
             _productsManagerFormOpener.OpenProductsManagerForm(senderForm);
+        }
+
+        public void DeleteUser(object userId)
+        {
+            _userDeleter.DeleteUser(userId);
+        }
+
+        public void DeleteUser(UserTable user)
+        {
+            _userDeleter.DeleteUser(user);
         }
     }
 }
