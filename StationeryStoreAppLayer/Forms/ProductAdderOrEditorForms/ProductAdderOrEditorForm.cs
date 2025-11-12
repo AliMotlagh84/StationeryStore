@@ -9,6 +9,7 @@ using StationeryStoreAppLayer.PublicHelpers.DataGeters.BrandsDataGeters;
 using StationeryStoreAppLayer.PublicHelpers.Editors.ProductEditors;
 using StationeryStoreAppLayer.PublicHelpers.FormTextSeters;
 using StationeryStoreAppLayer.PublicHelpers.NumericUdFillers;
+using StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters;
 using StationeryStoreAppLayer.PublicHelpers.Restartors.ComboRestartors;
 using StationeryStoreAppLayer.PublicHelpers.Restartors.INumericUdRestartor;
 using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
@@ -39,7 +40,8 @@ namespace StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms
         ITextBoxRestartor,
         IComboRestartor,
         IBrandDataGeter,
-        ITextValidator
+        ITextValidator,
+        INumericUdDefaultValueSeter
 
 
     {
@@ -56,6 +58,7 @@ namespace StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms
         private IComboBoxValueSelector _comboBoxValueSelector;
         private IFormTextSeter _formTextSeter;
         private IButtonTextSeter _buttonTextSeter;
+        private INumericUdDefaultValueSeter _numericUdDefaultValueSeter;
         private INumericUdFiller _numericlUdFiller;
         private ITextBoxFiller _textBoxFiller;
         private INumericUdRestartor _numericlUdRestartor;
@@ -79,7 +82,8 @@ namespace StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms
             IComboRestartor comboRestartor,
             ITextBoxRestartor textBoxRestartor,
             IBrandDataGeter brandDataGeter,
-            ITextValidator textValidator
+            ITextValidator textValidator,
+            INumericUdDefaultValueSeter numericUdDefaultValueSeter
             )
         {
             InitializeComponent();
@@ -99,6 +103,8 @@ namespace StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms
             _brandDataGeter = brandDataGeter;
             _textValidator = textValidator;
             _comboBoxFiller = comboBoxFiller;
+            _comboBoxValueSelector = comboBoxValueSelector;
+            _numericUdDefaultValueSeter = numericUdDefaultValueSeter; 
         }
 
 
@@ -115,7 +121,8 @@ namespace StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms
         private void ProductAdderOrEditorForm_Load(object sender, EventArgs e)
         {
             FillCombo(BarndCombo, GetBrandsData(), "BrandName", "BrandId");
-
+            SetNumericUdDefaultValue(0,CountTxt);
+            SetNumericUdDefaultValue((long)AmountTxt.Minimum,AmountTxt);
             if (editMode)
             {
                 SetFormText(this, "ویرایش محصول");
@@ -224,6 +231,11 @@ namespace StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms
         public bool ValidateText(string text)
         {
             return _textValidator.ValidateText(text);
+        }
+
+        public void SetNumericUdDefaultValue(long defaultValue, params NumericUpDown[] numericUdCollection)
+        {
+            _numericUdDefaultValueSeter.SetNumericUdDefaultValue(defaultValue,numericUdCollection);
         }
     }
 }
