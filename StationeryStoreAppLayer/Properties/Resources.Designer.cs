@@ -173,6 +173,26 @@ namespace StationeryStoreAppLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_store_40 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-store-40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_store_45 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-store-45", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_update_product_60 {
             get {
                 object obj = ResourceManager.GetObject("icons8-update-product-60", resourceCulture);
