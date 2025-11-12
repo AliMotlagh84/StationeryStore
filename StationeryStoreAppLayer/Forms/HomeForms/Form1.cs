@@ -132,7 +132,7 @@ namespace StationeryStoreAppLayer
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            AllowProductsManagement(ProductsManageBtn, userInfo.IsAdmin);
+            AllowProductsManagement(StoreManageBtn, userInfo.IsAdmin);
             SetAdminLabel(AdminLbl, userInfo.UserName, userInfo.IsAdmin);
             SetIntrducingLabel(WelcomLbl, "به فروشگاه نوشت افزار خوش آمدید");
             SetIntrducingLabel(IntroducingLbl, " این یک  پروژه ی شخصی است که توسط علی مطلق نوشته شده است");

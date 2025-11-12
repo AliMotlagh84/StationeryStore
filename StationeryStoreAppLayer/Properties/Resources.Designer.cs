@@ -103,16 +103,6 @@ namespace StationeryStoreAppLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_admin_60 {
-            get {
-                object obj = ResourceManager.GetObject("icons8-admin-60", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap icons8_fast_cart_40 {
             get {
                 object obj = ResourceManager.GetObject("icons8-fast-cart-40", resourceCulture);
@@ -173,6 +163,16 @@ namespace StationeryStoreAppLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_store_45 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-store-45", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_update_product_60 {
             get {
                 object obj = ResourceManager.GetObject("icons8-update-product-60", resourceCulture);
@@ -186,16 +186,6 @@ namespace StationeryStoreAppLayer.Properties {
         internal static System.Drawing.Bitmap icons8_user_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-user-50", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_user_60 {
-            get {
-                object obj = ResourceManager.GetObject("icons8-user-60", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
