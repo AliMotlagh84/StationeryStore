@@ -301,7 +301,6 @@ namespace StationeryStoreAppLayer
         private void EditUserFormBtn_Click(object sender, EventArgs e)
         {
             OpenUserEditorForm(userInfo);
-            ResetApp();
         }
 
         public void ResetApp()

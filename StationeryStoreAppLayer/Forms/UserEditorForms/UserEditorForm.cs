@@ -1,5 +1,6 @@
 ﻿using StationaryStoreUtility.Validators.EmailValidator;
 using StationaryStoreUtility.Validators.textValidators;
+using StationeryStoreAppLayer.AppManagers.AppRestartors;
 using StationeryStoreAppLayer.PublicHelpers.DataBuilders.UserDataBuilder;
 using StationeryStoreAppLayer.PublicHelpers.DataEditors.UserDataEditors;
 using StationeryStoreAppLayer.PublicHelpers.TextBoxFillers;
@@ -20,7 +21,8 @@ namespace StationeryStoreAppLayer.Forms.UserEditorForms
         IUserEditorForm,
         ITextBoxFiller,
         ITextValidator,
-        IEmailValidator
+        IEmailValidator,
+        IAppRestartor
     {
         private UserTable userInfo;
         private ITextBoxFiller _textBoxFiller;
@@ -28,13 +30,14 @@ namespace StationeryStoreAppLayer.Forms.UserEditorForms
         private IUserDataBuilder _userDataBuilder;
         private ITextValidator _textValidator;
         private IEmailValidator _emailValidator;
+        private IAppRestartor _appRestartor;    
         public UserEditorForm(
             ITextBoxFiller textBoxFiller,
             IUserDataBuilder userDataBuilder,
             IUserDataEditor userDataEditor,
             ITextValidator textValidator,
-            IEmailValidator emailValidator
-            )
+            IEmailValidator emailValidator,
+            IAppRestartor appRestartor)
         {
             InitializeComponent();
             _textBoxFiller = textBoxFiller;
@@ -42,6 +45,8 @@ namespace StationeryStoreAppLayer.Forms.UserEditorForms
             _userDataBuilder = userDataBuilder;
             _textValidator = textValidator;
             _emailValidator = emailValidator;
+            _appRestartor = appRestartor;
+
         }
 
         UserTable IUserEditorForm.UserInfo { get => userInfo; set => userInfo = value; }
@@ -76,7 +81,7 @@ namespace StationeryStoreAppLayer.Forms.UserEditorForms
                     var newUserData = BuildUserData(userInfo.UserName, NewPasswordtxt.Text, userInfo.IsAdmin, NewEmaitxt.Text, userInfo.UserId);
                     EditUserData(newUserData);
                     MessageBox.Show("اطلاعات با موفقیت ویرایش شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    DialogResult = DialogResult.OK;
+                    ResetApp();
                 }
                 else
                 {
@@ -98,6 +103,11 @@ namespace StationeryStoreAppLayer.Forms.UserEditorForms
         public bool ValidateEmail(string email)
         {
             return _emailValidator.ValidateEmail(email);
+        }
+
+        public void ResetApp()
+        {
+            _appRestartor.ResetApp();
         }
     }
 }
