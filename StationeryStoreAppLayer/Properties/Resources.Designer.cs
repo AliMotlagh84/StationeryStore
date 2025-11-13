@@ -103,6 +103,16 @@ namespace StationeryStoreAppLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_add_tag_45 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-add-tag-45", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_admin_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-admin-50", resourceCulture);
@@ -153,6 +163,16 @@ namespace StationeryStoreAppLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_remove_tag_45 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-remove-tag-45", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_stationery_35 {
             get {
                 object obj = ResourceManager.GetObject("icons8-stationery-35", resourceCulture);
@@ -186,6 +206,16 @@ namespace StationeryStoreAppLayer.Properties {
         internal static System.Drawing.Bitmap icons8_update_product_60 {
             get {
                 object obj = ResourceManager.GetObject("icons8-update-product-60", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_update_tag_45 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-update-tag-45", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

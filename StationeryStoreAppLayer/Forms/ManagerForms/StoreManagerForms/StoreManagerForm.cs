@@ -1,4 +1,5 @@
-﻿using StationeryStoreAppLayer.Forms.StoreManagerForms.StoreMangerHelpers.FormOpeners;
+﻿using StationeryStoreAppLayer.Forms.ManagerForms.StoreManagerForms;
+using StationeryStoreAppLayer.Forms.ManagerForms.StoreManagerForms.StoreMangerHelpers.FormOpeners;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

@@ -1,4 +1,4 @@
-﻿using StationeryStoreAppLayer.Forms.StoreManagerForms;
+﻿using StationeryStoreAppLayer.Forms.ManagerForms.StoreManagerForms;
 using System;
 using System.Collections.Generic;
 using System.Linq;

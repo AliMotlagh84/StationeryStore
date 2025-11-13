@@ -13,19 +13,22 @@
     <Compile Update="Forms\LoginForms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\ManagerForms\BrandsManagerForm\BrandsManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\ProductAdderOrEditorForms\ProductAdderOrEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\ProductCountIncreaserForms\ProductCountIncreaserForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\ProductsManagerForms%28for Admin%29\ProductsManagerForm.cs">
+    <Compile Update="Forms\ManagerForms\ProductsManagerForms(for Admin)\ProductsManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\SignUpForms\SignUpForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\StoreManagerForms\StoreManagerForm.cs">
+    <Compile Update="Forms\ManagerForms\StoreManagerForms\StoreManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\UserEditorForms\UserEditorForm.cs">

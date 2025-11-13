@@ -15,6 +15,7 @@ using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.ProductManagemenAcc
 using StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.AdminCheckers;
 using StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.FormOpeners;
 using StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.UserValidators;
+using StationeryStoreAppLayer.Forms.ManagerForms.StoreManagerForms.StoreMangerHelpers.FormOpeners;
 using StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms;
 using StationeryStoreAppLayer.Forms.ProductCountIncreaserForms;
 using StationeryStoreAppLayer.Forms.ProductCountIncreaserForms.ProductCountIncreaserHelpers.ProductCountIncreaser;
@@ -29,7 +30,6 @@ using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.SignUpValidateHand
 using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.UniqeUserValidators;
 using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.UserBulider;
 using StationeryStoreAppLayer.Forms.StoreManagerForms;
-using StationeryStoreAppLayer.Forms.StoreManagerForms.StoreMangerHelpers.FormOpeners;
 using StationeryStoreAppLayer.Forms.UserEditorForms;
 using StationeryStoreAppLayer.LoginForms;
 using StationeryStoreAppLayer.PublicHelpers.ButtonTextSeters;
