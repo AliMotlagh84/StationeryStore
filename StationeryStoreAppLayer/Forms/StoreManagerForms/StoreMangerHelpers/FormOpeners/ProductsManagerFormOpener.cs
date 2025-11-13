@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.FormOpeners
+namespace StationeryStoreAppLayer.Forms.StoreManagerForms.StoreMangerHelpers.FormOpeners
 {
     public class ProductsManagerFormOpener<T> : IProductsManagerFormOpener where T : Form,IProductsManagerForm
     {

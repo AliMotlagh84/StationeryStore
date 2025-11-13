@@ -1,5 +1,4 @@
-﻿using StationeryStoreDataLayer.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.FormOpeners
 {
-    public interface IProductsManagerFormOpener
+    public interface IStoreManagerFormOpener
     {
-        void OpenProductsManagerForm(Form? senderFormToHide = null);
+        void OpenStoreManagerForm(Form senderForm);
     }
 }

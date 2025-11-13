@@ -76,6 +76,7 @@
             ProductManagementPB.SizeMode = PictureBoxSizeMode.StretchImage;
             ProductManagementPB.TabIndex = 1;
             ProductManagementPB.TabStop = false;
+            ProductManagementPB.Click += ProductManagementPB_Click;
             // 
             // BrandsManagementGB
             // 

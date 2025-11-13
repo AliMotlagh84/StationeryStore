@@ -17,6 +17,8 @@ using StationeryStoreAppLayer.AppManagers.AppRestartors;
 using StationeryStoreAppLayer.AppManagers.AppClosers;
 using StationeryStoreAppLayer.PublicHelpers.DataDeleter.UserDataDeleters;
 using StationeryStoreAppLayer.PublicHelpers.Deleters.UserDeleters;
+using StationeryStoreAppLayer.Forms.StoreManagerForms.StoreMangerHelpers.FormOpeners;
+using StationeryStoreAppLayer.Forms.StoreManagerForms;
 
 namespace StationeryStoreAppLayer
 {
@@ -38,7 +40,7 @@ namespace StationeryStoreAppLayer
         IUserEditorFormOpener,
         IAppRestartor,
         IUserDeleter,
-        IProductsManagerFormOpener
+        IStoreManagerFormOpener
     {
 
         private UserTable userInfo;
@@ -67,8 +69,7 @@ namespace StationeryStoreAppLayer
         private IUserEditorFormOpener _userEditorFormOpener;
         private IAppRestartor _appRestartor;
         private IUserDeleter _userDeleter;
-        private IProductsManagerFormOpener _productsManagerFormOpener;
-
+        private IStoreManagerFormOpener _storeMangerFormOpener;
 
         Form IHomeForm.SenderForm { get => senderForm; set => senderForm = value; }
         UserTable IHomeForm.UserInfo { get => userInfo; set => userInfo = value; }
@@ -97,7 +98,7 @@ namespace StationeryStoreAppLayer
             IUserEditorFormOpener userEditorFormOpener,
             IAppRestartor appRestartor,
             IUserDeleter userDeleter,
-            IProductsManagerFormOpener productsManagerFormOpener
+            IStoreManagerFormOpener storeMangerFormOpener
             )
         {
             InitializeComponent();
@@ -125,7 +126,7 @@ namespace StationeryStoreAppLayer
             _userEditorFormOpener = userEditorFormOpener;
             _appRestartor = appRestartor;
             _userDeleter = userDeleter;
-            _productsManagerFormOpener = productsManagerFormOpener;
+            _storeMangerFormOpener = storeMangerFormOpener;
 
         }
 
@@ -191,7 +192,7 @@ namespace StationeryStoreAppLayer
 
         private void ProductsManageBtn_Click(object sender, EventArgs e)
         {
-            OpenProductsManagerForm(this);
+            OpenStoreManagerForm(this);
         }
 
         public void ManageForm(Form form)
@@ -318,11 +319,6 @@ namespace StationeryStoreAppLayer
             }
         }
 
-        public void OpenProductsManagerForm(Form? senderForm = null)
-        {
-            _productsManagerFormOpener.OpenProductsManagerForm(senderForm);
-        }
-
         public void DeleteUser(object userId)
         {
             _userDeleter.DeleteUser(userId);
@@ -331,6 +327,11 @@ namespace StationeryStoreAppLayer
         public void DeleteUser(UserTable user)
         {
             _userDeleter.DeleteUser(user);
+        }
+
+        public void OpenStoreManagerForm(Form senderForm)
+        {
+            _storeMangerFormOpener.OpenStoreManagerForm(senderForm);    
         }
     }
 }
