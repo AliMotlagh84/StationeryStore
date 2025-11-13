@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace StationeryStoreAppLayer.Forms.ManagerForms.StoreManagerForms
 {
     public interface IStoreManagerForm : 
-        IProductsManagerFormOpener
+        IProductsManagerFormOpener,
+        IBrandsManagerFormOpener
     {
     }
 }

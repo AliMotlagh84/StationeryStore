@@ -15,10 +15,13 @@ namespace StationeryStoreAppLayer.Forms.StoreManagerForms
     public partial class StoreManagerForm : Form, IStoreManagerForm
     {
         private IProductsManagerFormOpener _productsManagerFormOpener;
-        public StoreManagerForm(IProductsManagerFormOpener productsManagerFormOpener)
+        private IBrandsManagerFormOpener _brandsManagerFormOpener;
+        public StoreManagerForm(IProductsManagerFormOpener productsManagerFormOpener,
+            IBrandsManagerFormOpener brandsManagerFormOpener)
         {
             InitializeComponent();
             _productsManagerFormOpener = productsManagerFormOpener;
+            _brandsManagerFormOpener = brandsManagerFormOpener;
         }
 
         public void OpenProductsManagerForm(Form? senderFormToHide = null)
@@ -34,6 +37,16 @@ namespace StationeryStoreAppLayer.Forms.StoreManagerForms
         private void ProductManagementPB_Click(object sender, EventArgs e)
         {
             OpenProductsManagerForm(this);
+        }
+
+        private void BrandsManagementPB_Click(object sender, EventArgs e)
+        {
+            OpneBrandsManagerForm(this);
+        }
+
+        public void OpneBrandsManagerForm(Form senderForm)
+        {
+            _brandsManagerFormOpener.OpneBrandsManagerForm(senderForm);
         }
     }
 }

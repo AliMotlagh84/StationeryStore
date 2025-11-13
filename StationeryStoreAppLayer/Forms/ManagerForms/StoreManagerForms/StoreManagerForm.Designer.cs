@@ -100,6 +100,7 @@
             BrandsManagementPB.SizeMode = PictureBoxSizeMode.StretchImage;
             BrandsManagementPB.TabIndex = 1;
             BrandsManagementPB.TabStop = false;
+            BrandsManagementPB.Click += BrandsManagementPB_Click;
             // 
             // UsersManagementGB
             // 

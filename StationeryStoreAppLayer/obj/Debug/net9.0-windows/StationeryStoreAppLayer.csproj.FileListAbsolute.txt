@@ -72,3 +72,4 @@ D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فرو�
 D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms.ProductAdderOrEditorForm.resources
 D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\StationeryStoreAppLayer.Forms.ProductCountIncreaserForms.ProductCountIncreaserForm.resources
 D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\StationeryStoreAppLayer.Forms.StoreManagerForms.StoreManagerForm.resources
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\StationeryStoreAppLayer.Forms.ManagerForms.BrandsManagerForm.BrandsManagerForm.resources
