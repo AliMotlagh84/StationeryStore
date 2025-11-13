@@ -73,6 +73,16 @@ namespace StationeryStoreAppLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _Pngtre_stationery_cartoon_on_outline_style_14608947 {
+            get {
+                object obj = ResourceManager.GetObject("_Pngtre_stationery cartoon on outline style_14608947", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_add_product_60 {
             get {
                 object obj = ResourceManager.GetObject("icons8-add-product-60", resourceCulture);
@@ -186,6 +196,56 @@ namespace StationeryStoreAppLayer.Properties {
         internal static System.Drawing.Bitmap icons8_user_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-user-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vecteezy_cartoon_shopping_cart_character_giving_peace_sign_63132966 {
+            get {
+                object obj = ResourceManager.GetObject("vecteezy_cartoon-shopping-cart-character-giving-peace-sign_63132966", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vecteezy_delivery_van_movement_on_gps_map_laptop_screen_background_7278339 {
+            get {
+                object obj = ResourceManager.GetObject("vecteezy_delivery-van-movement-on-gps-map-laptop-screen-background_7278339", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vecteezy_nice_boxes_stack_ {
+            get {
+                object obj = ResourceManager.GetObject("vecteezy_nice-boxes-stack_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vecteezy_position_vector_icon_16715695 {
+            get {
+                object obj = ResourceManager.GetObject("vecteezy_position-vector-icon_16715695", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap zahir_accounting_software_have_more_than_60_000_users {
+            get {
+                object obj = ResourceManager.GetObject("zahir-accounting-software-have-more-than-60.000-users", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
