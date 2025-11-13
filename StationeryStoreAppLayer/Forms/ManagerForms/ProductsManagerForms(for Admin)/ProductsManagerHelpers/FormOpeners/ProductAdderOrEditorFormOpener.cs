@@ -1,4 +1,4 @@
-﻿using StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms;
+﻿using StationeryStoreAppLayer.Forms.AdderOrEditorForms.ProductAdderOrEditorForms;
 using StationeryStoreDataLayer.Models;
 using System;
 using System.Collections.Generic;

@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            dataGridView1 = new DataGridView();
+            BrandsDg = new DataGridView();
             BrandId = new DataGridViewTextBoxColumn();
             BrandName = new DataGridViewTextBoxColumn();
             groupBox2 = new GroupBox();
+            BrandsSearchBtn = new Button();
+            textBox1 = new TextBox();
             BrandUpdateBtn = new Button();
             RefreshBtn = new Button();
             AddBrandBtn = new Button();
             DeleteBrandBtn = new Button();
-            textBox1 = new TextBox();
-            BrandsSearchBtn = new Button();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)BrandsDg).BeginInit();
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(dataGridView1);
+            groupBox1.Controls.Add(BrandsDg);
             groupBox1.Location = new Point(4, -2);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(185, 324);
@@ -54,21 +54,21 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "لیست برندها";
             // 
-            // dataGridView1
+            // BrandsDg
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.BackgroundColor = SystemColors.ActiveCaptionText;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { BrandId, BrandName });
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.GridColor = Color.Gray;
-            dataGridView1.Location = new Point(3, 23);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(179, 298);
-            dataGridView1.TabIndex = 0;
+            BrandsDg.AllowUserToAddRows = false;
+            BrandsDg.AllowUserToDeleteRows = false;
+            BrandsDg.BackgroundColor = SystemColors.ActiveCaptionText;
+            BrandsDg.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            BrandsDg.Columns.AddRange(new DataGridViewColumn[] { BrandId, BrandName });
+            BrandsDg.Dock = DockStyle.Fill;
+            BrandsDg.GridColor = Color.Gray;
+            BrandsDg.Location = new Point(3, 23);
+            BrandsDg.Name = "BrandsDg";
+            BrandsDg.ReadOnly = true;
+            BrandsDg.RowHeadersWidth = 51;
+            BrandsDg.Size = new Size(179, 298);
+            BrandsDg.TabIndex = 0;
             // 
             // BrandId
             // 
@@ -99,6 +99,26 @@
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "جستوجو در برند ها";
+            // 
+            // BrandsSearchBtn
+            // 
+            BrandsSearchBtn.BackColor = Color.Gray;
+            BrandsSearchBtn.FlatStyle = FlatStyle.Popup;
+            BrandsSearchBtn.ForeColor = Color.White;
+            BrandsSearchBtn.Location = new Point(44, 78);
+            BrandsSearchBtn.Name = "BrandsSearchBtn";
+            BrandsSearchBtn.Size = new Size(125, 36);
+            BrandsSearchBtn.TabIndex = 1;
+            BrandsSearchBtn.Text = "جستوجو";
+            BrandsSearchBtn.UseVisualStyleBackColor = false;
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = Color.White;
+            textBox1.Location = new Point(44, 36);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(125, 27);
+            textBox1.TabIndex = 0;
             // 
             // BrandUpdateBtn
             // 
@@ -155,26 +175,7 @@
             DeleteBrandBtn.Text = "حذف برند";
             DeleteBrandBtn.TextAlign = ContentAlignment.BottomCenter;
             DeleteBrandBtn.UseVisualStyleBackColor = false;
-            // 
-            // textBox1
-            // 
-            textBox1.BackColor = Color.White;
-            textBox1.Location = new Point(44, 36);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 0;
-            // 
-            // BrandsSearchBtn
-            // 
-            BrandsSearchBtn.BackColor = Color.Gray;
-            BrandsSearchBtn.FlatStyle = FlatStyle.Popup;
-            BrandsSearchBtn.ForeColor = Color.White;
-            BrandsSearchBtn.Location = new Point(44, 78);
-            BrandsSearchBtn.Name = "BrandsSearchBtn";
-            BrandsSearchBtn.Size = new Size(125, 36);
-            BrandsSearchBtn.TabIndex = 1;
-            BrandsSearchBtn.Text = "جستوجو";
-            BrandsSearchBtn.UseVisualStyleBackColor = false;
+            DeleteBrandBtn.Click += DeleteBrandBtn_Click;
             // 
             // BrandsManagerForm
             // 
@@ -195,7 +196,7 @@
             Text = "مدیریت برند ها";
             Load += BrandsManagerForm_Load;
             groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)BrandsDg).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ResumeLayout(false);
@@ -204,7 +205,7 @@
         #endregion
 
         private GroupBox groupBox1;
-        private DataGridView dataGridView1;
+        private DataGridView BrandsDg;
         private DataGridViewTextBoxColumn BrandId;
         private DataGridViewTextBoxColumn BrandName;
         private GroupBox groupBox2;

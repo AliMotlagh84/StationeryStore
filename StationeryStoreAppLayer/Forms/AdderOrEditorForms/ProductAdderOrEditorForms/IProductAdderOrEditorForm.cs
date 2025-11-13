@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms
+namespace StationeryStoreAppLayer.Forms.AdderOrEditorForms.ProductAdderOrEditorForms
 {
     public interface IProductAdderOrEditorForm:
         IProductDataBuilder,
