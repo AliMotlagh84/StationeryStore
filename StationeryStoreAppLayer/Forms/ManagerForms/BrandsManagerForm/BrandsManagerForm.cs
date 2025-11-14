@@ -1,6 +1,8 @@
 ﻿using StationeryStoreAppLayer.PublicHelpers.DataGeters.BrandsDataGeters;
 using StationeryStoreAppLayer.PublicHelpers.Deleters.BrandDeleters;
 using StationeryStoreAppLayer.PublicHelpers.DgFillers;
+using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
+using StationeryStoreAppLayer.PublicHelpers.Searchers.BrandsSearcher;
 using StationeryStoreDataLayer.Models;
 using System;
 using System.Collections.Generic;
@@ -16,20 +18,28 @@ namespace StationeryStoreAppLayer.Forms.ManagerForms.BrandsManagerForm
 {
     public partial class BrandsManagerForm : Form, IBrandManagerForm,
         IBrandDeleter,
-        IDgFiller
+        IBrandSearcher,
+        IDgFiller,
+        ITextBoxRestartor
     {
         private IBrandDataGeter _brandDataGeter;
         private IBrandDeleter _brandDeleter;
+        private IBrandSearcher _brandSearcher;
         private IDgFiller _dgFiller;
+        private ITextBoxRestartor _textBoxRestartor;
         public BrandsManagerForm(
             IBrandDataGeter brandDataGeter,
             IBrandDeleter brandDeleter,
-            IDgFiller dgFiller
+            IBrandSearcher brandSearcher,
+            IDgFiller dgFiller,
+            ITextBoxRestartor textBoxRestartor
             )
         {
             _brandDataGeter = brandDataGeter;
+            _brandSearcher = brandSearcher;
             _brandDeleter = brandDeleter;
             _dgFiller = dgFiller;
+            _textBoxRestartor = textBoxRestartor;
             InitializeComponent();
         }
 
@@ -74,6 +84,32 @@ namespace StationeryStoreAppLayer.Forms.ManagerForms.BrandsManagerForm
                 MessageBox.Show("برندی انتخاب نشده است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+        }
+
+        private void BrandsSearchBtn_Click(object sender, EventArgs e)
+        {
+            FillDg(BrandsDg, SearchInBrands(GetBrandsData(), null, txtBrandName.Text));
+        }
+
+        public List<BrandsTable> SearchInBrands(IEnumerable<BrandsTable> brands, int? brandId = null, string? brandName = null)
+        {
+            return _brandSearcher.SearchInBrands(brands, brandId, brandName);
+        }
+
+        public void RestartTextBox(params TextBox[] textBoxes)
+        {
+            _textBoxRestartor.RestartTextBox(textBoxes);
+        }
+
+        private void RefreshBtn_Click(object sender, EventArgs e)
+        {
+            RefreshForm();
+        }
+
+        void RefreshForm()
+        {
+            FillDg(BrandsDg, GetBrandsData());
+            RestartTextBox(txtBrandName);
         }
     }
 }

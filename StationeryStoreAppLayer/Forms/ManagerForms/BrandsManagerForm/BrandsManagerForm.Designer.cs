@@ -34,7 +34,7 @@
             BrandName = new DataGridViewTextBoxColumn();
             groupBox2 = new GroupBox();
             BrandsSearchBtn = new Button();
-            textBox1 = new TextBox();
+            txtBrandName = new TextBox();
             BrandUpdateBtn = new Button();
             RefreshBtn = new Button();
             AddBrandBtn = new Button();
@@ -92,7 +92,7 @@
             // groupBox2
             // 
             groupBox2.Controls.Add(BrandsSearchBtn);
-            groupBox2.Controls.Add(textBox1);
+            groupBox2.Controls.Add(txtBrandName);
             groupBox2.Location = new Point(195, -2);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(213, 139);
@@ -111,14 +111,15 @@
             BrandsSearchBtn.TabIndex = 1;
             BrandsSearchBtn.Text = "جستوجو";
             BrandsSearchBtn.UseVisualStyleBackColor = false;
+            BrandsSearchBtn.Click += BrandsSearchBtn_Click;
             // 
-            // textBox1
+            // txtBrandName
             // 
-            textBox1.BackColor = Color.White;
-            textBox1.Location = new Point(44, 36);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 0;
+            txtBrandName.BackColor = Color.White;
+            txtBrandName.Location = new Point(44, 36);
+            txtBrandName.Name = "txtBrandName";
+            txtBrandName.Size = new Size(125, 27);
+            txtBrandName.TabIndex = 0;
             // 
             // BrandUpdateBtn
             // 
@@ -147,6 +148,7 @@
             RefreshBtn.Text = "رفرش";
             RefreshBtn.TextAlign = ContentAlignment.BottomCenter;
             RefreshBtn.UseVisualStyleBackColor = false;
+            RefreshBtn.Click += RefreshBtn_Click;
             // 
             // AddBrandBtn
             // 
@@ -214,6 +216,6 @@
         private Button AddBrandBtn;
         private Button DeleteBrandBtn;
         private Button BrandsSearchBtn;
-        private TextBox textBox1;
+        private TextBox txtBrandName;
     }
 }
