@@ -134,6 +134,7 @@
             BrandUpdateBtn.Text = "تغییر نام برند";
             BrandUpdateBtn.TextAlign = ContentAlignment.BottomCenter;
             BrandUpdateBtn.UseVisualStyleBackColor = false;
+            BrandUpdateBtn.Click += BrandUpdateBtn_Click;
             // 
             // RefreshBtn
             // 
@@ -163,6 +164,7 @@
             AddBrandBtn.Text = "افزودن برند";
             AddBrandBtn.TextAlign = ContentAlignment.BottomCenter;
             AddBrandBtn.UseVisualStyleBackColor = false;
+            AddBrandBtn.Click += AddBrandBtn_Click;
             // 
             // DeleteBrandBtn
             // 

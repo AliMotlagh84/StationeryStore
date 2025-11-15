@@ -1,4 +1,6 @@
-﻿using StationeryStoreAppLayer.PublicHelpers.DataGeters.BrandsDataGeters;
+﻿using StationeryStoreAppLayer.Forms.ManagerForms.BrandsManagerForm.BrandManagerHelpers.FormOpeners;
+using StationeryStoreAppLayer.PublicHelpers.DataBuilders.BrandDataBuilders;
+using StationeryStoreAppLayer.PublicHelpers.DataGeters.BrandsDataGeters;
 using StationeryStoreAppLayer.PublicHelpers.Deleters.BrandDeleters;
 using StationeryStoreAppLayer.PublicHelpers.DgFillers;
 using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
@@ -19,28 +21,37 @@ namespace StationeryStoreAppLayer.Forms.ManagerForms.BrandsManagerForm
     public partial class BrandsManagerForm : Form, IBrandManagerForm,
         IBrandDeleter,
         IBrandSearcher,
+        IBrandDataBuilder,
         IDgFiller,
-        ITextBoxRestartor
+        ITextBoxRestartor,
+        IBrandAdderOrEditorFormOpener
     {
         private IBrandDataGeter _brandDataGeter;
+        private IBrandDataBuilder _brandDataBuilder;
         private IBrandDeleter _brandDeleter;
         private IBrandSearcher _brandSearcher;
         private IDgFiller _dgFiller;
         private ITextBoxRestartor _textBoxRestartor;
+        private IBrandAdderOrEditorFormOpener _brandAdderOrEditorFormOpener;
         public BrandsManagerForm(
             IBrandDataGeter brandDataGeter,
+            IBrandDataBuilder brandDataBuilder,
             IBrandDeleter brandDeleter,
             IBrandSearcher brandSearcher,
             IDgFiller dgFiller,
-            ITextBoxRestartor textBoxRestartor
+            ITextBoxRestartor textBoxRestartor,
+            IBrandAdderOrEditorFormOpener brandAdderOrEditorFormOpener
             )
         {
+            InitializeComponent();
             _brandDataGeter = brandDataGeter;
+            _brandDataBuilder = brandDataBuilder;
             _brandSearcher = brandSearcher;
             _brandDeleter = brandDeleter;
             _dgFiller = dgFiller;
             _textBoxRestartor = textBoxRestartor;
-            InitializeComponent();
+            _brandAdderOrEditorFormOpener = brandAdderOrEditorFormOpener;
+
         }
 
         public List<BrandsTable> GetBrandsData()
@@ -110,6 +121,46 @@ namespace StationeryStoreAppLayer.Forms.ManagerForms.BrandsManagerForm
         {
             FillDg(BrandsDg, GetBrandsData());
             RestartTextBox(txtBrandName);
+        }
+
+        public void OpenBrandAdderOrEditorForm(Form senderForm, BrandsTable brand, bool editMode)
+        {
+            _brandAdderOrEditorFormOpener.OpenBrandAdderOrEditorForm(senderForm, brand, editMode);
+        }
+
+        private void BrandUpdateBtn_Click(object sender, EventArgs e)
+        {
+            if (BrandsDg.CurrentRow != null)
+            {
+                var brandData = BuildBrandData((string)BrandsDg.CurrentRow.Cells[1].Value, (int)BrandsDg.CurrentRow.Cells[0].Value);
+                OpenBrandAdderOrEditorForm(this, brandData, true);
+                RefreshForm();
+            }
+            else
+            {
+                MessageBox.Show("برندی انتخاب نشده است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        public BrandsTable BuildBrandData(string brandName, int? BrandIdForEdit = null)
+        {
+            return _brandDataBuilder.BuildBrandData(brandName, BrandIdForEdit);
+        }
+
+        private void AddBrandBtn_Click(object sender, EventArgs e)
+        {
+            if (BrandsDg.CurrentRow != null)
+            {
+                var brandData = BuildBrandData((string)BrandsDg.CurrentRow.Cells[1].Value, (int)BrandsDg.CurrentRow.Cells[0].Value);
+                OpenBrandAdderOrEditorForm(this, brandData, false);
+                RefreshForm();
+            }
+            else
+            {
+                MessageBox.Show("برندی انتخاب نشده است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
     }
 }
