@@ -1,5 +1,6 @@
 ﻿using StationaryStoreUtility.Validators.textValidators;
 using StationeryStoreAppLayer.PublicHelpers.ButtonTextSeters;
+using StationeryStoreAppLayer.PublicHelpers.DataAdders.BrandDataAdders;
 using StationeryStoreAppLayer.PublicHelpers.DataBuilders.BrandDataBuilders;
 using StationeryStoreAppLayer.PublicHelpers.DataEditors.BrandDataEditor;
 using StationeryStoreAppLayer.PublicHelpers.Editors.BrandEditors;
@@ -22,6 +23,7 @@ namespace StationeryStoreAppLayer.Forms.AdderOrEditorForms.BrandAdderOrEditorFor
     public partial class BrandAdderOrEditorForm : Form, IBrandAdderOrEditorForm,
     IBrandDataBuilder,
     IBrandEditor,
+    IBrandDataAdder,
     ITextValidator,
     ITextBoxFiller,
     IButtonTextSeter,
@@ -36,6 +38,7 @@ namespace StationeryStoreAppLayer.Forms.AdderOrEditorForms.BrandAdderOrEditorFor
 
         private IBrandDataBuilder _brandDataBuilder;
         private IBrandEditor _brandEditor;
+        private IBrandDataAdder _brandDataAdder;
         private ITextValidator _textValidator;
         private ITextBoxFiller _textBoxFiller;
         private IButtonTextSeter _buttonSeter;
@@ -44,6 +47,7 @@ namespace StationeryStoreAppLayer.Forms.AdderOrEditorForms.BrandAdderOrEditorFor
 
         public BrandAdderOrEditorForm(IBrandDataBuilder brandDataBuilder,
             IBrandEditor brandEditor,
+            IBrandDataAdder brandDataAdder,
             ITextValidator textValidator,
             ITextBoxFiller textBoxFiller,
             IButtonTextSeter buttonSeter,
@@ -54,6 +58,7 @@ namespace StationeryStoreAppLayer.Forms.AdderOrEditorForms.BrandAdderOrEditorFor
             InitializeComponent();
             _brandDataBuilder = brandDataBuilder;
             _brandEditor = brandEditor;
+            _brandDataAdder = brandDataAdder;
             _textValidator = textValidator;
             _textBoxFiller = textBoxFiller;
             _buttonSeter = buttonSeter;
@@ -125,8 +130,8 @@ namespace StationeryStoreAppLayer.Forms.AdderOrEditorForms.BrandAdderOrEditorFor
                 }
                 else
                 {
-
-                    MessageBox.Show("برند با موفقیت به انبار اضافه شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    AddBrandData(BuildBrandData(txtBrandName.Text));
+                    MessageBox.Show("برند با موفقیت اضافه شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 DialogResult = DialogResult.OK;
             }
@@ -134,6 +139,11 @@ namespace StationeryStoreAppLayer.Forms.AdderOrEditorForms.BrandAdderOrEditorFor
             {
                 MessageBox.Show("لطفا نام برند را مشخص کنید", "هشدار", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        public void AddBrandData(BrandsTable brand)
+        {
+            _brandDataAdder.AddBrandData(brand);    
         }
     }
 }

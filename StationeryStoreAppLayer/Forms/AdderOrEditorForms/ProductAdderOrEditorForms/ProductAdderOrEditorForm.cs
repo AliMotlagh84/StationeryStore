@@ -174,10 +174,6 @@ namespace StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms
             _productEditor.EditProduct(product);
         }
 
-        public List<BrandsTable> GetBrandsComboData()
-        {
-            return _brandsComboDataGeter.GetBrandsComboData();
-        }
 
         public void FillCombo(ComboBox comboBox, object data, string displayMember, string ValueMember)
         {
@@ -237,6 +233,11 @@ namespace StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms
         public void SetNumericUdDefaultValue(long defaultValue, params NumericUpDown[] numericUdCollection)
         {
             _numericUdDefaultValueSeter.SetNumericUdDefaultValue(defaultValue,numericUdCollection);
+        }
+
+        public List<BrandsTable> GetBrandsComboData(List<BrandsTable> brandsData)
+        {
+            return _brandsComboDataGeter.GetBrandsComboData(brandsData);
         }
     }
 }

@@ -9,6 +9,6 @@ namespace StationeryStoreAppLayer.PublicHelpers.DataGeters.BrandsDataGeters
 {
     public interface IBrandsComboDataGeter
     {
-        List<BrandsTable> GetBrandsComboData();
+        List<BrandsTable> GetBrandsComboData(List<BrandsTable> brandsData);
     }
 }

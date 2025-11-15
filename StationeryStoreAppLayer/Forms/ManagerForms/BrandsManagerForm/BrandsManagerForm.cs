@@ -87,7 +87,7 @@ namespace StationeryStoreAppLayer.Forms.ManagerForms.BrandsManagerForm
                 if (MessageBox.Show($"از حذف {(string)BrandsDg.CurrentRow.Cells[1].Value} مطمئن هستید", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     DeleteBrand((int)BrandsDg.CurrentRow.Cells[0].Value);
-
+                    RefreshForm();
                 }
             }
             else

@@ -33,6 +33,7 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
         IProductDataBuilder,
         IProductSearcher,
         IProductDeleter,
+        IBrandDataGeter,
         IBrandsComboDataGeter,
         IDgFiller,
         INumericUdDefaultValueSeter,
@@ -55,6 +56,7 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
         private IProductsDataGeter _productDataGeter;
         private IProductDataBuilder _productDataBuilder;
         private IBrandsComboDataGeter _brandComboDataGeter;
+        private IBrandDataGeter _brandDataGeter;
         private IProductDeleter _productDeleter;
         private IProductSearcher _productSearcher;
         private INumericUdDefaultValueSeter _numericUdDefaultValueSeter;
@@ -69,6 +71,7 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
         public ProductsManagerForm(
             IProductsDataGeter productsDataGeter,
             IProductDataBuilder productDataBuilder,
+            IBrandDataGeter brandDataGeter,
             IBrandsComboDataGeter brandsComboDataGeter,
             IProductSearcher productSearcher,
             IDgFiller dgFiller,
@@ -92,6 +95,7 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
             _comboBoxFiller = comboBoxFiller;
             _boolComboFiller = boolComboFiller;
             _brandComboDataGeter = brandsComboDataGeter;
+            _brandDataGeter = brandDataGeter;
             _numericUdDefaultValueSeter = numericUdDefaultValueSeter;
             _productSearcher = productSearcher;
             _textBoxRestartors = textBoxRestartor;
@@ -119,11 +123,6 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
         {
             _dgFiller.FillDg(dg, data);
 
-        }
-
-        public List<BrandsTable> GetBrandsComboData()
-        {
-            return _brandComboDataGeter.GetBrandsComboData();
         }
 
         public List<ProductsTable> GetProductsData()
@@ -169,7 +168,7 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
         private void ProductsManagerForm_Load(object sender, EventArgs e)
         {
             SetNumericUdDefaultValue(0, MinAmounttxt, MaxAmountTxt);
-            FillCombo(BrandIdCombo, GetBrandsComboData(), "BrandName", "BrandId");
+            FillCombo(BrandIdCombo, GetBrandsComboData(GetBrandsData()), "BrandName", "BrandId");
             FillBoolCombo(AvailablityCombo, "همه", "موجود", "نا موجود");
             FillDg<ProductsTable>(DGPruducts, GetProductsData());
         }
@@ -190,6 +189,7 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
             RestartNumericUd(MinAmounttxt, MaxAmountTxt);
             RestartCombo(AvailablityCombo, BrandIdCombo);
             RestartMaskedTextBox(MinDatetxt, MaxDatetxt);
+            FillCombo(BrandIdCombo, GetBrandsComboData(GetBrandsData()), "BrandName", "BrandId");
             FillDg<ProductsTable>(DGPruducts, GetProductsData());
         }
 
@@ -265,6 +265,16 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
         public void OpenProductCountIncreaserForm(ProductsTable productInfo)
         {
             _productCountIncreaserFormOpener.OpenProductCountIncreaserForm(productInfo);
+        }
+
+        public List<BrandsTable> GetBrandsComboData(List<BrandsTable> brandsData)
+        {
+           return _brandComboDataGeter.GetBrandsComboData(brandsData);
+        }
+
+        public List<BrandsTable> GetBrandsData()
+        {
+            return _brandDataGeter.GetBrandsData();
         }
     }
 }

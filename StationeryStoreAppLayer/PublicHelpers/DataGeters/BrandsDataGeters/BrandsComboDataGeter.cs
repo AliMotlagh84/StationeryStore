@@ -9,23 +9,21 @@ namespace StationeryStoreAppLayer.PublicHelpers.DataGeters.BrandsDataGeters
 {
     public class BrandsComboDataGeter : IBrandsComboDataGeter
     {
-        private List<BrandsTable> _brandsComboData = new List<BrandsTable>();
-        private IBrandDataGeter _brandDataGeter;
-        public BrandsComboDataGeter(IBrandDataGeter brandDataGeter)
+
+        public List<BrandsTable> GetBrandsComboData(List<BrandsTable> brandsData)
         {
-            _brandDataGeter = brandDataGeter;
+            List<BrandsTable> _brandsComboData = new List<BrandsTable>();
             _brandsComboData.Add(
                  new BrandsTable()
-                 {
-                      BrandId = 0,
+                 { 
+                       BrandId = 0,
                       BrandName = "همه"
                  }
-                 );
-            _brandsComboData.AddRange(_brandDataGeter.GetBrandsData());
-        }
-        public List<BrandsTable> GetBrandsComboData()
-        {
+            );
+            _brandsComboData.AddRange(brandsData);
+
             return _brandsComboData;
         }
+
     }
 }

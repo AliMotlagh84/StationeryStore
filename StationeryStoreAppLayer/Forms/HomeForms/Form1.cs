@@ -145,13 +145,24 @@ namespace StationeryStoreAppLayer
             FillDg<ProductsTable>(DGPruducts, GetProductsData());
             FillDg<ProductsTable>(DGNewProducts, GetNewProductsData(7));
             FillDgOrders(DgOrders, GetOrdersData);
-            FillCombo(BarndIdCombo, GetBrandsComboData(), "BrandName", "BrandId");
-            FillCombo(NewBrandIdCombo, GetBrandsComboData(), "BrandName", "BrandId");
+            FillCombo(BarndIdCombo, GetBrandsComboData(GetBrandsData()), "BrandName", "BrandId");
+            FillCombo(NewBrandIdCombo, GetBrandsComboData(GetBrandsData()), "BrandName", "BrandId");
             FillBoolCombo(AvailablityCombo, "همه", "موجود", "ناموجود");
             FillBoolCombo(NewAvailblityCombo, "همه", "موجود", "ناموجود");
             ManageForm(this);
             CloseForm(senderForm);
             MessageBox.Show($"Hi {userInfo.UserName}  Your AdminiState is {userInfo.IsAdmin}");
+        }
+
+        private void RefreshForm()
+        {
+            FillDg<ProductsTable>(DGPruducts, GetProductsData());
+            FillDg<ProductsTable>(DGNewProducts, GetNewProductsData(7));
+            FillDgOrders(DgOrders, GetOrdersData);
+            FillCombo(BarndIdCombo, GetBrandsComboData(GetBrandsData()), "BrandName", "BrandId");
+            FillCombo(NewBrandIdCombo, GetBrandsComboData(GetBrandsData()), "BrandName", "BrandId");
+            FillBoolCombo(AvailablityCombo, "همه", "موجود", "ناموجود");
+            FillBoolCombo(NewAvailblityCombo, "همه", "موجود", "ناموجود");
         }
 
         private void WelcomeGB_Enter(object sender, EventArgs e)
@@ -192,6 +203,7 @@ namespace StationeryStoreAppLayer
         private void ProductsManageBtn_Click(object sender, EventArgs e)
         {
             OpenStoreManagerForm(this);
+            RefreshForm();
         }
 
         public void ManageForm(Form form)
@@ -249,10 +261,6 @@ namespace StationeryStoreAppLayer
             return _brandDataGeter.GetBrandsData();
         }
 
-        public List<BrandsTable> GetBrandsComboData()
-        {
-            return _brandsComboDataGeter.GetBrandsComboData();
-        }
 
         public void FillBoolCombo(ComboBox comboBox, string allDisplay, string trueDispaly, string falseDispaly)
         {
@@ -331,6 +339,11 @@ namespace StationeryStoreAppLayer
         public void OpenStoreManagerForm(Form senderForm)
         {
             _storeMangerFormOpener.OpenStoreManagerForm(senderForm);    
+        }
+
+        public List<BrandsTable> GetBrandsComboData(List<BrandsTable> brandsData)
+        {
+            return _brandsComboDataGeter.GetBrandsComboData(brandsData);
         }
     }
 }
