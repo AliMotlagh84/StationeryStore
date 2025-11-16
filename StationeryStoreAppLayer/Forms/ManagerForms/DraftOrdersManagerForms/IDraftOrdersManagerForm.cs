@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StationeryStoreAppLayer.Forms.ManagerForms.DraftOrdersManagerForms
 {
-    internal interface IDraftOrdersManagerForm
+    public interface IDraftOrdersManagerForm
     {
     }
 }

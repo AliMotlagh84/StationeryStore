@@ -9,7 +9,8 @@ namespace StationeryStoreAppLayer.Forms.ManagerForms.StoreManagerForms
 {
     public interface IStoreManagerForm : 
         IProductsManagerFormOpener,
-        IBrandsManagerFormOpener
+        IBrandsManagerFormOpener,
+        IDraftOrdersManagerFormOpener
     {
     }
 }

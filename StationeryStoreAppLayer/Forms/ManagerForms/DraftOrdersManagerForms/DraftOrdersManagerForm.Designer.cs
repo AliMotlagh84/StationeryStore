@@ -28,28 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DarftOrderSearchGB = new GroupBox();
-            groupBox1 = new GroupBox();
-            groupBox2 = new GroupBox();
-            DeleteDraftOrderBtn = new Button();
-            RefreshFrom = new Button();
+            label7 = new Label();
+            txtMinRequestedCount = new NumericUpDown();
+            txtUserName = new TextBox();
+            label6 = new Label();
+            SearchBtn = new Button();
+            label5 = new Label();
+            txtMaxRequestedCount = new NumericUpDown();
+            txtMaxAmount = new NumericUpDown();
+            txtMinAmount = new NumericUpDown();
+            label3 = new Label();
+            label4 = new Label();
+            MaxTotalAmountTxt = new NumericUpDown();
+            MinTotalAmounttxt = new NumericUpDown();
+            label2 = new Label();
+            label1 = new Label();
             BarndIdCombo = new ComboBox();
             BrandNameLbl = new Label();
             txtProductName = new TextBox();
             ProductNameLbl = new Label();
-            MaxAmountTxt = new NumericUpDown();
-            MinAmounttxt = new NumericUpDown();
-            label2 = new Label();
-            label1 = new Label();
-            numericUpDown1 = new NumericUpDown();
-            numericUpDown2 = new NumericUpDown();
-            label3 = new Label();
-            label4 = new Label();
-            numericUpDown3 = new NumericUpDown();
-            label5 = new Label();
-            textBox1 = new TextBox();
-            label6 = new Label();
-            dataGridView1 = new DataGridView();
+            groupBox1 = new GroupBox();
+            DraftOrdersDG = new DataGridView();
             DraftOrderId = new DataGridViewTextBoxColumn();
             UserId = new DataGridViewTextBoxColumn();
             UserName = new DataGridViewTextBoxColumn();
@@ -60,32 +62,37 @@
             RequestedCount = new DataGridViewTextBoxColumn();
             Amount = new DataGridViewTextBoxColumn();
             TotalAmount = new DataGridViewTextBoxColumn();
-            BrandUpdateBtn = new Button();
+            groupBox2 = new GroupBox();
+            RefreshBtn = new Button();
+            DeleteDraftOrderBtn = new Button();
             DarftOrderSearchGB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtMinRequestedCount).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtMaxRequestedCount).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtMaxAmount).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtMinAmount).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)MaxTotalAmountTxt).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)MinTotalAmounttxt).BeginInit();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)DraftOrdersDG).BeginInit();
             groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)MaxAmountTxt).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)MinAmounttxt).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // DarftOrderSearchGB
             // 
             DarftOrderSearchGB.BackColor = Color.FromArgb(0, 192, 192);
-            DarftOrderSearchGB.Controls.Add(BrandUpdateBtn);
-            DarftOrderSearchGB.Controls.Add(textBox1);
+            DarftOrderSearchGB.Controls.Add(label7);
+            DarftOrderSearchGB.Controls.Add(txtMinRequestedCount);
+            DarftOrderSearchGB.Controls.Add(txtUserName);
             DarftOrderSearchGB.Controls.Add(label6);
+            DarftOrderSearchGB.Controls.Add(SearchBtn);
             DarftOrderSearchGB.Controls.Add(label5);
-            DarftOrderSearchGB.Controls.Add(numericUpDown3);
-            DarftOrderSearchGB.Controls.Add(numericUpDown1);
-            DarftOrderSearchGB.Controls.Add(numericUpDown2);
+            DarftOrderSearchGB.Controls.Add(txtMaxRequestedCount);
+            DarftOrderSearchGB.Controls.Add(txtMaxAmount);
+            DarftOrderSearchGB.Controls.Add(txtMinAmount);
             DarftOrderSearchGB.Controls.Add(label3);
             DarftOrderSearchGB.Controls.Add(label4);
-            DarftOrderSearchGB.Controls.Add(MaxAmountTxt);
-            DarftOrderSearchGB.Controls.Add(MinAmounttxt);
+            DarftOrderSearchGB.Controls.Add(MaxTotalAmountTxt);
+            DarftOrderSearchGB.Controls.Add(MinTotalAmounttxt);
             DarftOrderSearchGB.Controls.Add(label2);
             DarftOrderSearchGB.Controls.Add(label1);
             DarftOrderSearchGB.Controls.Add(BarndIdCombo);
@@ -95,61 +102,157 @@
             DarftOrderSearchGB.ForeColor = Color.White;
             DarftOrderSearchGB.Location = new Point(0, 115);
             DarftOrderSearchGB.Name = "DarftOrderSearchGB";
-            DarftOrderSearchGB.Size = new Size(1034, 113);
+            DarftOrderSearchGB.Size = new Size(1161, 113);
             DarftOrderSearchGB.TabIndex = 0;
             DarftOrderSearchGB.TabStop = false;
             DarftOrderSearchGB.Text = "جستوجو در پیش سفارش ها";
             // 
-            // groupBox1
+            // label7
             // 
-            groupBox1.Controls.Add(dataGridView1);
-            groupBox1.Location = new Point(0, 224);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1034, 215);
-            groupBox1.TabIndex = 1;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "پیش سفارش ها";
+            label7.AutoSize = true;
+            label7.Location = new Point(798, 30);
+            label7.Name = "label7";
+            label7.Size = new Size(134, 20);
+            label7.TabIndex = 41;
+            label7.Text = "از تعداد درخواستی :";
             // 
-            // groupBox2
+            // txtMinRequestedCount
             // 
-            groupBox2.BackColor = Color.FromArgb(0, 192, 192);
-            groupBox2.Controls.Add(RefreshFrom);
-            groupBox2.Controls.Add(DeleteDraftOrderBtn);
-            groupBox2.Location = new Point(0, -6);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1034, 102);
-            groupBox2.TabIndex = 2;
-            groupBox2.TabStop = false;
+            txtMinRequestedCount.BackColor = Color.FromArgb(192, 255, 255);
+            txtMinRequestedCount.ForeColor = Color.FromArgb(0, 64, 64);
+            txtMinRequestedCount.Location = new Point(675, 29);
+            txtMinRequestedCount.Maximum = new decimal(new int[] { 1569325056, 23283064, 0, 0 });
+            txtMinRequestedCount.Name = "txtMinRequestedCount";
+            txtMinRequestedCount.Size = new Size(117, 27);
+            txtMinRequestedCount.TabIndex = 40;
             // 
-            // DeleteDraftOrderBtn
+            // txtUserName
             // 
-            DeleteDraftOrderBtn.BackColor = Color.FromArgb(255, 192, 192);
-            DeleteDraftOrderBtn.FlatStyle = FlatStyle.Popup;
-            DeleteDraftOrderBtn.ForeColor = Color.Maroon;
-            DeleteDraftOrderBtn.Image = Properties.Resources.icons8_delete_document_60;
-            DeleteDraftOrderBtn.ImageAlign = ContentAlignment.TopCenter;
-            DeleteDraftOrderBtn.Location = new Point(875, 16);
-            DeleteDraftOrderBtn.Name = "DeleteDraftOrderBtn";
-            DeleteDraftOrderBtn.Size = new Size(150, 79);
-            DeleteDraftOrderBtn.TabIndex = 4;
-            DeleteDraftOrderBtn.Text = "حذف پیش سفارش ";
-            DeleteDraftOrderBtn.TextAlign = ContentAlignment.BottomCenter;
-            DeleteDraftOrderBtn.UseVisualStyleBackColor = false;
+            txtUserName.BackColor = Color.FromArgb(192, 255, 255);
+            txtUserName.ForeColor = Color.FromArgb(0, 64, 64);
+            txtUserName.Location = new Point(27, 26);
+            txtUserName.Name = "txtUserName";
+            txtUserName.Size = new Size(117, 27);
+            txtUserName.TabIndex = 39;
             // 
-            // RefreshFrom
+            // label6
             // 
-            RefreshFrom.BackColor = Color.Thistle;
-            RefreshFrom.FlatStyle = FlatStyle.Popup;
-            RefreshFrom.ForeColor = Color.Indigo;
-            RefreshFrom.Image = Properties.Resources.icons8_refresh_60;
-            RefreshFrom.ImageAlign = ContentAlignment.TopCenter;
-            RefreshFrom.Location = new Point(715, 16);
-            RefreshFrom.Name = "RefreshFrom";
-            RefreshFrom.Size = new Size(143, 79);
-            RefreshFrom.TabIndex = 5;
-            RefreshFrom.Text = "رفرش کردن فرم";
-            RefreshFrom.TextAlign = ContentAlignment.BottomCenter;
-            RefreshFrom.UseVisualStyleBackColor = false;
+            label6.AutoSize = true;
+            label6.Location = new Point(151, 29);
+            label6.Name = "label6";
+            label6.Size = new Size(67, 20);
+            label6.TabIndex = 38;
+            label6.Text = "نام کاربر :";
+            // 
+            // SearchBtn
+            // 
+            SearchBtn.BackColor = Color.FromArgb(0, 64, 64);
+            SearchBtn.FlatStyle = FlatStyle.Popup;
+            SearchBtn.ForeColor = Color.White;
+            SearchBtn.ImageAlign = ContentAlignment.TopCenter;
+            SearchBtn.Location = new Point(27, 74);
+            SearchBtn.Name = "SearchBtn";
+            SearchBtn.Size = new Size(117, 28);
+            SearchBtn.TabIndex = 37;
+            SearchBtn.Text = "جستوجو";
+            SearchBtn.TextAlign = ContentAlignment.BottomCenter;
+            SearchBtn.UseVisualStyleBackColor = false;
+            SearchBtn.Click += SearchBtn_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(798, 75);
+            label5.Name = "label5";
+            label5.Size = new Size(137, 20);
+            label5.TabIndex = 34;
+            label5.Text = " تا تعداد درخواستی :";
+            // 
+            // txtMaxRequestedCount
+            // 
+            txtMaxRequestedCount.BackColor = Color.FromArgb(192, 255, 255);
+            txtMaxRequestedCount.ForeColor = Color.FromArgb(0, 64, 64);
+            txtMaxRequestedCount.Location = new Point(675, 74);
+            txtMaxRequestedCount.Maximum = new decimal(new int[] { 1569325056, 23283064, 0, 0 });
+            txtMaxRequestedCount.Name = "txtMaxRequestedCount";
+            txtMaxRequestedCount.Size = new Size(117, 27);
+            txtMaxRequestedCount.TabIndex = 33;
+            // 
+            // txtMaxAmount
+            // 
+            txtMaxAmount.BackColor = Color.FromArgb(192, 255, 255);
+            txtMaxAmount.ForeColor = Color.FromArgb(0, 64, 64);
+            txtMaxAmount.Location = new Point(229, 76);
+            txtMaxAmount.Maximum = new decimal(new int[] { 1569325056, 23283064, 0, 0 });
+            txtMaxAmount.Name = "txtMaxAmount";
+            txtMaxAmount.Size = new Size(117, 27);
+            txtMaxAmount.TabIndex = 32;
+            // 
+            // txtMinAmount
+            // 
+            txtMinAmount.BackColor = Color.FromArgb(192, 255, 255);
+            txtMinAmount.ForeColor = Color.FromArgb(0, 64, 64);
+            txtMinAmount.Location = new Point(228, 26);
+            txtMinAmount.Maximum = new decimal(new int[] { 1569325056, 23283064, 0, 0 });
+            txtMinAmount.Name = "txtMinAmount";
+            txtMinAmount.Size = new Size(117, 27);
+            txtMinAmount.TabIndex = 31;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(352, 78);
+            label3.Name = "label3";
+            label3.Size = new Size(65, 20);
+            label3.TabIndex = 30;
+            label3.Text = "تا قیمت :";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(354, 31);
+            label4.Name = "label4";
+            label4.Size = new Size(66, 20);
+            label4.TabIndex = 29;
+            label4.Text = "از قیمت :";
+            // 
+            // MaxTotalAmountTxt
+            // 
+            MaxTotalAmountTxt.BackColor = Color.FromArgb(192, 255, 255);
+            MaxTotalAmountTxt.ForeColor = Color.FromArgb(0, 64, 64);
+            MaxTotalAmountTxt.Location = new Point(427, 76);
+            MaxTotalAmountTxt.Maximum = new decimal(new int[] { 1569325056, 23283064, 0, 0 });
+            MaxTotalAmountTxt.Name = "MaxTotalAmountTxt";
+            MaxTotalAmountTxt.Size = new Size(117, 27);
+            MaxTotalAmountTxt.TabIndex = 28;
+            // 
+            // MinTotalAmounttxt
+            // 
+            MinTotalAmounttxt.BackColor = Color.FromArgb(192, 255, 255);
+            MinTotalAmounttxt.ForeColor = Color.FromArgb(0, 64, 64);
+            MinTotalAmounttxt.Location = new Point(426, 26);
+            MinTotalAmounttxt.Maximum = new decimal(new int[] { 1569325056, 23283064, 0, 0 });
+            MinTotalAmounttxt.Name = "MinTotalAmounttxt";
+            MinTotalAmounttxt.Size = new Size(117, 27);
+            MinTotalAmounttxt.TabIndex = 27;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(550, 77);
+            label2.Name = "label2";
+            label2.Size = new Size(113, 20);
+            label2.TabIndex = 26;
+            label2.Text = "تا مجموع قیمت :";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(552, 31);
+            label1.Name = "label1";
+            label1.Size = new Size(114, 20);
+            label1.TabIndex = 25;
+            label1.Text = "از مجموع قیمت :";
             // 
             // BarndIdCombo
             // 
@@ -157,7 +260,7 @@
             BarndIdCombo.DropDownStyle = ComboBoxStyle.DropDownList;
             BarndIdCombo.ForeColor = Color.FromArgb(0, 64, 64);
             BarndIdCombo.FormattingEnabled = true;
-            BarndIdCombo.Location = new Point(817, 74);
+            BarndIdCombo.Location = new Point(945, 74);
             BarndIdCombo.Name = "BarndIdCombo";
             BarndIdCombo.Size = new Size(117, 28);
             BarndIdCombo.TabIndex = 24;
@@ -165,7 +268,7 @@
             // BrandNameLbl
             // 
             BrandNameLbl.AutoSize = true;
-            BrandNameLbl.Location = new Point(940, 74);
+            BrandNameLbl.Location = new Point(1068, 74);
             BrandNameLbl.Name = "BrandNameLbl";
             BrandNameLbl.Size = new Size(61, 20);
             BrandNameLbl.TabIndex = 23;
@@ -175,7 +278,7 @@
             // 
             txtProductName.BackColor = Color.FromArgb(192, 255, 255);
             txtProductName.ForeColor = Color.FromArgb(0, 64, 64);
-            txtProductName.Location = new Point(816, 26);
+            txtProductName.Location = new Point(944, 26);
             txtProductName.Name = "txtProductName";
             txtProductName.Size = new Size(117, 27);
             txtProductName.TabIndex = 22;
@@ -183,141 +286,54 @@
             // ProductNameLbl
             // 
             ProductNameLbl.AutoSize = true;
-            ProductNameLbl.Location = new Point(940, 29);
+            ProductNameLbl.Location = new Point(1068, 29);
             ProductNameLbl.Name = "ProductNameLbl";
             ProductNameLbl.Size = new Size(89, 20);
             ProductNameLbl.TabIndex = 21;
             ProductNameLbl.Text = "نام محصول :";
             // 
-            // MaxAmountTxt
+            // groupBox1
             // 
-            MaxAmountTxt.BackColor = Color.FromArgb(192, 255, 255);
-            MaxAmountTxt.ForeColor = Color.FromArgb(0, 64, 64);
-            MaxAmountTxt.Location = new Point(321, 76);
-            MaxAmountTxt.Maximum = new decimal(new int[] { 1569325056, 23283064, 0, 0 });
-            MaxAmountTxt.Name = "MaxAmountTxt";
-            MaxAmountTxt.Size = new Size(117, 27);
-            MaxAmountTxt.TabIndex = 28;
+            groupBox1.Controls.Add(DraftOrdersDG);
+            groupBox1.Location = new Point(0, 224);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(1161, 215);
+            groupBox1.TabIndex = 1;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "پیش سفارش ها";
             // 
-            // MinAmounttxt
+            // DraftOrdersDG
             // 
-            MinAmounttxt.BackColor = Color.FromArgb(192, 255, 255);
-            MinAmounttxt.ForeColor = Color.FromArgb(0, 64, 64);
-            MinAmounttxt.Location = new Point(320, 26);
-            MinAmounttxt.Maximum = new decimal(new int[] { 1569325056, 23283064, 0, 0 });
-            MinAmounttxt.Name = "MinAmounttxt";
-            MinAmounttxt.Size = new Size(117, 27);
-            MinAmounttxt.TabIndex = 27;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(444, 77);
-            label2.Name = "label2";
-            label2.Size = new Size(113, 20);
-            label2.TabIndex = 26;
-            label2.Text = "تا مجموع قیمت :";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(446, 31);
-            label1.Name = "label1";
-            label1.Size = new Size(114, 20);
-            label1.TabIndex = 25;
-            label1.Text = "از مجموع قیمت :";
-            // 
-            // numericUpDown1
-            // 
-            numericUpDown1.BackColor = Color.FromArgb(192, 255, 255);
-            numericUpDown1.ForeColor = Color.FromArgb(0, 64, 64);
-            numericUpDown1.Location = new Point(123, 76);
-            numericUpDown1.Maximum = new decimal(new int[] { 1569325056, 23283064, 0, 0 });
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(117, 27);
-            numericUpDown1.TabIndex = 32;
-            // 
-            // numericUpDown2
-            // 
-            numericUpDown2.BackColor = Color.FromArgb(192, 255, 255);
-            numericUpDown2.ForeColor = Color.FromArgb(0, 64, 64);
-            numericUpDown2.Location = new Point(122, 26);
-            numericUpDown2.Maximum = new decimal(new int[] { 1569325056, 23283064, 0, 0 });
-            numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(117, 27);
-            numericUpDown2.TabIndex = 31;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(246, 78);
-            label3.Name = "label3";
-            label3.Size = new Size(65, 20);
-            label3.TabIndex = 30;
-            label3.Text = "تا قیمت :";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(248, 31);
-            label4.Name = "label4";
-            label4.Size = new Size(66, 20);
-            label4.TabIndex = 29;
-            label4.Text = "از قیمت :";
-            // 
-            // numericUpDown3
-            // 
-            numericUpDown3.BackColor = Color.FromArgb(192, 255, 255);
-            numericUpDown3.ForeColor = Color.FromArgb(0, 64, 64);
-            numericUpDown3.Location = new Point(569, 74);
-            numericUpDown3.Maximum = new decimal(new int[] { 1569325056, 23283064, 0, 0 });
-            numericUpDown3.Name = "numericUpDown3";
-            numericUpDown3.Size = new Size(117, 27);
-            numericUpDown3.TabIndex = 33;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(692, 75);
-            label5.Name = "label5";
-            label5.Size = new Size(120, 20);
-            label5.TabIndex = 34;
-            label5.Text = "تعداد درخواستی :";
-            // 
-            // textBox1
-            // 
-            textBox1.BackColor = Color.FromArgb(192, 255, 255);
-            textBox1.ForeColor = Color.FromArgb(0, 64, 64);
-            textBox1.Location = new Point(569, 27);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(117, 27);
-            textBox1.TabIndex = 36;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(693, 30);
-            label6.Name = "label6";
-            label6.Size = new Size(67, 20);
-            label6.TabIndex = 35;
-            label6.Text = "نام کاربر :";
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.BackgroundColor = Color.FromArgb(0, 192, 192);
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { DraftOrderId, UserId, UserName, ProductId, ProductName, BrandId, BrandName, RequestedCount, Amount, TotalAmount });
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.GridColor = Color.FromArgb(0, 64, 64);
-            dataGridView1.Location = new Point(3, 23);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1028, 189);
-            dataGridView1.TabIndex = 0;
+            DraftOrdersDG.AllowUserToAddRows = false;
+            DraftOrdersDG.AllowUserToDeleteRows = false;
+            DraftOrdersDG.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            DraftOrdersDG.BackgroundColor = Color.FromArgb(0, 192, 192);
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = SystemColors.Control;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            DraftOrdersDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            DraftOrdersDG.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DraftOrdersDG.Columns.AddRange(new DataGridViewColumn[] { DraftOrderId, UserId, UserName, ProductId, ProductName, BrandId, BrandName, RequestedCount, Amount, TotalAmount });
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            DraftOrdersDG.DefaultCellStyle = dataGridViewCellStyle6;
+            DraftOrdersDG.Dock = DockStyle.Fill;
+            DraftOrdersDG.GridColor = Color.FromArgb(0, 64, 64);
+            DraftOrdersDG.Location = new Point(3, 23);
+            DraftOrdersDG.Name = "DraftOrdersDG";
+            DraftOrdersDG.ReadOnly = true;
+            DraftOrdersDG.RowHeadersWidth = 51;
+            DraftOrdersDG.Size = new Size(1155, 189);
+            DraftOrdersDG.TabIndex = 0;
             // 
             // DraftOrderId
             // 
@@ -403,44 +419,75 @@
             TotalAmount.Name = "TotalAmount";
             TotalAmount.ReadOnly = true;
             // 
-            // BrandUpdateBtn
+            // groupBox2
             // 
-            BrandUpdateBtn.BackColor = Color.FromArgb(192, 255, 255);
-            BrandUpdateBtn.FlatStyle = FlatStyle.Popup;
-            BrandUpdateBtn.ForeColor = Color.Blue;
-            BrandUpdateBtn.Image = Properties.Resources.icons8_search_60;
-            BrandUpdateBtn.ImageAlign = ContentAlignment.TopCenter;
-            BrandUpdateBtn.Location = new Point(3, 23);
-            BrandUpdateBtn.Name = "BrandUpdateBtn";
-            BrandUpdateBtn.Size = new Size(102, 81);
-            BrandUpdateBtn.TabIndex = 37;
-            BrandUpdateBtn.Text = "تغییر نام برند";
-            BrandUpdateBtn.TextAlign = ContentAlignment.BottomCenter;
-            BrandUpdateBtn.UseVisualStyleBackColor = false;
+            groupBox2.BackColor = Color.FromArgb(0, 192, 192);
+            groupBox2.Controls.Add(RefreshBtn);
+            groupBox2.Controls.Add(DeleteDraftOrderBtn);
+            groupBox2.Location = new Point(0, -6);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(1161, 102);
+            groupBox2.TabIndex = 2;
+            groupBox2.TabStop = false;
+            // 
+            // RefreshBtn
+            // 
+            RefreshBtn.BackColor = Color.Thistle;
+            RefreshBtn.FlatStyle = FlatStyle.Popup;
+            RefreshBtn.ForeColor = Color.Indigo;
+            RefreshBtn.Image = Properties.Resources.icons8_refresh_60;
+            RefreshBtn.ImageAlign = ContentAlignment.TopCenter;
+            RefreshBtn.Location = new Point(833, 17);
+            RefreshBtn.Name = "RefreshBtn";
+            RefreshBtn.Size = new Size(155, 79);
+            RefreshBtn.TabIndex = 5;
+            RefreshBtn.Text = "رفرش کردن فرم";
+            RefreshBtn.TextAlign = ContentAlignment.BottomCenter;
+            RefreshBtn.UseVisualStyleBackColor = false;
+            RefreshBtn.Click += RefreshFrom_Click;
+            // 
+            // DeleteDraftOrderBtn
+            // 
+            DeleteDraftOrderBtn.BackColor = Color.FromArgb(255, 192, 192);
+            DeleteDraftOrderBtn.FlatStyle = FlatStyle.Popup;
+            DeleteDraftOrderBtn.ForeColor = Color.Maroon;
+            DeleteDraftOrderBtn.Image = Properties.Resources.icons8_delete_document_60;
+            DeleteDraftOrderBtn.ImageAlign = ContentAlignment.TopCenter;
+            DeleteDraftOrderBtn.Location = new Point(993, 17);
+            DeleteDraftOrderBtn.Name = "DeleteDraftOrderBtn";
+            DeleteDraftOrderBtn.Size = new Size(162, 79);
+            DeleteDraftOrderBtn.TabIndex = 4;
+            DeleteDraftOrderBtn.Text = "حذف پیش سفارش ";
+            DeleteDraftOrderBtn.TextAlign = ContentAlignment.BottomCenter;
+            DeleteDraftOrderBtn.UseVisualStyleBackColor = false;
+            DeleteDraftOrderBtn.Click += DeleteDraftOrderBtn_Click;
             // 
             // DraftOrdersManagerForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(192, 255, 255);
-            ClientSize = new Size(1033, 442);
+            ClientSize = new Size(1159, 442);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(DarftOrderSearchGB);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "DraftOrdersManagerForm";
             RightToLeft = RightToLeft.Yes;
+            StartPosition = FormStartPosition.CenterParent;
             Text = "مدیریت سبد خرید";
+            Load += DraftOrdersManagerForm_Load;
             DarftOrderSearchGB.ResumeLayout(false);
             DarftOrderSearchGB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)txtMinRequestedCount).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtMaxRequestedCount).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtMaxAmount).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtMinAmount).EndInit();
+            ((System.ComponentModel.ISupportInitialize)MaxTotalAmountTxt).EndInit();
+            ((System.ComponentModel.ISupportInitialize)MinTotalAmounttxt).EndInit();
             groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)DraftOrdersDG).EndInit();
             groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)MaxAmountTxt).EndInit();
-            ((System.ComponentModel.ISupportInitialize)MinAmounttxt).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -450,24 +497,22 @@
         private GroupBox groupBox1;
         private GroupBox groupBox2;
         private Button DeleteDraftOrderBtn;
-        private Button RefreshFrom;
+        private Button RefreshBtn;
         private ComboBox BarndIdCombo;
         private Label BrandNameLbl;
         private TextBox txtProductName;
         private Label ProductNameLbl;
-        private NumericUpDown numericUpDown1;
-        private NumericUpDown numericUpDown2;
+        private NumericUpDown txtMaxAmount;
+        private NumericUpDown txtMinAmount;
         private Label label3;
         private Label label4;
-        private NumericUpDown MaxAmountTxt;
-        private NumericUpDown MinAmounttxt;
+        private NumericUpDown MaxTotalAmountTxt;
+        private NumericUpDown MinTotalAmounttxt;
         private Label label2;
         private Label label1;
-        private TextBox textBox1;
-        private Label label6;
         private Label label5;
-        private NumericUpDown numericUpDown3;
-        private DataGridView dataGridView1;
+        private NumericUpDown txtMaxRequestedCount;
+        private DataGridView DraftOrdersDG;
         private DataGridViewTextBoxColumn DraftOrderId;
         private DataGridViewTextBoxColumn UserId;
         private DataGridViewTextBoxColumn UserName;
@@ -478,6 +523,10 @@
         private DataGridViewTextBoxColumn RequestedCount;
         private DataGridViewTextBoxColumn Amount;
         private DataGridViewTextBoxColumn TotalAmount;
-        private Button BrandUpdateBtn;
+        private Button SearchBtn;
+        private Label label7;
+        private NumericUpDown txtMinRequestedCount;
+        private TextBox txtUserName;
+        private Label label6;
     }
 }

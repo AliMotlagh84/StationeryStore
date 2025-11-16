@@ -16,12 +16,15 @@ namespace StationeryStoreAppLayer.Forms.StoreManagerForms
     {
         private IProductsManagerFormOpener _productsManagerFormOpener;
         private IBrandsManagerFormOpener _brandsManagerFormOpener;
+        private IDraftOrdersManagerFormOpener _draftOrdersManagerFormOpener;
         public StoreManagerForm(IProductsManagerFormOpener productsManagerFormOpener,
-            IBrandsManagerFormOpener brandsManagerFormOpener)
+            IBrandsManagerFormOpener brandsManagerFormOpener,
+            IDraftOrdersManagerFormOpener draftOrdersManagerFormOpener)
         {
             InitializeComponent();
             _productsManagerFormOpener = productsManagerFormOpener;
             _brandsManagerFormOpener = brandsManagerFormOpener;
+            _draftOrdersManagerFormOpener = draftOrdersManagerFormOpener;
         }
 
         public void OpenProductsManagerForm(Form? senderFormToHide = null)
@@ -47,6 +50,16 @@ namespace StationeryStoreAppLayer.Forms.StoreManagerForms
         public void OpneBrandsManagerForm(Form senderForm)
         {
             _brandsManagerFormOpener.OpneBrandsManagerForm(senderForm);
+        }
+
+        private void DraftOrdersManagementPB_Click(object sender, EventArgs e)
+        {
+            OpenDraftOrdersManagerForm(this);
+        }
+
+        public void OpenDraftOrdersManagerForm(Form senderForm)
+        {
+            _draftOrdersManagerFormOpener.OpenDraftOrdersManagerForm(senderForm);
         }
     }
 }

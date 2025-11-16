@@ -170,6 +170,7 @@
             DraftOrdersManagementPB.SizeMode = PictureBoxSizeMode.StretchImage;
             DraftOrdersManagementPB.TabIndex = 1;
             DraftOrdersManagementPB.TabStop = false;
+            DraftOrdersManagementPB.Click += DraftOrdersManagementPB_Click;
             // 
             // OrdersManagementGB
             // 
