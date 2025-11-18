@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StationeryStoreAppLayer.Forms.ManagerForms.UsersManagerForms
 {
-    internal interface IUsersManagerForm
+    public interface IUsersManagerForm
     {
     }
 }

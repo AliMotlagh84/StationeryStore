@@ -34,7 +34,7 @@ namespace StationeryStoreAppLayer.PublicHelpers.Searchers.BrandsSearcher
         public List<BrandsTable> SearchInBrands(IEnumerable<BrandsTable> brands, int? brandId=null, string? brandName=null)
         {
             var BrandIdFiltered = SearchInBarndsByBrandId(brands,brandId);
-            var Filtered = SearchInBrandsByBrandName(brands,brandName);
+            var Filtered = SearchInBrandsByBrandName(BrandIdFiltered,brandName);
             return Filtered.ToList();
         }
 

@@ -20,6 +20,7 @@ using StationeryStoreAppLayer.Forms.ManagerForms.BrandsManagerForm;
 using StationeryStoreAppLayer.Forms.ManagerForms.BrandsManagerForm.BrandManagerHelpers.FormOpeners;
 using StationeryStoreAppLayer.Forms.ManagerForms.DraftOrdersManagerForms;
 using StationeryStoreAppLayer.Forms.ManagerForms.StoreManagerForms.StoreMangerHelpers.FormOpeners;
+using StationeryStoreAppLayer.Forms.ManagerForms.UsersManagerForms;
 using StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms;
 using StationeryStoreAppLayer.Forms.ProductCountIncreaserForms;
 using StationeryStoreAppLayer.Forms.ProductCountIncreaserForms.ProductCountIncreaserHelpers.ProductCountIncreaser;
@@ -90,6 +91,12 @@ using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers.Availabli
 using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers.BrandSearchers;
 using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers.DateSearchers;
 using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers.NameSearchers;
+using StationeryStoreAppLayer.PublicHelpers.Searchers.UserSearchers;
+using StationeryStoreAppLayer.PublicHelpers.Searchers.UserSearchers.UserSearchersByAdminiSatate;
+using StationeryStoreAppLayer.PublicHelpers.Searchers.UserSearchers.UserSearchersByEmail;
+using StationeryStoreAppLayer.PublicHelpers.Searchers.UserSearchers.UserSearchersByPassword;
+using StationeryStoreAppLayer.PublicHelpers.Searchers.UserSearchers.UserSerachersByUserId;
+using StationeryStoreAppLayer.PublicHelpers.Searchers.UserSearchers.UserSerachersByUserName;
 using StationeryStoreAppLayer.PublicHelpers.TextBoxFillers;
 using System.Net.Http.Headers;
 
@@ -114,6 +121,7 @@ namespace StationeryStoreAppLayer
             IProductSearcher productSearcher = new ProductSearcher(new ProductNameSearcher(), new ProductBrandSearcher(), new ProductAmountSearcher(), new ProductDateSearcher(new PersianToMiladiDateConvertor()), new ProductAvailablitySearcher());
             IDraftOrderSearcher draftOrderSearcher = new DraftOrderSearcher(new DraftOrderSearcherByDraftOrderId(),new DraftOrderSearcherByUserId(),new DraftOrderSearcherByUserName(),new DraftOrderSearcherByBrandId(),new DraftOrderSearcherByBrandName(),new DraftOrderSearcherByProductId(),new DraftOrderSearcherByProductName(),new DraftOrderSearcherByProductAmount(),new DraftOrderSearcherByTotalAmount(),new DraftOrderSearcherByRequestedCount());
             IBrandSearcher brandSearcher = new BrandSearcher(new BrandSearcherByBrandName(),new BrandSearcherByBrandId());
+            IUserSeacher userSearcher = new UserSeacher(new UserSearcherByUserName(),new UserSearcherByUserId(),new UserSearcherByPassword(),new UserSearcherByEmail(),new UserSearcherByAdminiState());
             IProductDeleter productDeleter = new ProductDeleter(new ProductDataDeleter(),new DraftOrderDataGeter(),draftOrderSearcher,new DraftOrderDataDeleter());
             IUserDeleter userDeleter = new UserDeleter(new UserDataDeleter(),new DraftOrderDataGeter(),draftOrderSearcher,new DraftOrderDataDeleter());
             IBrandDeleter brandDeleter = new BrandDeleter(new BrandDataDeleter(),new ProductsDataGeter(),productSearcher,productDeleter,new DraftOrderDataGeter(),draftOrderSearcher,new DraftOrderDataDeleter());
@@ -125,7 +133,8 @@ namespace StationeryStoreAppLayer
             ProductsManagerForm productsManagerForm = new ProductsManagerForm(new ProductsDataGeter(),new ProductDataBuilder(),new BrandDataGeter(),new BrandsComboDataGeter(),productSearcher,new DgFiller(),new ComboBoxFiller(),new BoolComboFiller(),new NumericUdDefaultValueSeter(),new TextBoxRestartor(),new NumericUdRestartor(),new ComboRestartor(),new MaskedTextBoxRestartor(),new ProductAdderOrEditorFormOpener<ProductAdderOrEditorForm>(productAdderOrEditorForm),new ProductCountIncreaserFormOpener<ProductCountIncreaserForm>(productCountIncreaserForm),productDeleter);
             BrandsManagerForm brandsManagerForm = new BrandsManagerForm(new BrandDataGeter(),new BrandDataBuilder(),brandDeleter,brandSearcher,new DgFiller(),new TextBoxRestartor(),new BrandAdderOrEditorFormOpener<BrandAdderOrEditorForm>(brandAdderOrEditorForm));
             DraftOrdersManagerForm draftOrdersManagerForm = new DraftOrdersManagerForm(new DraftOrderDataGeter(),new DraftOrderDataBulider(),new DraftOrderDataDeleter(),draftOrderSearcher,new BrandDataGeter(),new BrandsComboDataGeter(),new NumericUdDefaultValueSeter(),new DgFiller(),new ComboBoxFiller(),new ComboRestartor(),new NumericUdRestartor(),new TextBoxRestartor());
-            StoreManagerForm storeManagerForm = new StoreManagerForm(new ProductsManagerFormOpener<ProductsManagerForm>(productsManagerForm),new BrandsManagerFormOpener<BrandsManagerForm>(brandsManagerForm),new DraftOrdersManagerFormOpener<DraftOrdersManagerForm>(draftOrdersManagerForm));
+            UsersManagerForm usersManagerForm = new UsersManagerForm(new UsersDataGeter(),userSearcher,new UserDataBuilder(),userDeleter,new TextBoxRestartor(),new DgFiller());            
+            StoreManagerForm storeManagerForm = new StoreManagerForm(new ProductsManagerFormOpener<ProductsManagerForm>(productsManagerForm),new BrandsManagerFormOpener<BrandsManagerForm>(brandsManagerForm),new DraftOrdersManagerFormOpener<DraftOrdersManagerForm>(draftOrdersManagerForm),new UserManagerFormOpener<UsersManagerForm>(usersManagerForm));
             Form1 homeForm = new Form1(new ProductManagementAccessController(), new TimeLabelSeter(), new DateLabelSeter(new MiladiToPersianDateConvertor()),new GroupBoxTextSeter(), new IntroducingLabelSeter(), new AdminLabelSeter(), new FormCloser(), new FormManager(), new DgFiller(), new DgOrdersFiller(), new ComboBoxFiller(),new BoolComboFiller(), new ProductsDataGeter(), new OrdersDataGeter(),new BrandDataGeter(), new BrandsComboDataGeter(), new NewProductsDataGeter(),new SingleProductDataGeter(), new NumericUdDefaultValueSeter(), productSearcher,new DraftOrderFormOpener<DraftOrderForm>(new DraftOrderForm(new ProductCountChecker(),new ProductDataEditor(),new ProductDataBuilder(),new DraftOrderDataBulider(),new DraftOrderDataAdder(),new NumericUdDefaultValueSeter())),new UserEditorFormOpener<UserEditorForm>(new UserEditorForm(new TextBoxFiller(),new UserDataBuilder(),new UserDataEditor(),new NullOrWhiteSpaceValidator(),new EmailValidator(),new AppRestartor())),new AppRestartor(), userDeleter, new StoreMangerFormOpener<StoreManagerForm>(storeManagerForm));
             Application.Run(new StationeryApplicationContext(new LoginUserValidator(), new HomeFormOpener<Form1>(homeForm), new SingleUserDataGeterByNameAndPassword(), new NullOrWhiteSpaceValidator(), new SignUpFormOpener<SignUpForm>(signUpForm), new TextBoxRestartor(), new FormManager()));
             

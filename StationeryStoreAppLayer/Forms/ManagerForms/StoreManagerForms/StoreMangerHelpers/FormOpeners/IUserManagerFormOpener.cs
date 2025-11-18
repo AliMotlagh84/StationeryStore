@@ -1,0 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace StationeryStoreAppLayer.Forms.ManagerForms.StoreManagerForms.StoreMangerHelpers.FormOpeners
+{
+    public interface IUserManagerFormOpener
+    {
+        void OpenUserManagerForm(Form senderForm);
+    }
+}

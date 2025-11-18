@@ -124,6 +124,7 @@
             UsersManagementPB.SizeMode = PictureBoxSizeMode.StretchImage;
             UsersManagementPB.TabIndex = 0;
             UsersManagementPB.TabStop = false;
+            UsersManagementPB.Click += UsersManagementPB_Click;
             // 
             // AdressesManagementGB
             // 
