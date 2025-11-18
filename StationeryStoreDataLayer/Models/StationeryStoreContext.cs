@@ -68,6 +68,11 @@ public partial class StationeryStoreContext : DbContext
 
             entity.Property(e => e.UserName).HasMaxLength(100);
 
+            entity.HasOne(d => d.Brand).WithMany(p => p.DraftOrdersTables)
+                .HasForeignKey(d => d.BrandId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_DraftOrdersTable_BrandsTable");
+
             entity.HasOne(d => d.Product).WithMany(p => p.DraftOrdersTables)
                 .HasForeignKey(d => d.ProductId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
@@ -87,11 +92,6 @@ public partial class StationeryStoreContext : DbContext
 
             entity.Property(e => e.Date).HasColumnType("datetime");
             entity.Property(e => e.UserName).HasMaxLength(100);
-
-            entity.HasOne(d => d.User).WithMany(p => p.OrdersTables)
-                .HasForeignKey(d => d.UserId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_OrdersTable_UserTable");
         });
 
         modelBuilder.Entity<ProductsTable>(entity =>

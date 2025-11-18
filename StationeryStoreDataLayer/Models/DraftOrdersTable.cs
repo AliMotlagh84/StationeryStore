@@ -25,6 +25,8 @@ public partial class DraftOrdersTable
 
     public long TotalAmount { get; set; }
 
+    public virtual BrandsTable Brand { get; set; } = null!;
+
     public virtual ProductsTable Product { get; set; } = null!;
 
     public virtual UserTable User { get; set; } = null!;

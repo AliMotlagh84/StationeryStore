@@ -17,5 +17,5 @@ public partial class OrdersTable
 
     public string OrderInfo { get; set; } = null!;
 
-    public virtual UserTable User { get; set; } = null!;
+    public bool IsDelivered { get; set; }
 }

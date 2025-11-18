@@ -18,6 +18,4 @@ public partial class UserTable
     public virtual ICollection<AdressTable> AdressTables { get; set; } = new List<AdressTable>();
 
     public virtual ICollection<DraftOrdersTable> DraftOrdersTables { get; set; } = new List<DraftOrdersTable>();
-
-    public virtual ICollection<OrdersTable> OrdersTables { get; set; } = new List<OrdersTable>();
 }
