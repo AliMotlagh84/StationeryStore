@@ -271,6 +271,7 @@
             RightToLeft = RightToLeft.Yes;
             StartPosition = FormStartPosition.CenterParent;
             Text = "سبد خرید";
+            Load += ShoppingCartForm_Load;
             groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)DraftOrdersDG).EndInit();
             ResumeLayout(false);

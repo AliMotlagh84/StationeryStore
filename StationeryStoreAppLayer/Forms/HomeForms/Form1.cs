@@ -39,7 +39,8 @@ namespace StationeryStoreAppLayer
         IUserEditorFormOpener,
         IAppRestartor,
         IUserDeleter,
-        IStoreManagerFormOpener
+        IStoreManagerFormOpener,
+        IShoppingCartFormOpener
     {
 
         private UserTable userInfo;
@@ -68,6 +69,7 @@ namespace StationeryStoreAppLayer
         private IUserEditorFormOpener _userEditorFormOpener;
         private IAppRestartor _appRestartor;
         private IUserDeleter _userDeleter;
+        private IShoppingCartFormOpener _shoppingCartFormOpeners;
         private IStoreManagerFormOpener _storeMangerFormOpener;
 
         Form IHomeForm.SenderForm { get => senderForm; set => senderForm = value; }
@@ -97,7 +99,8 @@ namespace StationeryStoreAppLayer
             IUserEditorFormOpener userEditorFormOpener,
             IAppRestartor appRestartor,
             IUserDeleter userDeleter,
-            IStoreManagerFormOpener storeMangerFormOpener
+            IStoreManagerFormOpener storeMangerFormOpener,
+            IShoppingCartFormOpener shoppingCartFormOpener
             )
         {
             InitializeComponent();
@@ -126,12 +129,13 @@ namespace StationeryStoreAppLayer
             _appRestartor = appRestartor;
             _userDeleter = userDeleter;
             _storeMangerFormOpener = storeMangerFormOpener;
+            _shoppingCartFormOpeners = shoppingCartFormOpener;
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
             AllowProductsManagement(StoreManageBtn, userInfo.IsAdmin);
             SetAdminLabel(AdminLbl, userInfo.UserName, userInfo.IsAdmin);
             SetIntrducingLabel(WelcomLbl, "به فروشگاه نوشت افزار خوش آمدید");
@@ -338,12 +342,22 @@ namespace StationeryStoreAppLayer
 
         public void OpenStoreManagerForm(Form senderForm)
         {
-            _storeMangerFormOpener.OpenStoreManagerForm(senderForm);    
+            _storeMangerFormOpener.OpenStoreManagerForm(senderForm);
         }
 
         public List<BrandsTable> GetBrandsComboData(List<BrandsTable> brandsData)
         {
             return _brandsComboDataGeter.GetBrandsComboData(brandsData);
+        }
+
+        private void ShoppingCartBtn_Click(object sender, EventArgs e)
+        {
+            OpenShoppingCartForm(this,userInfo);
+        }
+
+        public void OpenShoppingCartForm(Form senderForm, UserTable userInfo)
+        {
+            _shoppingCartFormOpeners.OpenShoppingCartForm(senderForm, userInfo);
         }
     }
 }

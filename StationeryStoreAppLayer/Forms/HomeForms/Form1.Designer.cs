@@ -189,6 +189,7 @@
             ShoppingCartBtn.Text = "سبد خرید";
             ShoppingCartBtn.TextAlign = ContentAlignment.BottomCenter;
             ShoppingCartBtn.TextImageRelation = TextImageRelation.ImageAboveText;
+            ShoppingCartBtn.Click += ShoppingCartBtn_Click;
             // 
             // StoreManageBtn
             // 
