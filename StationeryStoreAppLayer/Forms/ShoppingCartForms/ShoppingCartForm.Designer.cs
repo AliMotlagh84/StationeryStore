@@ -193,6 +193,7 @@
             DeleteDraftOrderBtn.Text = "حذف پیش سفارش ";
             DeleteDraftOrderBtn.TextAlign = ContentAlignment.BottomCenter;
             DeleteDraftOrderBtn.UseVisualStyleBackColor = false;
+            DeleteDraftOrderBtn.Click += DeleteDraftOrderBtn_Click;
             // 
             // DeleteAllDraftOrdersBtn
             // 
@@ -208,6 +209,7 @@
             DeleteAllDraftOrdersBtn.Text = "حذف همه پیش سفارش ";
             DeleteAllDraftOrdersBtn.TextAlign = ContentAlignment.BottomCenter;
             DeleteAllDraftOrdersBtn.UseVisualStyleBackColor = false;
+            DeleteAllDraftOrdersBtn.Click += DeleteAllDraftOrdersBtn_Click;
             // 
             // EditDraftOrderCountBtn
             // 
