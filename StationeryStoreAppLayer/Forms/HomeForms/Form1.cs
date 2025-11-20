@@ -131,7 +131,7 @@ namespace StationeryStoreAppLayer
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
             AllowProductsManagement(StoreManageBtn, userInfo.IsAdmin);
             SetAdminLabel(AdminLbl, userInfo.UserName, userInfo.IsAdmin);
             SetIntrducingLabel(WelcomLbl, "به فروشگاه نوشت افزار خوش آمدید");

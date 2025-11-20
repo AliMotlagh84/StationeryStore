@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.SignUpValidateHandlers.UserValidate
+namespace StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.SignUpValidateHandlers.UserSignUpValidateHandlers
 {
     public class UserSignUpValidateHandler : IUserSignUpValidateHandler,
         ITextValidator,
@@ -34,7 +34,7 @@ namespace StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.SignUpValidate
         {
             if (ValidateText(userName) && ValidateText(password))
             {
-                if (!ValidateText(email) || (ValidateText(email) && ValidateEmail(email)))
+                if (!ValidateText(email) || ValidateText(email) && ValidateEmail(email))
                 {
                     if (IsUserUniqe(userName, password, email))
                     {

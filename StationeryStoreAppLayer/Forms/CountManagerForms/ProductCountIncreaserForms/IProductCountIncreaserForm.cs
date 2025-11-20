@@ -1,4 +1,4 @@
-﻿using StationeryStoreAppLayer.Forms.ProductCountIncreaserForms.ProductCountIncreaserHelpers.ProductCountIncreaser;
+﻿using StationeryStoreAppLayer.Forms.CountManagerForms.ProductCountIncreaserForms.ProductCountIncreaserHelpers.ProductCountIncreaser;
 using StationeryStoreAppLayer.PublicHelpers.DataEditors.ProductDataEditors;
 using StationeryStoreDataLayer.Models;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.ProductCountIncreaserForms
+namespace StationeryStoreAppLayer.Forms.CountManagerForms.ProductCountIncreaserForms
 {
     public interface IProductCountIncreaserForm :
         IProductDataEditor,

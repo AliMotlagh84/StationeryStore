@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
-namespace StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.SignUpHandlers.AdminSignUpHandler
+namespace StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.SignUpValidateHandlers.AdminSignUpValidateHandlers
 {
     public class AdminSignUpValidateHandler : IAdminSignUpValidateHandler,
         ITextValidator,
@@ -48,7 +48,7 @@ namespace StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.SignUpHandlers
         {
             if (ValidateText(userName) && ValidateText(password) && ValidateText(adminiCode))
             {
-                if (!ValidateText(email) || (ValidateText(email) && ValidateEmail(email)))
+                if (!ValidateText(email) || ValidateText(email) && ValidateEmail(email))
                 {
 
                     if (IsUserUniqe(userName, password, email))

@@ -1,4 +1,5 @@
-﻿using StationeryStoreAppLayer.Forms.ProductCountIncreaserForms.ProductCountIncreaserHelpers.ProductCountIncreaser;
+﻿using StationeryStoreAppLayer.Forms.CountManagerForms.ProductCountIncreaserForms;
+using StationeryStoreAppLayer.Forms.CountManagerForms.ProductCountIncreaserForms.ProductCountIncreaserHelpers.ProductCountIncreaser;
 using StationeryStoreAppLayer.PublicHelpers.DataEditors.ProductDataEditors;
 using StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters;
 using StationeryStoreDataLayer.Models;

@@ -1,7 +1,6 @@
 ﻿using StationaryStoreUtility.Validators.textValidators;
 using StationeryStoreDataLayer.Models;
 using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.AdminiCodeValidator;
-using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.AdminModeChanger;
 using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.UniqeUserValidators;
 using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.UserBulider;
 using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
@@ -16,10 +15,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using StationaryStoreUtility.Validators.EmailValidator;
-using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.SignUpHandlers.AdminSignUpHandler;
-using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.SignUpValidateHandlers.UserValidate;
 using StationeryStoreAppLayer.PublicHelpers.DataAdders.UserDataAdders;
 using StationeryStoreAppLayer.PublicHelpers.DataBuilders.UserDataBuilder;
+using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.AdminModeChanger;
+using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.SignUpValidateHandlers.AdminSignUpValidateHandlers;
+using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.SignUpValidateHandlers.UserSignUpValidateHandlers;
 
 namespace StationeryStoreAppLayer.Forms.SignUpForms
 {

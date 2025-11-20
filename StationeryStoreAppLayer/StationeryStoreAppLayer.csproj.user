@@ -28,10 +28,13 @@
     <Compile Update="Forms\ManagerForms\UsersManagerForms\UsersManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\ProductCountIncreaserForms\ProductCountIncreaserForm.cs">
+    <Compile Update="Forms\CountManagerForms\ProductCountIncreaserForms\ProductCountIncreaserForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\ManagerForms\ProductsManagerForms(for Admin)\ProductsManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ShoppingCartForms\ShoppingCartForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\SignUpForms\SignUpForm.cs">
