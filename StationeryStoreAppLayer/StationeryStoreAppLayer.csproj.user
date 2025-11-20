@@ -7,6 +7,9 @@
     <Compile Update="Forms\AdderOrEditorForms\BrandAdderOrEditorForm\BrandAdderOrEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\CountManagerForms\DraftOrderRequestedCountEditor\DraftOrderRequestedCountEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\DraftOrderForms\DraftOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
