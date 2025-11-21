@@ -225,6 +225,7 @@
             EditDraftOrderCountBtn.Text = "ویرایش تعداد محصول";
             EditDraftOrderCountBtn.TextAlign = ContentAlignment.BottomCenter;
             EditDraftOrderCountBtn.UseVisualStyleBackColor = false;
+            EditDraftOrderCountBtn.Click += EditDraftOrderCountBtn_Click;
             // 
             // OrderSenderForm
             // 

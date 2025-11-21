@@ -1,4 +1,9 @@
-﻿using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreAppLayer.PublicHelpers.DataBuilders.DraftOrderDataBuilders;
+using StationeryStoreAppLayer.PublicHelpers.DataDeleter.DraftOrderDataDeleters;
+using StationeryStoreAppLayer.PublicHelpers.DataEditors.DraftOrderDataEditors;
+using StationeryStoreAppLayer.PublicHelpers.Editors.DraftOrderEditors;
+using StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters;
+using StationeryStoreDataLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,20 +16,54 @@ using System.Windows.Forms;
 
 namespace StationeryStoreAppLayer.Forms.CountManagerForms.DraftOrderRequestedCountEditor
 {
-    public partial class DraftOrderRequestedCountEditor : Form,IDraftOrderRequestedCountEditor
+    public partial class DraftOrderRequestedCountEditor : Form, IDraftOrderRequestedCountEditor,
+        IDraftOrderDataBuilder,
+        IDraftOrderEditor,
+        INumericUdDefaultValueSeter
     {
-        DraftOrdersTable draftOrdersInfo {  get; set; }
+
+        private IDraftOrderDataBuilder _draftOrderDataBuilder;
+        private IDraftOrderEditor _draftOrderEditor;
+        private INumericUdDefaultValueSeter _numericUdDefaultValueSeter;
+        DraftOrdersTable draftOrdersInfo { get; set; }
         DraftOrdersTable IDraftOrderRequestedCountEditor.DraftOrderInfo { get => draftOrdersInfo; set => draftOrdersInfo = value; }
 
-        public DraftOrderRequestedCountEditor()
+        public DraftOrderRequestedCountEditor(IDraftOrderDataBuilder draftOrderDataBuilder,
+            IDraftOrderEditor draftOrderEditor,
+            INumericUdDefaultValueSeter umericUdDefaultValueSeter)
         {
             InitializeComponent();
+            _draftOrderDataBuilder = draftOrderDataBuilder;
+            _draftOrderEditor = draftOrderEditor;
+            _numericUdDefaultValueSeter = umericUdDefaultValueSeter;
         }
-
 
         private void DraftOrderRequestedCountEditor_Load(object sender, EventArgs e)
         {
+            SetNumericUdDefaultValue(1, txtRequestedCount);
+        }
 
+        public DraftOrdersTable BuildDraftOrderData(int userId, string userName, int productId, string productName, int brandId, string brandName, long productAmount, int requestedCount, int? DraftOrderIdForEdit = null)
+        {
+            return _draftOrderDataBuilder.BuildDraftOrderData(userId, userName, productId, productName, brandId, brandName, productAmount, requestedCount, DraftOrderIdForEdit);
+        }
+
+        public void SetNumericUdDefaultValue(long defaultValue, params NumericUpDown[] numericUdCollection)
+        {
+            _numericUdDefaultValueSeter.SetNumericUdDefaultValue(defaultValue, numericUdCollection);
+        }
+
+        public void EditDraftOrder(DraftOrdersTable draftOrder, int oldRequestedCount)
+        {
+            _draftOrderEditor.EditDraftOrder(draftOrder, oldRequestedCount);
+        }
+
+        private void EditDraftOrderRequestedCountBtn_Click(object sender, EventArgs e)
+        {
+            var newDrfatOrder = BuildDraftOrderData(draftOrdersInfo.UserId, draftOrdersInfo.UserName,draftOrdersInfo.ProductId, draftOrdersInfo.ProductName, draftOrdersInfo.BrandId, draftOrdersInfo.BrandName, draftOrdersInfo.Amount,(int)txtRequestedCount.Value,draftOrdersInfo.DraftOrderId);
+            EditDraftOrder(newDrfatOrder,draftOrdersInfo.RequestedCount);
+            MessageBox.Show("تعداد درخواستی با موفقیت ویرایش شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DialogResult = DialogResult.OK;
         }
     }
 }

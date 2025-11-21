@@ -1,4 +1,6 @@
-﻿using StationeryStoreAppLayer.PublicHelpers.DataBuilders.DraftOrderDataBuilders;
+﻿using StationeryStoreAppLayer.Forms.CountManagerForms.DraftOrderRequestedCountEditor;
+using StationeryStoreAppLayer.Forms.ShoppingCartForms.SoppingCartHelpers.FormOpeners;
+using StationeryStoreAppLayer.PublicHelpers.DataBuilders.DraftOrderDataBuilders;
 using StationeryStoreAppLayer.PublicHelpers.DataDeleter.DraftOrderDataDeleters;
 using StationeryStoreAppLayer.PublicHelpers.DataGeters.DraftOrderDataGeters;
 using StationeryStoreAppLayer.PublicHelpers.DgFillers;
@@ -20,7 +22,8 @@ namespace StationeryStoreAppLayer.Forms.ShoppingCartForms
     IDraftOrderSearcher,
     IDraftOrderDataBuilder,
     IDraftOrderDataDeleter,
-    IDgFiller
+    IDgFiller,
+    IDraftOrderRequestedCountEditorFormOpener
 
 
     {
@@ -29,13 +32,14 @@ namespace StationeryStoreAppLayer.Forms.ShoppingCartForms
         private IDraftOrderDataDeleter _draftOrderDataDeleter;
         private IDraftOrderDataBuilder _draftOrderDataBuilder;
         private IDgFiller _dgFiller;
-
+        private IDraftOrderRequestedCountEditorFormOpener _draftOrderRequestedCountEditorFormOpener;
         public ShoppingCartForm(
             IDraftOrderDataGeter draftOrderDataGeter,
             IDraftOrderSearcher draftOrderSearcher,
             IDraftOrderDataDeleter draftOrderDataDeleter,
             IDraftOrderDataBuilder draftOrderDataBuilder,
-            IDgFiller dgFiller
+            IDgFiller dgFiller,
+            IDraftOrderRequestedCountEditorFormOpener draftOrderRequestedCountEditorFormOpener
             )
         {
             InitializeComponent();
@@ -44,6 +48,7 @@ namespace StationeryStoreAppLayer.Forms.ShoppingCartForms
             _draftOrderDataDeleter = draftOrderDataDeleter;
             _draftOrderDataBuilder = draftOrderDataBuilder;
             _dgFiller = dgFiller;
+            _draftOrderRequestedCountEditorFormOpener = draftOrderRequestedCountEditorFormOpener;
         }
 
         UserTable userInfo { get; set; }
@@ -119,6 +124,27 @@ namespace StationeryStoreAppLayer.Forms.ShoppingCartForms
                     }
                     RefreshForm();
                 }
+            }
+            else
+            {
+                MessageBox.Show("پیش سفارسی وجود ندارد", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void OpenDraftOrderRequestedCountEditor(DraftOrdersTable draftOrderInfo)
+        {
+            _draftOrderRequestedCountEditorFormOpener.OpenDraftOrderRequestedCountEditor(draftOrderInfo);
+        }
+
+        private void EditDraftOrderCountBtn_Click(object sender, EventArgs e)
+        {
+            if (DraftOrdersDG.CurrentRow != null)
+            {
+
+                var DgCurrentRowCells = DraftOrdersDG.CurrentRow.Cells;
+                var draftOrderInfo = BuildDraftOrderData((int)DgCurrentRowCells[1].Value, (string)DgCurrentRowCells[2].Value, (int)DgCurrentRowCells[3].Value, (string)DgCurrentRowCells[4].Value, (int)DgCurrentRowCells[5].Value, (string)DgCurrentRowCells[6].Value, (long)DgCurrentRowCells[8].Value, (int)DgCurrentRowCells[7].Value, (int)DgCurrentRowCells[0].Value);
+                OpenDraftOrderRequestedCountEditor(draftOrderInfo);
+                RefreshForm();
             }
             else
             {

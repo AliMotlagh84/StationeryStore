@@ -28,18 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
             label1 = new Label();
             EditDraftOrderRequestedCountBtn = new Button();
+            txtRequestedCount = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)txtRequestedCount).BeginInit();
             SuspendLayout();
-            // 
-            // textBox1
-            // 
-            textBox1.BackColor = Color.Yellow;
-            textBox1.Location = new Point(93, 60);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(174, 27);
-            textBox1.TabIndex = 0;
             // 
             // label1
             // 
@@ -60,6 +53,17 @@
             EditDraftOrderRequestedCountBtn.TabIndex = 2;
             EditDraftOrderRequestedCountBtn.Text = "ویرایش";
             EditDraftOrderRequestedCountBtn.UseVisualStyleBackColor = false;
+            EditDraftOrderRequestedCountBtn.Click += EditDraftOrderRequestedCountBtn_Click;
+            // 
+            // txtRequestedCount
+            // 
+            txtRequestedCount.BackColor = Color.Yellow;
+            txtRequestedCount.Location = new Point(97, 59);
+            txtRequestedCount.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            txtRequestedCount.Name = "txtRequestedCount";
+            txtRequestedCount.Size = new Size(169, 27);
+            txtRequestedCount.TabIndex = 3;
+            txtRequestedCount.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // DraftOrderRequestedCountEditor
             // 
@@ -67,23 +71,23 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 255, 192);
             ClientSize = new Size(373, 147);
+            Controls.Add(txtRequestedCount);
             Controls.Add(EditDraftOrderRequestedCountBtn);
             Controls.Add(label1);
-            Controls.Add(textBox1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "DraftOrderRequestedCountEditor";
             RightToLeft = RightToLeft.Yes;
             StartPosition = FormStartPosition.CenterParent;
             Text = "ویرایش تعداد درخواستی";
             Load += DraftOrderRequestedCountEditor_Load;
+            ((System.ComponentModel.ISupportInitialize)txtRequestedCount).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private TextBox textBox1;
         private Label label1;
         private Button EditDraftOrderRequestedCountBtn;
+        private NumericUpDown txtRequestedCount;
     }
 }

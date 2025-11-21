@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StationeryStoreAppLayer.Forms.CountManagerForms.DraftOrderRequestedCountEditor
 {
-    internal interface IDraftOrderRequestedCountEditor
+    public interface IDraftOrderRequestedCountEditor
     {
         DraftOrdersTable DraftOrderInfo { get; set; }
     }

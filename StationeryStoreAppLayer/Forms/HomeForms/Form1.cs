@@ -353,6 +353,7 @@ namespace StationeryStoreAppLayer
         private void ShoppingCartBtn_Click(object sender, EventArgs e)
         {
             OpenShoppingCartForm(this,userInfo);
+            RefreshForm();
         }
 
         public void OpenShoppingCartForm(Form senderForm, UserTable userInfo)
