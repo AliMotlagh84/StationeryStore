@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.PublicHelpers.DataEditors.ProductDataEditors
+namespace StationeryStoreAppLayer.PublicHelpers.DataGeters.ProductGeters
 {
     public class ProductDataGeterById : IProductDataGeterById
     {

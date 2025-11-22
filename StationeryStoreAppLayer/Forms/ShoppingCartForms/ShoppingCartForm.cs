@@ -3,6 +3,7 @@ using StationeryStoreAppLayer.Forms.ShoppingCartForms.SoppingCartHelpers.FormOpe
 using StationeryStoreAppLayer.PublicHelpers.DataBuilders.DraftOrderDataBuilders;
 using StationeryStoreAppLayer.PublicHelpers.DataDeleter.DraftOrderDataDeleters;
 using StationeryStoreAppLayer.PublicHelpers.DataGeters.DraftOrderDataGeters;
+using StationeryStoreAppLayer.PublicHelpers.Deleters.DraftOrderDeleters;
 using StationeryStoreAppLayer.PublicHelpers.DgFillers;
 using StationeryStoreAppLayer.PublicHelpers.Searchers.DraftOrderSearchers;
 using StationeryStoreDataLayer.Models;
@@ -21,7 +22,7 @@ namespace StationeryStoreAppLayer.Forms.ShoppingCartForms
     public partial class ShoppingCartForm : Form, IShoppingCartForm,
     IDraftOrderSearcher,
     IDraftOrderDataBuilder,
-    IDraftOrderDataDeleter,
+    IDraftOrderDeleter,
     IDgFiller,
     IDraftOrderRequestedCountEditorFormOpener
 
@@ -29,14 +30,14 @@ namespace StationeryStoreAppLayer.Forms.ShoppingCartForms
     {
         private IDraftOrderDataGeter _draftOrderDataGeter;
         private IDraftOrderSearcher _draftOrderSearcher;
-        private IDraftOrderDataDeleter _draftOrderDataDeleter;
+        private IDraftOrderDeleter _draftOrderDeleter;
         private IDraftOrderDataBuilder _draftOrderDataBuilder;
         private IDgFiller _dgFiller;
         private IDraftOrderRequestedCountEditorFormOpener _draftOrderRequestedCountEditorFormOpener;
         public ShoppingCartForm(
             IDraftOrderDataGeter draftOrderDataGeter,
             IDraftOrderSearcher draftOrderSearcher,
-            IDraftOrderDataDeleter draftOrderDataDeleter,
+            IDraftOrderDeleter draftOrderDeleter,
             IDraftOrderDataBuilder draftOrderDataBuilder,
             IDgFiller dgFiller,
             IDraftOrderRequestedCountEditorFormOpener draftOrderRequestedCountEditorFormOpener
@@ -45,7 +46,7 @@ namespace StationeryStoreAppLayer.Forms.ShoppingCartForms
             InitializeComponent();
             _draftOrderDataGeter = draftOrderDataGeter;
             _draftOrderSearcher = draftOrderSearcher;
-            _draftOrderDataDeleter = draftOrderDataDeleter;
+            _draftOrderDeleter = draftOrderDeleter;
             _draftOrderDataBuilder = draftOrderDataBuilder;
             _dgFiller = dgFiller;
             _draftOrderRequestedCountEditorFormOpener = draftOrderRequestedCountEditorFormOpener;
@@ -57,16 +58,6 @@ namespace StationeryStoreAppLayer.Forms.ShoppingCartForms
         public DraftOrdersTable BuildDraftOrderData(int userId, string userName, int productId, string productName, int brandId, string brandName, long productAmount, int requestedCount, int? DraftOrderIdForEdit = null)
         {
             return _draftOrderDataBuilder.BuildDraftOrderData(userId, userName, productId, productName, brandId, brandName, productAmount, requestedCount, DraftOrderIdForEdit);
-        }
-
-        public void DeleteDraftOrderData(int darftOrderId)
-        {
-            _draftOrderDataDeleter.DeleteDraftOrderData(darftOrderId);
-        }
-
-        public void DeleteDraftOrderData(DraftOrdersTable draftOrder)
-        {
-            _draftOrderDataDeleter.DeleteDraftOrderData(draftOrder);
         }
 
         public void FillDg<T>(DataGridView dg, List<T> data)
@@ -96,7 +87,7 @@ namespace StationeryStoreAppLayer.Forms.ShoppingCartForms
                 if (MessageBox.Show($"از حذف این پیش سفارش مطمئن هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     var currentRowCells = DraftOrdersDG.CurrentRow.Cells;
-                    DeleteDraftOrderData(BuildDraftOrderData((int)currentRowCells[1].Value, (string)currentRowCells[2].Value, (int)currentRowCells[3].Value, (string)currentRowCells[4].Value, (int)currentRowCells[5].Value, (string)currentRowCells[6].Value, (long)currentRowCells[8].Value, (int)currentRowCells[7].Value, (int)currentRowCells[0].Value));
+                    DeleteDrfatOrder(BuildDraftOrderData((int)currentRowCells[1].Value, (string)currentRowCells[2].Value, (int)currentRowCells[3].Value, (string)currentRowCells[4].Value, (int)currentRowCells[5].Value, (string)currentRowCells[6].Value, (long)currentRowCells[8].Value, (int)currentRowCells[7].Value, (int)currentRowCells[0].Value));
                     RefreshForm();
                 }
             }
@@ -120,7 +111,7 @@ namespace StationeryStoreAppLayer.Forms.ShoppingCartForms
                     var drfatOrders = SearchInDraftOrders(GetDraftOrderData(), null, userInfo.UserId);
                     foreach (var draftOrder in drfatOrders)
                     {
-                        DeleteDraftOrderData(draftOrder);
+                        DeleteDrfatOrder(draftOrder);
                     }
                     RefreshForm();
                 }
@@ -150,6 +141,17 @@ namespace StationeryStoreAppLayer.Forms.ShoppingCartForms
             {
                 MessageBox.Show("پیش سفارسی وجود ندارد", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        public void DeleteDrfatOrder(DraftOrdersTable draftOrder)
+        {
+            _draftOrderDeleter.DeleteDrfatOrder(draftOrder);
+        }
+
+        public void DeleteDrfatOrder(object draftOrderId)
+        {
+            _draftOrderDeleter.DeleteDrfatOrder(draftOrderId);
+
         }
     }
 }
