@@ -24,7 +24,8 @@ namespace StationeryStoreAppLayer.Forms.ShoppingCartForms
     IDraftOrderDataBuilder,
     IDraftOrderDeleter,
     IDgFiller,
-    IDraftOrderRequestedCountEditorFormOpener
+    IDraftOrderRequestedCountEditorFormOpener,
+    IAdressFormOpener
 
 
     {
@@ -38,13 +39,15 @@ namespace StationeryStoreAppLayer.Forms.ShoppingCartForms
         private IDraftOrderDataBuilder _draftOrderDataBuilder;
         private IDgFiller _dgFiller;
         private IDraftOrderRequestedCountEditorFormOpener _draftOrderRequestedCountEditorFormOpener;
+        private IAdressFormOpener _adressFormOpener;
         public ShoppingCartForm(
             IDraftOrderDataGeter draftOrderDataGeter,
             IDraftOrderSearcher draftOrderSearcher,
             IDraftOrderDeleter draftOrderDeleter,
             IDraftOrderDataBuilder draftOrderDataBuilder,
             IDgFiller dgFiller,
-            IDraftOrderRequestedCountEditorFormOpener draftOrderRequestedCountEditorFormOpener
+            IDraftOrderRequestedCountEditorFormOpener draftOrderRequestedCountEditorFormOpener,
+            IAdressFormOpener adressFormOpener
             )
         {
             InitializeComponent();
@@ -54,6 +57,7 @@ namespace StationeryStoreAppLayer.Forms.ShoppingCartForms
             _draftOrderDataBuilder = draftOrderDataBuilder;
             _dgFiller = dgFiller;
             _draftOrderRequestedCountEditorFormOpener = draftOrderRequestedCountEditorFormOpener;
+            _adressFormOpener = adressFormOpener;
         }
 
         public DraftOrdersTable BuildDraftOrderData(int userId, string userName, int productId, string productName, int brandId, string brandName, long productAmount, int requestedCount, int? DraftOrderIdForEdit = null)
@@ -153,6 +157,16 @@ namespace StationeryStoreAppLayer.Forms.ShoppingCartForms
         {
             _draftOrderDeleter.DeleteDrfatOrder(draftOrderId);
 
+        }
+
+        public void OpenAdressForm(Form senderForm, UserTable userInfo)
+        {
+            _adressFormOpener.OpenAdressForm(senderForm, userInfo);
+        }
+
+        private void AdressFormBtn_Click(object sender, EventArgs e)
+        {
+            OpenAdressForm(this,userInfo);
         }
     }
 }

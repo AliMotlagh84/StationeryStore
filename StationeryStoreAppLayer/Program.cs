@@ -6,6 +6,7 @@ using StationeryStoreAppLayer.AppManagers.ApplicationContexts;
 using StationeryStoreAppLayer.AppManagers.AppRestartors;
 using StationeryStoreAppLayer.AppManagers.FormManagers;
 using StationeryStoreAppLayer.Forms.AdderOrEditorForms.BrandAdderOrEditorForm;
+using StationeryStoreAppLayer.Forms.AdressForms;
 using StationeryStoreAppLayer.Forms.CountManagerForms.DraftOrderRequestedCountEditor;
 using StationeryStoreAppLayer.Forms.CountManagerForms.ProductCountIncreaserForms.ProductCountIncreaserHelpers.ProductCountIncreaser;
 using StationeryStoreAppLayer.Forms.DraftOrderForms;
@@ -145,7 +146,8 @@ namespace StationeryStoreAppLayer
             UsersManagerForm usersManagerForm = new UsersManagerForm(new UsersDataGeter(),userSearcher,new UserDataBuilder(),userDeleter,new TextBoxRestartor(),new DgFiller());            
             StoreManagerForm storeManagerForm = new StoreManagerForm(new ProductsManagerFormOpener<ProductsManagerForm>(productsManagerForm),new BrandsManagerFormOpener<BrandsManagerForm>(brandsManagerForm),new DraftOrdersManagerFormOpener<DraftOrdersManagerForm>(draftOrdersManagerForm),new UserManagerFormOpener<UsersManagerForm>(usersManagerForm));
             DraftOrderRequestedCountEditor draftOrderRequestedCountEditor = new DraftOrderRequestedCountEditor(new DraftOrderDataBulider(),draftOrderEditor,new NumericUdDefaultValueSeter());
-            ShoppingCartForm shoppingCartForm = new ShoppingCartForm(new DraftOrderDataGeter(), draftOrderSearcher,draftOrderDeleter,new DraftOrderDataBulider(),new DgFiller(),new DraftOrderRequestedCountEditorFormOpener<DraftOrderRequestedCountEditor>(draftOrderRequestedCountEditor));
+            AdressForm adressForm = new AdressForm();
+            ShoppingCartForm shoppingCartForm = new ShoppingCartForm(new DraftOrderDataGeter(), draftOrderSearcher,draftOrderDeleter,new DraftOrderDataBulider(),new DgFiller(),new DraftOrderRequestedCountEditorFormOpener<DraftOrderRequestedCountEditor>(draftOrderRequestedCountEditor),new AdressFormOpener<AdressForm>(adressForm));
             Form1 homeForm = new Form1(new ProductManagementAccessController(), new TimeLabelSeter(), new DateLabelSeter(new MiladiToPersianDateConvertor()),new GroupBoxTextSeter(), new IntroducingLabelSeter(), new AdminLabelSeter(), new FormCloser(), new FormManager(), new DgFiller(), new DgOrdersFillerByDeliveryState(new MiladiToPersianDateConvertor()), new ComboBoxFiller(),new BoolComboFiller(), new ProductsDataGeter(), new OrdersDataGeter(),new BrandDataGeter(), new BrandsComboDataGeter(), new NewProductsDataGeter(),new SingleProductDataGeter(), new NumericUdDefaultValueSeter(), productSearcher,new DraftOrderFormOpener<DraftOrderForm>(new DraftOrderForm(new ProductCountChecker(),new ProductDataEditor(),new ProductDataBuilder(),new DraftOrderDataBulider(),new DraftOrderDataAdder(),new NumericUdDefaultValueSeter())),new UserEditorFormOpener<UserEditorForm>(new UserEditorForm(new TextBoxFiller(),new UserDataBuilder(),new UserDataEditor(),new NullOrWhiteSpaceValidator(),new EmailValidator(),new AppRestartor())),new AppRestartor(), userDeleter, new StoreMangerFormOpener<StoreManagerForm>(storeManagerForm),new ShoppingCartFormOpener<ShoppingCartForm>(shoppingCartForm));
             Application.Run(new StationeryApplicationContext(new LoginUserValidator(), new HomeFormOpener<Form1>(homeForm), new SingleUserDataGeterByNameAndPassword(), new NullOrWhiteSpaceValidator(), new SignUpFormOpener<SignUpForm>(signUpForm), new TextBoxRestartor(), new FormManager()));
             
