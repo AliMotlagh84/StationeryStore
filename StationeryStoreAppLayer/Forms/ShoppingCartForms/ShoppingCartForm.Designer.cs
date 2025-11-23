@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             groupBox1 = new GroupBox();
             DraftOrdersDG = new DataGridView();
             DraftOrderId = new DataGridViewTextBoxColumn();
@@ -67,24 +67,24 @@
             DraftOrdersDG.AllowUserToDeleteRows = false;
             DraftOrdersDG.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DraftOrdersDG.BackgroundColor = Color.FromArgb(255, 128, 0);
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            DraftOrdersDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            DraftOrdersDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             DraftOrdersDG.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DraftOrdersDG.Columns.AddRange(new DataGridViewColumn[] { DraftOrderId, UserId, UserName, ProductId, ProductName, BrandId, BrandName, RequestedCount, Amount, TotalAmount });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            DraftOrdersDG.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            DraftOrdersDG.DefaultCellStyle = dataGridViewCellStyle4;
             DraftOrdersDG.Dock = DockStyle.Fill;
             DraftOrdersDG.GridColor = Color.FromArgb(192, 64, 0);
             DraftOrdersDG.Location = new Point(3, 23);
@@ -200,7 +200,7 @@
             DeleteAllDraftOrdersBtn.BackColor = Color.Silver;
             DeleteAllDraftOrdersBtn.FlatStyle = FlatStyle.Popup;
             DeleteAllDraftOrdersBtn.ForeColor = Color.Black;
-            DeleteAllDraftOrdersBtn.Image = Properties.Resources.icons8_delete_document_60;
+            DeleteAllDraftOrdersBtn.Image = Properties.Resources.icons8_trash_65;
             DeleteAllDraftOrdersBtn.ImageAlign = ContentAlignment.TopCenter;
             DeleteAllDraftOrdersBtn.Location = new Point(438, 409);
             DeleteAllDraftOrdersBtn.Name = "DeleteAllDraftOrdersBtn";
@@ -213,10 +213,10 @@
             // 
             // EditDraftOrderCountBtn
             // 
-            EditDraftOrderCountBtn.BackColor = Color.Aquamarine;
+            EditDraftOrderCountBtn.BackColor = Color.FromArgb(255, 255, 192);
             EditDraftOrderCountBtn.FlatStyle = FlatStyle.Popup;
-            EditDraftOrderCountBtn.ForeColor = Color.FromArgb(0, 0, 192);
-            EditDraftOrderCountBtn.Image = Properties.Resources.icons8_add_properties_60;
+            EditDraftOrderCountBtn.ForeColor = Color.Goldenrod;
+            EditDraftOrderCountBtn.Image = Properties.Resources.icons8_circled_3_60;
             EditDraftOrderCountBtn.ImageAlign = ContentAlignment.TopCenter;
             EditDraftOrderCountBtn.Location = new Point(231, 409);
             EditDraftOrderCountBtn.Name = "EditDraftOrderCountBtn";
@@ -232,7 +232,7 @@
             OrderSenderForm.BackColor = Color.FromArgb(192, 255, 192);
             OrderSenderForm.FlatStyle = FlatStyle.Popup;
             OrderSenderForm.ForeColor = Color.DarkGreen;
-            OrderSenderForm.Image = Properties.Resources.icons8_update_product_60;
+            OrderSenderForm.Image = Properties.Resources.icons8_send_file_55;
             OrderSenderForm.ImageAlign = ContentAlignment.TopCenter;
             OrderSenderForm.Location = new Point(676, 4);
             OrderSenderForm.Name = "OrderSenderForm";
@@ -244,10 +244,10 @@
             // 
             // OrdersFormOpener
             // 
-            OrdersFormOpener.BackColor = Color.FromArgb(192, 255, 192);
+            OrdersFormOpener.BackColor = Color.LightSkyBlue;
             OrdersFormOpener.FlatStyle = FlatStyle.Popup;
-            OrdersFormOpener.ForeColor = Color.DarkGreen;
-            OrdersFormOpener.Image = Properties.Resources.icons8_update_product_60;
+            OrdersFormOpener.ForeColor = Color.Teal;
+            OrdersFormOpener.Image = Properties.Resources.icons8_to_do_list_60;
             OrdersFormOpener.ImageAlign = ContentAlignment.TopCenter;
             OrdersFormOpener.Location = new Point(498, 4);
             OrdersFormOpener.Name = "OrdersFormOpener";
