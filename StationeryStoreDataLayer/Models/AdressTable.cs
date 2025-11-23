@@ -19,7 +19,7 @@ public partial class AdressTable
 
     public string HouseNumber { get; set; } = null!;
 
-    public int PostalCode { get; set; }
+    public long PostalCode { get; set; }
 
     public virtual UserTable User { get; set; } = null!;
 }

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             groupBox1 = new GroupBox();
-            dataGridView1 = new DataGridView();
+            AdressDG = new DataGridView();
             DeleteAdressBtn = new Button();
             UpdateAdressBtn = new Button();
             AddNewAdressBtn = new Button();
@@ -44,12 +44,12 @@
             HouseNumber = new DataGridViewTextBoxColumn();
             PostalCode = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AdressDG).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(dataGridView1);
+            groupBox1.Controls.Add(AdressDG);
             groupBox1.Location = new Point(2, -1);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(685, 282);
@@ -57,38 +57,38 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "آدرس های شما";
             // 
-            // dataGridView1
+            // AdressDG
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.BackgroundColor = Color.Purple;
-            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = SystemColors.Control;
-            dataGridViewCellStyle13.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle13.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { AdressId, UserId, UserName, City, Street, Alley, HouseNumber, PostalCode });
-            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = SystemColors.Window;
-            dataGridViewCellStyle14.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle14.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle14;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.GridColor = Color.FromArgb(64, 0, 64);
-            dataGridView1.Location = new Point(3, 23);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(679, 256);
-            dataGridView1.TabIndex = 0;
+            AdressDG.AllowUserToAddRows = false;
+            AdressDG.AllowUserToDeleteRows = false;
+            AdressDG.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            AdressDG.BackgroundColor = Color.Purple;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            AdressDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            AdressDG.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            AdressDG.Columns.AddRange(new DataGridViewColumn[] { AdressId, UserId, UserName, City, Street, Alley, HouseNumber, PostalCode });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            AdressDG.DefaultCellStyle = dataGridViewCellStyle2;
+            AdressDG.Dock = DockStyle.Fill;
+            AdressDG.GridColor = Color.FromArgb(64, 0, 64);
+            AdressDG.Location = new Point(3, 23);
+            AdressDG.Name = "AdressDG";
+            AdressDG.ReadOnly = true;
+            AdressDG.RowHeadersWidth = 51;
+            AdressDG.Size = new Size(679, 256);
+            AdressDG.TabIndex = 0;
             // 
             // DeleteAdressBtn
             // 
@@ -134,9 +134,11 @@
             AddNewAdressBtn.Text = "افزودن آدرس جدید";
             AddNewAdressBtn.TextAlign = ContentAlignment.BottomCenter;
             AddNewAdressBtn.UseVisualStyleBackColor = false;
+            AddNewAdressBtn.Click += AddNewAdressBtn_Click;
             // 
             // AdressId
             // 
+            AdressId.DataPropertyName = "AdressId";
             AdressId.HeaderText = "آی دی آدرس";
             AdressId.MinimumWidth = 6;
             AdressId.Name = "AdressId";
@@ -145,6 +147,7 @@
             // 
             // UserId
             // 
+            UserId.DataPropertyName = "UserId";
             UserId.HeaderText = "آی دی کاربر";
             UserId.MinimumWidth = 6;
             UserId.Name = "UserId";
@@ -153,6 +156,7 @@
             // 
             // UserName
             // 
+            UserName.DataPropertyName = "UserName";
             UserName.HeaderText = "نام کاربر";
             UserName.MinimumWidth = 6;
             UserName.Name = "UserName";
@@ -161,6 +165,7 @@
             // 
             // City
             // 
+            City.DataPropertyName = "City";
             City.HeaderText = "شهر";
             City.MinimumWidth = 6;
             City.Name = "City";
@@ -168,6 +173,7 @@
             // 
             // Street
             // 
+            Street.DataPropertyName = "Street";
             Street.HeaderText = "خیابان";
             Street.MinimumWidth = 6;
             Street.Name = "Street";
@@ -175,6 +181,7 @@
             // 
             // Alley
             // 
+            Alley.DataPropertyName = "Alley";
             Alley.HeaderText = "کوچه";
             Alley.MinimumWidth = 6;
             Alley.Name = "Alley";
@@ -182,6 +189,7 @@
             // 
             // HouseNumber
             // 
+            HouseNumber.DataPropertyName = "HouseNumber";
             HouseNumber.HeaderText = "پلاک";
             HouseNumber.MinimumWidth = 6;
             HouseNumber.Name = "HouseNumber";
@@ -189,6 +197,7 @@
             // 
             // PostalCode
             // 
+            PostalCode.DataPropertyName = "PostalCode";
             PostalCode.HeaderText = "کد پستی";
             PostalCode.MinimumWidth = 6;
             PostalCode.Name = "PostalCode";
@@ -212,14 +221,14 @@
             Text = "فرم آدرس ها";
             Load += AdressForm_Load;
             groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AdressDG).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private GroupBox groupBox1;
-        private DataGridView dataGridView1;
+        private DataGridView AdressDG;
         private Button DeleteAdressBtn;
         private Button UpdateAdressBtn;
         private Button AddNewAdressBtn;

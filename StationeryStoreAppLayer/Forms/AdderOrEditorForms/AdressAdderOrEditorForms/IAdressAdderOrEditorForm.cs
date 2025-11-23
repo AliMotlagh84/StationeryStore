@@ -9,6 +9,8 @@ namespace StationeryStoreAppLayer.Forms.AdderOrEditorForms.AdressAdderOrEditorFo
 {
     public interface IAdressAdderOrEditorForm
     {
+        bool EditMode { get; set; }
         AdressTable AdressInfo { get; set; }
+        UserTable UserInfo { get; set; }
     }
 }
