@@ -28,6 +28,10 @@ namespace StationeryStoreAppLayer.Forms.ShoppingCartForms
 
 
     {
+
+        UserTable userInfo { get; set; }
+        UserTable IShoppingCartForm.UserInfo { get => userInfo; set => userInfo = value; }
+
         private IDraftOrderDataGeter _draftOrderDataGeter;
         private IDraftOrderSearcher _draftOrderSearcher;
         private IDraftOrderDeleter _draftOrderDeleter;
@@ -51,9 +55,6 @@ namespace StationeryStoreAppLayer.Forms.ShoppingCartForms
             _dgFiller = dgFiller;
             _draftOrderRequestedCountEditorFormOpener = draftOrderRequestedCountEditorFormOpener;
         }
-
-        UserTable userInfo { get; set; }
-        UserTable IShoppingCartForm.UserInfo { get => userInfo; set => userInfo = value; }
 
         public DraftOrdersTable BuildDraftOrderData(int userId, string userName, int productId, string productName, int brandId, string brandName, long productAmount, int requestedCount, int? DraftOrderIdForEdit = null)
         {

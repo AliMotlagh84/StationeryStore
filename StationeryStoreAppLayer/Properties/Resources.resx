@@ -214,4 +214,13 @@
   <data name="icons8-to-do-list-60" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>E:\downloads1\icons8-to-do-list-60.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-map-marker-55" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>E:\downloads1\icons8-map-marker-55.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-address-55" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>E:\downloads1\icons8-address-55.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-update-60" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>E:\downloads1\icons8-update-60.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

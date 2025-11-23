@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             groupBox1 = new GroupBox();
             DraftOrdersDG = new DataGridView();
             DraftOrderId = new DataGridViewTextBoxColumn();
@@ -45,8 +45,9 @@
             DeleteDraftOrderBtn = new Button();
             DeleteAllDraftOrdersBtn = new Button();
             EditDraftOrderCountBtn = new Button();
-            OrderSenderForm = new Button();
-            OrdersFormOpener = new Button();
+            SendOrderBtn = new Button();
+            OrdersFormBtn = new Button();
+            AdressFormBtn = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DraftOrdersDG).BeginInit();
             SuspendLayout();
@@ -67,24 +68,24 @@
             DraftOrdersDG.AllowUserToDeleteRows = false;
             DraftOrdersDG.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DraftOrdersDG.BackgroundColor = Color.FromArgb(255, 128, 0);
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            DraftOrdersDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = SystemColors.Control;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            DraftOrdersDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             DraftOrdersDG.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DraftOrdersDG.Columns.AddRange(new DataGridViewColumn[] { DraftOrderId, UserId, UserName, ProductId, ProductName, BrandId, BrandName, RequestedCount, Amount, TotalAmount });
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            DraftOrdersDG.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            DraftOrdersDG.DefaultCellStyle = dataGridViewCellStyle6;
             DraftOrdersDG.Dock = DockStyle.Fill;
             DraftOrdersDG.GridColor = Color.FromArgb(192, 64, 0);
             DraftOrdersDG.Location = new Point(3, 23);
@@ -227,35 +228,50 @@
             EditDraftOrderCountBtn.UseVisualStyleBackColor = false;
             EditDraftOrderCountBtn.Click += EditDraftOrderCountBtn_Click;
             // 
-            // OrderSenderForm
+            // SendOrderBtn
             // 
-            OrderSenderForm.BackColor = Color.FromArgb(192, 255, 192);
-            OrderSenderForm.FlatStyle = FlatStyle.Popup;
-            OrderSenderForm.ForeColor = Color.DarkGreen;
-            OrderSenderForm.Image = Properties.Resources.icons8_send_file_55;
-            OrderSenderForm.ImageAlign = ContentAlignment.TopCenter;
-            OrderSenderForm.Location = new Point(676, 4);
-            OrderSenderForm.Name = "OrderSenderForm";
-            OrderSenderForm.Size = new Size(170, 82);
-            OrderSenderForm.TabIndex = 8;
-            OrderSenderForm.Text = "ثبت سفارش ";
-            OrderSenderForm.TextAlign = ContentAlignment.BottomCenter;
-            OrderSenderForm.UseVisualStyleBackColor = false;
+            SendOrderBtn.BackColor = Color.FromArgb(192, 255, 192);
+            SendOrderBtn.FlatStyle = FlatStyle.Popup;
+            SendOrderBtn.ForeColor = Color.DarkGreen;
+            SendOrderBtn.Image = Properties.Resources.icons8_send_file_55;
+            SendOrderBtn.ImageAlign = ContentAlignment.TopCenter;
+            SendOrderBtn.Location = new Point(676, 4);
+            SendOrderBtn.Name = "SendOrderBtn";
+            SendOrderBtn.Size = new Size(170, 82);
+            SendOrderBtn.TabIndex = 8;
+            SendOrderBtn.Text = "ثبت سفارش ";
+            SendOrderBtn.TextAlign = ContentAlignment.BottomCenter;
+            SendOrderBtn.UseVisualStyleBackColor = false;
             // 
-            // OrdersFormOpener
+            // OrdersFormBtn
             // 
-            OrdersFormOpener.BackColor = Color.LightSkyBlue;
-            OrdersFormOpener.FlatStyle = FlatStyle.Popup;
-            OrdersFormOpener.ForeColor = Color.Teal;
-            OrdersFormOpener.Image = Properties.Resources.icons8_to_do_list_60;
-            OrdersFormOpener.ImageAlign = ContentAlignment.TopCenter;
-            OrdersFormOpener.Location = new Point(498, 4);
-            OrdersFormOpener.Name = "OrdersFormOpener";
-            OrdersFormOpener.Size = new Size(160, 82);
-            OrdersFormOpener.TabIndex = 9;
-            OrdersFormOpener.Text = "مشاهده سفارشات من";
-            OrdersFormOpener.TextAlign = ContentAlignment.BottomCenter;
-            OrdersFormOpener.UseVisualStyleBackColor = false;
+            OrdersFormBtn.BackColor = Color.LightSkyBlue;
+            OrdersFormBtn.FlatStyle = FlatStyle.Popup;
+            OrdersFormBtn.ForeColor = Color.Teal;
+            OrdersFormBtn.Image = Properties.Resources.icons8_to_do_list_60;
+            OrdersFormBtn.ImageAlign = ContentAlignment.TopCenter;
+            OrdersFormBtn.Location = new Point(498, 4);
+            OrdersFormBtn.Name = "OrdersFormBtn";
+            OrdersFormBtn.Size = new Size(160, 82);
+            OrdersFormBtn.TabIndex = 9;
+            OrdersFormBtn.Text = "مشاهده سفارشات من";
+            OrdersFormBtn.TextAlign = ContentAlignment.BottomCenter;
+            OrdersFormBtn.UseVisualStyleBackColor = false;
+            // 
+            // AdressFormBtn
+            // 
+            AdressFormBtn.BackColor = Color.FromArgb(255, 192, 255);
+            AdressFormBtn.FlatStyle = FlatStyle.Popup;
+            AdressFormBtn.ForeColor = Color.FromArgb(64, 0, 64);
+            AdressFormBtn.Image = Properties.Resources.icons8_map_marker_55;
+            AdressFormBtn.ImageAlign = ContentAlignment.TopCenter;
+            AdressFormBtn.Location = new Point(317, 4);
+            AdressFormBtn.Name = "AdressFormBtn";
+            AdressFormBtn.Size = new Size(160, 82);
+            AdressFormBtn.TabIndex = 10;
+            AdressFormBtn.Text = "آدرس های من";
+            AdressFormBtn.TextAlign = ContentAlignment.BottomCenter;
+            AdressFormBtn.UseVisualStyleBackColor = false;
             // 
             // ShoppingCartForm
             // 
@@ -263,8 +279,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 192, 128);
             ClientSize = new Size(851, 493);
-            Controls.Add(OrdersFormOpener);
-            Controls.Add(OrderSenderForm);
+            Controls.Add(AdressFormBtn);
+            Controls.Add(OrdersFormBtn);
+            Controls.Add(SendOrderBtn);
             Controls.Add(EditDraftOrderCountBtn);
             Controls.Add(DeleteAllDraftOrdersBtn);
             Controls.Add(DeleteDraftOrderBtn);
@@ -297,7 +314,8 @@
         private Button DeleteDraftOrderBtn;
         private Button DeleteAllDraftOrdersBtn;
         private Button EditDraftOrderCountBtn;
-        private Button OrderSenderForm;
-        private Button OrdersFormOpener;
+        private Button SendOrderBtn;
+        private Button OrdersFormBtn;
+        private Button AdressFormBtn;
     }
 }
