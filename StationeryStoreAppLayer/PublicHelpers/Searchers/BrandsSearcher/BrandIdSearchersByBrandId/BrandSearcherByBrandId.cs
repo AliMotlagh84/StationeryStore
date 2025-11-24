@@ -12,11 +12,11 @@ namespace StationeryStoreAppLayer.PublicHelpers.Searchers.BrandsSearcher.BrandId
     {
         public IEnumerable<BrandsTable> SearchInBarndsByBrandId(IEnumerable<BrandsTable> brands, int? Id = null)
         {
-            if (Id == null)
+            if (Id == null || Id == 0)
             {
                 return brands;
             }
-            return brands.Where(b => b.BrandId == b.BrandId);           
+            return brands.Where(b => b.BrandId == b.BrandId);
         }
     }
 }

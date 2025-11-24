@@ -28,28 +28,40 @@ using StationeryStoreAppLayer.PublicHelpers.Searchers.DraftOrderSearchers.Reques
 using StationeryStoreAppLayer.PublicHelpers.Searchers.DraftOrderSearchers.DraftOrderIdSearchers;
 using StationeryStoreAppLayer.PublicHelpers.Searchers.DraftOrderSearchers;
 using StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms;
+using StationeryStoreAppLayer.PublicHelpers.DataGeters.AdressDataGeters;
+using StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByAdressId;
+using StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByUserId;
+using StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByUserName;
+using StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByCity;
+using StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByStree;
+using StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByAlley;
+using StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByHouseNumber;
+using StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers.AdresssSearchersByPostalCode;
+using StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers;
 
 namespace StationeryStoreAppLayer
 {
     public partial class Form3 : Form
     {
-        ProductsDataGeter pdg = new ProductsDataGeter();
-        ProductSearcher ps = new ProductSearcher(new ProductNameSearcher(), new ProductBrandSearcher(), new ProductAmountSearcher(), new ProductDateSearcher(new PersianToMiladiDateConvertor()), new ProductAvailablitySearcher());
-        NumericUdDefaultValueSeter numericUdDefaultValueSeter = new NumericUdDefaultValueSeter();
-        DraftOrderDataGeter dataGeter = new DraftOrderDataGeter();
-        DraftOrderSearcherByUserId draftOrderSearcherByUserId = new DraftOrderSearcherByUserId();
-        DraftOrderSearcherByUserName draftOrderSearcherByUserName = new DraftOrderSearcherByUserName();
-        DraftOrderSearcherByBrandId draftOrderSearcherByBrandId = new DraftOrderSearcherByBrandId();
-        DraftOrderSearcherByBrandName draftOrderSearcherByBrandName = new DraftOrderSearcherByBrandName();
-        DraftOrderSearcherByProductAmount draftOrderSearcherByProductAmount = new DraftOrderSearcherByProductAmount();
-        DraftOrderSearcherByTotalAmount draftOrderSearcherByTotalAmount = new DraftOrderSearcherByTotalAmount();
-        DraftOrderSearcherByProductId draftOrderSearcherByProductId = new DraftOrderSearcherByProductId();
-        DraftOrderSearcherByProductName draftOrderSearcherByProductName = new DraftOrderSearcherByProductName();
-        DraftOrderSearcherByRequestedCount draftOrderSearcherByRequestedCount = new DraftOrderSearcherByRequestedCount();
-        DraftOrderSearcherByDraftOrderId draftOrderSearcherByDraftOrderId = new DraftOrderSearcherByDraftOrderId();
-        IDraftOrderSearcher draftOrderSearcher = new DraftOrderSearcher(new DraftOrderSearcherByDraftOrderId(),new DraftOrderSearcherByUserId(),new DraftOrderSearcherByUserName(),new DraftOrderSearcherByBrandId(),new DraftOrderSearcherByBrandName(),new DraftOrderSearcherByProductId(),new DraftOrderSearcherByProductName(),new DraftOrderSearcherByProductAmount(),new DraftOrderSearcherByTotalAmount(),new DraftOrderSearcherByRequestedCount());
 
-
+        IAdressesDataGeter adressData = new AdressesDataGeter();
+        AdressSearcherByAdressId adressSearcherByAdressId = new AdressSearcherByAdressId();
+        AdressSearcherByUserId AdressSearcherByUserId = new AdressSearcherByUserId();
+        AdressSearcherByUserName AdressSearcherByUserName = new AdressSearcherByUserName();
+        AdressSearcherByCity AdressSearcherByCity = new AdressSearcherByCity();
+        AdressSearcherByStreet AdressSearcherByStreet = new AdressSearcherByStreet();
+        AdressSearcherByAlley AdressSearcherByAlley = new AdressSearcherByAlley();
+        AdressSearcherByHouseNumber AdressSearcherByHouseNumber = new AdressSearcherByHouseNumber();
+        AdressSearcherByPostalCode AdressSearcherByPostalCode = new AdressSearcherByPostalCode();
+        IAdressSearcher adressSearcher = new AdressSearcher(new AdressSearcherByAdressId(),
+            new AdressSearcherByUserId(),
+            new AdressSearcherByUserName(),
+            new AdressSearcherByCity(),
+            new AdressSearcherByStreet(),
+            new AdressSearcherByAlley(),
+            new AdressSearcherByHouseNumber(),
+            new AdressSearcherByPostalCode()
+            );
 
 
         public Form3()
@@ -61,24 +73,6 @@ namespace StationeryStoreAppLayer
         private void Form3_Load(object sender, EventArgs e)
         {
             BindGrid();
-            //    List<Brand> brands = new List<Brand>()
-            //{
-            //    new Brand(){BrandId = 0 , BrandName = "همه" },
-            //    new Brand(){BrandId = 1 , BrandName = "FabelCastle" },
-            //    new Brand(){BrandId = 2 , BrandName = "Bike" },
-            //    new Brand(){BrandId = 3 , BrandName = "دوکا" },
-
-            //};
-            //    AvailablityCombo.DisplayMember = "BrandName";
-            //    AvailablityCombo.ValueMember = "BrandId";
-            //    AvailablityCombo.DataSource = brands;
-
-            //    //    brandData.Add(0,"همه");
-            //    //    brandData.Add(brands[0].BrandId, brands[0].BrandName);
-            //    //    brandData.Add(brands[1].BrandId, brands[1].BrandName);
-            //    //    brandData.Add(brands[2].BrandId, brands[2].BrandName);
-            //    numericUdDefaultValueSeter.SetNumericUdDefaultValue(0, MinAmounttxt, MaxAmountTxt);
-
 
 
         }
@@ -86,14 +80,14 @@ namespace StationeryStoreAppLayer
         void BindGrid()
         {
             DGPruducts.AutoGenerateColumns = false;
-            DGPruducts.DataSource = dataGeter.GetDraftOrderData();
+            DGPruducts.DataSource = adressData.GetAdressesData();
         }
 
         private void btnProductsSearch_Click(object sender, EventArgs e)
         {
             //DGPruducts.DataSource = DraftOrderSearcherByBrandName.SearchInDarftOrdersByBrandName(dataGeter.GetDraftOrderData(),BrandNameTxt.Text);
 
-            DGPruducts.DataSource = draftOrderSearcher.SearchInDraftOrders(dataGeter.GetDraftOrderData(),(int?)DraftOrderIdTxt.Value,null,null,(int?)ProductIdTxt.Value,txtProductName.Text,(int?)BrandIdtxt.Value,BrandNameTxt.Text,(int?)MinRequestedCountTxt.Value,(int?)MaxCountTxt.Value,(long?)MinAmounttxt.Value, (long?)MaxAmountTxt.Value, (long?)MinTotalAmountTxt.Value, (long?)MaxTotalAmountTxt.Value);
+            DGPruducts.DataSource = adressSearcher.SearchInAdresses(adressData.GetAdressesData(),(int?)AdressIdtxt.Value,(int?)txtUserId.Value,txtUserName.Text,txtCity.Text,txtStreet.Text,txtAlley.Text,txtHouseNumber.Text,(long?)txtPostalCode.Value);
         }
 
 
