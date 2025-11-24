@@ -130,11 +130,6 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
             return _productDataGeter.GetProductsData();
         }
 
-        public void OpenProductAdderOrEditorForm(ProductsTable productInfo, bool editMode, Form senderForm)
-        {
-            _productAdderOrEditorFormOpener.OpenProductAdderOrEditorForm(productInfo, editMode, senderForm);
-        }
-
         public void RestartCombo(params ComboBox[] comboBoxes)
         {
             _comboRestartor.RestartCombo(comboBoxes);
@@ -214,8 +209,7 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
 
         private void AddNewProductBtn_Click(object sender, EventArgs e)
         {
-            ProductsTable newProduct = BuildProductData((string)DGPruducts.CurrentRow.Cells[1].Value, (int)DGPruducts.CurrentRow.Cells[2].Value, (string)DGPruducts.CurrentRow.Cells[3].Value, (long)DGPruducts.CurrentRow.Cells[5].Value, (int)DGPruducts.CurrentRow.Cells[4].Value, (DateTime)DGPruducts.CurrentRow.Cells[6].Value);
-            OpenProductAdderOrEditorForm(newProduct, false, this);
+            OpenProductAdderOrEditorForm(this, false);
             Refresh();
         }
 
@@ -224,7 +218,7 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
             if (DGPruducts.CurrentRow != null)
             {
                 ProductsTable newProduct = BuildProductData((string)DGPruducts.CurrentRow.Cells[1].Value, (int)DGPruducts.CurrentRow.Cells[2].Value, (string)DGPruducts.CurrentRow.Cells[3].Value, (long)DGPruducts.CurrentRow.Cells[5].Value, (int)DGPruducts.CurrentRow.Cells[4].Value, (DateTime)DGPruducts.CurrentRow.Cells[6].Value, (int)DGPruducts.CurrentRow.Cells[0].Value);
-                OpenProductAdderOrEditorForm(newProduct, true, this);
+                OpenProductAdderOrEditorForm(this, true, newProduct);
                 Refresh();
             }
             else
@@ -275,6 +269,11 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
         public List<BrandsTable> GetBrandsData()
         {
             return _brandDataGeter.GetBrandsData();
+        }
+
+        public void OpenProductAdderOrEditorForm(Form senderForm, bool editMode, ProductsTable productInfoForTrueEditMode = null)
+        {
+            _productAdderOrEditorFormOpener.OpenProductAdderOrEditorForm(senderForm, editMode, productInfoForTrueEditMode);
         }
     }
 }

@@ -15,10 +15,10 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_.Products
         {
             _productAdderOrEditorForm = productAdderOrEditorForm;
         }
-        public void OpenProductAdderOrEditorForm(ProductsTable productInfo, bool editMode, Form senderForm)
+        public void OpenProductAdderOrEditorForm(Form senderForm, bool editMode, ProductsTable productInfoForTrueEditMode = null)
         {
             senderForm.Hide();
-            _productAdderOrEditorForm.ProductsInfo = productInfo;
+            _productAdderOrEditorForm.ProductsInfo = productInfoForTrueEditMode;
             _productAdderOrEditorForm.EditMode = editMode;
             _productAdderOrEditorForm.ShowDialog();
             senderForm.Show();

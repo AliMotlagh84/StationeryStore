@@ -9,6 +9,6 @@ namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_.Products
 {
     public interface IProductAdderOrEditorFormOpener
     {
-        void OpenProductAdderOrEditorForm(ProductsTable productInfo , bool editMode,Form senderForm);
+        void OpenProductAdderOrEditorForm(Form senderForm, bool editMode, ProductsTable productInfoForTrueEditMode = null);
     }
 }

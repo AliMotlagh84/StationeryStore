@@ -123,17 +123,12 @@ namespace StationeryStoreAppLayer.Forms.ManagerForms.BrandsManagerForm
             RestartTextBox(txtBrandName);
         }
 
-        public void OpenBrandAdderOrEditorForm(Form senderForm, BrandsTable brand, bool editMode)
-        {
-            _brandAdderOrEditorFormOpener.OpenBrandAdderOrEditorForm(senderForm, brand, editMode);
-        }
-
         private void BrandUpdateBtn_Click(object sender, EventArgs e)
         {
             if (BrandsDg.CurrentRow != null)
             {
                 var brandData = BuildBrandData((string)BrandsDg.CurrentRow.Cells[1].Value, (int)BrandsDg.CurrentRow.Cells[0].Value);
-                OpenBrandAdderOrEditorForm(this, brandData, true);
+                OpenBrandAdderOrEditorForm(this,true,brandData);
                 RefreshForm();
             }
             else
@@ -152,8 +147,7 @@ namespace StationeryStoreAppLayer.Forms.ManagerForms.BrandsManagerForm
         {
             if (BrandsDg.CurrentRow != null)
             {
-                var brandData = BuildBrandData((string)BrandsDg.CurrentRow.Cells[1].Value, (int)BrandsDg.CurrentRow.Cells[0].Value);
-                OpenBrandAdderOrEditorForm(this, brandData, false);
+                OpenBrandAdderOrEditorForm(this,false);
                 RefreshForm();
             }
             else
@@ -161,6 +155,11 @@ namespace StationeryStoreAppLayer.Forms.ManagerForms.BrandsManagerForm
                 MessageBox.Show("برندی انتخاب نشده است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+        }
+
+        public void OpenBrandAdderOrEditorForm(Form senderForm, bool editMode, BrandsTable brandInfoForTrueEditMode = null)
+        {
+            _brandAdderOrEditorFormOpener.OpenBrandAdderOrEditorForm(senderForm, editMode, brandInfoForTrueEditMode);
         }
     }
 }

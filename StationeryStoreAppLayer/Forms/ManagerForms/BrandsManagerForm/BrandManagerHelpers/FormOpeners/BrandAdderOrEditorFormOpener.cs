@@ -15,10 +15,10 @@ namespace StationeryStoreAppLayer.Forms.ManagerForms.BrandsManagerForm.BrandMana
         {
             _brandAdderOrEditorForm = brandAdderOrEditorForm;
         }
-        public void OpenBrandAdderOrEditorForm(Form senderForm, BrandsTable brand, bool editMode)
+        public void OpenBrandAdderOrEditorForm(Form senderForm, bool editMode, BrandsTable brandInfoForTrueEditMode = null)
         {
             senderForm.Hide();
-            _brandAdderOrEditorForm.BrandInfo = brand;
+            _brandAdderOrEditorForm.BrandInfo = brandInfoForTrueEditMode;
             _brandAdderOrEditorForm.EditMode = editMode;
             _brandAdderOrEditorForm.ShowDialog();
             senderForm.Show();

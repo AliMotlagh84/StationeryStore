@@ -9,6 +9,6 @@ namespace StationeryStoreAppLayer.Forms.ManagerForms.BrandsManagerForm.BrandMana
 {
     public interface IBrandAdderOrEditorFormOpener
     {
-        void OpenBrandAdderOrEditorForm(Form senderForm, BrandsTable brand, bool editMode);
+        void OpenBrandAdderOrEditorForm(Form senderForm, bool editMode, BrandsTable brandInfoForTrueEditMode = null);
     }
 }
