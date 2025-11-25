@@ -11,7 +11,7 @@ namespace StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers.Adress
     {
         public IEnumerable<AdressTable> SerachInAdressesByUserName(IEnumerable<AdressTable> adresses, string? UserName = null)
         {
-            if (adresses == null)
+            if (UserName == null)
                 return adresses;
 
             return adresses.Where(a => a.UserName.Contains(UserName));

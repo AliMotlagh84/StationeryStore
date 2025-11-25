@@ -11,7 +11,7 @@ namespace StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers.Adress
     {
         public IEnumerable<AdressTable> SearchInAdressesByAlley(IEnumerable<AdressTable> adresses, string? AlleyName = null)
         {
-            if (adresses == null)
+            if (AlleyName == null)
                 return adresses;
 
             return adresses.Where(a => a.Alley.Contains(AlleyName));            

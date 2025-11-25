@@ -32,9 +32,6 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             groupBox1 = new GroupBox();
             AdressDG = new DataGridView();
-            DeleteAdressBtn = new Button();
-            UpdateAdressBtn = new Button();
-            AddNewAdressBtn = new Button();
             AdressId = new DataGridViewTextBoxColumn();
             UserId = new DataGridViewTextBoxColumn();
             UserName = new DataGridViewTextBoxColumn();
@@ -43,6 +40,10 @@
             Alley = new DataGridViewTextBoxColumn();
             HouseNumber = new DataGridViewTextBoxColumn();
             PostalCode = new DataGridViewTextBoxColumn();
+            DeleteAdressBtn = new Button();
+            UpdateAdressBtn = new Button();
+            AddNewAdressBtn = new Button();
+            DeleteAllAdressesBtn = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)AdressDG).BeginInit();
             SuspendLayout();
@@ -89,52 +90,6 @@
             AdressDG.RowHeadersWidth = 51;
             AdressDG.Size = new Size(679, 256);
             AdressDG.TabIndex = 0;
-            // 
-            // DeleteAdressBtn
-            // 
-            DeleteAdressBtn.BackColor = Color.FromArgb(255, 192, 192);
-            DeleteAdressBtn.FlatStyle = FlatStyle.Popup;
-            DeleteAdressBtn.ForeColor = Color.Maroon;
-            DeleteAdressBtn.Image = Properties.Resources.icons8_remove_60;
-            DeleteAdressBtn.ImageAlign = ContentAlignment.TopCenter;
-            DeleteAdressBtn.Location = new Point(5, 287);
-            DeleteAdressBtn.Name = "DeleteAdressBtn";
-            DeleteAdressBtn.Size = new Size(183, 86);
-            DeleteAdressBtn.TabIndex = 7;
-            DeleteAdressBtn.Text = "حذف آدرس";
-            DeleteAdressBtn.TextAlign = ContentAlignment.BottomCenter;
-            DeleteAdressBtn.UseVisualStyleBackColor = false;
-            // 
-            // UpdateAdressBtn
-            // 
-            UpdateAdressBtn.BackColor = Color.FromArgb(192, 255, 192);
-            UpdateAdressBtn.FlatStyle = FlatStyle.Popup;
-            UpdateAdressBtn.ForeColor = Color.DarkGreen;
-            UpdateAdressBtn.Image = Properties.Resources.icons8_update_60;
-            UpdateAdressBtn.ImageAlign = ContentAlignment.TopCenter;
-            UpdateAdressBtn.Location = new Point(257, 287);
-            UpdateAdressBtn.Name = "UpdateAdressBtn";
-            UpdateAdressBtn.Size = new Size(182, 86);
-            UpdateAdressBtn.TabIndex = 6;
-            UpdateAdressBtn.Text = "ویرایش آدرس";
-            UpdateAdressBtn.TextAlign = ContentAlignment.BottomCenter;
-            UpdateAdressBtn.UseVisualStyleBackColor = false;
-            // 
-            // AddNewAdressBtn
-            // 
-            AddNewAdressBtn.BackColor = Color.FromArgb(255, 255, 128);
-            AddNewAdressBtn.FlatStyle = FlatStyle.Popup;
-            AddNewAdressBtn.ForeColor = Color.FromArgb(192, 64, 0);
-            AddNewAdressBtn.Image = Properties.Resources.icons8_address_55;
-            AddNewAdressBtn.ImageAlign = ContentAlignment.TopCenter;
-            AddNewAdressBtn.Location = new Point(502, 287);
-            AddNewAdressBtn.Name = "AddNewAdressBtn";
-            AddNewAdressBtn.Size = new Size(182, 86);
-            AddNewAdressBtn.TabIndex = 4;
-            AddNewAdressBtn.Text = "افزودن آدرس جدید";
-            AddNewAdressBtn.TextAlign = ContentAlignment.BottomCenter;
-            AddNewAdressBtn.UseVisualStyleBackColor = false;
-            AddNewAdressBtn.Click += AddNewAdressBtn_Click;
             // 
             // AdressId
             // 
@@ -203,12 +158,77 @@
             PostalCode.Name = "PostalCode";
             PostalCode.ReadOnly = true;
             // 
+            // DeleteAdressBtn
+            // 
+            DeleteAdressBtn.BackColor = Color.FromArgb(255, 192, 192);
+            DeleteAdressBtn.FlatStyle = FlatStyle.Popup;
+            DeleteAdressBtn.ForeColor = Color.Maroon;
+            DeleteAdressBtn.Image = Properties.Resources.icons8_remove_60;
+            DeleteAdressBtn.ImageAlign = ContentAlignment.TopCenter;
+            DeleteAdressBtn.Location = new Point(5, 287);
+            DeleteAdressBtn.Name = "DeleteAdressBtn";
+            DeleteAdressBtn.Size = new Size(161, 86);
+            DeleteAdressBtn.TabIndex = 7;
+            DeleteAdressBtn.Text = "حذف آدرس";
+            DeleteAdressBtn.TextAlign = ContentAlignment.BottomCenter;
+            DeleteAdressBtn.UseVisualStyleBackColor = false;
+            DeleteAdressBtn.Click += DeleteAdressBtn_Click;
+            // 
+            // UpdateAdressBtn
+            // 
+            UpdateAdressBtn.BackColor = Color.FromArgb(192, 255, 192);
+            UpdateAdressBtn.FlatStyle = FlatStyle.Popup;
+            UpdateAdressBtn.ForeColor = Color.DarkGreen;
+            UpdateAdressBtn.Image = Properties.Resources.icons8_update_60;
+            UpdateAdressBtn.ImageAlign = ContentAlignment.TopCenter;
+            UpdateAdressBtn.Location = new Point(348, 287);
+            UpdateAdressBtn.Name = "UpdateAdressBtn";
+            UpdateAdressBtn.Size = new Size(164, 86);
+            UpdateAdressBtn.TabIndex = 6;
+            UpdateAdressBtn.Text = "ویرایش آدرس";
+            UpdateAdressBtn.TextAlign = ContentAlignment.BottomCenter;
+            UpdateAdressBtn.UseVisualStyleBackColor = false;
+            UpdateAdressBtn.Click += UpdateAdressBtn_Click;
+            // 
+            // AddNewAdressBtn
+            // 
+            AddNewAdressBtn.BackColor = Color.FromArgb(255, 255, 128);
+            AddNewAdressBtn.FlatStyle = FlatStyle.Popup;
+            AddNewAdressBtn.ForeColor = Color.FromArgb(192, 64, 0);
+            AddNewAdressBtn.Image = Properties.Resources.icons8_address_55;
+            AddNewAdressBtn.ImageAlign = ContentAlignment.TopCenter;
+            AddNewAdressBtn.Location = new Point(520, 287);
+            AddNewAdressBtn.Name = "AddNewAdressBtn";
+            AddNewAdressBtn.Size = new Size(162, 86);
+            AddNewAdressBtn.TabIndex = 4;
+            AddNewAdressBtn.Text = "افزودن آدرس جدید";
+            AddNewAdressBtn.TextAlign = ContentAlignment.BottomCenter;
+            AddNewAdressBtn.UseVisualStyleBackColor = false;
+            AddNewAdressBtn.Click += AddNewAdressBtn_Click;
+            // 
+            // DeleteAllAdressesBtn
+            // 
+            DeleteAllAdressesBtn.BackColor = Color.Silver;
+            DeleteAllAdressesBtn.FlatStyle = FlatStyle.Popup;
+            DeleteAllAdressesBtn.ForeColor = Color.Black;
+            DeleteAllAdressesBtn.Image = Properties.Resources.icons8_trash_65;
+            DeleteAllAdressesBtn.ImageAlign = ContentAlignment.TopCenter;
+            DeleteAllAdressesBtn.Location = new Point(174, 287);
+            DeleteAllAdressesBtn.Name = "DeleteAllAdressesBtn";
+            DeleteAllAdressesBtn.Size = new Size(165, 86);
+            DeleteAllAdressesBtn.TabIndex = 8;
+            DeleteAllAdressesBtn.Text = "حذف همه آدرس ها";
+            DeleteAllAdressesBtn.TextAlign = ContentAlignment.BottomCenter;
+            DeleteAllAdressesBtn.UseVisualStyleBackColor = false;
+            DeleteAllAdressesBtn.Click += DeleteAllAdressesBtn_Click;
+            // 
             // AdressForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 128, 255);
             ClientSize = new Size(687, 379);
+            Controls.Add(DeleteAllAdressesBtn);
             Controls.Add(DeleteAdressBtn);
             Controls.Add(UpdateAdressBtn);
             Controls.Add(AddNewAdressBtn);
@@ -240,5 +260,6 @@
         private DataGridViewTextBoxColumn Alley;
         private DataGridViewTextBoxColumn HouseNumber;
         private DataGridViewTextBoxColumn PostalCode;
+        private Button DeleteAllAdressesBtn;
     }
 }

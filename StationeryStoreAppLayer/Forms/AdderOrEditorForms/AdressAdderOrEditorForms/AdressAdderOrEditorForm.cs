@@ -1,5 +1,14 @@
-﻿using StationeryStoreAppLayer.PublicHelpers.DataAdders.AdressDataAdders;
+﻿using StationeryStoreAppLayer.Forms.AdderOrEditorForms.AdressAdderOrEditorForms.AdressAddreOrEditorHelpers.ValidateManagers;
+using StationeryStoreAppLayer.PublicHelpers.ButtonTextSeters;
+using StationeryStoreAppLayer.PublicHelpers.DataAdders.AdressDataAdders;
 using StationeryStoreAppLayer.PublicHelpers.DataBuilders.AdressDataBuilders;
+using StationeryStoreAppLayer.PublicHelpers.DataEditors.AdressDataEditors;
+using StationeryStoreAppLayer.PublicHelpers.FormTextSeters;
+using StationeryStoreAppLayer.PublicHelpers.NumericUdFillers;
+using StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters;
+using StationeryStoreAppLayer.PublicHelpers.Restartors.INumericUdRestartor;
+using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
+using StationeryStoreAppLayer.PublicHelpers.TextBoxFillers;
 using StationeryStoreDataLayer.Models;
 using System;
 using System.Collections.Generic;
@@ -15,29 +24,83 @@ namespace StationeryStoreAppLayer.Forms.AdderOrEditorForms.AdressAdderOrEditorFo
 {
     public partial class AdressAdderOrEditorForm : Form, IAdressAdderOrEditorForm,
         IAdressDataBuilder,
-        IAdressDataAdder
+        IAdressDataAdder,
+        IAdressDataEditor,
+        IFormTextSeter,
+        IButtonTextSeter,
+        ITextBoxFiller,
+        INumericUdFiller,
+        INumericUdDefaultValueSeter,
+        ITextBoxRestartor,
+        INumericUdRestartor,
+        IAdressAdderOrEditorValidateManager
     {
-        private AdressTable adressTable { get; set; }
-        private bool editMode { get; set; }
-        private UserTable userInfo { get; set; }
-        AdressTable IAdressAdderOrEditorForm.AdressInfo { get => adressTable; set => adressTable = value; }
-        bool IAdressAdderOrEditorForm.EditMode { get => editMode; set => editMode = value; }
-        UserTable IAdressAdderOrEditorForm.UserInfo { get => userInfo; set => userInfo = value; }
         private IAdressDataBuilder _adressDataBuilder;
         private IAdressDataAdder _adressDataAdder;
+        private IAdressDataEditor _adressDataEditor;
+        private IFormTextSeter _formTextSeter;
+        private IButtonTextSeter _buttonTextSeter;
+        private ITextBoxFiller _textBoxFiller;
+        private INumericUdFiller _numericUdFiller;
+        private INumericUdDefaultValueSeter _numericUdDefaultValueSeter;
+        private ITextBoxRestartor _textBoxRestartor;
+        private INumericUdRestartor _numericUdRestartor;
+        private IAdressAdderOrEditorValidateManager _adressAdderOrEditorValidateManager;
+        private AdressTable adressInfo { get; set; }
+        private bool editMode { get; set; }
+        private UserTable userInfo { get; set; }
+        AdressTable IAdressAdderOrEditorForm.AdressInfo { get => adressInfo; set => adressInfo = value; }
+        bool IAdressAdderOrEditorForm.EditMode { get => editMode; set => editMode = value; }
+        UserTable IAdressAdderOrEditorForm.UserInfo { get => userInfo; set => userInfo = value; }
         public AdressAdderOrEditorForm(
             IAdressDataBuilder adressDataBuilder,
-            IAdressDataAdder adressDataAdder
+            IAdressDataAdder adressDataAdder,
+            IAdressDataEditor adressDataEditor,
+            IFormTextSeter formTextSeter,
+            IButtonTextSeter buttonTextSeter,
+            ITextBoxFiller textBoxFiller,
+            INumericUdFiller numericUdFiller,
+            INumericUdDefaultValueSeter numericUdDefaultValueSeter,
+            ITextBoxRestartor textBoxRestartor,
+            INumericUdRestartor numericUdRestartor,
+            IAdressAdderOrEditorValidateManager adressAdderOrEditorValidateManager
             )
         {
             InitializeComponent();
             _adressDataBuilder = adressDataBuilder;
             _adressDataAdder = adressDataAdder;
+            _adressDataEditor = adressDataEditor;
+            _formTextSeter = formTextSeter;
+            _buttonTextSeter = buttonTextSeter;
+            _textBoxFiller = textBoxFiller;
+            _numericUdFiller = numericUdFiller;
+            _numericUdDefaultValueSeter = numericUdDefaultValueSeter;
+            _textBoxRestartor = textBoxRestartor;
+            _numericUdRestartor = numericUdRestartor;
+            _adressAdderOrEditorValidateManager = adressAdderOrEditorValidateManager;
+
         }
 
         private void AdressAdderOrEditorForm_Load(object sender, EventArgs e)
         {
-
+            SetNumericUdDefaultValue(1000000000, txtPostalCode);
+            if (editMode)
+            {
+                SetFormText(this, "ویرایش آدرس");
+                SetButtonText(SendBtn, "ویرایش");
+                FillTextBox(txtCityName, adressInfo.City);
+                FillTextBox(txtStreetName, adressInfo.Street);
+                FillTextBox(txtAlleyName, adressInfo.Alley);
+                FillTextBox(txtHouseNumber, adressInfo.HouseNumber);
+                FillNumericUd(txtPostalCode, adressInfo.PostalCode);
+            }
+            else
+            {
+                SetFormText(this, "افزودن آدرس");
+                SetButtonText(SendBtn, "افزودن");
+                RestartTextBox(txtCityName, txtStreetName, txtAlleyName, txtHouseNumber);
+                RestartNumericUd(txtPostalCode);
+            }
         }
 
         public AdressTable BuildAdressData(int userId, string userName, string city, string street, string alley, string houseNumber, long postalCode, int? adressIdForEdit = null)
@@ -52,9 +115,67 @@ namespace StationeryStoreAppLayer.Forms.AdderOrEditorForms.AdressAdderOrEditorFo
 
         private void SendBtn_Click(object sender, EventArgs e)
         {
-            AddAdressData(BuildAdressData(userInfo.UserId, userInfo.UserName, txtCityName.Text, txtStreetName.Text, txtAlleyName.Text, txtHouseNumber.Text, (long)txtPostalCode.Value));
-            MessageBox.Show("آدرس با موفقیت اضافه شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            DialogResult = DialogResult.OK;
+            if (ManageValidate(txtCityName.Text, txtStreetName.Text, txtAlleyName.Text, txtHouseNumber.Text))
+            {
+                if (editMode)
+                {
+                    EditAdressData(BuildAdressData(userInfo.UserId, userInfo.UserName, txtCityName.Text, txtStreetName.Text, txtAlleyName.Text, txtHouseNumber.Text, (long)txtPostalCode.Value, adressInfo.AdressId));
+                    MessageBox.Show("آدرس با موفقیت ویرایش شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    AddAdressData(BuildAdressData(userInfo.UserId, userInfo.UserName, txtCityName.Text, txtStreetName.Text, txtAlleyName.Text, txtHouseNumber.Text, (long)txtPostalCode.Value));
+                    MessageBox.Show("آدرس با موفقیت اضافه شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                DialogResult = DialogResult.OK;
+            }
+
+        }
+
+        public void EditAdressData(AdressTable adress)
+        {
+            _adressDataEditor.EditAdressData(adress);
+        }
+
+        public void SetFormText(Form form, string text)
+        {
+            _formTextSeter.SetFormText(form, text);
+        }
+
+        public void SetButtonText(Button button, string text)
+        {
+            _buttonTextSeter.SetButtonText(button, text);
+        }
+
+        public void FillTextBox(TextBox textBox, string? text)
+        {
+            _textBoxFiller.FillTextBox(textBox, text);
+        }
+
+        public void FillNumericUd(NumericUpDown numericUpDown, decimal value)
+        {
+            _numericUdFiller.FillNumericUd(numericUpDown, value);
+        }
+
+        public void SetNumericUdDefaultValue(long defaultValue, params NumericUpDown[] numericUdCollection)
+        {
+            _numericUdDefaultValueSeter.SetNumericUdDefaultValue(defaultValue, numericUdCollection);
+        }
+
+        public void RestartTextBox(params TextBox[] textBoxes)
+        {
+            _textBoxRestartor.RestartTextBox(textBoxes);
+        }
+
+        public void RestartNumericUd(params NumericUpDown[] numericUpDowns)
+        {
+            _numericUdRestartor.RestartNumericUd(numericUpDowns);
+        }
+
+        public bool ManageValidate(string cityName, string streetName, string alleyName, string houseNumber)
+        {
+            return _adressAdderOrEditorValidateManager.ManageValidate(cityName, streetName, alleyName, houseNumber);
         }
     }
 }
