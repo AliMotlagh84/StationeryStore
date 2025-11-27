@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.AdressChooserForms
+namespace StationeryStoreAppLayer.Forms.SendOrderRoadForms.AdressChooserForms
 {
     public interface IAdressChooserForm
     {

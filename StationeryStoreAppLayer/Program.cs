@@ -8,6 +8,7 @@ using StationeryStoreAppLayer.AppManagers.FormManagers;
 using StationeryStoreAppLayer.Forms.AdderOrEditorForms.AdressAdderOrEditorForms;
 using StationeryStoreAppLayer.Forms.AdderOrEditorForms.AdressAdderOrEditorForms.AdressAddreOrEditorHelpers.ValidateManagers;
 using StationeryStoreAppLayer.Forms.AdderOrEditorForms.BrandAdderOrEditorForm;
+using StationeryStoreAppLayer.Forms.AdressChooserForms;
 using StationeryStoreAppLayer.Forms.AdressForms;
 using StationeryStoreAppLayer.Forms.AdressForms.AdressFormHelpers.FormOpeners;
 using StationeryStoreAppLayer.Forms.CountManagerForms.DraftOrderRequestedCountEditor;
@@ -33,6 +34,7 @@ using StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_;
 using StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_.ProductsManagerHelpers.FormOpeners;
 using StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_.ProductsManagerHelpers.ProductsAdderOrEditorFormOpeners;
 using StationeryStoreAppLayer.Forms.ShoppingCartForms;
+using StationeryStoreAppLayer.Forms.ShoppingCartForms.SoppingCartHelpers.AdressFormChooserOpeningHandlers;
 using StationeryStoreAppLayer.Forms.ShoppingCartForms.SoppingCartHelpers.FormOpeners;
 using StationeryStoreAppLayer.Forms.SignUpForms;
 using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.AdminiCodeValidator;
@@ -166,8 +168,10 @@ namespace StationeryStoreAppLayer
             StoreManagerForm storeManagerForm = new StoreManagerForm(new ProductsManagerFormOpener<ProductsManagerForm>(productsManagerForm), new BrandsManagerFormOpener<BrandsManagerForm>(brandsManagerForm), new DraftOrdersManagerFormOpener<DraftOrdersManagerForm>(draftOrdersManagerForm), new UserManagerFormOpener<UsersManagerForm>(usersManagerForm));
             DraftOrderRequestedCountEditor draftOrderRequestedCountEditor = new DraftOrderRequestedCountEditor(new DraftOrderDataBulider(), draftOrderEditor, new NumericUdDefaultValueSeter());
             AdressAdderOrEditorForm adressAdderOrEditorForm = new AdressAdderOrEditorForm(new AdressDataBuilder(), new AdressDataAdder(),new AdressDataEditor(),new FormTextSeter(),new ButtonTextSeter(),new TextBoxFiller(),new NumericUdFiller(),new NumericUdDefaultValueSeter(),new TextBoxRestartor(),new NumericUdRestartor(),adressAdderOrEditorValidateManager);
-            AdressForm adressForm = new AdressForm(new AdressDataBuilder(), new AdressesDataGeter(), adressSearcher, new AdressDataDeleter(), new DgFiller(), new AdressAdderOrEditorFormOpener<AdressAdderOrEditorForm>(adressAdderOrEditorForm));
-            ShoppingCartForm shoppingCartForm = new ShoppingCartForm(new DraftOrderDataGeter(), draftOrderSearcher, draftOrderDeleter, new DraftOrderDataBulider(), new DgFiller(), new DraftOrderRequestedCountEditorFormOpener<DraftOrderRequestedCountEditor>(draftOrderRequestedCountEditor), new AdressFormOpener<AdressForm>(adressForm));
+            AdressChooserForm adressChooserForm = new AdressChooserForm();
+            IAdressChooserFormOpeningHandler adressChooserFormOpeningHandler = new AdressChooserFormOpeningHandler(new AdressAdderOrEditorFormOpener<AdressAdderOrEditorForm>(adressAdderOrEditorForm), new AdressChooserFormOpener<AdressChooserForm>(adressChooserForm), new AdressesDataGeter(),adressSearcher);
+            AdressForm adressForm = new AdressForm(new AdressDataBuilder(), new AdressesDataGeter(), adressSearcher, new AdressDataDeleter(), new DgFiller(), new AdressAdderOrEditorFormOpener<AdressAdderOrEditorForm>(adressAdderOrEditorForm));           
+            ShoppingCartForm shoppingCartForm = new ShoppingCartForm(new DraftOrderDataGeter(), draftOrderSearcher, draftOrderDeleter, new DraftOrderDataBulider(), new DgFiller(), new DraftOrderRequestedCountEditorFormOpener<DraftOrderRequestedCountEditor>(draftOrderRequestedCountEditor), new AdressFormOpener<AdressForm>(adressForm),adressChooserFormOpeningHandler);
             Form1 homeForm = new Form1(new ProductManagementAccessController(), new TimeLabelSeter(), new DateLabelSeter(new MiladiToPersianDateConvertor()), new GroupBoxTextSeter(), new IntroducingLabelSeter(), new AdminLabelSeter(), new FormCloser(), new FormManager(), new DgFiller(), new DgOrdersFillerByDeliveryState(new MiladiToPersianDateConvertor()), new ComboBoxFiller(), new BoolComboFiller(), new ProductsDataGeter(), new OrdersDataGeter(), new BrandDataGeter(), new BrandsComboDataGeter(), new NewProductsDataGeter(), new SingleProductDataGeter(), new NumericUdDefaultValueSeter(), productSearcher, new DraftOrderFormOpener<DraftOrderForm>(new DraftOrderForm(new ProductCountChecker(), new ProductDataEditor(), new ProductDataBuilder(), new DraftOrderDataBulider(), new DraftOrderDataAdder(), new NumericUdDefaultValueSeter())), new UserEditorFormOpener<UserEditorForm>(new UserEditorForm(new TextBoxFiller(), new UserDataBuilder(), new UserDataEditor(), new NullOrWhiteSpaceValidator(), new EmailValidator(), new AppRestartor())), new AppRestartor(), userDeleter, new StoreMangerFormOpener<StoreManagerForm>(storeManagerForm), new ShoppingCartFormOpener<ShoppingCartForm>(shoppingCartForm));
             Application.Run(new StationeryApplicationContext(new LoginUserValidator(), new HomeFormOpener<Form1>(homeForm), new SingleUserDataGeterByNameAndPassword(), new NullOrWhiteSpaceValidator(), new SignUpFormOpener<SignUpForm>(signUpForm), new TextBoxRestartor(), new FormManager()));
 

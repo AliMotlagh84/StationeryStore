@@ -83,6 +83,36 @@ namespace StationeryStoreAppLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_Nov_27__2025__03_31_51_AM {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image Nov 27, 2025, 03_31_51 AM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_Nov_27__2025__03_36_18_AM {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image Nov 27, 2025, 03_36_18 AM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_Nov_27__2025__04_04_32_AM_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image Nov 27, 2025, 04_04_32 AM-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_add_product_60 {
             get {
                 object obj = ResourceManager.GetObject("icons8-add-product-60", resourceCulture);
@@ -133,6 +163,16 @@ namespace StationeryStoreAppLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_cancel_order_55 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cancel-order-55", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_circled_3_60 {
             get {
                 object obj = ResourceManager.GetObject("icons8-circled-3-60", resourceCulture);
@@ -176,6 +216,16 @@ namespace StationeryStoreAppLayer.Properties {
         internal static System.Drawing.Bitmap icons8_fast_cart_40 {
             get {
                 object obj = ResourceManager.GetObject("icons8-fast-cart-40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_left_2_60 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-left-2-60", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

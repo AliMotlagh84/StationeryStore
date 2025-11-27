@@ -242,6 +242,7 @@
             SendOrderBtn.Text = "ثبت سفارش ";
             SendOrderBtn.TextAlign = ContentAlignment.BottomCenter;
             SendOrderBtn.UseVisualStyleBackColor = false;
+            SendOrderBtn.Click += SendOrderBtn_Click;
             // 
             // OrdersFormBtn
             // 

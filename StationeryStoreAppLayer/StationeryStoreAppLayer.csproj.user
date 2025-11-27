@@ -10,7 +10,7 @@
     <Compile Update="Forms\AdderOrEditorForms\BrandAdderOrEditorForm\BrandAdderOrEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\AdressChooserForms\AdressChooserForm.cs">
+    <Compile Update="Forms\SendOrderRoadForms\AdressChooserForms\AdressChooserForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\AdressForms\AdressForm.cs">

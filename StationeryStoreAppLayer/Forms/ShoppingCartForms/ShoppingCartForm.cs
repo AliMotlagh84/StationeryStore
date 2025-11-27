@@ -1,4 +1,6 @@
-﻿using StationeryStoreAppLayer.Forms.CountManagerForms.DraftOrderRequestedCountEditor;
+﻿using StationeryStoreAppLayer.Forms.AdressForms.AdressFormHelpers.FormOpeners;
+using StationeryStoreAppLayer.Forms.CountManagerForms.DraftOrderRequestedCountEditor;
+using StationeryStoreAppLayer.Forms.ShoppingCartForms.SoppingCartHelpers.AdressFormChooserOpeningHandlers;
 using StationeryStoreAppLayer.Forms.ShoppingCartForms.SoppingCartHelpers.FormOpeners;
 using StationeryStoreAppLayer.PublicHelpers.DataBuilders.DraftOrderDataBuilders;
 using StationeryStoreAppLayer.PublicHelpers.DataDeleter.DraftOrderDataDeleters;
@@ -25,7 +27,8 @@ namespace StationeryStoreAppLayer.Forms.ShoppingCartForms
     IDraftOrderDeleter,
     IDgFiller,
     IDraftOrderRequestedCountEditorFormOpener,
-    IAdressFormOpener
+    IAdressFormOpener,
+    IAdressChooserFormOpeningHandler
 
 
     {
@@ -40,6 +43,8 @@ namespace StationeryStoreAppLayer.Forms.ShoppingCartForms
         private IDgFiller _dgFiller;
         private IDraftOrderRequestedCountEditorFormOpener _draftOrderRequestedCountEditorFormOpener;
         private IAdressFormOpener _adressFormOpener;
+        private IAdressChooserFormOpeningHandler _adressChooserFormOpeningHandler;
+
         public ShoppingCartForm(
             IDraftOrderDataGeter draftOrderDataGeter,
             IDraftOrderSearcher draftOrderSearcher,
@@ -47,7 +52,8 @@ namespace StationeryStoreAppLayer.Forms.ShoppingCartForms
             IDraftOrderDataBuilder draftOrderDataBuilder,
             IDgFiller dgFiller,
             IDraftOrderRequestedCountEditorFormOpener draftOrderRequestedCountEditorFormOpener,
-            IAdressFormOpener adressFormOpener
+            IAdressFormOpener adressFormOpener,
+            IAdressChooserFormOpeningHandler adressChooserFormOpeningHandler
             )
         {
             InitializeComponent();
@@ -58,6 +64,7 @@ namespace StationeryStoreAppLayer.Forms.ShoppingCartForms
             _dgFiller = dgFiller;
             _draftOrderRequestedCountEditorFormOpener = draftOrderRequestedCountEditorFormOpener;
             _adressFormOpener = adressFormOpener;
+            _adressChooserFormOpeningHandler = adressChooserFormOpeningHandler;
         }
 
         public DraftOrdersTable BuildDraftOrderData(int userId, string userName, int productId, string productName, int brandId, string brandName, long productAmount, int requestedCount, int? DraftOrderIdForEdit = null)
@@ -166,7 +173,16 @@ namespace StationeryStoreAppLayer.Forms.ShoppingCartForms
 
         private void AdressFormBtn_Click(object sender, EventArgs e)
         {
-            OpenAdressForm(this,userInfo);
+            OpenAdressForm(this, userInfo);
+        }
+        public void HandleAdressChooserFormOpening(Form HandlerForm, UserTable userInfo)
+        {
+            _adressChooserFormOpeningHandler.HandleAdressChooserFormOpening(HandlerForm, userInfo);
+        }
+
+        private void SendOrderBtn_Click(object sender, EventArgs e)
+        {
+            HandleAdressChooserFormOpening(this, userInfo);
         }
     }
 }
