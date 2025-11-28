@@ -93,9 +93,9 @@ namespace StationeryStoreAppLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ChatGPT_Image_Nov_27__2025__03_36_18_AM {
+        internal static System.Drawing.Bitmap ChatGPT_Image_Nov_27__2025__03_36_18_AM_removebg_preview {
             get {
-                object obj = ResourceManager.GetObject("ChatGPT Image Nov 27, 2025, 03_36_18 AM", resourceCulture);
+                object obj = ResourceManager.GetObject("ChatGPT Image Nov 27, 2025, 03_36_18 AM-removebg-preview", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

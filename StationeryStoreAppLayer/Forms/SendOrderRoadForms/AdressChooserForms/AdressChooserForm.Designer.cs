@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             Button GoBackBtn;
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             groupBox1 = new GroupBox();
             label1 = new Label();
             AdressDG = new DataGridView();
@@ -71,9 +71,10 @@
             GoBackBtn.Name = "GoBackBtn";
             GoBackBtn.Size = new Size(132, 82);
             GoBackBtn.TabIndex = 17;
-            GoBackBtn.Text = "ادامه ثبت سفارش";
+            GoBackBtn.Text = "برو به مرحله قبل";
             GoBackBtn.TextAlign = ContentAlignment.BottomCenter;
             GoBackBtn.UseVisualStyleBackColor = false;
+            GoBackBtn.Click += GoBackBtn_Click;
             // 
             // groupBox1
             // 
@@ -103,24 +104,24 @@
             AdressDG.AllowUserToDeleteRows = false;
             AdressDG.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             AdressDG.BackgroundColor = Color.SeaGreen;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            AdressDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = SystemColors.Control;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            AdressDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             AdressDG.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             AdressDG.Columns.AddRange(new DataGridViewColumn[] { AdressId, UserId, UserName, City, Street, Alley, HouseNumber, PostalCode });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(0, 64, 0);
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            AdressDG.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(0, 64, 0);
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            AdressDG.DefaultCellStyle = dataGridViewCellStyle6;
             AdressDG.GridColor = Color.FromArgb(64, 0, 64);
             AdressDG.Location = new Point(3, 53);
             AdressDG.Name = "AdressDG";
@@ -128,6 +129,7 @@
             AdressDG.RowHeadersWidth = 51;
             AdressDG.Size = new Size(642, 315);
             AdressDG.TabIndex = 0;
+            AdressDG.CellClick += AdressDG_CellClick;
             // 
             // AdressId
             // 
@@ -229,6 +231,7 @@
             DeleteOrderBtn.Text = "کنسل کردن سفارش ";
             DeleteOrderBtn.TextAlign = ContentAlignment.BottomCenter;
             DeleteOrderBtn.UseVisualStyleBackColor = false;
+            DeleteOrderBtn.Click += DeleteOrderBtn_Click;
             // 
             // label5
             // 
