@@ -10,13 +10,13 @@ namespace StationeryStoreAppLayer.Forms.SendOrderRoadForms.OrderRoadHelpers.Orde
     {
         public void HandleOrderRoad(Form thisForm, DialogResult nextFormDialogResult)
         {
-            if (nextFormDialogResult == DialogResult.OK)
+            if (nextFormDialogResult != DialogResult.OK)
             {
                 thisForm.Show();
             }
             else
             {
-                thisForm.DialogResult = DialogResult.Cancel;            
+                thisForm.DialogResult = DialogResult.OK;            
             }
         }
     }

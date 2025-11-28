@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
             Button GoBackBtn;
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             groupBox1 = new GroupBox();
             DraftOrdersDG = new DataGridView();
             DraftOrderId = new DataGridViewTextBoxColumn();
@@ -44,16 +44,16 @@
             Amount = new DataGridViewTextBoxColumn();
             TotalAmount = new DataGridViewTextBoxColumn();
             groupBox2 = new GroupBox();
+            label6 = new Label();
+            txtAlley = new TextBox();
+            label1 = new Label();
+            txtStreet = new TextBox();
             label4 = new Label();
             txtPostalCode = new TextBox();
             label3 = new Label();
             txtHouseNumber = new TextBox();
             label2 = new Label();
             txtCity = new TextBox();
-            label1 = new Label();
-            txtStreet = new TextBox();
-            label6 = new Label();
-            this.txtAlley = new TextBox();
             label5 = new Label();
             DeleteOrderBtn = new Button();
             SendOrderBtn = new Button();
@@ -65,11 +65,27 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
+            // GoBackBtn
+            // 
+            GoBackBtn.BackColor = Color.FromArgb(255, 224, 192);
+            GoBackBtn.FlatStyle = FlatStyle.Popup;
+            GoBackBtn.ForeColor = Color.FromArgb(192, 64, 0);
+            GoBackBtn.Image = Properties.Resources.icons8_left_2_60;
+            GoBackBtn.ImageAlign = ContentAlignment.TopCenter;
+            GoBackBtn.Location = new Point(214, 7);
+            GoBackBtn.Name = "GoBackBtn";
+            GoBackBtn.Size = new Size(186, 85);
+            GoBackBtn.TabIndex = 19;
+            GoBackBtn.Text = "برو به مرحله قبل";
+            GoBackBtn.TextAlign = ContentAlignment.BottomCenter;
+            GoBackBtn.UseVisualStyleBackColor = false;
+            GoBackBtn.Click += GoBackBtn_Click_1;
+            // 
             // groupBox1
             // 
             groupBox1.BackColor = Color.FromArgb(0, 192, 192);
             groupBox1.Controls.Add(DraftOrdersDG);
-            groupBox1.ForeColor = Color.White;
+            groupBox1.ForeColor = Color.Black;
             groupBox1.Location = new Point(1, 96);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(844, 322);
@@ -83,24 +99,24 @@
             DraftOrdersDG.AllowUserToDeleteRows = false;
             DraftOrdersDG.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DraftOrdersDG.BackgroundColor = Color.FromArgb(0, 192, 192);
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = SystemColors.Control;
-            dataGridViewCellStyle11.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle11.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.True;
-            DraftOrdersDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            DraftOrdersDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             DraftOrdersDG.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DraftOrdersDG.Columns.AddRange(new DataGridViewColumn[] { DraftOrderId, UserId, UserName, ProductId, ProductName, BrandId, BrandName, RequestedCount, Amount, TotalAmount });
-            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = SystemColors.Window;
-            dataGridViewCellStyle12.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle12.ForeColor = Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.False;
-            DraftOrdersDG.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            DraftOrdersDG.DefaultCellStyle = dataGridViewCellStyle2;
             DraftOrdersDG.Dock = DockStyle.Fill;
             DraftOrdersDG.GridColor = Color.Teal;
             DraftOrdersDG.Location = new Point(3, 23);
@@ -199,7 +215,7 @@
             // 
             groupBox2.BackColor = Color.FromArgb(0, 192, 192);
             groupBox2.Controls.Add(label6);
-            groupBox2.Controls.Add(this.txtAlley);
+            groupBox2.Controls.Add(txtAlley);
             groupBox2.Controls.Add(label1);
             groupBox2.Controls.Add(txtStreet);
             groupBox2.Controls.Add(label4);
@@ -215,6 +231,40 @@
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "مقصد سفارش";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(175, 157);
+            label6.Name = "label6";
+            label6.Size = new Size(49, 20);
+            label6.TabIndex = 27;
+            label6.Text = "کوچه :";
+            // 
+            // txtAlley
+            // 
+            txtAlley.Location = new Point(5, 154);
+            txtAlley.Name = "txtAlley";
+            txtAlley.ReadOnly = true;
+            txtAlley.Size = new Size(162, 27);
+            txtAlley.TabIndex = 26;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(175, 96);
+            label1.Name = "label1";
+            label1.Size = new Size(53, 20);
+            label1.TabIndex = 23;
+            label1.Text = "خیابان :";
+            // 
+            // txtStreet
+            // 
+            txtStreet.Location = new Point(5, 93);
+            txtStreet.Name = "txtStreet";
+            txtStreet.ReadOnly = true;
+            txtStreet.Size = new Size(162, 27);
+            txtStreet.TabIndex = 22;
             // 
             // label4
             // 
@@ -267,50 +317,16 @@
             txtCity.Size = new Size(162, 27);
             txtCity.TabIndex = 16;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(175, 96);
-            label1.Name = "label1";
-            label1.Size = new Size(53, 20);
-            label1.TabIndex = 23;
-            label1.Text = "خیابان :";
-            // 
-            // txtStreet
-            // 
-            txtStreet.Location = new Point(5, 93);
-            txtStreet.Name = "txtStreet";
-            txtStreet.ReadOnly = true;
-            txtStreet.Size = new Size(162, 27);
-            txtStreet.TabIndex = 22;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(175, 157);
-            label6.Name = "label6";
-            label6.Size = new Size(49, 20);
-            label6.TabIndex = 27;
-            label6.Text = "کوچه :";
-            // 
-            // txtAlley
-            // 
-            this.txtAlley.Location = new Point(5, 154);
-            this.txtAlley.Name = "txtAlley";
-            this.txtAlley.ReadOnly = true;
-            this.txtAlley.Size = new Size(162, 27);
-            this.txtAlley.TabIndex = 26;
-            // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Times New Roman", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.Teal;
-            label5.Location = new Point(729, 13);
+            label5.Location = new Point(659, 13);
             label5.Name = "label5";
-            label5.Size = new Size(336, 68);
+            label5.Size = new Size(434, 68);
             label5.TabIndex = 3;
-            label5.Text = "جزئیات سفارش";
+            label5.Text = "تایید جزئیات سفارش";
             // 
             // DeleteOrderBtn
             // 
@@ -326,6 +342,7 @@
             DeleteOrderBtn.Text = "کنسل کردن سفارش ";
             DeleteOrderBtn.TextAlign = ContentAlignment.BottomCenter;
             DeleteOrderBtn.UseVisualStyleBackColor = false;
+            DeleteOrderBtn.Click += DeleteOrderBtn_Click;
             // 
             // SendOrderBtn
             // 
@@ -338,24 +355,9 @@
             SendOrderBtn.Name = "SendOrderBtn";
             SendOrderBtn.Size = new Size(188, 85);
             SendOrderBtn.TabIndex = 18;
-            SendOrderBtn.Text = "ادامه ثبت سفارش";
+            SendOrderBtn.Text = "تایید و ادامه ثبت سفارش";
             SendOrderBtn.TextAlign = ContentAlignment.BottomCenter;
             SendOrderBtn.UseVisualStyleBackColor = false;
-            // 
-            // GoBackBtn
-            // 
-            GoBackBtn.BackColor = Color.FromArgb(255, 224, 192);
-            GoBackBtn.FlatStyle = FlatStyle.Popup;
-            GoBackBtn.ForeColor = Color.FromArgb(192, 64, 0);
-            GoBackBtn.Image = Properties.Resources.icons8_left_2_60;
-            GoBackBtn.ImageAlign = ContentAlignment.TopCenter;
-            GoBackBtn.Location = new Point(214, 7);
-            GoBackBtn.Name = "GoBackBtn";
-            GoBackBtn.Size = new Size(186, 85);
-            GoBackBtn.TabIndex = 19;
-            GoBackBtn.Text = "برو به مرحله قبل";
-            GoBackBtn.TextAlign = ContentAlignment.BottomCenter;
-            GoBackBtn.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -411,6 +413,7 @@
         private DataGridViewTextBoxColumn TotalAmount;
         private GroupBox groupBox2;
         private Label label6;
+        private TextBox txtAlley;
         private TextBox textBox3;
         private TextBox textBox2;
         private Label label1;
