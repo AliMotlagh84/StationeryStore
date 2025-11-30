@@ -10,10 +10,17 @@ using System.Threading.Tasks;
 
 namespace StationeryStoreDataLayer.Repositories.EfRepositories.DraftOrderRepositoryContainer
 {
-    public class DraftOrderRepository : EfGenericRepository<DraftOrdersTable>,IDarftOrderRepository
+    public class DraftOrderRepository : EfGenericRepository<DraftOrdersTable>, IDarftOrderRepository
     {
-        public DraftOrderRepository(DbContext db) : base(db)
+        StationeryStoreContext StationeryStoredb;
+        public DraftOrderRepository(StationeryStoreContext StationeryStoredb) : base(StationeryStoredb)
         {
+            this.StationeryStoredb = StationeryStoredb;
+        }
+
+        public long GetTotalAmountsSumByUserId(int userId)
+        {
+            return StationeryStoredb.DraftOrdersTables.Where(d => d.UserId == userId).Select(d => d.TotalAmount).Sum();
         }
     }
 }

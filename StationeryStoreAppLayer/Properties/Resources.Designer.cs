@@ -83,9 +83,9 @@ namespace StationeryStoreAppLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ChatGPT_Image_Nov_27__2025__03_31_51_AM {
+        internal static System.Drawing.Bitmap ChatGPT_Image_Nov_27__2025__03_31_51_AM_removebg_preview {
             get {
-                object obj = ResourceManager.GetObject("ChatGPT Image Nov 27, 2025, 03_31_51 AM", resourceCulture);
+                object obj = ResourceManager.GetObject("ChatGPT Image Nov 27, 2025, 03_31_51 AM-removebg-preview", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -246,6 +246,26 @@ namespace StationeryStoreAppLayer.Properties {
         internal static System.Drawing.Bitmap icons8_map_marker_55 {
             get {
                 object obj = ResourceManager.GetObject("icons8-map-marker-55", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_pay_70 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-pay-70", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_pay_70__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-pay-70 (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

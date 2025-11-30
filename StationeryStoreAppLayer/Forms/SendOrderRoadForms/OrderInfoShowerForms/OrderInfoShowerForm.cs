@@ -1,4 +1,7 @@
-﻿using StationeryStoreAppLayer.PublicHelpers.DataGeters.DraftOrderDataGeters;
+﻿using StationeryStoreAppLayer.Forms.SendOrderRoadForms.OrderInfoShowerForms.OrderShowInfoHelpers.FormOpeners;
+using StationeryStoreAppLayer.Forms.SendOrderRoadForms.OrderRoadHelpers.OrderRoadHandlers;
+using StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms;
+using StationeryStoreAppLayer.PublicHelpers.DataGeters.DraftOrderDataGeters;
 using StationeryStoreAppLayer.PublicHelpers.DgFillers;
 using StationeryStoreAppLayer.PublicHelpers.Searchers.DraftOrderSearchers;
 using StationeryStoreAppLayer.PublicHelpers.TextBoxFillers;
@@ -19,12 +22,16 @@ namespace StationeryStoreAppLayer.Forms.SendOrderRoadForms.OrderInfoShowerForms
         IDraftOrderDataGeter,
         IDraftOrderSearcher,
         ITextBoxFiller,
-        IDgFiller
+        IDgFiller,
+        IOrderRoadHandler,
+        IPayerFormOpener
     {
         private IDraftOrderDataGeter _draftOrderDataGeter;
         private IDraftOrderSearcher _draftOrderSearcher;
         private ITextBoxFiller _textBoxFiller;
         private IDgFiller _dgFiller;
+        private IOrderRoadHandler _orderRoadHandler;
+        private IPayerFormOpener _payerFormOpener;
         private UserTable userInfo { get; set; }
         private AdressTable adressInfo { get; set; }
         UserTable IOrderInfoShowerForm.UserInfo { get => userInfo; set => userInfo = value; }
@@ -34,7 +41,9 @@ namespace StationeryStoreAppLayer.Forms.SendOrderRoadForms.OrderInfoShowerForms
             IDraftOrderDataGeter draftOrderDataGeter,
             IDraftOrderSearcher draftOrderSearcher,
             ITextBoxFiller textBoxFiller,
-            IDgFiller dgFiller
+            IDgFiller dgFiller,
+            IOrderRoadHandler orderRoadHandler,
+            IPayerFormOpener payerFormOpener
             )
         {
             InitializeComponent();
@@ -42,6 +51,8 @@ namespace StationeryStoreAppLayer.Forms.SendOrderRoadForms.OrderInfoShowerForms
             _draftOrderSearcher = draftOrderSearcher;
             _textBoxFiller = textBoxFiller;
             _dgFiller = dgFiller;
+            _payerFormOpener = payerFormOpener;
+            _orderRoadHandler = orderRoadHandler;
         }
 
         private void OrderInfoShowerForm_Load(object sender, EventArgs e)
@@ -76,7 +87,7 @@ namespace StationeryStoreAppLayer.Forms.SendOrderRoadForms.OrderInfoShowerForms
 
         public List<DraftOrdersTable> GetDraftOrderData()
         {
-           return _draftOrderDataGeter.GetDraftOrderData();
+            return _draftOrderDataGeter.GetDraftOrderData();
         }
 
         public List<DraftOrdersTable> SearchInDraftOrders(IEnumerable<DraftOrdersTable> draftOrders, int? id = null, int? userId = null, string? userName = null, int? prductId = null, string? productName = null, int? brandId = null, string? brandName = null, int? minRequestedCount = null, int? maxRequestedCount = null, long? minAmount = null, long? maxAmount = null, long? minTotalAmount = null, long? maxTotalAmount = null)
@@ -92,6 +103,21 @@ namespace StationeryStoreAppLayer.Forms.SendOrderRoadForms.OrderInfoShowerForms
         public void FillTextBox(TextBox textBox, string? text)
         {
             _textBoxFiller.FillTextBox(textBox, text);
+        }
+
+        private void SendOrderBtn_Click(object sender, EventArgs e)
+        {
+            HandleOrderRoad(this, OpenPayerForm(this,userInfo,adressInfo));
+        }
+
+        public void HandleOrderRoad(Form thisForm, DialogResult nextFormDialogResult)
+        {
+            _orderRoadHandler.HandleOrderRoad(thisForm, nextFormDialogResult);
+        }
+
+        public DialogResult OpenPayerForm(Form senderForm, UserTable userInfo, AdressTable adressInfo)
+        {
+            return _payerFormOpener.OpenPayerForm(senderForm,userInfo,adressInfo);
         }
     }
 }

@@ -9,5 +9,6 @@ namespace StationeryStoreDataLayer.Repositories.EfRepositories.DraftOrderReposit
 {
     public interface IDarftOrderRepository : IGenericRepository<DraftOrdersTable>
     {
+        long GetTotalAmountsSumByUserId(int userId);
     }
 }

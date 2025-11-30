@@ -349,15 +349,16 @@
             SendOrderBtn.BackColor = Color.FromArgb(192, 255, 192);
             SendOrderBtn.FlatStyle = FlatStyle.Popup;
             SendOrderBtn.ForeColor = Color.DarkGreen;
-            SendOrderBtn.Image = Properties.Resources.icons8_send_file_55;
+            SendOrderBtn.Image = Properties.Resources.icons8_pay_70__1_;
             SendOrderBtn.ImageAlign = ContentAlignment.TopCenter;
             SendOrderBtn.Location = new Point(420, 7);
             SendOrderBtn.Name = "SendOrderBtn";
             SendOrderBtn.Size = new Size(188, 85);
             SendOrderBtn.TabIndex = 18;
-            SendOrderBtn.Text = "تایید و ادامه ثبت سفارش";
+            SendOrderBtn.Text = "تایید و پرداخت";
             SendOrderBtn.TextAlign = ContentAlignment.BottomCenter;
             SendOrderBtn.UseVisualStyleBackColor = false;
+            SendOrderBtn.Click += SendOrderBtn_Click;
             // 
             // pictureBox1
             // 

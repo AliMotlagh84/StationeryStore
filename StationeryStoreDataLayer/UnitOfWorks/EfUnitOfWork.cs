@@ -16,7 +16,7 @@ namespace StationeryStoreDataLayer.UnitOfWorks
 {
     public class EfUnitOfWork : IDisposable
     {
-        private DbContext dbContext = new StationeryStoreContext();
+        private StationeryStoreContext dbContext = new StationeryStoreContext();
         private bool disposed;
 
         private IProductRepository _productsRepository;
