@@ -1,4 +1,5 @@
 using StationaryStoreUtility.Convertores.DateConvertors;
+using StationaryStoreUtility.Validators.DebitCardPasswordValidators;
 using StationaryStoreUtility.Validators.EmailValidator;
 using StationaryStoreUtility.Validators.textValidators;
 using StationaryStoreUtility.Validators.TextValidators;
@@ -38,8 +39,13 @@ using StationeryStoreAppLayer.Forms.SendOrderRoadForms.AdressChooserForms.Adress
 using StationeryStoreAppLayer.Forms.SendOrderRoadForms.OrderInfoShowerForms;
 using StationeryStoreAppLayer.Forms.SendOrderRoadForms.OrderInfoShowerForms.OrderShowInfoHelpers.FormOpeners;
 using StationeryStoreAppLayer.Forms.SendOrderRoadForms.OrderRoadHelpers.OrderRoadHandlers;
+using StationeryStoreAppLayer.Forms.SendOrderRoadForms.OrderSenderForms;
 using StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms;
 using StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.CaptchaMakers;
+using StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.CaptchaValidators;
+using StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.DiscountedAmountCalculator;
+using StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.FormOpeners;
+using StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.PayerFormValidateHandlers;
 using StationeryStoreAppLayer.Forms.ShoppingCartForms;
 using StationeryStoreAppLayer.Forms.ShoppingCartForms.SoppingCartHelpers.AdressFormChooserOpeningHandlers;
 using StationeryStoreAppLayer.Forms.ShoppingCartForms.SoppingCartHelpers.FormOpeners;
@@ -67,7 +73,7 @@ using StationeryStoreAppLayer.PublicHelpers.DataBuilders.DraftOrderDataBuilders;
 using StationeryStoreAppLayer.PublicHelpers.DataBuilders.ProductDataBuilders;
 using StationeryStoreAppLayer.PublicHelpers.DataBuilders.UserDataBuilder;
 using StationeryStoreAppLayer.PublicHelpers.DataDeleter.AdressDataDeleters;
-using StationeryStoreAppLayer.PublicHelpers.DataDeleter.BrandDataDeleter;
+using StationeryStoreAppLayer.PublicHelpers.DataDeleter.BrandDataDeleters;
 using StationeryStoreAppLayer.PublicHelpers.DataDeleter.DraftOrderDataDeleters;
 using StationeryStoreAppLayer.PublicHelpers.DataDeleter.ProductDataDeleters;
 using StationeryStoreAppLayer.PublicHelpers.DataDeleter.UserDataDeleters;
@@ -131,6 +137,7 @@ using StationeryStoreAppLayer.PublicHelpers.Searchers.UserSearchers.UserSearcher
 using StationeryStoreAppLayer.PublicHelpers.Searchers.UserSearchers.UserSerachersByUserId;
 using StationeryStoreAppLayer.PublicHelpers.Searchers.UserSearchers.UserSerachersByUserName;
 using StationeryStoreAppLayer.PublicHelpers.TextBoxFillers;
+using StationeryStoreAppLayer.PublicHelpers.Validators.MaskedTextBoxValidators;
 using System.Net.Http.Headers;
 
 namespace StationeryStoreAppLayer
@@ -152,6 +159,7 @@ namespace StationeryStoreAppLayer
             IUserSignUpValidateHandler userSignUpValidateHandler = new UserSignUpValidateHandler(new NullOrWhiteSpaceValidator(), new EmailValidator(), new UniqeUserAndPasswordValidator());
             IAdressAdderOrEditorValidateManager adressAdderOrEditorValidateManager = new AdressAdderOrEditorValidateManager(new NullOrWhiteSpaceValidator());
             IAdressChooserFormValidateHandler adressChooserFormValidateHandler = new AdressChooserFormValidateHandler(new NullOrWhiteSpaceValidator());
+            IPayerFormValidateHandler payerFormValidateHandler = new PayerFormValidateHandler(new MaskCompleteValidator(),new DebitCardPasswordLenghtValidator(),new CaptchaValidator());
             SignUpForm signUpForm = new SignUpForm(adminSignUpValidateHandler, userSignUpValidateHandler, new UserDataBuilder(), new UserDataAdder(), new AdminModeChanger(), new TextBoxRestartor());
             IProductSearcher productSearcher = new ProductSearcher(new ProductNameSearcher(), new ProductBrandSearcher(), new ProductAmountSearcher(), new ProductDateSearcher(new PersianToMiladiDateConvertor()), new ProductAvailablitySearcher());
             IDraftOrderSearcher draftOrderSearcher = new DraftOrderSearcher(new DraftOrderSearcherByDraftOrderId(), new DraftOrderSearcherByUserId(), new DraftOrderSearcherByUserName(), new DraftOrderSearcherByBrandId(), new DraftOrderSearcherByBrandName(), new DraftOrderSearcherByProductId(), new DraftOrderSearcherByProductName(), new DraftOrderSearcherByProductAmount(), new DraftOrderSearcherByTotalAmount(), new DraftOrderSearcherByRequestedCount());
@@ -176,7 +184,8 @@ namespace StationeryStoreAppLayer
             UsersManagerForm usersManagerForm = new UsersManagerForm(new UsersDataGeter(), userSearcher, new UserDataBuilder(), userDeleter, new TextBoxRestartor(), new DgFiller());
             StoreManagerForm storeManagerForm = new StoreManagerForm(new ProductsManagerFormOpener<ProductsManagerForm>(productsManagerForm), new BrandsManagerFormOpener<BrandsManagerForm>(brandsManagerForm), new DraftOrdersManagerFormOpener<DraftOrdersManagerForm>(draftOrdersManagerForm), new UserManagerFormOpener<UsersManagerForm>(usersManagerForm));
             DraftOrderRequestedCountEditor draftOrderRequestedCountEditor = new DraftOrderRequestedCountEditor(new DraftOrderDataBulider(), draftOrderEditor, new NumericUdDefaultValueSeter());
-            PayerForm payerForm = new PayerForm(new CaptchaMaker(),new LabelFillerByText(),new DraftOrderTotalAmountsSumByUserIdGeter());
+            OrderSenderForm orderSenderForm = new OrderSenderForm();
+            PayerForm payerForm = new PayerForm(new CaptchaMaker(),new LabelFillerByText(),new DraftOrderTotalAmountsSumByUserIdGeter(),new DiscountedAmountCaculator(),new NumericUdDefaultValueSeter(),payerFormValidateHandler,new OrderSenderFormOpener<OrderSenderForm>(orderSenderForm));
             OrderInfoShowerForm orderInfoShowerForm = new OrderInfoShowerForm(new DraftOrderDataGeter(),draftOrderSearcher,new TextBoxFiller(),new DgFiller(),new OrderRoadHandler(),new PayerFormOpener<PayerForm>(payerForm));
             AdressAdderOrEditorForm adressAdderOrEditorForm = new AdressAdderOrEditorForm(new AdressDataBuilder(), new AdressDataAdder(),new AdressDataEditor(),new FormTextSeter(),new ButtonTextSeter(),new TextBoxFiller(),new NumericUdFiller(),new NumericUdDefaultValueSeter(),new TextBoxRestartor(),new NumericUdRestartor(),adressAdderOrEditorValidateManager);
             AdressChooserForm adressChooserForm = new AdressChooserForm(new AdressesDataGeter(), adressSearcher, new TextBoxFiller(),new TextBoxRestartor(), new DgFiller(), new OrderInfoShowerFormOpener<OrderInfoShowerForm>(orderInfoShowerForm), new OrderRoadHandler(),adressChooserFormValidateHandler);

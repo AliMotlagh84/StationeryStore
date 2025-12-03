@@ -31,6 +31,7 @@
             Button GoBackBtn;
             pictureBox2 = new PictureBox();
             groupBox1 = new GroupBox();
+            txtPassword = new NumericUpDown();
             DeleteOrderBtn = new Button();
             PayBtn = new Button();
             txtCaptcha = new MaskedTextBox();
@@ -41,16 +42,17 @@
             label7 = new Label();
             PooyaPasswordBtn = new Button();
             label8 = new Label();
-            txtCreditCragNumber = new MaskedTextBox();
-            txtCreditCardPassword = new TextBox();
+            txtDebitCardNumber = new MaskedTextBox();
             groupBox2 = new GroupBox();
             DiscountedAmountLbl = new Label();
             TotalAmountLbl = new Label();
             label2 = new Label();
             label1 = new Label();
+            UpdateCapchaBtn = new Button();
             GoBackBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtPassword).BeginInit();
             ((System.ComponentModel.ISupportInitialize)CaptchaPB).BeginInit();
             groupBox2.SuspendLayout();
             SuspendLayout();
@@ -69,6 +71,7 @@
             GoBackBtn.Text = "برو به مرحله قبل";
             GoBackBtn.TextAlign = ContentAlignment.BottomCenter;
             GoBackBtn.UseVisualStyleBackColor = false;
+            GoBackBtn.Click += GoBackBtn_Click;
             // 
             // pictureBox2
             // 
@@ -82,6 +85,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(UpdateCapchaBtn);
+            groupBox1.Controls.Add(txtPassword);
             groupBox1.Controls.Add(DeleteOrderBtn);
             groupBox1.Controls.Add(GoBackBtn);
             groupBox1.Controls.Add(PayBtn);
@@ -93,14 +98,22 @@
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(PooyaPasswordBtn);
             groupBox1.Controls.Add(label8);
-            groupBox1.Controls.Add(txtCreditCragNumber);
-            groupBox1.Controls.Add(txtCreditCardPassword);
+            groupBox1.Controls.Add(txtDebitCardNumber);
             groupBox1.Location = new Point(2, 108);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(433, 419);
             groupBox1.TabIndex = 12;
             groupBox1.TabStop = false;
             groupBox1.Text = "پرداخت";
+            // 
+            // txtPassword
+            // 
+            txtPassword.Location = new Point(144, 255);
+            txtPassword.Maximum = new decimal(new int[] { 99999999, 0, 0, 0 });
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(132, 27);
+            txtPassword.TabIndex = 24;
+            txtPassword.Value = new decimal(new int[] { 1111, 0, 0, 0 });
             // 
             // DeleteOrderBtn
             // 
@@ -116,6 +129,7 @@
             DeleteOrderBtn.Text = "کنسل کردن سفارش ";
             DeleteOrderBtn.TextAlign = ContentAlignment.BottomCenter;
             DeleteOrderBtn.UseVisualStyleBackColor = false;
+            DeleteOrderBtn.Click += DeleteOrderBtn_Click;
             // 
             // PayBtn
             // 
@@ -131,6 +145,7 @@
             PayBtn.Text = "پرداخت";
             PayBtn.TextAlign = ContentAlignment.BottomCenter;
             PayBtn.UseVisualStyleBackColor = false;
+            PayBtn.Click += PayBtn_Click;
             // 
             // txtCaptcha
             // 
@@ -140,6 +155,7 @@
             txtCaptcha.Mask = "00000";
             txtCaptcha.Name = "txtCaptcha";
             txtCaptcha.RejectInputOnFirstFailure = true;
+            txtCaptcha.RightToLeft = RightToLeft.No;
             txtCaptcha.Size = new Size(114, 27);
             txtCaptcha.TabIndex = 20;
             // 
@@ -149,9 +165,9 @@
             label5.Location = new Point(202, 139);
             label5.Name = "label5";
             label5.RightToLeft = RightToLeft.Yes;
-            label5.Size = new Size(143, 20);
+            label5.Size = new Size(148, 20);
             label5.TabIndex = 19;
-            label5.Text = "کد تصویر را واد کنید :";
+            label5.Text = "کد تصویر را وارد کنید :";
             // 
             // CaptchaPB
             // 
@@ -160,6 +176,7 @@
             CaptchaPB.Size = new Size(157, 62);
             CaptchaPB.TabIndex = 18;
             CaptchaPB.TabStop = false;
+            CaptchaPB.Click += CaptchaPB_Click;
             // 
             // label6
             // 
@@ -179,6 +196,7 @@
             txtCVV2.Mask = "0000";
             txtCVV2.Name = "txtCVV2";
             txtCVV2.RejectInputOnFirstFailure = true;
+            txtCVV2.RightToLeft = RightToLeft.No;
             txtCVV2.Size = new Size(117, 27);
             txtCVV2.TabIndex = 16;
             // 
@@ -215,25 +233,17 @@
             label8.TabIndex = 13;
             label8.Text = "شماره کارت :";
             // 
-            // txtCreditCragNumber
+            // txtDebitCardNumber
             // 
-            txtCreditCragNumber.BackColor = Color.FromArgb(255, 224, 192);
-            txtCreditCragNumber.ForeColor = Color.FromArgb(192, 64, 0);
-            txtCreditCragNumber.Location = new Point(75, 25);
-            txtCreditCragNumber.Mask = "0000 0000 0000 0000";
-            txtCreditCragNumber.Name = "txtCreditCragNumber";
-            txtCreditCragNumber.RejectInputOnFirstFailure = true;
-            txtCreditCragNumber.Size = new Size(149, 27);
-            txtCreditCragNumber.TabIndex = 12;
-            // 
-            // txtCreditCardPassword
-            // 
-            txtCreditCardPassword.BackColor = Color.FromArgb(255, 224, 192);
-            txtCreditCardPassword.ForeColor = Color.FromArgb(192, 64, 0);
-            txtCreditCardPassword.Location = new Point(144, 255);
-            txtCreditCardPassword.Name = "txtCreditCardPassword";
-            txtCreditCardPassword.Size = new Size(127, 27);
-            txtCreditCardPassword.TabIndex = 11;
+            txtDebitCardNumber.BackColor = Color.FromArgb(255, 224, 192);
+            txtDebitCardNumber.ForeColor = Color.FromArgb(192, 64, 0);
+            txtDebitCardNumber.Location = new Point(75, 25);
+            txtDebitCardNumber.Mask = "0000 0000 0000 0000";
+            txtDebitCardNumber.Name = "txtDebitCardNumber";
+            txtDebitCardNumber.RejectInputOnFirstFailure = true;
+            txtDebitCardNumber.RightToLeft = RightToLeft.No;
+            txtDebitCardNumber.Size = new Size(149, 27);
+            txtDebitCardNumber.TabIndex = 12;
             // 
             // groupBox2
             // 
@@ -290,6 +300,17 @@
             label1.TabIndex = 22;
             label1.Text = "مبلغ کل :";
             // 
+            // UpdateCapchaBtn
+            // 
+            UpdateCapchaBtn.FlatStyle = FlatStyle.Popup;
+            UpdateCapchaBtn.Image = Properties.Resources.icons8_refresh_40;
+            UpdateCapchaBtn.Location = new Point(245, 178);
+            UpdateCapchaBtn.Name = "UpdateCapchaBtn";
+            UpdateCapchaBtn.Size = new Size(105, 62);
+            UpdateCapchaBtn.TabIndex = 25;
+            UpdateCapchaBtn.UseVisualStyleBackColor = true;
+            UpdateCapchaBtn.Click += UpdateCapchaBtn_Click;
+            // 
             // PayerForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -309,6 +330,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)txtPassword).EndInit();
             ((System.ComponentModel.ISupportInitialize)CaptchaPB).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
@@ -328,13 +350,14 @@
         private Label label7;
         private Button PooyaPasswordBtn;
         private Label label8;
-        private MaskedTextBox txtCreditCragNumber;
-        private TextBox txtCreditCardPassword;
+        private MaskedTextBox txtDebitCardNumber;
         private GroupBox groupBox2;
         private Label DiscountedAmountLbl;
         private Label TotalAmountLbl;
         private Label label2;
         private Label label1;
         private Button DeleteOrderBtn;
+        private NumericUpDown txtPassword;
+        private Button UpdateCapchaBtn;
     }
 }

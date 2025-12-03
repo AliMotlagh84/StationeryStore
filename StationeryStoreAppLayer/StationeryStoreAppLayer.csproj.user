@@ -49,6 +49,9 @@
     <Compile Update="Forms\SendOrderRoadForms\OrderInfoShowerForms\OrderInfoShowerForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\SendOrderRoadForms\OrderSenderForms\OrderSenderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\SendOrderRoadForms\PayerForms\PayerForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -8,16 +8,14 @@ namespace StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers
 {
     public class CaptchaValidator : ICaptchaValidator
     {
-        public bool ValidateCaptcha(Random captchaRnd, string userAnswer)
+        public bool ValidateCaptcha(string captchaCode, string userAnswer)
         {
-            string captchaCode = captchaRnd.Next(10000, 99999).ToString();
             if (captchaCode == userAnswer)
             {
                 return true;
             }
             else
             {
-                MessageBox.Show("کد امنیتی غلط است");
                 return false;
             }
         }

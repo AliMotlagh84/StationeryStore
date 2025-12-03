@@ -8,6 +8,6 @@ namespace StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers
 {
     public interface ICaptchaValidator
     {
-        bool ValidateCaptcha(Random captchaRnd, string userAnswer);
+        public bool ValidateCaptcha(string captchaCode, string userAnswer);
     }
 }

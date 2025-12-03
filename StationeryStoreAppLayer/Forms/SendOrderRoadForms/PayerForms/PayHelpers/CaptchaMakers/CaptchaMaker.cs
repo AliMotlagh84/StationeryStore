@@ -9,7 +9,7 @@ namespace StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers
 {
      public class CaptchaMaker:ICaptchaMaker
     {
-        public void MakeCaptcha(PictureBox pictureBox,Random random)
+        public string MakeCaptcha(PictureBox pictureBox,Random random)
         {
             Random rnd = random;
             string captchaCode;
@@ -45,6 +45,7 @@ namespace StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers
             }
 
             pictureBox.Image = bmp;
+            return captchaCode;
         }
 
     }

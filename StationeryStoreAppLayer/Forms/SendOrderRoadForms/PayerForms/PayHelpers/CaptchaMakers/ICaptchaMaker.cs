@@ -8,6 +8,6 @@ namespace StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers
 {
     public interface ICaptchaMaker
     {
-        public void MakeCaptcha(PictureBox pictureBox, Random random);
+        public string MakeCaptcha(PictureBox pictureBox, Random random);
     }
 }

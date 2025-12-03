@@ -11,7 +11,8 @@ namespace StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms
     {
         AdressTable AdressInfo { get; set; }
         UserTable UserInfo { get; set; }
-        Random  randomCaptcha { get; set; }
+        Random CaptchaRnd { get; set; }
+        string CaptchaCode { get; set; }
 
     }
 }

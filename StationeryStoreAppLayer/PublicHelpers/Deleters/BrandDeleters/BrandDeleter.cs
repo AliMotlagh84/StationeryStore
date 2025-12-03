@@ -1,5 +1,5 @@
 ﻿using StationeryStoreAppLayer.Forms.DraftOrderForms;
-using StationeryStoreAppLayer.PublicHelpers.DataDeleter.BrandDataDeleter;
+using StationeryStoreAppLayer.PublicHelpers.DataDeleter.BrandDataDeleters;
 using StationeryStoreAppLayer.PublicHelpers.DataDeleter.DraftOrderDataDeleters;
 using StationeryStoreAppLayer.PublicHelpers.DataGeters.DraftOrderDataGeters;
 using StationeryStoreAppLayer.PublicHelpers.DataGeters.ProductGeters;

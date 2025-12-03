@@ -1,8 +1,15 @@
 ﻿using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.LableSeters;
+using StationeryStoreAppLayer.Forms.SendOrderRoadForms.OrderInfoShowerForms.OrderShowInfoHelpers.FormOpeners;
 using StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.CaptchaMakers;
+using StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.DiscountedAmountCalculator;
+using StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.FormOpeners;
+using StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.PayerFormValidateHandlers;
+using StationeryStoreAppLayer.PublicHelpers.BussinesHelpers.DiscountCalculators;
 using StationeryStoreAppLayer.PublicHelpers.DataGeters.DraftOrderDataGeters;
 using StationeryStoreAppLayer.PublicHelpers.LabelSeters;
+using StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters;
 using StationeryStoreAppLayer.PublicHelpers.Searchers.DraftOrderSearchers;
+using StationeryStoreAppLayer.PublicHelpers.Validators.MaskedTextBoxValidators;
 using StationeryStoreDataLayer.Models;
 using System;
 using System.Collections.Generic;
@@ -10,56 +17,80 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms
 {
-    public partial class PayerForm : Form,IPayerForm,
+    public partial class PayerForm : Form, IPayerForm,
         ICaptchaMaker,
         ILabelFillerByText,
-        IDraftOrderTotalAmountsSumByUserIdGeter
+        IDraftOrderTotalAmountsSumByUserIdGeter,
+        IDiscountedAmountCaculator,
+        INumericUdDefaultValueSeter,
+        IPayerFormValidateHandler,
+        IOrderSenderFormOpener
+
     {
-        List<DraftOrdersTable> draftOrdersTable ;
+        List<DraftOrdersTable> draftOrdersTable;
 
         private ICaptchaMaker _captchaMaker;
-        private ILabelFillerByText _labelFillerByText;  
+        private ILabelFillerByText _labelFillerByText;
         private IDraftOrderTotalAmountsSumByUserIdGeter _draftOrderTotalAmountsSumByUserIdGeter;
+        private IDiscountedAmountCaculator _discountedAmountCaculator;
+        private INumericUdDefaultValueSeter _numericUdDefaultValueSeter;
+        private IPayerFormValidateHandler _payerFormValidateHandler;
+        private IOrderSenderFormOpener _orderSenderFormOpener;
         private AdressTable adressInfo;
         private UserTable userInfo;
-        private Random randomCaptcha;
+        private Random captchaRnd;
+        private string captchaCode;
 
         AdressTable IPayerForm.AdressInfo { get => adressInfo; set => adressInfo = value; }
         UserTable IPayerForm.UserInfo { get => userInfo; set => userInfo = value; }
-        Random IPayerForm.randomCaptcha { get => randomCaptcha; set => randomCaptcha = value; }
+        Random IPayerForm.CaptchaRnd { get => captchaRnd; set => value = captchaRnd; }
+        string IPayerForm.CaptchaCode { get => captchaCode; set => value = captchaCode; }
 
         public PayerForm(
             ICaptchaMaker captchaMaker,
             ILabelFillerByText labelFillerByText,
-            IDraftOrderTotalAmountsSumByUserIdGeter draftOrderTotalAmountsSumByUserIdGeter
+            IDraftOrderTotalAmountsSumByUserIdGeter draftOrderTotalAmountsSumByUserIdGeter,
+            IDiscountedAmountCaculator discountedAmountCaculator,
+            INumericUdDefaultValueSeter numericUdDefaultValueSeter,
+            IPayerFormValidateHandler payerFormValidateHandler,
+            IOrderSenderFormOpener orderSenderFormOpener
             )
         {
             InitializeComponent();
             _captchaMaker = captchaMaker;
             _labelFillerByText = labelFillerByText;
             _draftOrderTotalAmountsSumByUserIdGeter = draftOrderTotalAmountsSumByUserIdGeter;
+            _discountedAmountCaculator = discountedAmountCaculator;
+            _numericUdDefaultValueSeter = numericUdDefaultValueSeter;
+            _payerFormValidateHandler = payerFormValidateHandler;
+            _orderSenderFormOpener = orderSenderFormOpener;
+
+
         }
 
         private void PayerForm_Load(object sender, EventArgs e)
         {
-            UpdateRandom();
-            MakeCaptcha(CaptchaPB,randomCaptcha);
-            SetLabelText(TotalAmountLbl,GetDraftOrderTotalAmountsSumByUserId(userInfo.UserId).ToString());
+            UpdateCaptchaCode(ref captchaRnd, ref captchaCode);
+            SetLabelText(TotalAmountLbl, GetDraftOrderTotalAmountsSumByUserId(userInfo.UserId).ToString());
+            SetLabelText(DiscountedAmountLbl, CalculateDiscountedAmount<double>(GetDraftOrderTotalAmountsSumByUserId(userInfo.UserId), "precentageDiscount", 0.1, new PercentageDiscountCalculator()).ToString());
+            SetNumericUdDefaultValue(1111, txtPassword);
         }
-        void UpdateRandom()
+        void UpdateCaptchaCode(ref Random captchaRnd, ref string captchaCode)
         {
-            randomCaptcha = new Random();
+            captchaRnd = new Random();
+            captchaCode = MakeCaptcha(CaptchaPB, captchaRnd);
         }
 
-        public void MakeCaptcha(PictureBox pictureBox, Random random)
+        public string MakeCaptcha(PictureBox pictureBox, Random random)
         {
-            _captchaMaker.MakeCaptcha(pictureBox, random);
+            return _captchaMaker.MakeCaptcha(pictureBox, random);
         }
 
         public void SetLabelText(Label label, string text)
@@ -70,6 +101,60 @@ namespace StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms
         public long GetDraftOrderTotalAmountsSumByUserId(int userId)
         {
             return _draftOrderTotalAmountsSumByUserIdGeter.GetDraftOrderTotalAmountsSumByUserId(userId);
+        }
+
+        private void GoBackBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+        }
+
+        private void DeleteOrderBtn_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("آیا میخواهید سفارش را  لغو کنید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+
+                DialogResult = DialogResult.OK;
+
+            }
+        }
+
+        private void PayBtn_Click(object sender, EventArgs e)
+        {
+            if (CanUserPay(txtDebitCardNumber, txtCVV2, txtCaptcha, (int)txtPassword.Value, txtCaptcha.Text, captchaCode))
+            {
+                var discountedTotalAmount = CalculateDiscountedAmount<double>(GetDraftOrderTotalAmountsSumByUserId(userInfo.UserId), "precentageDiscount", 0.1, new PercentageDiscountCalculator());
+                OpenPayerFormSender(this, userInfo, discountedTotalAmount);
+            }
+        }
+
+        public long CalculateDiscountedAmount<T>(long amount, string discountName, T discountValue, IDiscountCalculator discountCalculator) where T : INumber<T>
+        {
+            return _discountedAmountCaculator.CalculateDiscountedAmount<T>(amount, discountName, discountValue, discountCalculator);
+        }
+
+        public void SetNumericUdDefaultValue(long defaultValue, params NumericUpDown[] numericUdCollection)
+        {
+            _numericUdDefaultValueSeter.SetNumericUdDefaultValue(defaultValue, numericUdCollection);
+        }
+
+        public void OpenPayerFormSender(Form senderForm, UserTable userInfo, long orderTotalAmount)
+        {
+            _orderSenderFormOpener.OpenPayerFormSender(senderForm, userInfo, orderTotalAmount);
+        }
+
+        public bool CanUserPay(MaskedTextBox cardNumber, MaskedTextBox cVV2, MaskedTextBox txtCaptcha, int password, string userCaptchaCode, string captchaCode)
+        {
+            return _payerFormValidateHandler.CanUserPay(cardNumber, cVV2, txtCaptcha, password, userCaptchaCode, captchaCode);
+        }
+
+        private void CaptchaPB_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdateCapchaBtn_Click(object sender, EventArgs e)
+        {
+            UpdateCaptchaCode(ref captchaRnd,ref captchaCode);
         }
     }
 }
