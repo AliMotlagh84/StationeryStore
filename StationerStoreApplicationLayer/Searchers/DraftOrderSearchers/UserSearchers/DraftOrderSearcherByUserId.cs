@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StationeryStoreUILayer.PublicHelpers.Searchers.DraftOrderSearchers.UserSearchers
 {
-    internal class DraftOrderSearcherByUserId : IDraftOrderSearcherByUserId
+    public class DraftOrderSearcherByUserId : IDraftOrderSearcherByUserId
     {
         public IEnumerable<DraftOrdersTable> SearchInDraftOrdersByUserId(IEnumerable<DraftOrdersTable> draftOrders, int? userId = null)
         {

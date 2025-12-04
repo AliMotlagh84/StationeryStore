@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\StationaryStoreUtility\StationaryStoreUtility.csproj" />
+    <ProjectReference Include="..\StationaryStoreViewModels\StationaryStoreViewModels.csproj" />
+    <ProjectReference Include="..\StationeryStoreDataLayer\StationeryStoreInfrastructureLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Adders\" />
+  </ItemGroup>
+
 </Project>

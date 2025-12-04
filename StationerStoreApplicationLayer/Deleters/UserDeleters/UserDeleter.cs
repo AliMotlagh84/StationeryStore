@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
-using StationeryStoreUILayer.PublicHelpers.DataDeleter.DraftOrderDataDeleters;
+﻿using StationeryStoreUILayer.PublicHelpers.DataDeleter.DraftOrderDataDeleters;
 using StationeryStoreUILayer.PublicHelpers.DataDeleter.UserDataDeleters;
 using StationeryStoreUILayer.PublicHelpers.DataGeters.DraftOrderDataGeters;
 using StationeryStoreUILayer.PublicHelpers.Searchers.DraftOrderSearchers;

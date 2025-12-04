@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
-using StationeryStoreUILayer.PublicHelpers.Searchers.UserSearchers.UserSearchersByAdminiSatate;
+﻿using StationeryStoreUILayer.PublicHelpers.Searchers.UserSearchers.UserSearchersByAdminiSatate;
 using StationeryStoreUILayer.PublicHelpers.Searchers.UserSearchers.UserSearchersByEmail;
 using StationeryStoreUILayer.PublicHelpers.Searchers.UserSearchers.UserSearchersByPassword;
 using StationeryStoreUILayer.PublicHelpers.Searchers.UserSearchers.UserSerachersByUserId;

@@ -134,6 +134,81 @@
         }
       }
     },
+    "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationerStoreApplicationLayer\\StationerStoreApplicationLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationerStoreApplicationLayer\\StationerStoreApplicationLayer.csproj",
+        "projectName": "StationerStoreApplicationLayer",
+        "projectPath": "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationerStoreApplicationLayer\\StationerStoreApplicationLayer.csproj",
+        "packagesPath": "C:\\Users\\Ara Computer\\.nuget\\packages\\",
+        "outputPath": "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationerStoreApplicationLayer\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Ara Computer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationaryStoreUtility\\StationaryStoreUtility.csproj": {
+                "projectPath": "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationaryStoreUtility\\StationaryStoreUtility.csproj"
+              },
+              "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationaryStoreViewModels\\StationaryStoreViewModels.csproj": {
+                "projectPath": "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationaryStoreViewModels\\StationaryStoreViewModels.csproj"
+              },
+              "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationeryStoreDataLayer\\StationeryStoreInfrastructureLayer.csproj": {
+                "projectPath": "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationeryStoreDataLayer\\StationeryStoreInfrastructureLayer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationeryStoreAppLayer\\StationeryStoreUILayer.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -167,6 +242,9 @@
               },
               "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationaryStoreViewModels\\StationaryStoreViewModels.csproj": {
                 "projectPath": "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationaryStoreViewModels\\StationaryStoreViewModels.csproj"
+              },
+              "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationerStoreApplicationLayer\\StationerStoreApplicationLayer.csproj": {
+                "projectPath": "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationerStoreApplicationLayer\\StationerStoreApplicationLayer.csproj"
               },
               "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationeryStoreDataLayer\\StationeryStoreInfrastructureLayer.csproj": {
                 "projectPath": "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationeryStoreDataLayer\\StationeryStoreInfrastructureLayer.csproj"

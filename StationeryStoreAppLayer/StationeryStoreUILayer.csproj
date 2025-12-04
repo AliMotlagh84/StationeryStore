@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\StationaryStoreUtility\StationaryStoreUtility.csproj" />
     <ProjectReference Include="..\StationaryStoreViewModels\StationaryStoreViewModels.csproj" />
+    <ProjectReference Include="..\StationerStoreApplicationLayer\StationerStoreApplicationLayer.csproj" />
     <ProjectReference Include="..\StationeryStoreDataLayer\StationeryStoreInfrastructureLayer.csproj" />
   </ItemGroup>
 

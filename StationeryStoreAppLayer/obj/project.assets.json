@@ -1009,6 +1009,21 @@
           "bin/placeholder/StationaryStoreViewModels.dll": {}
         }
       },
+      "StationerStoreApplicationLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "StationaryStoreUtility": "1.0.0",
+          "StationaryStoreViewModels": "1.0.0",
+          "StationeryStoreInfrastructureLayer": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/StationerStoreApplicationLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/StationerStoreApplicationLayer.dll": {}
+        }
+      },
       "StationeryStoreInfrastructureLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
@@ -2784,6 +2799,11 @@
       "path": "../StationaryStoreViewModels/StationaryStoreViewModels.csproj",
       "msbuildProject": "../StationaryStoreViewModels/StationaryStoreViewModels.csproj"
     },
+    "StationerStoreApplicationLayer/1.0.0": {
+      "type": "project",
+      "path": "../StationerStoreApplicationLayer/StationerStoreApplicationLayer.csproj",
+      "msbuildProject": "../StationerStoreApplicationLayer/StationerStoreApplicationLayer.csproj"
+    },
     "StationeryStoreInfrastructureLayer/1.0.0": {
       "type": "project",
       "path": "../StationeryStoreDataLayer/StationeryStoreInfrastructureLayer.csproj",
@@ -2794,6 +2814,7 @@
     "net9.0-windows7.0": [
       "StationaryStoreUtility >= 1.0.0",
       "StationaryStoreViewModels >= 1.0.0",
+      "StationerStoreApplicationLayer >= 1.0.0",
       "StationeryStoreInfrastructureLayer >= 1.0.0"
     ]
   },
@@ -2834,6 +2855,9 @@
             },
             "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationaryStoreViewModels\\StationaryStoreViewModels.csproj": {
               "projectPath": "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationaryStoreViewModels\\StationaryStoreViewModels.csproj"
+            },
+            "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationerStoreApplicationLayer\\StationerStoreApplicationLayer.csproj": {
+              "projectPath": "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationerStoreApplicationLayer\\StationerStoreApplicationLayer.csproj"
             },
             "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationeryStoreDataLayer\\StationeryStoreInfrastructureLayer.csproj": {
               "projectPath": "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationeryStoreDataLayer\\StationeryStoreInfrastructureLayer.csproj"

@@ -10,6 +10,7 @@
         "dependencies": {
           "StationaryStoreUtility": "1.0.0",
           "StationaryStoreViewModels": "1.0.0",
+          "StationerStoreApplicationLayer": "1.0.0",
           "StationeryStoreInfrastructureLayer": "1.0.0"
         },
         "runtime": {
@@ -529,6 +530,19 @@
           }
         }
       },
+      "StationerStoreApplicationLayer/1.0.0": {
+        "dependencies": {
+          "StationaryStoreUtility": "1.0.0",
+          "StationaryStoreViewModels": "1.0.0",
+          "StationeryStoreInfrastructureLayer": "1.0.0"
+        },
+        "runtime": {
+          "StationerStoreApplicationLayer.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "StationeryStoreInfrastructureLayer/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "9.0.9",
@@ -941,6 +955,11 @@
       "sha512": ""
     },
     "StationaryStoreViewModels/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "StationerStoreApplicationLayer/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
