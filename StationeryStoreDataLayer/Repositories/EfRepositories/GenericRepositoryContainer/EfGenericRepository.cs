@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
 using Microsoft.EntityFrameworkCore.Metadata;
-using StationeryStoreDataLayer.Repositories;
+using StationeryStoreInfrastructureLayer.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreDataLayer.Repositories.EfRepositories.GenericRepositoryContainer
+namespace StationeryStoreInfrastructureLayer.Repositories.EfRepositories.GenericRepositoryContainer
 {
     public class EfGenericRepository<T> : IGenericRepository<T> where T : class 
     {

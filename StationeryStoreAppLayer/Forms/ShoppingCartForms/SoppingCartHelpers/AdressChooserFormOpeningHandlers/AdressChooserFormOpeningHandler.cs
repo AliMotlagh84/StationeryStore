@@ -1,15 +1,15 @@
-﻿using StationeryStoreAppLayer.Forms.AdressForms.AdressFormHelpers.FormOpeners;
-using StationeryStoreAppLayer.Forms.ShoppingCartForms.SoppingCartHelpers.FormOpeners;
-using StationeryStoreAppLayer.PublicHelpers.DataGeters.AdressDataGeters;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.Forms.AdressForms.AdressFormHelpers.FormOpeners;
+using StationeryStoreUILayer.Forms.ShoppingCartForms.SoppingCartHelpers.FormOpeners;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.AdressDataGeters;
+using StationeryStoreUILayer.PublicHelpers.Searchers.AdressSearchers;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.ShoppingCartForms.SoppingCartHelpers.AdressFormChooserOpeningHandlers
+namespace StationeryStoreUILayer.Forms.ShoppingCartForms.SoppingCartHelpers.AdressFormChooserOpeningHandlers
 {
     public class AdressChooserFormOpeningHandler : IAdressChooserFormOpeningHandler,
         IAdressAdderOrEditorFormOpener,

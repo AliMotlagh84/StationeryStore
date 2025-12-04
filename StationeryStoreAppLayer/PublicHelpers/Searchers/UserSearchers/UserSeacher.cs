@@ -1,17 +1,17 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.UserSearchers.UserSearchersByAdminiSatate;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.UserSearchers.UserSearchersByEmail;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.UserSearchers.UserSearchersByPassword;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.UserSearchers.UserSerachersByUserId;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.UserSearchers.UserSerachersByUserName;
-using StationeryStoreDataLayer.Models;
+using StationeryStoreUILayer.PublicHelpers.Searchers.UserSearchers.UserSearchersByAdminiSatate;
+using StationeryStoreUILayer.PublicHelpers.Searchers.UserSearchers.UserSearchersByEmail;
+using StationeryStoreUILayer.PublicHelpers.Searchers.UserSearchers.UserSearchersByPassword;
+using StationeryStoreUILayer.PublicHelpers.Searchers.UserSearchers.UserSerachersByUserId;
+using StationeryStoreUILayer.PublicHelpers.Searchers.UserSearchers.UserSerachersByUserName;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.PublicHelpers.Searchers.UserSearchers
+namespace StationeryStoreUILayer.PublicHelpers.Searchers.UserSearchers
 {
     public class UserSeacher : IUserSeacher,
         IUserSearcherByUserId,

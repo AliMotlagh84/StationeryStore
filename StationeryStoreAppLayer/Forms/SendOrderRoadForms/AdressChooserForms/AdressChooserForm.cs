@@ -1,16 +1,16 @@
 ﻿using StationaryStoreUtility.Validators.textValidators;
-using StationeryStoreAppLayer.Forms.SendOrderRoadForms.AdressChooserForms;
-using StationeryStoreAppLayer.Forms.SendOrderRoadForms.AdressChooserForms.AdressChooserHelpers.AdressChooserFormValidateHandlers;
-using StationeryStoreAppLayer.Forms.SendOrderRoadForms.AdressChooserForms.AdressChooserHelpers.FormOpeners;
-using StationeryStoreAppLayer.Forms.SendOrderRoadForms.OrderInfoShowerForms;
-using StationeryStoreAppLayer.Forms.SendOrderRoadForms.OrderRoadHelpers.OrderRoadHandlers;
-using StationeryStoreAppLayer.PublicHelpers.DataGeters.AdressDataGeters;
-using StationeryStoreAppLayer.PublicHelpers.DgFillers;
-using StationeryStoreAppLayer.PublicHelpers.FormTextSeters;
-using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers;
-using StationeryStoreAppLayer.PublicHelpers.TextBoxFillers;
-using StationeryStoreDataLayer.Models;
+using StationeryStoreUILayer.Forms.SendOrderRoadForms.AdressChooserForms;
+using StationeryStoreUILayer.Forms.SendOrderRoadForms.AdressChooserForms.AdressChooserHelpers.AdressChooserFormValidateHandlers;
+using StationeryStoreUILayer.Forms.SendOrderRoadForms.AdressChooserForms.AdressChooserHelpers.FormOpeners;
+using StationeryStoreUILayer.Forms.SendOrderRoadForms.OrderInfoShowerForms;
+using StationeryStoreUILayer.Forms.SendOrderRoadForms.OrderRoadHelpers.OrderRoadHandlers;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.AdressDataGeters;
+using StationeryStoreUILayer.PublicHelpers.DgFillers;
+using StationeryStoreUILayer.PublicHelpers.FormTextSeters;
+using StationeryStoreUILayer.PublicHelpers.Restartors.TextBoxRestartors;
+using StationeryStoreUILayer.PublicHelpers.Searchers.AdressSearchers;
+using StationeryStoreUILayer.PublicHelpers.TextBoxFillers;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +21,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StationeryStoreAppLayer.Forms.AdressChooserForms
+namespace StationeryStoreUILayer.Forms.AdressChooserForms
 {
     public partial class AdressChooserForm : Form, IAdressChooserForm,
         IAdressesDataGeter,

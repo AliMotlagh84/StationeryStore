@@ -1,17 +1,17 @@
-﻿using StationeryStoreAppLayer.PublicHelpers.DataBuilders.DraftOrderDataBuilders;
-using StationeryStoreAppLayer.PublicHelpers.DataBuilders.ProductDataBuilders;
-using StationeryStoreAppLayer.PublicHelpers.DataEditors.DraftOrderDataEditors;
-using StationeryStoreAppLayer.PublicHelpers.DataEditors.ProductDataEditors;
-using StationeryStoreAppLayer.PublicHelpers.DataGeters.DraftOrderDataGeters;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.DraftOrderSearchers;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.PublicHelpers.DataBuilders.DraftOrderDataBuilders;
+using StationeryStoreUILayer.PublicHelpers.DataBuilders.ProductDataBuilders;
+using StationeryStoreUILayer.PublicHelpers.DataEditors.DraftOrderDataEditors;
+using StationeryStoreUILayer.PublicHelpers.DataEditors.ProductDataEditors;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.DraftOrderDataGeters;
+using StationeryStoreUILayer.PublicHelpers.Searchers.DraftOrderSearchers;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.PublicHelpers.Editors.ProductEditors
+namespace StationeryStoreUILayer.PublicHelpers.Editors.ProductEditors
 {
     public class ProductEditor :
         IProductEditor,

@@ -1,19 +1,19 @@
-﻿using StationeryStoreAppLayer.Forms.DraftOrderForms;
-using StationeryStoreAppLayer.PublicHelpers.DataDeleter.BrandDataDeleters;
-using StationeryStoreAppLayer.PublicHelpers.DataDeleter.DraftOrderDataDeleters;
-using StationeryStoreAppLayer.PublicHelpers.DataGeters.DraftOrderDataGeters;
-using StationeryStoreAppLayer.PublicHelpers.DataGeters.ProductGeters;
-using StationeryStoreAppLayer.PublicHelpers.Deleters.ProductDeleters;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.DraftOrderSearchers;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.Forms.DraftOrderForms;
+using StationeryStoreUILayer.PublicHelpers.DataDeleter.BrandDataDeleters;
+using StationeryStoreUILayer.PublicHelpers.DataDeleter.DraftOrderDataDeleters;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.DraftOrderDataGeters;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.ProductGeters;
+using StationeryStoreUILayer.PublicHelpers.Deleters.ProductDeleters;
+using StationeryStoreUILayer.PublicHelpers.Searchers.DraftOrderSearchers;
+using StationeryStoreUILayer.PublicHelpers.Searchers.ProductSearchers;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.PublicHelpers.Deleters.BrandDeleters
+namespace StationeryStoreUILayer.PublicHelpers.Deleters.BrandDeleters
 {
     public class BrandDeleter : IBrandDeleter,
         IBrandDataDeleter,

@@ -1,11 +1,11 @@
-﻿using StationeryStoreAppLayer.PublicHelpers.DataGeters.BrandsDataGeters;
+﻿using StationeryStoreUILayer.PublicHelpers.DataGeters.BrandsDataGeters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.ManagerForms.BrandsManagerForm
+namespace StationeryStoreUILayer.Forms.ManagerForms.BrandsManagerForm
 {
     public interface IBrandManagerForm:IBrandDataGeter
     {

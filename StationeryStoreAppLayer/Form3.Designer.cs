@@ -1,4 +1,4 @@
-﻿namespace StationeryStoreAppLayer
+﻿namespace StationeryStoreUILayer
 {
     partial class Form3
     {

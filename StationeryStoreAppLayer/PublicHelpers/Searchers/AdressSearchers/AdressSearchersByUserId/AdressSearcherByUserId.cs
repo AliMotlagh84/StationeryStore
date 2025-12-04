@@ -1,11 +1,11 @@
-﻿using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByUserId
+namespace StationeryStoreUILayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByUserId
 {
     public class AdressSearcherByUserId : IAdressSearcherByUserId
     {

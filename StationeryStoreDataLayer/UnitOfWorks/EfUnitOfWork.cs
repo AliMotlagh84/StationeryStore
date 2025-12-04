@@ -1,18 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using StationeryStoreDataLayer.Models;
-using StationeryStoreDataLayer.Repositories.EfRepositories.BrandRepositoryContiner;
-using StationeryStoreDataLayer.Repositories.EfRepositories.DraftOrderRepository;
-using StationeryStoreDataLayer.Repositories.EfRepositories.DraftOrderRepositoryContainer;
-using StationeryStoreDataLayer.Repositories.EfRepositories.ProductRepository;
-using StationeryStoreDataLayer.Repositories.EfRepositories.ProductRepositoryContainer;
-using StationeryStoreDataLayer.Repositories.EfRepositories.UserRepositoryContainer;
+using StationeryStoreInfrastructureLayer.Models;
+using StationeryStoreInfrastructureLayer.Repositories.EfRepositories.BrandRepositoryContiner;
+using StationeryStoreInfrastructureLayer.Repositories.EfRepositories.DraftOrderRepository;
+using StationeryStoreInfrastructureLayer.Repositories.EfRepositories.DraftOrderRepositoryContainer;
+using StationeryStoreInfrastructureLayer.Repositories.EfRepositories.ProductRepository;
+using StationeryStoreInfrastructureLayer.Repositories.EfRepositories.ProductRepositoryContainer;
+using StationeryStoreInfrastructureLayer.Repositories.EfRepositories.UserRepositoryContainer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreDataLayer.UnitOfWorks
+namespace StationeryStoreInfrastructureLayer.UnitOfWorks
 {
     public class EfUnitOfWork : IDisposable
     {

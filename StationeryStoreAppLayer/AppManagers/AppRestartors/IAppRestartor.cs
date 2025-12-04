@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.AppManagers.AppRestartors
+namespace StationeryStoreUILayer.AppManagers.AppRestartors
 {
     public interface IAppRestartor
     {

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters
+namespace StationeryStoreUILayer.PublicHelpers.NumericUpDownDefaultValueSeters
 {
     public class NumericUdDefaultValueSeter : INumericUdDefaultValueSeter
     {

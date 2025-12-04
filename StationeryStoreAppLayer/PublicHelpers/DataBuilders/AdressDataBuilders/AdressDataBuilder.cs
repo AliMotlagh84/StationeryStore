@@ -1,11 +1,11 @@
-﻿using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.PublicHelpers.DataBuilders.AdressDataBuilders
+namespace StationeryStoreUILayer.PublicHelpers.DataBuilders.AdressDataBuilders
 {
     public class AdressDataBuilder : IAdressDataBuilder
     {

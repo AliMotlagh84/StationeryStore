@@ -1,9 +1,9 @@
 ﻿using StationaryStoreUtility.Validators.EmailValidator;
 using StationaryStoreUtility.Validators.textValidators;
-using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.AdminiCodeValidator;
-using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.UniqeUserValidators;
-using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
-using StationeryStoreDataLayer.UnitOfWorks;
+using StationeryStoreUILayer.Forms.SignUpForms.SignUpHelpers.AdminiCodeValidator;
+using StationeryStoreUILayer.Forms.SignUpForms.SignUpHelpers.UniqeUserValidators;
+using StationeryStoreUILayer.PublicHelpers.Restartors.TextBoxRestartors;
+using StationeryStoreInfrastructureLayer.UnitOfWorks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
-namespace StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.SignUpValidateHandlers.AdminSignUpValidateHandlers
+namespace StationeryStoreUILayer.Forms.SignUpForms.SignUpHelpers.SignUpValidateHandlers.AdminSignUpValidateHandlers
 {
     public class AdminSignUpValidateHandler : IAdminSignUpValidateHandler,
         ITextValidator,

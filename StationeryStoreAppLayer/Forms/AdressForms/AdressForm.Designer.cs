@@ -1,4 +1,4 @@
-﻿namespace StationeryStoreAppLayer.Forms.AdressForms
+﻿namespace StationeryStoreUILayer.Forms.AdressForms
 {
     partial class AdressForm
     {
@@ -163,7 +163,7 @@
             DeleteAdressBtn.BackColor = Color.FromArgb(255, 192, 192);
             DeleteAdressBtn.FlatStyle = FlatStyle.Popup;
             DeleteAdressBtn.ForeColor = Color.Maroon;
-            DeleteAdressBtn.Image = Properties.Resources.icons8_remove_60;
+            DeleteAdressBtn.Image = StationeryStoreUILayer.Properties.Resources.icons8_remove_60;
             DeleteAdressBtn.ImageAlign = ContentAlignment.TopCenter;
             DeleteAdressBtn.Location = new Point(5, 287);
             DeleteAdressBtn.Name = "DeleteAdressBtn";
@@ -179,7 +179,7 @@
             UpdateAdressBtn.BackColor = Color.FromArgb(192, 255, 192);
             UpdateAdressBtn.FlatStyle = FlatStyle.Popup;
             UpdateAdressBtn.ForeColor = Color.DarkGreen;
-            UpdateAdressBtn.Image = Properties.Resources.icons8_update_60;
+            UpdateAdressBtn.Image = StationeryStoreUILayer.Properties.Resources.icons8_update_60;
             UpdateAdressBtn.ImageAlign = ContentAlignment.TopCenter;
             UpdateAdressBtn.Location = new Point(348, 287);
             UpdateAdressBtn.Name = "UpdateAdressBtn";
@@ -195,7 +195,7 @@
             AddNewAdressBtn.BackColor = Color.FromArgb(255, 255, 128);
             AddNewAdressBtn.FlatStyle = FlatStyle.Popup;
             AddNewAdressBtn.ForeColor = Color.FromArgb(192, 64, 0);
-            AddNewAdressBtn.Image = Properties.Resources.icons8_address_55;
+            AddNewAdressBtn.Image = StationeryStoreUILayer.Properties.Resources.icons8_address_55;
             AddNewAdressBtn.ImageAlign = ContentAlignment.TopCenter;
             AddNewAdressBtn.Location = new Point(520, 287);
             AddNewAdressBtn.Name = "AddNewAdressBtn";
@@ -211,7 +211,7 @@
             DeleteAllAdressesBtn.BackColor = Color.Silver;
             DeleteAllAdressesBtn.FlatStyle = FlatStyle.Popup;
             DeleteAllAdressesBtn.ForeColor = Color.Black;
-            DeleteAllAdressesBtn.Image = Properties.Resources.icons8_trash_65;
+            DeleteAllAdressesBtn.Image = StationeryStoreUILayer.Properties.Resources.icons8_trash_65;
             DeleteAllAdressesBtn.ImageAlign = ContentAlignment.TopCenter;
             DeleteAllAdressesBtn.Location = new Point(174, 287);
             DeleteAllAdressesBtn.Name = "DeleteAllAdressesBtn";

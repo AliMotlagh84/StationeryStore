@@ -1,11 +1,11 @@
-﻿using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByStree
+namespace StationeryStoreUILayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByStree
 {
     public class AdressSearcherByStreet : IAdressSearcherByStreet
     {

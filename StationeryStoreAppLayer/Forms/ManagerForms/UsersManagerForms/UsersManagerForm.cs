@@ -1,13 +1,13 @@
 ﻿using StationaryStoreUtility.Validators.EmailValidator;
-using StationeryStoreAppLayer.PublicHelpers.DataAdders.UserDataAdders;
-using StationeryStoreAppLayer.PublicHelpers.DataBuilders.UserDataBuilder;
-using StationeryStoreAppLayer.PublicHelpers.DataDeleter.UserDataDeleters;
-using StationeryStoreAppLayer.PublicHelpers.DataGeters.UserDataGeters;
-using StationeryStoreAppLayer.PublicHelpers.Deleters.UserDeleters;
-using StationeryStoreAppLayer.PublicHelpers.DgFillers;
-using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.UserSearchers;
-using StationeryStoreDataLayer.Models;
+using StationeryStoreUILayer.PublicHelpers.DataAdders.UserDataAdders;
+using StationeryStoreUILayer.PublicHelpers.DataBuilders.UserDataBuilder;
+using StationeryStoreUILayer.PublicHelpers.DataDeleter.UserDataDeleters;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.UserDataGeters;
+using StationeryStoreUILayer.PublicHelpers.Deleters.UserDeleters;
+using StationeryStoreUILayer.PublicHelpers.DgFillers;
+using StationeryStoreUILayer.PublicHelpers.Restartors.TextBoxRestartors;
+using StationeryStoreUILayer.PublicHelpers.Searchers.UserSearchers;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +18,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StationeryStoreAppLayer.Forms.ManagerForms.UsersManagerForms
+namespace StationeryStoreUILayer.Forms.ManagerForms.UsersManagerForms
 {
     public partial class UsersManagerForm : Form, IUsersManagerForm,
         IUsersDataGeter,

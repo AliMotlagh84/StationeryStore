@@ -1,25 +1,25 @@
-﻿using StationeryStoreDataLayer.Models;
-using StationeryStoreAppLayer.Forms.HomeForms;
-using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.FormClosers;
-using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.LableSeters;
-using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.ProductManagemenAccessControllers;
-using StationeryStoreAppLayer.PublicHelpers.ComboBoxFiilers;
-using StationeryStoreAppLayer.PublicHelpers.DataGeters.BrandsDataGeters;
-using StationeryStoreAppLayer.PublicHelpers.DataGeters.OrdersGeters;
-using StationeryStoreAppLayer.PublicHelpers.DataGeters.ProductGeters;
-using StationeryStoreAppLayer.PublicHelpers.DgFillers;
-using StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers;
-using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.FormOpeners;
-using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.GropBoxTextSeters;
-using StationeryStoreAppLayer.AppManagers.FormManagers;
-using StationeryStoreAppLayer.AppManagers.AppRestartors;
-using StationeryStoreAppLayer.AppManagers.AppClosers;
-using StationeryStoreAppLayer.PublicHelpers.DataDeleter.UserDataDeleters;
-using StationeryStoreAppLayer.PublicHelpers.Deleters.UserDeleters;
-using StationeryStoreAppLayer.Forms.StoreManagerForms;
+﻿using StationeryStoreInfrastructureLayer.Models;
+using StationeryStoreUILayer.Forms.HomeForms;
+using StationeryStoreUILayer.Forms.HomeForms.HomeFormHelper.FormClosers;
+using StationeryStoreUILayer.Forms.HomeForms.HomeFormHelper.LableSeters;
+using StationeryStoreUILayer.Forms.HomeForms.HomeFormHelper.ProductManagemenAccessControllers;
+using StationeryStoreUILayer.PublicHelpers.ComboBoxFiilers;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.BrandsDataGeters;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.OrdersGeters;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.ProductGeters;
+using StationeryStoreUILayer.PublicHelpers.DgFillers;
+using StationeryStoreUILayer.PublicHelpers.NumericUpDownDefaultValueSeters;
+using StationeryStoreUILayer.PublicHelpers.Searchers.ProductSearchers;
+using StationeryStoreUILayer.Forms.HomeForms.HomeFormHelper.FormOpeners;
+using StationeryStoreUILayer.Forms.HomeForms.HomeFormHelper.GropBoxTextSeters;
+using StationeryStoreUILayer.AppManagers.FormManagers;
+using StationeryStoreUILayer.AppManagers.AppRestartors;
+using StationeryStoreUILayer.AppManagers.AppClosers;
+using StationeryStoreUILayer.PublicHelpers.DataDeleter.UserDataDeleters;
+using StationeryStoreUILayer.PublicHelpers.Deleters.UserDeleters;
+using StationeryStoreUILayer.Forms.StoreManagerForms;
 
-namespace StationeryStoreAppLayer
+namespace StationeryStoreUILayer
 {
     public partial class Form1 : Form, IHomeForm,
         IDgFiller,

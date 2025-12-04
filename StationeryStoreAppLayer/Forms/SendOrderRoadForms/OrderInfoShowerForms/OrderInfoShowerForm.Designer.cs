@@ -1,4 +1,4 @@
-﻿namespace StationeryStoreAppLayer.Forms.SendOrderRoadForms.OrderInfoShowerForms
+﻿namespace StationeryStoreUILayer.Forms.SendOrderRoadForms.OrderInfoShowerForms
 {
     partial class OrderInfoShowerForm
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using StationeryStoreDataLayer.Models;
-using StationeryStoreDataLayer.Repositories.EfRepositories.GenericRepositoryContainer;
+using StationeryStoreInfrastructureLayer.Models;
+using StationeryStoreInfrastructureLayer.Repositories.EfRepositories.GenericRepositoryContainer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreDataLayer.Repositories.EfRepositories.BrandRepositoryContiner
+namespace StationeryStoreInfrastructureLayer.Repositories.EfRepositories.BrandRepositoryContiner
 {
     public class BrandRepository : EfGenericRepository<BrandsTable>, IBrandRepository
     {

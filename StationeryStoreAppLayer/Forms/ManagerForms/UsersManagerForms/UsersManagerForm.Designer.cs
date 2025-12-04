@@ -1,4 +1,4 @@
-﻿namespace StationeryStoreAppLayer.Forms.ManagerForms.UsersManagerForms
+﻿namespace StationeryStoreUILayer.Forms.ManagerForms.UsersManagerForms
 {
     partial class UsersManagerForm
     {
@@ -55,7 +55,7 @@
             DeleteUserBtn.BackColor = Color.FromArgb(255, 192, 192);
             DeleteUserBtn.FlatStyle = FlatStyle.Popup;
             DeleteUserBtn.ForeColor = Color.FromArgb(192, 0, 0);
-            DeleteUserBtn.Image = Properties.Resources.icons8_delete_user_55;
+            DeleteUserBtn.Image = StationeryStoreUILayer.Properties.Resources.icons8_delete_user_55;
             DeleteUserBtn.Location = new Point(679, 240);
             DeleteUserBtn.Name = "DeleteUserBtn";
             DeleteUserBtn.Size = new Size(130, 84);
@@ -70,7 +70,7 @@
             RefreshBtn.BackColor = Color.FromArgb(255, 192, 255);
             RefreshBtn.FlatStyle = FlatStyle.Popup;
             RefreshBtn.ForeColor = Color.Purple;
-            RefreshBtn.Image = Properties.Resources.icons8_refresh_60;
+            RefreshBtn.Image = StationeryStoreUILayer.Properties.Resources.icons8_refresh_60;
             RefreshBtn.Location = new Point(547, 240);
             RefreshBtn.Name = "RefreshBtn";
             RefreshBtn.Size = new Size(126, 84);

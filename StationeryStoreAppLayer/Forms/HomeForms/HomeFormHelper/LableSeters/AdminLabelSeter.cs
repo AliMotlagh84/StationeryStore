@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.LableSeters
+namespace StationeryStoreUILayer.Forms.HomeForms.HomeFormHelper.LableSeters
 {
     public class AdminLabelSeter : IAdminLabelSeter
     {
@@ -13,7 +13,7 @@ namespace StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.LableSeters
             AdminLabel.Text = userName;
             if (isAdmin)
             {
-                AdminLabel.Image = StationeryStoreAppLayer.Properties.Resources.icons8_admin_50;
+                AdminLabel.Image = StationeryStoreUILayer.Properties.Resources.icons8_admin_50;
             }
         }
     }

@@ -1,6 +1,6 @@
 ﻿using StationaryStoreUtility.Validators.DebitCardPasswordValidators;
-using StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.CaptchaValidators;
-using StationeryStoreAppLayer.PublicHelpers.Validators.MaskedTextBoxValidators;
+using StationeryStoreUILayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.CaptchaValidators;
+using StationeryStoreUILayer.PublicHelpers.Validators.MaskedTextBoxValidators;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.PayerFormValidateHandlers
+namespace StationeryStoreUILayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.PayerFormValidateHandlers
 {
     public class PayerFormValidateHandler : IPayerFormValidateHandler,
         IMaskCompleteValidator,

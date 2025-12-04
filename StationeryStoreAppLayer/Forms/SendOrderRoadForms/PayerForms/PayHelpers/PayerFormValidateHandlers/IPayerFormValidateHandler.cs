@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.PayerFormValidateHandlers
+namespace StationeryStoreUILayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.PayerFormValidateHandlers
 {
     public interface IPayerFormValidateHandler
     {

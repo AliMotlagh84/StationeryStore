@@ -1,11 +1,11 @@
-﻿using StationeryStoreAppLayer.Forms.ManagerForms.BrandsManagerForm.BrandManagerHelpers.FormOpeners;
-using StationeryStoreAppLayer.PublicHelpers.DataBuilders.BrandDataBuilders;
-using StationeryStoreAppLayer.PublicHelpers.DataGeters.BrandsDataGeters;
-using StationeryStoreAppLayer.PublicHelpers.Deleters.BrandDeleters;
-using StationeryStoreAppLayer.PublicHelpers.DgFillers;
-using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.BrandsSearcher;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.Forms.ManagerForms.BrandsManagerForm.BrandManagerHelpers.FormOpeners;
+using StationeryStoreUILayer.PublicHelpers.DataBuilders.BrandDataBuilders;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.BrandsDataGeters;
+using StationeryStoreUILayer.PublicHelpers.Deleters.BrandDeleters;
+using StationeryStoreUILayer.PublicHelpers.DgFillers;
+using StationeryStoreUILayer.PublicHelpers.Restartors.TextBoxRestartors;
+using StationeryStoreUILayer.PublicHelpers.Searchers.BrandsSearcher;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StationeryStoreAppLayer.Forms.ManagerForms.BrandsManagerForm
+namespace StationeryStoreUILayer.Forms.ManagerForms.BrandsManagerForm
 {
     public partial class BrandsManagerForm : Form, IBrandManagerForm,
         IBrandDeleter,

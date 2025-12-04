@@ -1,13 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore.Infrastructure;
-using StationeryStoreDataLayer.Models;
-using StationeryStoreAppLayer.Forms.DraftOrderForms;
+using StationeryStoreInfrastructureLayer.Models;
+using StationeryStoreUILayer.Forms.DraftOrderForms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.FormOpeners
+namespace StationeryStoreUILayer.Forms.HomeForms.HomeFormHelper.FormOpeners
 {
     public interface IDraftOrderFormOpener
     {

@@ -1,14 +1,14 @@
-﻿using StationeryStoreAppLayer.PublicHelpers.DataDeleter.DraftOrderDataDeleters;
-using StationeryStoreAppLayer.PublicHelpers.DataEditors.ProductDataEditors;
-using StationeryStoreAppLayer.PublicHelpers.DataGeters.DraftOrderDataGeters;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.PublicHelpers.DataDeleter.DraftOrderDataDeleters;
+using StationeryStoreUILayer.PublicHelpers.DataEditors.ProductDataEditors;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.DraftOrderDataGeters;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.PublicHelpers.Deleters.DraftOrderDeleters
+namespace StationeryStoreUILayer.PublicHelpers.Deleters.DraftOrderDeleters
 {
     public class DraftOrderDeleter : IDraftOrderDeleter,
         IDraftOrderDataDeleter,

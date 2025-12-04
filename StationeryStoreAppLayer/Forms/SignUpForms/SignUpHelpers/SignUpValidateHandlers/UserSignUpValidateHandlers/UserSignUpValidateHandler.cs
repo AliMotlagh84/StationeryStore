@@ -1,14 +1,14 @@
 ﻿using StationaryStoreUtility.Validators.EmailValidator;
 using StationaryStoreUtility.Validators.textValidators;
-using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.UniqeUserValidators;
-using StationeryStoreDataLayer.UnitOfWorks;
+using StationeryStoreUILayer.Forms.SignUpForms.SignUpHelpers.UniqeUserValidators;
+using StationeryStoreInfrastructureLayer.UnitOfWorks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.SignUpValidateHandlers.UserSignUpValidateHandlers
+namespace StationeryStoreUILayer.Forms.SignUpForms.SignUpHelpers.SignUpValidateHandlers.UserSignUpValidateHandlers
 {
     public class UserSignUpValidateHandler : IUserSignUpValidateHandler,
         ITextValidator,

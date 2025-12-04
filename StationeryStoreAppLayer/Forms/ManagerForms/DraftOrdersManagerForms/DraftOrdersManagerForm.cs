@@ -1,17 +1,17 @@
-﻿using StationeryStoreAppLayer.Forms.AdderOrEditorForms.BrandAdderOrEditorForm;
-using StationeryStoreAppLayer.PublicHelpers.ComboBoxFiilers;
-using StationeryStoreAppLayer.PublicHelpers.DataBuilders.DraftOrderDataBuilders;
-using StationeryStoreAppLayer.PublicHelpers.DataDeleter.DraftOrderDataDeleters;
-using StationeryStoreAppLayer.PublicHelpers.DataGeters.BrandsDataGeters;
-using StationeryStoreAppLayer.PublicHelpers.DataGeters.DraftOrderDataGeters;
-using StationeryStoreAppLayer.PublicHelpers.DgFillers;
-using StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters;
-using StationeryStoreAppLayer.PublicHelpers.Restartors.ComboRestartors;
-using StationeryStoreAppLayer.PublicHelpers.Restartors.INumericUdRestartor;
-using StationeryStoreAppLayer.PublicHelpers.Restartors.MaskedTextBoxRestartors;
-using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.DraftOrderSearchers;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.Forms.AdderOrEditorForms.BrandAdderOrEditorForm;
+using StationeryStoreUILayer.PublicHelpers.ComboBoxFiilers;
+using StationeryStoreUILayer.PublicHelpers.DataBuilders.DraftOrderDataBuilders;
+using StationeryStoreUILayer.PublicHelpers.DataDeleter.DraftOrderDataDeleters;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.BrandsDataGeters;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.DraftOrderDataGeters;
+using StationeryStoreUILayer.PublicHelpers.DgFillers;
+using StationeryStoreUILayer.PublicHelpers.NumericUpDownDefaultValueSeters;
+using StationeryStoreUILayer.PublicHelpers.Restartors.ComboRestartors;
+using StationeryStoreUILayer.PublicHelpers.Restartors.INumericUdRestartor;
+using StationeryStoreUILayer.PublicHelpers.Restartors.MaskedTextBoxRestartors;
+using StationeryStoreUILayer.PublicHelpers.Restartors.TextBoxRestartors;
+using StationeryStoreUILayer.PublicHelpers.Searchers.DraftOrderSearchers;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +22,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StationeryStoreAppLayer.Forms.ManagerForms.DraftOrdersManagerForms
+namespace StationeryStoreUILayer.Forms.ManagerForms.DraftOrdersManagerForms
 {
     public partial class DraftOrdersManagerForm : Form, IDraftOrdersManagerForm,
      IDraftOrderDataGeter,

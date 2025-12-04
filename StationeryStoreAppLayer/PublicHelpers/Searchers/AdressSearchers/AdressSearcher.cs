@@ -1,12 +1,12 @@
-﻿using StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByAdressId;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByAlley;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByCity;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByHouseNumber;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByStree;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByUserId;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByUserName;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers.AdresssSearchersByPostalCode;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByAdressId;
+using StationeryStoreUILayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByAlley;
+using StationeryStoreUILayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByCity;
+using StationeryStoreUILayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByHouseNumber;
+using StationeryStoreUILayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByStree;
+using StationeryStoreUILayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByUserId;
+using StationeryStoreUILayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByUserName;
+using StationeryStoreUILayer.PublicHelpers.Searchers.AdressSearchers.AdresssSearchersByPostalCode;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
-namespace StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers
+namespace StationeryStoreUILayer.PublicHelpers.Searchers.AdressSearchers
 {
     public class AdressSearcher : IAdressSearcher,
         IAdressSearcherByAdressId,

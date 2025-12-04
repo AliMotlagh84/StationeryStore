@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.PublicHelpers.TextBoxFillers
+namespace StationeryStoreUILayer.PublicHelpers.TextBoxFillers
 {
     public interface ITextBoxFiller
     {

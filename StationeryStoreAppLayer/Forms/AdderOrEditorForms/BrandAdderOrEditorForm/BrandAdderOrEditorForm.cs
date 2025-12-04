@@ -1,13 +1,13 @@
 ﻿using StationaryStoreUtility.Validators.textValidators;
-using StationeryStoreAppLayer.PublicHelpers.ButtonTextSeters;
-using StationeryStoreAppLayer.PublicHelpers.DataAdders.BrandDataAdders;
-using StationeryStoreAppLayer.PublicHelpers.DataBuilders.BrandDataBuilders;
-using StationeryStoreAppLayer.PublicHelpers.DataEditors.BrandDataEditor;
-using StationeryStoreAppLayer.PublicHelpers.Editors.BrandEditors;
-using StationeryStoreAppLayer.PublicHelpers.FormTextSeters;
-using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
-using StationeryStoreAppLayer.PublicHelpers.TextBoxFillers;
-using StationeryStoreDataLayer.Models;
+using StationeryStoreUILayer.PublicHelpers.ButtonTextSeters;
+using StationeryStoreUILayer.PublicHelpers.DataAdders.BrandDataAdders;
+using StationeryStoreUILayer.PublicHelpers.DataBuilders.BrandDataBuilders;
+using StationeryStoreUILayer.PublicHelpers.DataEditors.BrandDataEditor;
+using StationeryStoreUILayer.PublicHelpers.Editors.BrandEditors;
+using StationeryStoreUILayer.PublicHelpers.FormTextSeters;
+using StationeryStoreUILayer.PublicHelpers.Restartors.TextBoxRestartors;
+using StationeryStoreUILayer.PublicHelpers.TextBoxFillers;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +18,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StationeryStoreAppLayer.Forms.AdderOrEditorForms.BrandAdderOrEditorForm
+namespace StationeryStoreUILayer.Forms.AdderOrEditorForms.BrandAdderOrEditorForm
 {
     public partial class BrandAdderOrEditorForm : Form, IBrandAdderOrEditorForm,
     IBrandDataBuilder,

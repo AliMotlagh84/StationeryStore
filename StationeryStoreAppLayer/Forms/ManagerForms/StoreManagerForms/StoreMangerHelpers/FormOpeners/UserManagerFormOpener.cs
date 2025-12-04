@@ -1,11 +1,11 @@
-﻿using StationeryStoreAppLayer.Forms.ManagerForms.UsersManagerForms;
+﻿using StationeryStoreUILayer.Forms.ManagerForms.UsersManagerForms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.ManagerForms.StoreManagerForms.StoreMangerHelpers.FormOpeners
+namespace StationeryStoreUILayer.Forms.ManagerForms.StoreManagerForms.StoreMangerHelpers.FormOpeners
 {
     public class UserManagerFormOpener<TUserManagerForm> : IUserManagerFormOpener where TUserManagerForm: Form, IUsersManagerForm
     {

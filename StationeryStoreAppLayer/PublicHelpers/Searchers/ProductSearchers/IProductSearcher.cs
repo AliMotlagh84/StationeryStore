@@ -1,16 +1,16 @@
-﻿using StationeryStoreDataLayer.Models;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers.AmountSearchers;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers.AvailablitySearchers;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers.BrandSearchers;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers.DateSearchers;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers.NameSearchers;
+﻿using StationeryStoreInfrastructureLayer.Models;
+using StationeryStoreUILayer.PublicHelpers.Searchers.ProductSearchers.AmountSearchers;
+using StationeryStoreUILayer.PublicHelpers.Searchers.ProductSearchers.AvailablitySearchers;
+using StationeryStoreUILayer.PublicHelpers.Searchers.ProductSearchers.BrandSearchers;
+using StationeryStoreUILayer.PublicHelpers.Searchers.ProductSearchers.DateSearchers;
+using StationeryStoreUILayer.PublicHelpers.Searchers.ProductSearchers.NameSearchers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers
+namespace StationeryStoreUILayer.PublicHelpers.Searchers.ProductSearchers
 {
     public interface IProductSearcher
     {

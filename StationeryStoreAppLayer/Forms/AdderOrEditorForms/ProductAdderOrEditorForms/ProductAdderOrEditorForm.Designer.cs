@@ -1,4 +1,4 @@
-﻿namespace StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms
+﻿namespace StationeryStoreUILayer.Forms.ProductAdderOrEditorForms
 {
     partial class ProductAdderOrEditorForm
     {

@@ -1,5 +1,5 @@
-﻿using StationeryStoreAppLayer.Forms.CountManagerForms.ProductCountIncreaserForms;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.Forms.CountManagerForms.ProductCountIncreaserForms;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_.ProductsManagerHelpers.FormOpeners
+namespace StationeryStoreUILayer.Forms.ProductsManagerForms_for_Admin_.ProductsManagerHelpers.FormOpeners
 {
     public class ProductCountIncreaserFormOpener<T> : IProductCountIncreaserFormOpener where T : Form,IProductCountIncreaserForm
     {

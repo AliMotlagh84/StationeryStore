@@ -1,15 +1,15 @@
-﻿using StationeryStoreAppLayer.PublicHelpers.DataAdders.ProductDataAdders;
-using StationeryStoreAppLayer.PublicHelpers.DataBuilders.ProductDataBuilders;
-using StationeryStoreAppLayer.PublicHelpers.DataEditors.ProductDataEditors;
-using StationeryStoreAppLayer.PublicHelpers.Editors.ProductEditors;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.PublicHelpers.DataAdders.ProductDataAdders;
+using StationeryStoreUILayer.PublicHelpers.DataBuilders.ProductDataBuilders;
+using StationeryStoreUILayer.PublicHelpers.DataEditors.ProductDataEditors;
+using StationeryStoreUILayer.PublicHelpers.Editors.ProductEditors;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.AdderOrEditorForms.ProductAdderOrEditorForms
+namespace StationeryStoreUILayer.Forms.AdderOrEditorForms.ProductAdderOrEditorForms
 {
     public interface IProductAdderOrEditorForm:
         IProductDataBuilder,

@@ -1,11 +1,11 @@
 ﻿using StationaryStoreUtility.Validators.textValidators;
-using StationeryStoreAppLayer.Forms.LoginForms;
-using StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.AdminCheckers;
-using StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.FormOpeners;
-using StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.UserValidators;
-using StationeryStoreAppLayer.PublicHelpers.DataGeters.UserDataGeters;
-using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
-using StationeryStoreDataLayer.Models;
+using StationeryStoreUILayer.Forms.LoginForms;
+using StationeryStoreUILayer.Forms.LoginForms.LoginHelpers.AdminCheckers;
+using StationeryStoreUILayer.Forms.LoginForms.LoginHelpers.FormOpeners;
+using StationeryStoreUILayer.Forms.LoginForms.LoginHelpers.UserValidators;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.UserDataGeters;
+using StationeryStoreUILayer.PublicHelpers.Restartors.TextBoxRestartors;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StationeryStoreAppLayer.LoginForms
+namespace StationeryStoreUILayer.LoginForms
 {
     public partial class Login : Form, ILoginForm
     {

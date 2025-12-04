@@ -1,13 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using StationeryStoreDataLayer.Models;
-using StationeryStoreDataLayer.Repositories.EfRepositories.GenericRepositoryContainer;
+using StationeryStoreInfrastructureLayer.Models;
+using StationeryStoreInfrastructureLayer.Repositories.EfRepositories.GenericRepositoryContainer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreDataLayer.Repositories.EfRepositories.ProductRepositoryContainer
+namespace StationeryStoreInfrastructureLayer.Repositories.EfRepositories.ProductRepositoryContainer
 {
     public class ProductRepository : EfGenericRepository<ProductsTable>, IProductRepository
     {

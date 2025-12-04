@@ -1,10 +1,10 @@
-﻿using StationeryStoreAppLayer.Forms.AdressForms.AdressFormHelpers.FormOpeners;
-using StationeryStoreAppLayer.PublicHelpers.DataBuilders.AdressDataBuilders;
-using StationeryStoreAppLayer.PublicHelpers.DataDeleter.AdressDataDeleters;
-using StationeryStoreAppLayer.PublicHelpers.DataGeters.AdressDataGeters;
-using StationeryStoreAppLayer.PublicHelpers.DgFillers;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.AdressSearchers;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.Forms.AdressForms.AdressFormHelpers.FormOpeners;
+using StationeryStoreUILayer.PublicHelpers.DataBuilders.AdressDataBuilders;
+using StationeryStoreUILayer.PublicHelpers.DataDeleter.AdressDataDeleters;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.AdressDataGeters;
+using StationeryStoreUILayer.PublicHelpers.DgFillers;
+using StationeryStoreUILayer.PublicHelpers.Searchers.AdressSearchers;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StationeryStoreAppLayer.Forms.AdressForms
+namespace StationeryStoreUILayer.Forms.AdressForms
 {
     public partial class AdressForm : Form, IAdressForm,
         IAdressesDataGeter,

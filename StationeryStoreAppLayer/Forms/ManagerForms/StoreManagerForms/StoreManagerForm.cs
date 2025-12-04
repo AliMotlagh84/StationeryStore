@@ -1,5 +1,5 @@
-﻿using StationeryStoreAppLayer.Forms.ManagerForms.StoreManagerForms;
-using StationeryStoreAppLayer.Forms.ManagerForms.StoreManagerForms.StoreMangerHelpers.FormOpeners;
+﻿using StationeryStoreUILayer.Forms.ManagerForms.StoreManagerForms;
+using StationeryStoreUILayer.Forms.ManagerForms.StoreManagerForms.StoreMangerHelpers.FormOpeners;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StationeryStoreAppLayer.Forms.StoreManagerForms
+namespace StationeryStoreUILayer.Forms.StoreManagerForms
 {
     public partial class StoreManagerForm : Form, IStoreManagerForm
     {

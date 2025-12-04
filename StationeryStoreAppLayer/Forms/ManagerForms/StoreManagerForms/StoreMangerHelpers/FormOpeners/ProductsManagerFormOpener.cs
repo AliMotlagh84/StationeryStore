@@ -1,12 +1,12 @@
-﻿using StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.Forms.ProductsManagerForms_for_Admin_;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.ManagerForms.StoreManagerForms.StoreMangerHelpers.FormOpeners
+namespace StationeryStoreUILayer.Forms.ManagerForms.StoreManagerForms.StoreMangerHelpers.FormOpeners
 {
     public class ProductsManagerFormOpener<T> : IProductsManagerFormOpener where T : Form,IProductsManagerForm
     {

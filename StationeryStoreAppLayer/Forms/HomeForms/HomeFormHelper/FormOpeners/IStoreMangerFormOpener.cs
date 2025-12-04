@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.FormOpeners
+namespace StationeryStoreUILayer.Forms.HomeForms.HomeFormHelper.FormOpeners
 {
     public interface IStoreManagerFormOpener
     {

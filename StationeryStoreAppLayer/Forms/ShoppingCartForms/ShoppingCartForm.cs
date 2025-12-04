@@ -1,14 +1,14 @@
-﻿using StationeryStoreAppLayer.Forms.AdressForms.AdressFormHelpers.FormOpeners;
-using StationeryStoreAppLayer.Forms.CountManagerForms.DraftOrderRequestedCountEditor;
-using StationeryStoreAppLayer.Forms.ShoppingCartForms.SoppingCartHelpers.AdressFormChooserOpeningHandlers;
-using StationeryStoreAppLayer.Forms.ShoppingCartForms.SoppingCartHelpers.FormOpeners;
-using StationeryStoreAppLayer.PublicHelpers.DataBuilders.DraftOrderDataBuilders;
-using StationeryStoreAppLayer.PublicHelpers.DataDeleter.DraftOrderDataDeleters;
-using StationeryStoreAppLayer.PublicHelpers.DataGeters.DraftOrderDataGeters;
-using StationeryStoreAppLayer.PublicHelpers.Deleters.DraftOrderDeleters;
-using StationeryStoreAppLayer.PublicHelpers.DgFillers;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.DraftOrderSearchers;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.Forms.AdressForms.AdressFormHelpers.FormOpeners;
+using StationeryStoreUILayer.Forms.CountManagerForms.DraftOrderRequestedCountEditor;
+using StationeryStoreUILayer.Forms.ShoppingCartForms.SoppingCartHelpers.AdressFormChooserOpeningHandlers;
+using StationeryStoreUILayer.Forms.ShoppingCartForms.SoppingCartHelpers.FormOpeners;
+using StationeryStoreUILayer.PublicHelpers.DataBuilders.DraftOrderDataBuilders;
+using StationeryStoreUILayer.PublicHelpers.DataDeleter.DraftOrderDataDeleters;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.DraftOrderDataGeters;
+using StationeryStoreUILayer.PublicHelpers.Deleters.DraftOrderDeleters;
+using StationeryStoreUILayer.PublicHelpers.DgFillers;
+using StationeryStoreUILayer.PublicHelpers.Searchers.DraftOrderSearchers;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +19,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StationeryStoreAppLayer.Forms.ShoppingCartForms
+namespace StationeryStoreUILayer.Forms.ShoppingCartForms
 {
     public partial class ShoppingCartForm : Form, IShoppingCartForm,
     IDraftOrderSearcher,

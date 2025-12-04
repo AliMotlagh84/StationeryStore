@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.AppManagers.FormManagers
+namespace StationeryStoreUILayer.AppManagers.FormManagers
 {
     public interface IFormManager
     {     

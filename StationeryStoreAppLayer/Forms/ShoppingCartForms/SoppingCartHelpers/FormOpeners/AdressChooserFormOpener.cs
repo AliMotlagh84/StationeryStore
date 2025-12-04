@@ -1,12 +1,12 @@
-﻿using StationeryStoreAppLayer.Forms.SendOrderRoadForms.AdressChooserForms;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.Forms.SendOrderRoadForms.AdressChooserForms;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.ShoppingCartForms.SoppingCartHelpers.FormOpeners
+namespace StationeryStoreUILayer.Forms.ShoppingCartForms.SoppingCartHelpers.FormOpeners
 {
     public class AdressChooserFormOpener<TAdressChooserForm> : IAdressChooserFormOpener where TAdressChooserForm:Form,IAdressChooserForm
     {

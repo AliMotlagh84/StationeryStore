@@ -1,12 +1,12 @@
-﻿using StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.Forms.SendOrderRoadForms.PayerForms;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.SendOrderRoadForms.OrderInfoShowerForms.OrderShowInfoHelpers.FormOpeners
+namespace StationeryStoreUILayer.Forms.SendOrderRoadForms.OrderInfoShowerForms.OrderShowInfoHelpers.FormOpeners
 {
     public class PayerFormOpener<TPayerForm> : IPayerFormOpener where TPayerForm:Form,IPayerForm
     {

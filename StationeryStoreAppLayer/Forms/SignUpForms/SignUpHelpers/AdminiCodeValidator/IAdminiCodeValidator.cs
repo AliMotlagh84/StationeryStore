@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.AdminiCodeValidator
+namespace StationeryStoreUILayer.Forms.SignUpForms.SignUpHelpers.AdminiCodeValidator
 {
     public interface IAdminiCodeValidator
     {

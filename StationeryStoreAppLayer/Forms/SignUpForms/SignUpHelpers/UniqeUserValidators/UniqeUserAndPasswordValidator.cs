@@ -1,12 +1,12 @@
 ﻿using StationaryStoreViewModels.EfViewModels.UserTableViewModels;
-using StationeryStoreDataLayer.UnitOfWorks;
+using StationeryStoreInfrastructureLayer.UnitOfWorks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.UniqeUserValidators
+namespace StationeryStoreUILayer.Forms.SignUpForms.SignUpHelpers.UniqeUserValidators
 {
     public class UniqeUserAndPasswordValidator : IUniqeUserValidator
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.LableSeters
+namespace StationeryStoreUILayer.Forms.HomeForms.HomeFormHelper.LableSeters
 {
     public interface ITimeLabelSeter
     {

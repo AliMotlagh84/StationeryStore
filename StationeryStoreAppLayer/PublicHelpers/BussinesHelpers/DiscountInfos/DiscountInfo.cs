@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.PublicHelpers.BussinesHelpers.DiscountInfos
+namespace StationeryStoreUILayer.PublicHelpers.BussinesHelpers.DiscountInfos
 {
     public class DiscountInfo
     {

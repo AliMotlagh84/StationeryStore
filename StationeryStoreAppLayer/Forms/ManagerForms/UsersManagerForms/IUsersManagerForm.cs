@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.ManagerForms.UsersManagerForms
+namespace StationeryStoreUILayer.Forms.ManagerForms.UsersManagerForms
 {
     public interface IUsersManagerForm
     {

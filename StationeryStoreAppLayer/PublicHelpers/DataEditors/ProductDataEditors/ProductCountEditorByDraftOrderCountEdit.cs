@@ -1,15 +1,15 @@
-﻿using StationeryStoreAppLayer.PublicHelpers.DataBuilders.ProductDataBuilders;
-using StationeryStoreAppLayer.PublicHelpers.DataGeters.ProductGeters;
-using StationeryStoreAppLayer.PublicHelpers.Editors.ProductEditors;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.PublicHelpers.DataBuilders.ProductDataBuilders;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.ProductGeters;
+using StationeryStoreUILayer.PublicHelpers.Editors.ProductEditors;
+using StationeryStoreUILayer.PublicHelpers.Searchers.ProductSearchers;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.PublicHelpers.DataEditors.ProductDataEditors
+namespace StationeryStoreUILayer.PublicHelpers.DataEditors.ProductDataEditors
 {
     public class ProductCountEditorByDraftOrderCountEdit : IProductCountEditorByDraftOrderCountEdit,
         IProductDataGeterById,

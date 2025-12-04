@@ -1,13 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore.Infrastructure;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers.AmountSearchers;
-using StationeryStoreDataLayer.Models;
+using StationeryStoreUILayer.PublicHelpers.Searchers.ProductSearchers.AmountSearchers;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.PublicHelpers.DataBuilders.DraftOrderDataBuilders
+namespace StationeryStoreUILayer.PublicHelpers.DataBuilders.DraftOrderDataBuilders
 {
     public class DraftOrderDataBulider : IDraftOrderDataBuilder
     {

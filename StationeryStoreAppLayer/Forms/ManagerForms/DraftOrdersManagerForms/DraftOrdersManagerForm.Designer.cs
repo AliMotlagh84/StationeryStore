@@ -1,4 +1,4 @@
-﻿namespace StationeryStoreAppLayer.Forms.ManagerForms.DraftOrdersManagerForms
+﻿namespace StationeryStoreUILayer.Forms.ManagerForms.DraftOrdersManagerForms
 {
     partial class DraftOrdersManagerForm
     {
@@ -435,7 +435,7 @@
             RefreshBtn.BackColor = Color.Thistle;
             RefreshBtn.FlatStyle = FlatStyle.Popup;
             RefreshBtn.ForeColor = Color.Indigo;
-            RefreshBtn.Image = Properties.Resources.icons8_refresh_60;
+            RefreshBtn.Image = StationeryStoreUILayer.Properties.Resources.icons8_refresh_60;
             RefreshBtn.ImageAlign = ContentAlignment.TopCenter;
             RefreshBtn.Location = new Point(833, 17);
             RefreshBtn.Name = "RefreshBtn";
@@ -451,7 +451,7 @@
             DeleteDraftOrderBtn.BackColor = Color.FromArgb(255, 192, 192);
             DeleteDraftOrderBtn.FlatStyle = FlatStyle.Popup;
             DeleteDraftOrderBtn.ForeColor = Color.Maroon;
-            DeleteDraftOrderBtn.Image = Properties.Resources.icons8_delete_document_60;
+            DeleteDraftOrderBtn.Image = StationeryStoreUILayer.Properties.Resources.icons8_delete_document_60;
             DeleteDraftOrderBtn.ImageAlign = ContentAlignment.TopCenter;
             DeleteDraftOrderBtn.Location = new Point(993, 17);
             DeleteDraftOrderBtn.Name = "DeleteDraftOrderBtn";

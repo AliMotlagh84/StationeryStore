@@ -1,16 +1,16 @@
 ﻿using StationaryStoreUtility.Validators.textValidators;
-using StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.AdminCheckers;
-using StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.FormOpeners;
-using StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.UserValidators;
-using StationeryStoreAppLayer.PublicHelpers.DataGeters.UserDataGeters;
-using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
+using StationeryStoreUILayer.Forms.LoginForms.LoginHelpers.AdminCheckers;
+using StationeryStoreUILayer.Forms.LoginForms.LoginHelpers.FormOpeners;
+using StationeryStoreUILayer.Forms.LoginForms.LoginHelpers.UserValidators;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.UserDataGeters;
+using StationeryStoreUILayer.PublicHelpers.Restartors.TextBoxRestartors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.LoginForms
+namespace StationeryStoreUILayer.Forms.LoginForms
 {
     public interface ILoginForm : ILoginUserValidator ,ISingleUserDataGeterByNameAndPassword, IHomeFormOpener, ITextValidator , ISignUpFormOpener , ITextBoxRestartor
     {

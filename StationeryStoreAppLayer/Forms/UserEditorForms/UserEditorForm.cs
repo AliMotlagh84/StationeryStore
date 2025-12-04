@@ -1,10 +1,10 @@
 ﻿using StationaryStoreUtility.Validators.EmailValidator;
 using StationaryStoreUtility.Validators.textValidators;
-using StationeryStoreAppLayer.AppManagers.AppRestartors;
-using StationeryStoreAppLayer.PublicHelpers.DataBuilders.UserDataBuilder;
-using StationeryStoreAppLayer.PublicHelpers.DataEditors.UserDataEditors;
-using StationeryStoreAppLayer.PublicHelpers.TextBoxFillers;
-using StationeryStoreDataLayer.Models;
+using StationeryStoreUILayer.AppManagers.AppRestartors;
+using StationeryStoreUILayer.PublicHelpers.DataBuilders.UserDataBuilder;
+using StationeryStoreUILayer.PublicHelpers.DataEditors.UserDataEditors;
+using StationeryStoreUILayer.PublicHelpers.TextBoxFillers;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StationeryStoreAppLayer.Forms.UserEditorForms
+namespace StationeryStoreUILayer.Forms.UserEditorForms
 {
     public partial class UserEditorForm : Form,
         IUserEditorForm,

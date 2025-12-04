@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters
+namespace StationeryStoreUILayer.PublicHelpers.NumericUpDownDefaultValueSeters
 {
     public interface INumericUdDefaultValueSeter
     {

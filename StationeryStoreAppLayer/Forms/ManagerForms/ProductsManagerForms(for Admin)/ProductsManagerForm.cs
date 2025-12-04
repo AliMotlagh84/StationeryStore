@@ -1,21 +1,21 @@
-﻿using StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_.ProductsManagerHelpers.FormOpeners;
-using StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_.ProductsManagerHelpers.ProductsAdderOrEditorFormOpeners;
-using StationeryStoreAppLayer.PublicHelpers.ComboBoxFiilers;
-using StationeryStoreAppLayer.PublicHelpers.DataAdders.ProductDataAdders;
-using StationeryStoreAppLayer.PublicHelpers.DataBuilders.ProductDataBuilders;
-using StationeryStoreAppLayer.PublicHelpers.DataEditors.ProductDataEditors;
-using StationeryStoreAppLayer.PublicHelpers.DataGeters.BrandsDataGeters;
-using StationeryStoreAppLayer.PublicHelpers.DataGeters.ProductGeters;
-using StationeryStoreAppLayer.PublicHelpers.Deleters.ProductDeleters;
-using StationeryStoreAppLayer.PublicHelpers.DgFillers;
-using StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters;
-using StationeryStoreAppLayer.PublicHelpers.Restartors.ComboRestartors;
-using StationeryStoreAppLayer.PublicHelpers.Restartors.INumericUdRestartor;
-using StationeryStoreAppLayer.PublicHelpers.Restartors.MaskedTextBoxRestartors;
-using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers.DateSearchers;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.Forms.ProductsManagerForms_for_Admin_.ProductsManagerHelpers.FormOpeners;
+using StationeryStoreUILayer.Forms.ProductsManagerForms_for_Admin_.ProductsManagerHelpers.ProductsAdderOrEditorFormOpeners;
+using StationeryStoreUILayer.PublicHelpers.ComboBoxFiilers;
+using StationeryStoreUILayer.PublicHelpers.DataAdders.ProductDataAdders;
+using StationeryStoreUILayer.PublicHelpers.DataBuilders.ProductDataBuilders;
+using StationeryStoreUILayer.PublicHelpers.DataEditors.ProductDataEditors;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.BrandsDataGeters;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.ProductGeters;
+using StationeryStoreUILayer.PublicHelpers.Deleters.ProductDeleters;
+using StationeryStoreUILayer.PublicHelpers.DgFillers;
+using StationeryStoreUILayer.PublicHelpers.NumericUpDownDefaultValueSeters;
+using StationeryStoreUILayer.PublicHelpers.Restartors.ComboRestartors;
+using StationeryStoreUILayer.PublicHelpers.Restartors.INumericUdRestartor;
+using StationeryStoreUILayer.PublicHelpers.Restartors.MaskedTextBoxRestartors;
+using StationeryStoreUILayer.PublicHelpers.Restartors.TextBoxRestartors;
+using StationeryStoreUILayer.PublicHelpers.Searchers.ProductSearchers;
+using StationeryStoreUILayer.PublicHelpers.Searchers.ProductSearchers.DateSearchers;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,7 +26,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
+namespace StationeryStoreUILayer.Forms.ProductsManagerForms_for_Admin_
 {
     public partial class ProductsManagerForm : Form,
         IProductsManagerForm,

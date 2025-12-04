@@ -1,11 +1,11 @@
-﻿using StationeryStoreAppLayer.Forms.ManagerForms.DraftOrdersManagerForms;
+﻿using StationeryStoreUILayer.Forms.ManagerForms.DraftOrdersManagerForms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.ManagerForms.StoreManagerForms.StoreMangerHelpers.FormOpeners
+namespace StationeryStoreUILayer.Forms.ManagerForms.StoreManagerForms.StoreMangerHelpers.FormOpeners
 {
     public class DraftOrdersManagerFormOpener<TDraftOrdersManagerForm> : IDraftOrdersManagerFormOpener where TDraftOrdersManagerForm:Form,IDraftOrdersManagerForm
     {

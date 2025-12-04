@@ -1,13 +1,13 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using StationaryStoreUtility.Convertores.DateConvertors;
-using StationeryStoreDataLayer.Models;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.PublicHelpers.Searchers.ProductSearchers.DateSearchers
+namespace StationeryStoreUILayer.PublicHelpers.Searchers.ProductSearchers.DateSearchers
 {
     public class ProductDateSearcher : IProductDateSearcher
     {

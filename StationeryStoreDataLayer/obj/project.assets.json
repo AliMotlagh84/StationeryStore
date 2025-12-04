@@ -4733,9 +4733,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationeryStoreDataLayer\\StationeryStoreDataLayer.csproj",
-      "projectName": "StationeryStoreDataLayer",
-      "projectPath": "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationeryStoreDataLayer\\StationeryStoreDataLayer.csproj",
+      "projectUniqueName": "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationeryStoreDataLayer\\StationeryStoreInfrastructureLayer.csproj",
+      "projectName": "StationeryStoreInfrastructureLayer",
+      "projectPath": "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationeryStoreDataLayer\\StationeryStoreInfrastructureLayer.csproj",
       "packagesPath": "C:\\Users\\Ara Computer\\.nuget\\packages\\",
       "outputPath": "D:\\برنامه نویسی\\برنامه نویسی ویندوز\\Projects\\فروشگاه کوچک\\StationeryStore\\StationeryStoreDataLayer\\obj\\",
       "projectStyle": "PackageReference",

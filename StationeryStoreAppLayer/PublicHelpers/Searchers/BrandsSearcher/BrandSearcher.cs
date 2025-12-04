@@ -1,13 +1,13 @@
-﻿using StationeryStoreAppLayer.PublicHelpers.Searchers.BrandsSearcher.BrandIdSearchers;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.BrandsSearcher.BrandSearcherByBrandName;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.PublicHelpers.Searchers.BrandsSearcher.BrandIdSearchers;
+using StationeryStoreUILayer.PublicHelpers.Searchers.BrandsSearcher.BrandSearcherByBrandName;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.PublicHelpers.Searchers.BrandsSearcher
+namespace StationeryStoreUILayer.PublicHelpers.Searchers.BrandsSearcher
 {
     public class BrandSearcher : IBrandSearcher,
         IBrandSearcherByBrandId,

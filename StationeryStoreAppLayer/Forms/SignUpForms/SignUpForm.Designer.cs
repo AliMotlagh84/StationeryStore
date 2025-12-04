@@ -1,4 +1,4 @@
-﻿namespace StationeryStoreAppLayer.Forms.SignUpForms
+﻿namespace StationeryStoreUILayer.Forms.SignUpForms
 {
     partial class SignUpForm
     {

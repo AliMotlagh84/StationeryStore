@@ -1,4 +1,4 @@
-﻿namespace StationeryStoreAppLayer.Forms.CountManagerForms.DraftOrderRequestedCountEditor
+﻿namespace StationeryStoreUILayer.Forms.CountManagerForms.DraftOrderRequestedCountEditor
 {
     partial class DraftOrderRequestedCountEditor
     {

@@ -1,12 +1,12 @@
-﻿using StationeryStoreAppLayer.Forms.AdderOrEditorForms.BrandAdderOrEditorForm;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.Forms.AdderOrEditorForms.BrandAdderOrEditorForm;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.ManagerForms.BrandsManagerForm.BrandManagerHelpers.FormOpeners
+namespace StationeryStoreUILayer.Forms.ManagerForms.BrandsManagerForm.BrandManagerHelpers.FormOpeners
 {
     public class BrandAdderOrEditorFormOpener<TBrandAdderOrEditorForm> : IBrandAdderOrEditorFormOpener where TBrandAdderOrEditorForm:Form,IBrandAdderOrEditorForm
     {

@@ -1,16 +1,16 @@
-﻿using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.LableSeters;
-using StationeryStoreAppLayer.Forms.SendOrderRoadForms.OrderInfoShowerForms.OrderShowInfoHelpers.FormOpeners;
-using StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.CaptchaMakers;
-using StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.DiscountedAmountCalculator;
-using StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.FormOpeners;
-using StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.PayerFormValidateHandlers;
-using StationeryStoreAppLayer.PublicHelpers.BussinesHelpers.DiscountCalculators;
-using StationeryStoreAppLayer.PublicHelpers.DataGeters.DraftOrderDataGeters;
-using StationeryStoreAppLayer.PublicHelpers.LabelSeters;
-using StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters;
-using StationeryStoreAppLayer.PublicHelpers.Searchers.DraftOrderSearchers;
-using StationeryStoreAppLayer.PublicHelpers.Validators.MaskedTextBoxValidators;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.Forms.HomeForms.HomeFormHelper.LableSeters;
+using StationeryStoreUILayer.Forms.SendOrderRoadForms.OrderInfoShowerForms.OrderShowInfoHelpers.FormOpeners;
+using StationeryStoreUILayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.CaptchaMakers;
+using StationeryStoreUILayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.DiscountedAmountCalculator;
+using StationeryStoreUILayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.FormOpeners;
+using StationeryStoreUILayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.PayerFormValidateHandlers;
+using StationeryStoreUILayer.PublicHelpers.BussinesHelpers.DiscountCalculators;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.DraftOrderDataGeters;
+using StationeryStoreUILayer.PublicHelpers.LabelSeters;
+using StationeryStoreUILayer.PublicHelpers.NumericUpDownDefaultValueSeters;
+using StationeryStoreUILayer.PublicHelpers.Searchers.DraftOrderSearchers;
+using StationeryStoreUILayer.PublicHelpers.Validators.MaskedTextBoxValidators;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +22,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms
+namespace StationeryStoreUILayer.Forms.SendOrderRoadForms.PayerForms
 {
     public partial class PayerForm : Form, IPayerForm,
         ICaptchaMaker,

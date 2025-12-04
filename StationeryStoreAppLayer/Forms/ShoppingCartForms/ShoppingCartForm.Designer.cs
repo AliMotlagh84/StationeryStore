@@ -1,4 +1,4 @@
-﻿namespace StationeryStoreAppLayer.Forms.ShoppingCartForms
+﻿namespace StationeryStoreUILayer.Forms.ShoppingCartForms
 {
     partial class ShoppingCartForm
     {

@@ -1,21 +1,21 @@
 ﻿using StationaryStoreUtility.Validators.textValidators;
-using StationeryStoreAppLayer.Forms.AdderOrEditorForms.ProductAdderOrEditorForms;
-using StationeryStoreAppLayer.PublicHelpers.ButtonTextSeters;
-using StationeryStoreAppLayer.PublicHelpers.ComboBoxFiilers;
-using StationeryStoreAppLayer.PublicHelpers.ComboBoxValueSelectors;
-using StationeryStoreAppLayer.PublicHelpers.DataAdders.ProductDataAdders;
-using StationeryStoreAppLayer.PublicHelpers.DataBuilders.ProductDataBuilders;
-using StationeryStoreAppLayer.PublicHelpers.DataEditors.ProductDataEditors;
-using StationeryStoreAppLayer.PublicHelpers.DataGeters.BrandsDataGeters;
-using StationeryStoreAppLayer.PublicHelpers.Editors.ProductEditors;
-using StationeryStoreAppLayer.PublicHelpers.FormTextSeters;
-using StationeryStoreAppLayer.PublicHelpers.NumericUdFillers;
-using StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters;
-using StationeryStoreAppLayer.PublicHelpers.Restartors.ComboRestartors;
-using StationeryStoreAppLayer.PublicHelpers.Restartors.INumericUdRestartor;
-using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
-using StationeryStoreAppLayer.PublicHelpers.TextBoxFillers;
-using StationeryStoreDataLayer.Models;
+using StationeryStoreUILayer.Forms.AdderOrEditorForms.ProductAdderOrEditorForms;
+using StationeryStoreUILayer.PublicHelpers.ButtonTextSeters;
+using StationeryStoreUILayer.PublicHelpers.ComboBoxFiilers;
+using StationeryStoreUILayer.PublicHelpers.ComboBoxValueSelectors;
+using StationeryStoreUILayer.PublicHelpers.DataAdders.ProductDataAdders;
+using StationeryStoreUILayer.PublicHelpers.DataBuilders.ProductDataBuilders;
+using StationeryStoreUILayer.PublicHelpers.DataEditors.ProductDataEditors;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.BrandsDataGeters;
+using StationeryStoreUILayer.PublicHelpers.Editors.ProductEditors;
+using StationeryStoreUILayer.PublicHelpers.FormTextSeters;
+using StationeryStoreUILayer.PublicHelpers.NumericUdFillers;
+using StationeryStoreUILayer.PublicHelpers.NumericUpDownDefaultValueSeters;
+using StationeryStoreUILayer.PublicHelpers.Restartors.ComboRestartors;
+using StationeryStoreUILayer.PublicHelpers.Restartors.INumericUdRestartor;
+using StationeryStoreUILayer.PublicHelpers.Restartors.TextBoxRestartors;
+using StationeryStoreUILayer.PublicHelpers.TextBoxFillers;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,7 +26,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StationeryStoreAppLayer.Forms.ProductAdderOrEditorForms
+namespace StationeryStoreUILayer.Forms.ProductAdderOrEditorForms
 {
     public partial class ProductAdderOrEditorForm : Form,
         IProductAdderOrEditorForm,

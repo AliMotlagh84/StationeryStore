@@ -1,4 +1,4 @@
-﻿namespace StationeryStoreAppLayer.Forms.DraftOrderForms
+﻿namespace StationeryStoreUILayer.Forms.DraftOrderForms
 {
     partial class DraftOrderForm
     {

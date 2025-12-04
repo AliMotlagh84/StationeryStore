@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.PublicHelpers.ComboBoxFiilers
+namespace StationeryStoreUILayer.PublicHelpers.ComboBoxFiilers
 {
     public interface IBoolComboFiller
     {

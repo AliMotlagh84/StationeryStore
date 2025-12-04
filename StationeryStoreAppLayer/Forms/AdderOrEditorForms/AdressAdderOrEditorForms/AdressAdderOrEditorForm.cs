@@ -1,15 +1,15 @@
-﻿using StationeryStoreAppLayer.Forms.AdderOrEditorForms.AdressAdderOrEditorForms.AdressAddreOrEditorHelpers.ValidateManagers;
-using StationeryStoreAppLayer.PublicHelpers.ButtonTextSeters;
-using StationeryStoreAppLayer.PublicHelpers.DataAdders.AdressDataAdders;
-using StationeryStoreAppLayer.PublicHelpers.DataBuilders.AdressDataBuilders;
-using StationeryStoreAppLayer.PublicHelpers.DataEditors.AdressDataEditors;
-using StationeryStoreAppLayer.PublicHelpers.FormTextSeters;
-using StationeryStoreAppLayer.PublicHelpers.NumericUdFillers;
-using StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters;
-using StationeryStoreAppLayer.PublicHelpers.Restartors.INumericUdRestartor;
-using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
-using StationeryStoreAppLayer.PublicHelpers.TextBoxFillers;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.Forms.AdderOrEditorForms.AdressAdderOrEditorForms.AdressAddreOrEditorHelpers.ValidateManagers;
+using StationeryStoreUILayer.PublicHelpers.ButtonTextSeters;
+using StationeryStoreUILayer.PublicHelpers.DataAdders.AdressDataAdders;
+using StationeryStoreUILayer.PublicHelpers.DataBuilders.AdressDataBuilders;
+using StationeryStoreUILayer.PublicHelpers.DataEditors.AdressDataEditors;
+using StationeryStoreUILayer.PublicHelpers.FormTextSeters;
+using StationeryStoreUILayer.PublicHelpers.NumericUdFillers;
+using StationeryStoreUILayer.PublicHelpers.NumericUpDownDefaultValueSeters;
+using StationeryStoreUILayer.PublicHelpers.Restartors.INumericUdRestartor;
+using StationeryStoreUILayer.PublicHelpers.Restartors.TextBoxRestartors;
+using StationeryStoreUILayer.PublicHelpers.TextBoxFillers;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +20,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StationeryStoreAppLayer.Forms.AdderOrEditorForms.AdressAdderOrEditorForms
+namespace StationeryStoreUILayer.Forms.AdderOrEditorForms.AdressAdderOrEditorForms
 {
     public partial class AdressAdderOrEditorForm : Form, IAdressAdderOrEditorForm,
         IAdressDataBuilder,

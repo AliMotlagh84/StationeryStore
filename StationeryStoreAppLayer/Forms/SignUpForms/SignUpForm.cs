@@ -1,10 +1,10 @@
 ﻿using StationaryStoreUtility.Validators.textValidators;
-using StationeryStoreDataLayer.Models;
-using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.AdminiCodeValidator;
-using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.UniqeUserValidators;
-using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.UserBulider;
-using StationeryStoreAppLayer.PublicHelpers.Restartors.TextBoxRestartors;
-using StationeryStoreDataLayer.UnitOfWorks;
+using StationeryStoreInfrastructureLayer.Models;
+using StationeryStoreUILayer.Forms.SignUpForms.SignUpHelpers.AdminiCodeValidator;
+using StationeryStoreUILayer.Forms.SignUpForms.SignUpHelpers.UniqeUserValidators;
+using StationeryStoreUILayer.Forms.SignUpForms.SignUpHelpers.UserBulider;
+using StationeryStoreUILayer.PublicHelpers.Restartors.TextBoxRestartors;
+using StationeryStoreInfrastructureLayer.UnitOfWorks;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,13 +15,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using StationaryStoreUtility.Validators.EmailValidator;
-using StationeryStoreAppLayer.PublicHelpers.DataAdders.UserDataAdders;
-using StationeryStoreAppLayer.PublicHelpers.DataBuilders.UserDataBuilder;
-using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.AdminModeChanger;
-using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.SignUpValidateHandlers.AdminSignUpValidateHandlers;
-using StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.SignUpValidateHandlers.UserSignUpValidateHandlers;
+using StationeryStoreUILayer.PublicHelpers.DataAdders.UserDataAdders;
+using StationeryStoreUILayer.PublicHelpers.DataBuilders.UserDataBuilder;
+using StationeryStoreUILayer.Forms.SignUpForms.SignUpHelpers.AdminModeChanger;
+using StationeryStoreUILayer.Forms.SignUpForms.SignUpHelpers.SignUpValidateHandlers.AdminSignUpValidateHandlers;
+using StationeryStoreUILayer.Forms.SignUpForms.SignUpHelpers.SignUpValidateHandlers.UserSignUpValidateHandlers;
 
-namespace StationeryStoreAppLayer.Forms.SignUpForms
+namespace StationeryStoreUILayer.Forms.SignUpForms
 {
     public partial class SignUpForm : Form,
         ISignUpForm,

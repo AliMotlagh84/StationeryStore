@@ -1,4 +1,4 @@
-﻿namespace StationeryStoreAppLayer.Forms.AdressChooserForms
+﻿namespace StationeryStoreUILayer.Forms.AdressChooserForms
 {
     partial class AdressChooserForm
     {

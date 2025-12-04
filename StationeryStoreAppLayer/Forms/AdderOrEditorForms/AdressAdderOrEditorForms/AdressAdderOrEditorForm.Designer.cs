@@ -1,4 +1,4 @@
-﻿namespace StationeryStoreAppLayer.Forms.AdderOrEditorForms.AdressAdderOrEditorForms
+﻿namespace StationeryStoreUILayer.Forms.AdderOrEditorForms.AdressAdderOrEditorForms
 {
     partial class AdressAdderOrEditorForm
     {

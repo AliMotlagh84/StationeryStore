@@ -1,5 +1,5 @@
-﻿using StationeryStoreAppLayer.PublicHelpers.BussinesHelpers.DiscountCalculators;
-using StationeryStoreAppLayer.PublicHelpers.BussinesHelpers.DiscountInfos;
+﻿using StationeryStoreUILayer.PublicHelpers.BussinesHelpers.DiscountCalculators;
+using StationeryStoreUILayer.PublicHelpers.BussinesHelpers.DiscountInfos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.DiscountedAmountCalculator
+namespace StationeryStoreUILayer.Forms.SendOrderRoadForms.PayerForms.PayHelpers.DiscountedAmountCalculator
 {
     public class DiscountedAmountCaculator : IDiscountedAmountCaculator
 

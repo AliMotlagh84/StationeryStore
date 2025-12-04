@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.PublicHelpers.ButtonTextSeters
+namespace StationeryStoreUILayer.PublicHelpers.ButtonTextSeters
 {
     public class ButtonTextSeter : IButtonTextSeter
     {

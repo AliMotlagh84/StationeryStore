@@ -1,4 +1,4 @@
-﻿namespace StationeryStoreAppLayer.Forms.ProductsManagerForms_for_Admin_
+﻿namespace StationeryStoreUILayer.Forms.ProductsManagerForms_for_Admin_
 {
     partial class ProductsManagerForm
     {
@@ -359,7 +359,7 @@
             RefreshFrom.BackColor = Color.Thistle;
             RefreshFrom.FlatStyle = FlatStyle.Popup;
             RefreshFrom.ForeColor = Color.Indigo;
-            RefreshFrom.Image = Properties.Resources.icons8_refresh_60;
+            RefreshFrom.Image = StationeryStoreUILayer.Properties.Resources.icons8_refresh_60;
             RefreshFrom.ImageAlign = ContentAlignment.TopCenter;
             RefreshFrom.Location = new Point(9, 15);
             RefreshFrom.Name = "RefreshFrom";
@@ -375,7 +375,7 @@
             DeleteProductBtn.BackColor = Color.FromArgb(255, 192, 192);
             DeleteProductBtn.FlatStyle = FlatStyle.Popup;
             DeleteProductBtn.ForeColor = Color.Maroon;
-            DeleteProductBtn.Image = Properties.Resources.icons8_remove_60;
+            DeleteProductBtn.Image = StationeryStoreUILayer.Properties.Resources.icons8_remove_60;
             DeleteProductBtn.ImageAlign = ContentAlignment.TopCenter;
             DeleteProductBtn.Location = new Point(175, 15);
             DeleteProductBtn.Name = "DeleteProductBtn";
@@ -391,7 +391,7 @@
             UpdateProductBtn.BackColor = Color.FromArgb(192, 255, 192);
             UpdateProductBtn.FlatStyle = FlatStyle.Popup;
             UpdateProductBtn.ForeColor = Color.DarkGreen;
-            UpdateProductBtn.Image = Properties.Resources.icons8_update_product_60;
+            UpdateProductBtn.Image = StationeryStoreUILayer.Properties.Resources.icons8_update_product_60;
             UpdateProductBtn.ImageAlign = ContentAlignment.TopCenter;
             UpdateProductBtn.Location = new Point(347, 15);
             UpdateProductBtn.Name = "UpdateProductBtn";
@@ -407,7 +407,7 @@
             IncreaseCountBtn.BackColor = Color.Aquamarine;
             IncreaseCountBtn.FlatStyle = FlatStyle.Popup;
             IncreaseCountBtn.ForeColor = Color.FromArgb(0, 0, 192);
-            IncreaseCountBtn.Image = Properties.Resources.icons8_add_properties_60;
+            IncreaseCountBtn.Image = StationeryStoreUILayer.Properties.Resources.icons8_add_Properties_60;
             IncreaseCountBtn.ImageAlign = ContentAlignment.TopCenter;
             IncreaseCountBtn.Location = new Point(525, 15);
             IncreaseCountBtn.Name = "IncreaseCountBtn";
@@ -423,7 +423,7 @@
             AddNewProductBtn.BackColor = Color.FromArgb(255, 255, 128);
             AddNewProductBtn.FlatStyle = FlatStyle.Popup;
             AddNewProductBtn.ForeColor = Color.FromArgb(192, 64, 0);
-            AddNewProductBtn.Image = Properties.Resources.icons8_add_product_60;
+            AddNewProductBtn.Image = StationeryStoreUILayer.Properties.Resources.icons8_add_product_60;
             AddNewProductBtn.ImageAlign = ContentAlignment.TopCenter;
             AddNewProductBtn.Location = new Point(701, 15);
             AddNewProductBtn.Name = "AddNewProductBtn";

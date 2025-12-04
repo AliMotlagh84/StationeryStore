@@ -1,12 +1,12 @@
-﻿using StationeryStoreAppLayer.Forms.AdderOrEditorForms.AdressAdderOrEditorForms;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.Forms.AdderOrEditorForms.AdressAdderOrEditorForms;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.AdressForms.AdressFormHelpers.FormOpeners
+namespace StationeryStoreUILayer.Forms.AdressForms.AdressFormHelpers.FormOpeners
 {
     public class AdressAdderOrEditorFormOpener<TAdressAdderOrEditorForm> : IAdressAdderOrEditorFormOpener where TAdressAdderOrEditorForm:Form,IAdressAdderOrEditorForm
     {

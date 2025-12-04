@@ -1,4 +1,4 @@
-﻿namespace StationeryStoreAppLayer
+﻿namespace StationeryStoreUILayer
 {
     partial class Form1
     {
@@ -142,7 +142,7 @@
             // 
             // AdminLbl
             // 
-            AdminLbl.Image = Properties.Resources.icons8_user_50;
+            AdminLbl.Image = StationeryStoreUILayer.Properties.Resources.icons8_user_50;
             AdminLbl.ImageAlign = ContentAlignment.MiddleLeft;
             AdminLbl.ImageScaling = ToolStripItemImageScaling.None;
             AdminLbl.ImageTransparentColor = Color.Magenta;
@@ -154,7 +154,7 @@
             // 
             // LogOutBtn
             // 
-            LogOutBtn.Image = Properties.Resources.icons8_logout_33;
+            LogOutBtn.Image = StationeryStoreUILayer.Properties.Resources.icons8_logout_33;
             LogOutBtn.ImageScaling = ToolStripItemImageScaling.None;
             LogOutBtn.ImageTransparentColor = Color.Magenta;
             LogOutBtn.Margin = new Padding(20, 1, 0, 2);
@@ -167,7 +167,7 @@
             // 
             // EditUserFormBtn
             // 
-            EditUserFormBtn.Image = Properties.Resources._1371475973_document_edit;
+            EditUserFormBtn.Image = StationeryStoreUILayer.Properties.Resources._1371475973_document_edit;
             EditUserFormBtn.ImageScaling = ToolStripItemImageScaling.None;
             EditUserFormBtn.ImageTransparentColor = Color.Magenta;
             EditUserFormBtn.Margin = new Padding(20, 1, 0, 2);
@@ -180,7 +180,7 @@
             // 
             // ShoppingCartBtn
             // 
-            ShoppingCartBtn.Image = Properties.Resources.icons8_fast_cart_40;
+            ShoppingCartBtn.Image = StationeryStoreUILayer.Properties.Resources.icons8_fast_cart_40;
             ShoppingCartBtn.ImageScaling = ToolStripItemImageScaling.None;
             ShoppingCartBtn.ImageTransparentColor = Color.Magenta;
             ShoppingCartBtn.Margin = new Padding(20, 1, 0, 2);
@@ -193,7 +193,7 @@
             // 
             // StoreManageBtn
             // 
-            StoreManageBtn.Image = Properties.Resources.icons8_store_45;
+            StoreManageBtn.Image = StationeryStoreUILayer.Properties.Resources.icons8_store_45;
             StoreManageBtn.ImageScaling = ToolStripItemImageScaling.None;
             StoreManageBtn.ImageTransparentColor = Color.Magenta;
             StoreManageBtn.Name = "StoreManageBtn";

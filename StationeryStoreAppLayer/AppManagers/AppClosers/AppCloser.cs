@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.AppManagers.AppClosers
+namespace StationeryStoreUILayer.AppManagers.AppClosers
 {
     public class AppCloser : IAppCloser
     {

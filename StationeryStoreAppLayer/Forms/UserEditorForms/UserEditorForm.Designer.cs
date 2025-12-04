@@ -1,5 +1,5 @@
 ﻿
-namespace StationeryStoreAppLayer.Forms.UserEditorForms
+namespace StationeryStoreUILayer.Forms.UserEditorForms
 {
     partial class UserEditorForm
     {

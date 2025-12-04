@@ -1,4 +1,4 @@
-﻿namespace StationeryStoreAppLayer.Forms.ProductCountIncreaserForms
+﻿namespace StationeryStoreUILayer.Forms.ProductCountIncreaserForms
 {
     partial class ProductCountIncreaserForm
     {

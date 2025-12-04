@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.PublicHelpers.Restartors.INumericUdRestartor
+namespace StationeryStoreUILayer.PublicHelpers.Restartors.INumericUdRestartor
 {
     public class NumericUdRestartor : INumericUdRestartor
     {

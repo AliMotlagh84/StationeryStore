@@ -1,4 +1,4 @@
-﻿namespace StationeryStoreDataLayer
+﻿namespace StationeryStoreInfrastructureLayer
 {
     public class Class1
     {

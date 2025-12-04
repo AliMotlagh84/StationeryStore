@@ -1,12 +1,12 @@
-﻿using StationeryStoreAppLayer.Forms.SendOrderRoadForms.OrderInfoShowerForms;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.Forms.SendOrderRoadForms.OrderInfoShowerForms;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.SendOrderRoadForms.AdressChooserForms.AdressChooserHelpers.FormOpeners
+namespace StationeryStoreUILayer.Forms.SendOrderRoadForms.AdressChooserForms.AdressChooserHelpers.FormOpeners
 {
     public class OrderInfoShowerFormOpener<TOrderInfoShowerForm> : IOrderInfoShowerFormOpener where TOrderInfoShowerForm:Form,IOrderInfoShowerForm
     {

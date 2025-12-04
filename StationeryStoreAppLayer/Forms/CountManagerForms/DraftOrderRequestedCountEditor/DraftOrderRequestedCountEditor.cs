@@ -1,9 +1,9 @@
-﻿using StationeryStoreAppLayer.PublicHelpers.DataBuilders.DraftOrderDataBuilders;
-using StationeryStoreAppLayer.PublicHelpers.DataDeleter.DraftOrderDataDeleters;
-using StationeryStoreAppLayer.PublicHelpers.DataEditors.DraftOrderDataEditors;
-using StationeryStoreAppLayer.PublicHelpers.Editors.DraftOrderEditors;
-using StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.PublicHelpers.DataBuilders.DraftOrderDataBuilders;
+using StationeryStoreUILayer.PublicHelpers.DataDeleter.DraftOrderDataDeleters;
+using StationeryStoreUILayer.PublicHelpers.DataEditors.DraftOrderDataEditors;
+using StationeryStoreUILayer.PublicHelpers.Editors.DraftOrderEditors;
+using StationeryStoreUILayer.PublicHelpers.NumericUpDownDefaultValueSeters;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StationeryStoreAppLayer.Forms.CountManagerForms.DraftOrderRequestedCountEditor
+namespace StationeryStoreUILayer.Forms.CountManagerForms.DraftOrderRequestedCountEditor
 {
     public partial class DraftOrderRequestedCountEditor : Form, IDraftOrderRequestedCountEditor,
         IDraftOrderDataBuilder,

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.DraftOrderForms.DraftOrderHelpers.ProductCountCheckers
+namespace StationeryStoreUILayer.Forms.DraftOrderForms.DraftOrderHelpers.ProductCountCheckers
 {
     public interface IProductCountChecker
     {

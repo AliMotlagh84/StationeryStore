@@ -1,8 +1,8 @@
-﻿using StationeryStoreAppLayer.Forms.CountManagerForms.ProductCountIncreaserForms;
-using StationeryStoreAppLayer.Forms.CountManagerForms.ProductCountIncreaserForms.ProductCountIncreaserHelpers.ProductCountIncreaser;
-using StationeryStoreAppLayer.PublicHelpers.DataEditors.ProductDataEditors;
-using StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.Forms.CountManagerForms.ProductCountIncreaserForms;
+using StationeryStoreUILayer.Forms.CountManagerForms.ProductCountIncreaserForms.ProductCountIncreaserHelpers.ProductCountIncreaser;
+using StationeryStoreUILayer.PublicHelpers.DataEditors.ProductDataEditors;
+using StationeryStoreUILayer.PublicHelpers.NumericUpDownDefaultValueSeters;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StationeryStoreAppLayer.Forms.ProductCountIncreaserForms
+namespace StationeryStoreUILayer.Forms.ProductCountIncreaserForms
 {
     public partial class ProductCountIncreaserForm : Form,
         IProductCountIncreaserForm,

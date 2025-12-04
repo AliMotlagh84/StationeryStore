@@ -1,4 +1,4 @@
-﻿namespace StationeryStoreAppLayer.Forms.SendOrderRoadForms.PayerForms
+﻿namespace StationeryStoreUILayer.Forms.SendOrderRoadForms.PayerForms
 {
     partial class PayerForm
     {
@@ -338,7 +338,6 @@
         }
 
         #endregion
-        private Microsoft.Data.SqlClient.SqlCommandBuilder sqlCommandBuilder1;
         private PictureBox pictureBox2;
         private GroupBox groupBox1;
         private Button PayBtn;

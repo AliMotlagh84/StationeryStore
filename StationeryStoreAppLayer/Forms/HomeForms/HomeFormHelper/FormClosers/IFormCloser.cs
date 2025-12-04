@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.FormClosers
+namespace StationeryStoreUILayer.Forms.HomeForms.HomeFormHelper.FormClosers
 {
     public interface IFormCloser
     {

@@ -1,4 +1,4 @@
-﻿namespace StationeryStoreAppLayer.LoginForms
+﻿namespace StationeryStoreUILayer.LoginForms
 {
     partial class Login
     {

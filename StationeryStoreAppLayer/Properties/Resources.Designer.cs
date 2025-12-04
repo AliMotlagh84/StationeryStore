@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StationeryStoreAppLayer.Properties {
+namespace StationeryStoreUILayer.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace StationeryStoreAppLayer.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("StationeryStoreAppLayer.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("StationeryStoreUILayer.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -123,9 +123,9 @@ namespace StationeryStoreAppLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_add_properties_60 {
+        internal static System.Drawing.Bitmap icons8_add_Properties_60 {
             get {
-                object obj = ResourceManager.GetObject("icons8-add-properties-60", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8-add-Properties-60", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

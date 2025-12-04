@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.SignUpForms.SignUpHelpers.AdminModeChanger
+namespace StationeryStoreUILayer.Forms.SignUpForms.SignUpHelpers.AdminModeChanger
 {
     public interface IAdminModeChanger
     {

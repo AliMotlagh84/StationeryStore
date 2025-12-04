@@ -1,18 +1,18 @@
-﻿using StationeryStoreAppLayer.AppManagers.FormManagers;
-using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.FormClosers;
-using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.LableSeters;
-using StationeryStoreAppLayer.Forms.HomeForms.HomeFormHelper.ProductManagemenAccessControllers;
-using StationeryStoreAppLayer.PublicHelpers.DataGeters.OrdersGeters;
-using StationeryStoreAppLayer.PublicHelpers.DataGeters.ProductGeters;
-using StationeryStoreAppLayer.PublicHelpers.DgFillers;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.AppManagers.FormManagers;
+using StationeryStoreUILayer.Forms.HomeForms.HomeFormHelper.FormClosers;
+using StationeryStoreUILayer.Forms.HomeForms.HomeFormHelper.LableSeters;
+using StationeryStoreUILayer.Forms.HomeForms.HomeFormHelper.ProductManagemenAccessControllers;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.OrdersGeters;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.ProductGeters;
+using StationeryStoreUILayer.PublicHelpers.DgFillers;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.HomeForms
+namespace StationeryStoreUILayer.Forms.HomeForms
 {
     public interface IHomeForm : IProductManagementAccessController,
         IDateLabelSeter,

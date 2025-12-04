@@ -1,10 +1,10 @@
-﻿using StationeryStoreAppLayer.Forms.DraftOrderForms.DraftOrderHelpers.ProductCountCheckers;
-using StationeryStoreAppLayer.PublicHelpers.DataAdders.DraftOrderSenders;
-using StationeryStoreAppLayer.PublicHelpers.DataBuilders.DraftOrderDataBuilders;
-using StationeryStoreAppLayer.PublicHelpers.DataBuilders.ProductDataBuilders;
-using StationeryStoreAppLayer.PublicHelpers.DataEditors.ProductDataEditors;
-using StationeryStoreAppLayer.PublicHelpers.NumericUpDownDefaultValueSeters;
-using StationeryStoreDataLayer.Models;
+﻿using StationeryStoreUILayer.Forms.DraftOrderForms.DraftOrderHelpers.ProductCountCheckers;
+using StationeryStoreUILayer.PublicHelpers.DataAdders.DraftOrderSenders;
+using StationeryStoreUILayer.PublicHelpers.DataBuilders.DraftOrderDataBuilders;
+using StationeryStoreUILayer.PublicHelpers.DataBuilders.ProductDataBuilders;
+using StationeryStoreUILayer.PublicHelpers.DataEditors.ProductDataEditors;
+using StationeryStoreUILayer.PublicHelpers.NumericUpDownDefaultValueSeters;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StationeryStoreAppLayer.Forms.DraftOrderForms
+namespace StationeryStoreUILayer.Forms.DraftOrderForms
 {
     public partial class DraftOrderForm : Form,
         IDraftOrderForm,

@@ -1,11 +1,11 @@
-﻿using StationeryStoreAppLayer.Forms.SignUpForms;
+﻿using StationeryStoreUILayer.Forms.SignUpForms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.LoginForms.LoginHelpers.FormOpeners
+namespace StationeryStoreUILayer.Forms.LoginForms.LoginHelpers.FormOpeners
 {
     public class SignUpFormOpener<T> : ISignUpFormOpener where T : Form , ISignUpForm
     {

@@ -1,5 +1,5 @@
-﻿using StationeryStoreDataLayer.Models;
-using StationeryStoreDataLayer.UnitOfWorks;
+﻿using StationeryStoreInfrastructureLayer.Models;
+using StationeryStoreInfrastructureLayer.UnitOfWorks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
-namespace StationeryStoreAppLayer.PublicHelpers.Searchers.DraftOrderSearchers.ProductSearchers
+namespace StationeryStoreUILayer.PublicHelpers.Searchers.DraftOrderSearchers.ProductSearchers
 {
     public class DraftOrderSearcherByProductId : IDraftOrderSearcherByProductId
     {

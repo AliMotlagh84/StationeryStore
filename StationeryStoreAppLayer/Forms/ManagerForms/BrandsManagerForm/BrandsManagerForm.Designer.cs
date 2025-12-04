@@ -1,4 +1,4 @@
-﻿namespace StationeryStoreAppLayer.Forms.ManagerForms.BrandsManagerForm
+﻿namespace StationeryStoreUILayer.Forms.ManagerForms.BrandsManagerForm
 {
     partial class BrandsManagerForm
     {
@@ -126,7 +126,7 @@
             BrandUpdateBtn.BackColor = Color.FromArgb(255, 255, 128);
             BrandUpdateBtn.FlatStyle = FlatStyle.Popup;
             BrandUpdateBtn.ForeColor = Color.FromArgb(255, 128, 0);
-            BrandUpdateBtn.Image = Properties.Resources.icons8_update_tag_45;
+            BrandUpdateBtn.Image = StationeryStoreUILayer.Properties.Resources.icons8_update_tag_45;
             BrandUpdateBtn.Location = new Point(195, 143);
             BrandUpdateBtn.Name = "BrandUpdateBtn";
             BrandUpdateBtn.Size = new Size(102, 89);
@@ -141,7 +141,7 @@
             RefreshBtn.BackColor = Color.FromArgb(255, 192, 255);
             RefreshBtn.FlatStyle = FlatStyle.Popup;
             RefreshBtn.ForeColor = Color.Purple;
-            RefreshBtn.Image = Properties.Resources.icons8_refresh_60;
+            RefreshBtn.Image = StationeryStoreUILayer.Properties.Resources.icons8_refresh_60;
             RefreshBtn.Location = new Point(195, 238);
             RefreshBtn.Name = "RefreshBtn";
             RefreshBtn.Size = new Size(102, 84);
@@ -171,7 +171,7 @@
             DeleteBrandBtn.BackColor = Color.FromArgb(255, 192, 192);
             DeleteBrandBtn.FlatStyle = FlatStyle.Popup;
             DeleteBrandBtn.ForeColor = Color.FromArgb(192, 0, 0);
-            DeleteBrandBtn.Image = Properties.Resources.icons8_remove_tag_45;
+            DeleteBrandBtn.Image = StationeryStoreUILayer.Properties.Resources.icons8_remove_tag_45;
             DeleteBrandBtn.Location = new Point(306, 238);
             DeleteBrandBtn.Name = "DeleteBrandBtn";
             DeleteBrandBtn.Size = new Size(102, 84);

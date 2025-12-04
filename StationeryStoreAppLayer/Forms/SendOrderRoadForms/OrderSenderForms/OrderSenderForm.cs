@@ -1,5 +1,5 @@
 ﻿using Microsoft.Identity.Client;
-using StationeryStoreDataLayer.Models;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StationeryStoreAppLayer.Forms.SendOrderRoadForms.OrderSenderForms
+namespace StationeryStoreUILayer.Forms.SendOrderRoadForms.OrderSenderForms
 {
     public partial class OrderSenderForm : Form,IOrderSenderForm
     {

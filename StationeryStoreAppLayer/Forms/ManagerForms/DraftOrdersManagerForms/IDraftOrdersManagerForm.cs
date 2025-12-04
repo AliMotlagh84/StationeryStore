@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreAppLayer.Forms.ManagerForms.DraftOrdersManagerForms
+namespace StationeryStoreUILayer.Forms.ManagerForms.DraftOrdersManagerForms
 {
     public interface IDraftOrdersManagerForm
     {

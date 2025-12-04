@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace StationeryStoreDataLayer.Models;
+namespace StationeryStoreInfrastructureLayer.Models;
 
 public partial class UserTable
 {
