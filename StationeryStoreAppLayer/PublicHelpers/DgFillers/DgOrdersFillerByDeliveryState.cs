@@ -21,10 +21,11 @@ namespace StationeryStoreUILayer.PublicHelpers.DgFillers
            return _toShamsiConvertor.ConvertAsMiladi(date);
         }
 
-        public void FillDgOrders(DataGridView dg, Func<List<OrdersTable>> dataGeterMethod)
+        public void FillDgOrders(DataGridView dg,List<OrdersTable> orderData)
         {
+            dg.Rows.Clear();
             string deliveryState;
-            foreach (var order in dataGeterMethod())
+            foreach (var order in orderData)
             {
                 if (order.IsDelivered == true)
                     deliveryState = "تحویل داده شده";

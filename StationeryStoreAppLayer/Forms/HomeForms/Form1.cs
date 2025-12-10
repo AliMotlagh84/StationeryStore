@@ -16,8 +16,8 @@ using StationeryStoreUILayer.AppManagers.FormManagers;
 using StationeryStoreUILayer.AppManagers.AppRestartors;
 using StationeryStoreUILayer.AppManagers.AppClosers;
 using StationeryStoreUILayer.PublicHelpers.DataDeleter.UserDataDeleters;
-using StationeryStoreUILayer.PublicHelpers.Deleters.UserDeleters;
 using StationeryStoreUILayer.Forms.StoreManagerForms;
+using StationerStoreApplicationLayer.Deleters.UserDeleters;
 
 namespace StationeryStoreUILayer
 {
@@ -148,7 +148,7 @@ namespace StationeryStoreUILayer
             //DGPruducts.DataSource = GetProducts();
             FillDg<ProductsTable>(DGPruducts, GetProductsData());
             FillDg<ProductsTable>(DGNewProducts, GetNewProductsData(7));
-            FillDgOrders(DgOrders, GetOrdersData);
+            FillDgOrders(DgOrders, GetOrdersData());
             FillCombo(BarndIdCombo, GetBrandsComboData(GetBrandsData()), "BrandName", "BrandId");
             FillCombo(NewBrandIdCombo, GetBrandsComboData(GetBrandsData()), "BrandName", "BrandId");
             FillBoolCombo(AvailablityCombo, "همه", "موجود", "ناموجود");
@@ -162,7 +162,7 @@ namespace StationeryStoreUILayer
         {
             FillDg<ProductsTable>(DGPruducts, GetProductsData());
             FillDg<ProductsTable>(DGNewProducts, GetNewProductsData(7));
-            FillDgOrders(DgOrders, GetOrdersData);
+            FillDgOrders(DgOrders, GetOrdersData());
             FillCombo(BarndIdCombo, GetBrandsComboData(GetBrandsData()), "BrandName", "BrandId");
             FillCombo(NewBrandIdCombo, GetBrandsComboData(GetBrandsData()), "BrandName", "BrandId");
             FillBoolCombo(AvailablityCombo, "همه", "موجود", "ناموجود");
@@ -225,9 +225,9 @@ namespace StationeryStoreUILayer
             return _productsGeter.GetProductsData();
         }
 
-        public void FillDgOrders(DataGridView dg, Func<List<OrdersTable>> dataGeterMethod)
+        public void FillDgOrders(DataGridView dg, List<OrdersTable> ordersData)
         {
-            _dgOrdersFiller.FillDgOrders(dg, dataGeterMethod);
+            _dgOrdersFiller.FillDgOrders(dg, ordersData);
         }
 
         public List<OrdersTable> GetOrdersData()
@@ -298,7 +298,7 @@ namespace StationeryStoreUILayer
             OpenDraftOrderForm(GetSigleProduct(DGPruducts.CurrentRow.Cells[0].Value), userInfo);
             FillDg<ProductsTable>(DGPruducts, GetProductsData());
             FillDg<ProductsTable>(DGNewProducts, GetNewProductsData(7));
-            FillDgOrders(DgOrders, GetOrdersData);
+            FillDgOrders(DgOrders, GetOrdersData());
         }
 
         public void SetGroupBoxText(GroupBox gb, string text, bool? where = null)

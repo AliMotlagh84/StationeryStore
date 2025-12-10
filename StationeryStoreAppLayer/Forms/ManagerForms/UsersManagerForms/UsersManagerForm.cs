@@ -3,7 +3,6 @@ using StationeryStoreUILayer.PublicHelpers.DataAdders.UserDataAdders;
 using StationeryStoreUILayer.PublicHelpers.DataBuilders.UserDataBuilder;
 using StationeryStoreUILayer.PublicHelpers.DataDeleter.UserDataDeleters;
 using StationeryStoreUILayer.PublicHelpers.DataGeters.UserDataGeters;
-using StationeryStoreUILayer.PublicHelpers.Deleters.UserDeleters;
 using StationeryStoreUILayer.PublicHelpers.DgFillers;
 using StationeryStoreUILayer.PublicHelpers.Restartors.TextBoxRestartors;
 using StationeryStoreUILayer.PublicHelpers.Searchers.UserSearchers;
@@ -17,6 +16,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StationerStoreApplicationLayer.Deleters.UserDeleters;
 
 namespace StationeryStoreUILayer.Forms.ManagerForms.UsersManagerForms
 {

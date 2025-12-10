@@ -57,12 +57,7 @@ namespace StationeryStoreUILayer.Forms.SendOrderRoadForms.OrderInfoShowerForms
 
         private void OrderInfoShowerForm_Load(object sender, EventArgs e)
         {
-            FillDg(DraftOrdersDG, SearchInDraftOrders(GetDraftOrderData(), null, userInfo.UserId));
-            txtCity.Text = adressInfo.City;
-            txtStreet.Text = adressInfo.Street;
-            txtAlley.Text = adressInfo.Alley;
-            txtHouseNumber.Text = adressInfo.HouseNumber;
-            txtPostalCode.Text = adressInfo.PostalCode.ToString();
+            RefreshForm();
         }
 
         private void DeleteOrderBtn_Click(object sender, EventArgs e)
@@ -108,6 +103,17 @@ namespace StationeryStoreUILayer.Forms.SendOrderRoadForms.OrderInfoShowerForms
         private void SendOrderBtn_Click(object sender, EventArgs e)
         {
             HandleOrderRoad(this, OpenPayerForm(this,userInfo,adressInfo));
+            RefreshForm();
+        }
+
+        private void RefreshForm()
+        {
+            FillDg(DraftOrdersDG, SearchInDraftOrders(GetDraftOrderData(), null, userInfo.UserId));
+            txtCity.Text = adressInfo.City;
+            txtStreet.Text = adressInfo.Street;
+            txtAlley.Text = adressInfo.Alley;
+            txtHouseNumber.Text = adressInfo.HouseNumber;
+            txtPostalCode.Text = adressInfo.PostalCode.ToString();
         }
 
         public void HandleOrderRoad(Form thisForm, DialogResult nextFormDialogResult)

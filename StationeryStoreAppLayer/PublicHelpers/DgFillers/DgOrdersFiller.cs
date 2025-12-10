@@ -11,9 +11,10 @@ namespace StationeryStoreUILayer.PublicHelpers.DgFillers
     public class DgOrdersFiller : IDgOrdersFiller
     {
         IMiladiToOtherDateConvertor ToShamsiConvertor = new MiladiToPersianDateConvertor();
-        public void FillDgOrders(DataGridView dg, Func<List<OrdersTable>> dataGeterMethod)
+        public void FillDgOrders(DataGridView dg, List<OrdersTable> ordersData)
         {
-            foreach (var order in dataGeterMethod())
+            dg.Rows.Clear();
+            foreach (var order in ordersData)
             {
                 dg.Rows.Add(order.UserId,order.UserId,order.UserName,order.Amount,ToShamsiConvertor.ConvertAsMiladi(order.Date),"کلیک کنید");
             }

@@ -1,7 +1,6 @@
 ﻿using StationeryStoreUILayer.Forms.ManagerForms.BrandsManagerForm.BrandManagerHelpers.FormOpeners;
 using StationeryStoreUILayer.PublicHelpers.DataBuilders.BrandDataBuilders;
 using StationeryStoreUILayer.PublicHelpers.DataGeters.BrandsDataGeters;
-using StationeryStoreUILayer.PublicHelpers.Deleters.BrandDeleters;
 using StationeryStoreUILayer.PublicHelpers.DgFillers;
 using StationeryStoreUILayer.PublicHelpers.Restartors.TextBoxRestartors;
 using StationeryStoreUILayer.PublicHelpers.Searchers.BrandsSearcher;
@@ -15,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StationerStoreApplicationLayer.Deleters.BrandDeleters;
 
 namespace StationeryStoreUILayer.Forms.ManagerForms.BrandsManagerForm
 {

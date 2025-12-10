@@ -73,7 +73,7 @@ namespace StationeryStoreUILayer.Forms.AdressChooserForms
         private void AdressChooserForm_Load(object sender, EventArgs e)
         {
             RestartTextBox(txtCity,txtHouseNumber,txtPostalCode);
-            FillDg(AdressDG, SearchInAdresses(GetAdressesData(), null, userInfo.UserId));
+            RefreshForm();
         }
 
         public List<AdressTable> GetAdressesData()
@@ -122,13 +122,18 @@ namespace StationeryStoreUILayer.Forms.AdressChooserForms
                 {
                     var selectedAdress = SearchInAdresses(GetAdressesData(), (object?)(AdressDG.CurrentRow.Cells[0].Value)).First();
                     HandleOrderRoad(this, OpenOrderInfoShowerForm(this, userInfo, selectedAdress));
-
+                    RefreshForm();
                 }
             }
             else
             {
                 MessageBox.Show("پیش سفارسی انتخاب نشده است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void RefreshForm()
+        {
+            FillDg(AdressDG, SearchInAdresses(GetAdressesData(), null, userInfo.UserId));
         }
 
         public void FillDg<T>(DataGridView dg, List<T> data)

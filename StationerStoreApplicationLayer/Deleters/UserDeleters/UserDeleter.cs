@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreUILayer.PublicHelpers.Deleters.UserDeleters
+namespace StationerStoreApplicationLayer.Deleters.UserDeleters
 {
     public class UserDeleter : IUserDeleter,
     IUserDataDeleter,

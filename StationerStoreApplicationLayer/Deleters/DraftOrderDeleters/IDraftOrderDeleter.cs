@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreUILayer.PublicHelpers.Deleters.DraftOrderDeleters
+namespace StationerStoreApplicationLayer.Deleters.DraftOrderDeleters
 {
     public interface IDraftOrderDeleter
     {

@@ -38,30 +38,30 @@ using StationeryStoreUILayer.PublicHelpers.Searchers.AdressSearchers.AdressSearc
 using StationeryStoreUILayer.PublicHelpers.Searchers.AdressSearchers.AdressSearchersByHouseNumber;
 using StationeryStoreUILayer.PublicHelpers.Searchers.AdressSearchers.AdresssSearchersByPostalCode;
 using StationeryStoreUILayer.PublicHelpers.Searchers.AdressSearchers;
+using StationerStoreApplicationLayer.Searchers.OrderSearchers;
+using StationerStoreApplicationLayer.Searchers.OrderSearchers.OrderSearchersByOrderId;
+using StationerStoreApplicationLayer.Searchers.OrderSearchers.OrderSearchersByUserName;
+using StationerStoreApplicationLayer.Searchers.OrderSearchers.OrderSearchersByOrderDate;
+using StationerStoreApplicationLayer.Searchers.OrderSearchers.OrderSearchersByAmount;
+using StationerStoreApplicationLayer.Searchers.OrderSearchers.OrderSearchersByDeliveryState;
+using StationerStoreApplicationLayer.Searchers.OrderSearchers.OrderSearchersByUserId;
+using StationeryStoreUILayer.PublicHelpers.DataGeters.OrdersGeters;
+using StationeryStoreUILayer.PublicHelpers.DgFillers;
 
 namespace StationeryStoreUILayer
 {
     public partial class Form3 : Form
     {
-
-        IAdressesDataGeter adressData = new AdressesDataGeter();
-        AdressSearcherByAdressId adressSearcherByAdressId = new AdressSearcherByAdressId();
-        AdressSearcherByUserId AdressSearcherByUserId = new AdressSearcherByUserId();
-        AdressSearcherByUserName AdressSearcherByUserName = new AdressSearcherByUserName();
-        AdressSearcherByCity AdressSearcherByCity = new AdressSearcherByCity();
-        AdressSearcherByStreet AdressSearcherByStreet = new AdressSearcherByStreet();
-        AdressSearcherByAlley AdressSearcherByAlley = new AdressSearcherByAlley();
-        AdressSearcherByHouseNumber AdressSearcherByHouseNumber = new AdressSearcherByHouseNumber();
-        AdressSearcherByPostalCode AdressSearcherByPostalCode = new AdressSearcherByPostalCode();
-        IAdressSearcher adressSearcher = new AdressSearcher(new AdressSearcherByAdressId(),
-            new AdressSearcherByUserId(),
-            new AdressSearcherByUserName(),
-            new AdressSearcherByCity(),
-            new AdressSearcherByStreet(),
-            new AdressSearcherByAlley(),
-            new AdressSearcherByHouseNumber(),
-            new AdressSearcherByPostalCode()
-            );
+        NumericUdDefaultValueSeter numericUdDefaultValueSeter = new NumericUdDefaultValueSeter();
+        OrdersDataGeter ordersDataGeter = new OrdersDataGeter();
+        OrderSearcherByOrderId orderSearcherByOrderId = new OrderSearcherByOrderId();
+        OrderSearcherByUserName orderSearcherByUserName = new OrderSearcherByUserName();
+        OrderSearcherByUserId orderSearcherByUserId = new OrderSearcherByUserId();
+        OrderSearcherByOrderDate orderSearcherByOrderDate = new OrderSearcherByOrderDate();
+        OrderSearcherByAmount orderSearcherByAmount = new OrderSearcherByAmount();
+        OrderSearcherByDeliveryState orderSearcherByDeliveryState = new OrderSearcherByDeliveryState();
+        IOrderSearcher orderSearcher = new OrderSearcher(new OrderSearcherByOrderId(), new OrderSearcherByUserId(), new OrderSearcherByUserName(), new OrderSearcherByOrderDate(), new OrderSearcherByAmount(), new OrderSearcherByDeliveryState());
+        DgOrdersFiller DgOrdersFiller = new DgOrdersFiller();
 
 
         public Form3()
@@ -72,26 +72,29 @@ namespace StationeryStoreUILayer
 
         private void Form3_Load(object sender, EventArgs e)
         {
+            numericUdDefaultValueSeter.SetNumericUdDefaultValue(0, txtMinAmount, txtMaxAmount);
             BindGrid();
-
-
         }
 
         void BindGrid()
         {
-            DGPruducts.AutoGenerateColumns = false;
-            DGPruducts.DataSource = adressData.GetAdressesData();
+            DgOrders.AutoGenerateColumns = false;
+            DgOrdersFiller.FillDgOrders(DgOrders, ordersDataGeter.GetOrdersData());
         }
 
         private void btnProductsSearch_Click(object sender, EventArgs e)
         {
-            //DGPruducts.DataSource = DraftOrderSearcherByBrandName.SearchInDarftOrdersByBrandName(dataGeter.GetDraftOrderData(),BrandNameTxt.Text);
-
-            DGPruducts.DataSource = adressSearcher.SearchInAdresses(adressData.GetAdressesData(),(int?)AdressIdtxt.Value,(int?)txtUserId.Value,txtUserName.Text,txtCity.Text,txtStreet.Text,txtAlley.Text,txtHouseNumber.Text,(long?)txtPostalCode.Value);
+            var FilteredOrders = orderSearcher.SearchInOrders(ordersDataGeter.GetOrdersData(),null,null,txtUserName.Text,null,null,(long)txtMinAmount.Value, (long)txtMaxAmount.Value);
+            DgOrders.DataSource = FilteredOrders;
         }
 
 
         private void ProductGB_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ProductGB_Enter_1(object sender, EventArgs e)
         {
 
         }

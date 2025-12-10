@@ -77,11 +77,17 @@ namespace StationeryStoreUILayer.Forms.SendOrderRoadForms.PayerForms
 
         private void PayerForm_Load(object sender, EventArgs e)
         {
+            RefreshForm();
+        }
+
+        private void RefreshForm()
+        {
             UpdateCaptchaCode(ref captchaRnd, ref captchaCode);
             SetLabelText(TotalAmountLbl, GetDraftOrderTotalAmountsSumByUserId(userInfo.UserId).ToString());
             SetLabelText(DiscountedAmountLbl, CalculateDiscountedAmount<double>(GetDraftOrderTotalAmountsSumByUserId(userInfo.UserId), "precentageDiscount", 0.1, new PercentageDiscountCalculator()).ToString());
             SetNumericUdDefaultValue(1111, txtPassword);
         }
+
         void UpdateCaptchaCode(ref Random captchaRnd, ref string captchaCode)
         {
             captchaRnd = new Random();
@@ -124,6 +130,7 @@ namespace StationeryStoreUILayer.Forms.SendOrderRoadForms.PayerForms
             {
                 var discountedTotalAmount = CalculateDiscountedAmount<double>(GetDraftOrderTotalAmountsSumByUserId(userInfo.UserId), "precentageDiscount", 0.1, new PercentageDiscountCalculator());
                 OpenPayerFormSender(this, userInfo, discountedTotalAmount);
+                Refresh();
             }
         }
 

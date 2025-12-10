@@ -12,8 +12,4 @@
     <ProjectReference Include="..\StationeryStoreDataLayer\StationeryStoreInfrastructureLayer.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Adders\" />
-  </ItemGroup>
-
 </Project>

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label1 = new Label();
             groupBox1 = new GroupBox();
             DraftOrdersDG = new DataGridView();
@@ -45,12 +45,12 @@
             TotalAmount = new DataGridViewTextBoxColumn();
             GoHomeFormBtn = new Button();
             groupBox2 = new GroupBox();
+            CompleteOrderDateLbl = new Label();
+            label5 = new Label();
+            OrderDateLbl = new Label();
+            label3 = new Label();
             OrderNameLbl = new Label();
             label2 = new Label();
-            label3 = new Label();
-            OrderDateLbl = new Label();
-            label4 = new Label();
-            label5 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DraftOrdersDG).BeginInit();
             groupBox2.SuspendLayout();
@@ -77,6 +77,7 @@
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "اقلام سفارش شما ";
+            groupBox1.Enter += groupBox1_Enter;
             // 
             // DraftOrdersDG
             // 
@@ -84,24 +85,24 @@
             DraftOrdersDG.AllowUserToDeleteRows = false;
             DraftOrdersDG.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DraftOrdersDG.BackgroundColor = Color.FromArgb(0, 192, 0);
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            DraftOrdersDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            DraftOrdersDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             DraftOrdersDG.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DraftOrdersDG.Columns.AddRange(new DataGridViewColumn[] { DraftOrderId, UserId, UserName, ProductId, ProductName, BrandId, BrandName, RequestedCount, Amount, TotalAmount });
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            DraftOrdersDG.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            DraftOrdersDG.DefaultCellStyle = dataGridViewCellStyle2;
             DraftOrdersDG.Dock = DockStyle.Fill;
             DraftOrdersDG.GridColor = Color.Teal;
             DraftOrdersDG.Location = new Point(3, 23);
@@ -210,10 +211,11 @@
             GoHomeFormBtn.Text = "برگشت به فرم اصلی";
             GoHomeFormBtn.TextAlign = ContentAlignment.BottomCenter;
             GoHomeFormBtn.UseVisualStyleBackColor = false;
+            GoHomeFormBtn.Click += GoHomeFormBtn_Click;
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(label4);
+            groupBox2.Controls.Add(CompleteOrderDateLbl);
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(OrderDateLbl);
             groupBox2.Controls.Add(label3);
@@ -225,6 +227,52 @@
             groupBox2.TabIndex = 20;
             groupBox2.TabStop = false;
             groupBox2.Text = "اطلاعات سفارش";
+            // 
+            // CompleteOrderDateLbl
+            // 
+            CompleteOrderDateLbl.AutoSize = true;
+            CompleteOrderDateLbl.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CompleteOrderDateLbl.ForeColor = Color.FromArgb(0, 192, 0);
+            CompleteOrderDateLbl.Location = new Point(2, 34);
+            CompleteOrderDateLbl.Name = "CompleteOrderDateLbl";
+            CompleteOrderDateLbl.RightToLeft = RightToLeft.Yes;
+            CompleteOrderDateLbl.Size = new Size(112, 25);
+            CompleteOrderDateLbl.TabIndex = 28;
+            CompleteOrderDateLbl.Text = "0000000000";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.ForeColor = Color.FromArgb(0, 64, 0);
+            label5.Location = new Point(114, 35);
+            label5.Name = "label5";
+            label5.RightToLeft = RightToLeft.Yes;
+            label5.Size = new Size(143, 20);
+            label5.TabIndex = 27;
+            label5.Text = "تاریخ رسیدن سفارش :";
+            // 
+            // OrderDateLbl
+            // 
+            OrderDateLbl.AutoSize = true;
+            OrderDateLbl.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            OrderDateLbl.ForeColor = Color.FromArgb(0, 192, 0);
+            OrderDateLbl.Location = new Point(257, 33);
+            OrderDateLbl.Name = "OrderDateLbl";
+            OrderDateLbl.RightToLeft = RightToLeft.Yes;
+            OrderDateLbl.Size = new Size(112, 25);
+            OrderDateLbl.TabIndex = 26;
+            OrderDateLbl.Text = "0000000000";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.ForeColor = Color.FromArgb(0, 64, 0);
+            label3.Location = new Point(365, 34);
+            label3.Name = "label3";
+            label3.RightToLeft = RightToLeft.Yes;
+            label3.Size = new Size(102, 20);
+            label3.TabIndex = 25;
+            label3.Text = "تاریخ سفارش : ";
             // 
             // OrderNameLbl
             // 
@@ -248,52 +296,6 @@
             label2.Size = new Size(129, 20);
             label2.TabIndex = 24;
             label2.Text = "نام سفارش دهنده :";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.ForeColor = Color.FromArgb(0, 64, 0);
-            label3.Location = new Point(365, 34);
-            label3.Name = "label3";
-            label3.RightToLeft = RightToLeft.Yes;
-            label3.Size = new Size(102, 20);
-            label3.TabIndex = 25;
-            label3.Text = "تاریخ سفارش : ";
-            // 
-            // OrderDateLbl
-            // 
-            OrderDateLbl.AutoSize = true;
-            OrderDateLbl.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            OrderDateLbl.ForeColor = Color.FromArgb(0, 192, 0);
-            OrderDateLbl.Location = new Point(257, 33);
-            OrderDateLbl.Name = "OrderDateLbl";
-            OrderDateLbl.RightToLeft = RightToLeft.Yes;
-            OrderDateLbl.Size = new Size(112, 25);
-            OrderDateLbl.TabIndex = 26;
-            OrderDateLbl.Text = "0000000000";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.FromArgb(0, 192, 0);
-            label4.Location = new Point(2, 34);
-            label4.Name = "label4";
-            label4.RightToLeft = RightToLeft.Yes;
-            label4.Size = new Size(112, 25);
-            label4.TabIndex = 28;
-            label4.Text = "0000000000";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.ForeColor = Color.FromArgb(0, 64, 0);
-            label5.Location = new Point(114, 35);
-            label5.Name = "label5";
-            label5.RightToLeft = RightToLeft.Yes;
-            label5.Size = new Size(143, 20);
-            label5.TabIndex = 27;
-            label5.Text = "تاریخ رسیدن سفارش :";
             // 
             // OrderSenderForm
             // 
@@ -341,7 +343,7 @@
         private Label label3;
         private Label OrderNameLbl;
         private Label label2;
-        private Label label4;
+        private Label CompleteOrderDateLbl;
         private Label label5;
     }
 }

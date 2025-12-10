@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreUILayer.PublicHelpers.Deleters.ProductDeleters
+namespace StationerStoreApplicationLayer.Deleters.ProductDeleters
 {
     public class ProductDeleter : IProductDeleter, IProductDataDeleter, IDraftOrderDataGeter, IDraftOrderSearcher, IDraftOrderDataDeleter
     {
@@ -47,7 +47,7 @@ namespace StationeryStoreUILayer.PublicHelpers.Deleters.ProductDeleters
         public void DeleteProduct(ProductsTable product)
         {
 
-            var draftOrders = SearchInDraftOrders(GetDraftOrderData(), null, null, null, (int?)(product.ProductId));
+            var draftOrders = SearchInDraftOrders(GetDraftOrderData(), null, null, null, product.ProductId);
             foreach (var draftOrder in draftOrders)
             {
                 DeleteDraftOrderData(draftOrder);

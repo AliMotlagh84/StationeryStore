@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreUILayer.PublicHelpers.Deleters.BrandDeleters
+namespace StationerStoreApplicationLayer.Deleters.BrandDeleters
 {
     public interface IBrandDeleter
     {

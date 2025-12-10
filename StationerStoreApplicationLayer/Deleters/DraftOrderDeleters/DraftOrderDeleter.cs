@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreUILayer.PublicHelpers.Deleters.DraftOrderDeleters
+namespace StationerStoreApplicationLayer.Deleters.DraftOrderDeleters
 {
     public class DraftOrderDeleter : IDraftOrderDeleter,
         IDraftOrderDataDeleter,

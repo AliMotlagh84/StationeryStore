@@ -2,7 +2,6 @@
 using StationeryStoreUILayer.PublicHelpers.DataDeleter.DraftOrderDataDeleters;
 using StationeryStoreUILayer.PublicHelpers.DataGeters.DraftOrderDataGeters;
 using StationeryStoreUILayer.PublicHelpers.DataGeters.ProductGeters;
-using StationeryStoreUILayer.PublicHelpers.Deleters.ProductDeleters;
 using StationeryStoreUILayer.PublicHelpers.Searchers.DraftOrderSearchers;
 using StationeryStoreUILayer.PublicHelpers.Searchers.ProductSearchers;
 using StationeryStoreInfrastructureLayer.Models;
@@ -11,8 +10,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StationerStoreApplicationLayer.Deleters.ProductDeleters;
 
-namespace StationeryStoreUILayer.PublicHelpers.Deleters.BrandDeleters
+namespace StationerStoreApplicationLayer.Deleters.BrandDeleters
 {
     public class BrandDeleter : IBrandDeleter,
         IBrandDataDeleter,

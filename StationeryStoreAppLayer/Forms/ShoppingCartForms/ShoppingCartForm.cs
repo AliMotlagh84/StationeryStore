@@ -5,7 +5,6 @@ using StationeryStoreUILayer.Forms.ShoppingCartForms.SoppingCartHelpers.FormOpen
 using StationeryStoreUILayer.PublicHelpers.DataBuilders.DraftOrderDataBuilders;
 using StationeryStoreUILayer.PublicHelpers.DataDeleter.DraftOrderDataDeleters;
 using StationeryStoreUILayer.PublicHelpers.DataGeters.DraftOrderDataGeters;
-using StationeryStoreUILayer.PublicHelpers.Deleters.DraftOrderDeleters;
 using StationeryStoreUILayer.PublicHelpers.DgFillers;
 using StationeryStoreUILayer.PublicHelpers.Searchers.DraftOrderSearchers;
 using StationeryStoreInfrastructureLayer.Models;
@@ -18,6 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StationerStoreApplicationLayer.Deleters.DraftOrderDeleters;
 
 namespace StationeryStoreUILayer.Forms.ShoppingCartForms
 {
@@ -183,6 +183,7 @@ namespace StationeryStoreUILayer.Forms.ShoppingCartForms
         private void SendOrderBtn_Click(object sender, EventArgs e)
         {
             HandleAdressChooserFormOpening(this, userInfo);
+            RefreshForm();
         }
     }
 }

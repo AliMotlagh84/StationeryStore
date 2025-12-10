@@ -6,7 +6,6 @@ using StationeryStoreUILayer.PublicHelpers.DataBuilders.ProductDataBuilders;
 using StationeryStoreUILayer.PublicHelpers.DataEditors.ProductDataEditors;
 using StationeryStoreUILayer.PublicHelpers.DataGeters.BrandsDataGeters;
 using StationeryStoreUILayer.PublicHelpers.DataGeters.ProductGeters;
-using StationeryStoreUILayer.PublicHelpers.Deleters.ProductDeleters;
 using StationeryStoreUILayer.PublicHelpers.DgFillers;
 using StationeryStoreUILayer.PublicHelpers.NumericUpDownDefaultValueSeters;
 using StationeryStoreUILayer.PublicHelpers.Restartors.ComboRestartors;
@@ -25,6 +24,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StationerStoreApplicationLayer.Deleters.ProductDeleters;
 
 namespace StationeryStoreUILayer.Forms.ProductsManagerForms_for_Admin_
 {
