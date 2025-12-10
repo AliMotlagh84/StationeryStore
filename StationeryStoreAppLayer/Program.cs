@@ -42,6 +42,7 @@ using StationeryStoreUILayer.Forms.HomeForms.HomeFormHelper.ProductManagemenAcce
 using StationeryStoreUILayer.Forms.LoginForms.LoginHelpers.AdminCheckers;
 using StationeryStoreUILayer.Forms.LoginForms.LoginHelpers.FormOpeners;
 using StationeryStoreUILayer.Forms.LoginForms.LoginHelpers.UserValidators;
+using StationeryStoreUILayer.Forms.ManagerForms.AdressesManagerForms;
 using StationeryStoreUILayer.Forms.ManagerForms.BrandsManagerForm;
 using StationeryStoreUILayer.Forms.ManagerForms.BrandsManagerForm.BrandManagerHelpers.FormOpeners;
 using StationeryStoreUILayer.Forms.ManagerForms.DraftOrdersManagerForms;
@@ -198,7 +199,8 @@ namespace StationeryStoreUILayer
             BrandsManagerForm brandsManagerForm = new BrandsManagerForm(new BrandDataGeter(), new BrandDataBuilder(), brandDeleter, brandSearcher, new DgFiller(), new TextBoxRestartor(), new BrandAdderOrEditorFormOpener<BrandAdderOrEditorForm>(brandAdderOrEditorForm));
             DraftOrdersManagerForm draftOrdersManagerForm = new DraftOrdersManagerForm(new DraftOrderDataGeter(), new DraftOrderDataBulider(), new DraftOrderDataDeleter(), draftOrderSearcher, new BrandDataGeter(), new BrandsComboDataGeter(), new NumericUdDefaultValueSeter(), new DgFiller(), new ComboBoxFiller(), new ComboRestartor(), new NumericUdRestartor(), new TextBoxRestartor());
             UsersManagerForm usersManagerForm = new UsersManagerForm(new UsersDataGeter(), userSearcher, new UserDataBuilder(), userDeleter, new TextBoxRestartor(), new DgFiller());
-            StoreManagerForm storeManagerForm = new StoreManagerForm(new ProductsManagerFormOpener<ProductsManagerForm>(productsManagerForm), new BrandsManagerFormOpener<BrandsManagerForm>(brandsManagerForm), new DraftOrdersManagerFormOpener<DraftOrdersManagerForm>(draftOrdersManagerForm), new UserManagerFormOpener<UsersManagerForm>(usersManagerForm));
+            AdressesManagerForm adressesManagerForm = new AdressesManagerForm(new AdressesDataGeter(),adressSearcher,new AdressDataDeleter(),new NumericUdRestartor(),new TextBoxRestartor(),new NumericUdDefaultValueSeter(),new DgFiller());
+            StoreManagerForm storeManagerForm = new StoreManagerForm(new ProductsManagerFormOpener<ProductsManagerForm>(productsManagerForm), new BrandsManagerFormOpener<BrandsManagerForm>(brandsManagerForm), new DraftOrdersManagerFormOpener<DraftOrdersManagerForm>(draftOrdersManagerForm), new UserManagerFormOpener<UsersManagerForm>(usersManagerForm),new AdressesManagerFormOpener<AdressesManagerForm>(adressesManagerForm));
             DraftOrderRequestedCountEditor draftOrderRequestedCountEditor = new DraftOrderRequestedCountEditor(new DraftOrderDataBulider(), draftOrderEditor, new NumericUdDefaultValueSeter());
             OrderSenderForm orderSenderForm = new OrderSenderForm(orderAdder,new OrderDataBuilder(),new DraftOrdersJsonBuilder(new DraftOrderEfEntityToDraftOrderDTOMapper()),new DraftOrderDataGeter(),draftOrderSearcher, new MiladiToPersianDateConvertor(),new DgFiller(),new JsonToDrfatOrderRestorer(new DraftOrderDTOToDraftOrderEfEntityMapper()),new OrdersDataGeter(),orderSearcher);
             PayerForm payerForm = new PayerForm(new CaptchaMaker(),new LabelFillerByText(),new DraftOrderTotalAmountsSumByUserIdGeter(),new DiscountedAmountCaculator(),new NumericUdDefaultValueSeter(),payerFormValidateHandler,new OrderSenderFormOpener<OrderSenderForm>(orderSenderForm));

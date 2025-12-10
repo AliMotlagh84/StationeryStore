@@ -69,7 +69,7 @@
             // 
             ProductManagementPB.BackColor = Color.White;
             ProductManagementPB.Dock = DockStyle.Fill;
-            ProductManagementPB.Image = StationeryStoreUILayer.Properties.Resources._Pngtre_stationery_cartoon_on_outline_style_14608947;
+            ProductManagementPB.Image = Properties.Resources._Pngtre_stationery_cartoon_on_outline_style_14608947;
             ProductManagementPB.Location = new Point(3, 23);
             ProductManagementPB.Name = "ProductManagementPB";
             ProductManagementPB.Size = new Size(250, 187);
@@ -93,7 +93,7 @@
             // 
             BrandsManagementPB.BackColor = Color.FromArgb(255, 128, 0);
             BrandsManagementPB.Dock = DockStyle.Fill;
-            BrandsManagementPB.Image = StationeryStoreUILayer.Properties.Resources.vecteezy_nice_boxes_stack_;
+            BrandsManagementPB.Image = Properties.Resources.vecteezy_nice_boxes_stack_;
             BrandsManagementPB.Location = new Point(3, 23);
             BrandsManagementPB.Name = "BrandsManagementPB";
             BrandsManagementPB.Size = new Size(252, 187);
@@ -117,7 +117,7 @@
             // 
             UsersManagementPB.BackColor = Color.White;
             UsersManagementPB.Dock = DockStyle.Fill;
-            UsersManagementPB.Image = StationeryStoreUILayer.Properties.Resources.zahir_accounting_software_have_more_than_60_000_users;
+            UsersManagementPB.Image = Properties.Resources.zahir_accounting_software_have_more_than_60_000_users;
             UsersManagementPB.Location = new Point(3, 23);
             UsersManagementPB.Name = "UsersManagementPB";
             UsersManagementPB.Size = new Size(252, 187);
@@ -141,13 +141,14 @@
             // 
             AdressesManagementPB.BackColor = Color.White;
             AdressesManagementPB.Dock = DockStyle.Fill;
-            AdressesManagementPB.Image = StationeryStoreUILayer.Properties.Resources.vecteezy_position_vector_icon_16715695;
+            AdressesManagementPB.Image = Properties.Resources.vecteezy_position_vector_icon_16715695;
             AdressesManagementPB.Location = new Point(3, 23);
             AdressesManagementPB.Name = "AdressesManagementPB";
             AdressesManagementPB.Size = new Size(252, 200);
             AdressesManagementPB.SizeMode = PictureBoxSizeMode.StretchImage;
             AdressesManagementPB.TabIndex = 1;
             AdressesManagementPB.TabStop = false;
+            AdressesManagementPB.Click += AdressesManagementPB_Click;
             // 
             // DraftOrdersManagementGB
             // 
@@ -164,7 +165,7 @@
             // 
             DraftOrdersManagementPB.BackColor = Color.White;
             DraftOrdersManagementPB.Dock = DockStyle.Fill;
-            DraftOrdersManagementPB.Image = StationeryStoreUILayer.Properties.Resources.vecteezy_cartoon_shopping_cart_character_giving_peace_sign_63132966;
+            DraftOrdersManagementPB.Image = Properties.Resources.vecteezy_cartoon_shopping_cart_character_giving_peace_sign_63132966;
             DraftOrdersManagementPB.Location = new Point(3, 23);
             DraftOrdersManagementPB.Name = "DraftOrdersManagementPB";
             DraftOrdersManagementPB.Size = new Size(252, 200);
@@ -188,7 +189,7 @@
             // 
             OrdersManagementPB.BackColor = Color.White;
             OrdersManagementPB.Dock = DockStyle.Fill;
-            OrdersManagementPB.Image = StationeryStoreUILayer.Properties.Resources.vecteezy_delivery_van_movement_on_gps_map_laptop_screen_background_7278339;
+            OrdersManagementPB.Image = Properties.Resources.vecteezy_delivery_van_movement_on_gps_map_laptop_screen_background_7278339;
             OrdersManagementPB.Location = new Point(3, 23);
             OrdersManagementPB.Name = "OrdersManagementPB";
             OrdersManagementPB.Size = new Size(250, 200);
