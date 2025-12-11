@@ -57,10 +57,10 @@ namespace StationeryStoreUILayer
         OrderSearcherByOrderId orderSearcherByOrderId = new OrderSearcherByOrderId();
         OrderSearcherByUserName orderSearcherByUserName = new OrderSearcherByUserName();
         OrderSearcherByUserId orderSearcherByUserId = new OrderSearcherByUserId();
-        OrderSearcherByOrderDate orderSearcherByOrderDate = new OrderSearcherByOrderDate();
+        OrderSearcherByOrderDate orderSearcherByOrderDate = new OrderSearcherByOrderDate(new PersianToMiladiDateConvertor());
         OrderSearcherByAmount orderSearcherByAmount = new OrderSearcherByAmount();
         OrderSearcherByDeliveryState orderSearcherByDeliveryState = new OrderSearcherByDeliveryState();
-        IOrderSearcher orderSearcher = new OrderSearcher(new OrderSearcherByOrderId(), new OrderSearcherByUserId(), new OrderSearcherByUserName(), new OrderSearcherByOrderDate(), new OrderSearcherByAmount(), new OrderSearcherByDeliveryState());
+        IOrderSearcher orderSearcher = new OrderSearcher(new OrderSearcherByOrderId(), new OrderSearcherByUserId(), new OrderSearcherByUserName(), new OrderSearcherByOrderDate(new PersianToMiladiDateConvertor()), new OrderSearcherByAmount(), new OrderSearcherByDeliveryState());
         DgOrdersFiller DgOrdersFiller = new DgOrdersFiller();
 
 

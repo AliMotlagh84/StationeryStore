@@ -253,4 +253,13 @@
   <data name="icons8-search-50 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>E:\downloads1\icons8-search-50 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-cancel-60" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>E:\downloads1\icons8-cancel-60.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-edit-text-file-45" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>E:\downloads1\icons8-edit-text-file-45.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-edit-text-file-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>E:\downloads1\icons8-edit-text-file-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

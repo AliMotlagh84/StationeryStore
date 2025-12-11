@@ -19,11 +19,13 @@ namespace StationeryStoreUILayer.Forms.StoreManagerForms
         private IUserManagerFormOpener _userManagerFormOpener;
         private IDraftOrdersManagerFormOpener _draftOrdersManagerFormOpener;
         private IAdressesManagerFormOpener _adressesManagerFormOpener;
+        private IOrdersManagerFormOpener _ordersManagerFormOpener;
         public StoreManagerForm(IProductsManagerFormOpener productsManagerFormOpener,
             IBrandsManagerFormOpener brandsManagerFormOpener,
             IDraftOrdersManagerFormOpener draftOrdersManagerFormOpener,
             IUserManagerFormOpener userManagerFormOpener,
-            IAdressesManagerFormOpener adressesManagerFormOpener)
+            IAdressesManagerFormOpener adressesManagerFormOpener,
+            IOrdersManagerFormOpener ordersManagerFormOpener)
         {
             InitializeComponent();
             _productsManagerFormOpener = productsManagerFormOpener;
@@ -31,6 +33,7 @@ namespace StationeryStoreUILayer.Forms.StoreManagerForms
             _draftOrdersManagerFormOpener = draftOrdersManagerFormOpener;
             _userManagerFormOpener = userManagerFormOpener;
             _adressesManagerFormOpener = adressesManagerFormOpener;
+            _ordersManagerFormOpener = ordersManagerFormOpener ;
 
         }
 
@@ -87,6 +90,16 @@ namespace StationeryStoreUILayer.Forms.StoreManagerForms
         public void OpenAdressesManagerForm(Form senderForm)
         {
             _adressesManagerFormOpener.OpenAdressesManagerForm(senderForm);
+        }
+
+        private void OrdersManagementPB_Click(object sender, EventArgs e)
+        {
+            OpenOrdersManagerForm(this);
+        }
+
+        public void OpenOrdersManagerForm(Form senderForm)
+        {
+            _ordersManagerFormOpener.OpenOrdersManagerForm(senderForm);
         }
     }
 }

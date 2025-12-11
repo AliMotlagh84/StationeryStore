@@ -16,7 +16,7 @@ namespace StationeryStoreUILayer.PublicHelpers.DgFillers
             dg.Rows.Clear();
             foreach (var order in ordersData)
             {
-                dg.Rows.Add(order.UserId,order.UserId,order.UserName,order.Amount,ToShamsiConvertor.ConvertAsMiladi(order.Date),"کلیک کنید");
+                dg.Rows.Add(order.OrderId,order.UserId,order.UserName,order.Amount,ToShamsiConvertor.ConvertAsMiladi(order.Date),"کلیک کنید");
             }
         }
     }

@@ -12,7 +12,8 @@ namespace StationeryStoreUILayer.Forms.ManagerForms.StoreManagerForms
         IBrandsManagerFormOpener,
         IDraftOrdersManagerFormOpener,
         IUserManagerFormOpener,
-        IAdressesManagerFormOpener
+        IAdressesManagerFormOpener,
+        IOrdersManagerFormOpener
     {
     }
 }

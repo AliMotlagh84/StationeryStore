@@ -196,6 +196,7 @@
             OrdersManagementPB.SizeMode = PictureBoxSizeMode.StretchImage;
             OrdersManagementPB.TabIndex = 1;
             OrdersManagementPB.TabStop = false;
+            OrdersManagementPB.Click += OrdersManagementPB_Click;
             // 
             // StoreManagerForm
             // 

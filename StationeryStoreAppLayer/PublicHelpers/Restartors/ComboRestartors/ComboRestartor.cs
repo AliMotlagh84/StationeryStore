@@ -12,7 +12,8 @@ namespace StationeryStoreUILayer.PublicHelpers.Restartors.ComboRestartors
         {
             foreach (var comboBox in comboBoxes)
             {
-                comboBox.SelectedIndex = 0;
+
+                    comboBox.SelectedIndex = 0;
             }
         }
     }

@@ -163,6 +163,16 @@ namespace StationeryStoreUILayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_cancel_60 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cancel-60", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_cancel_order_55 {
             get {
                 object obj = ResourceManager.GetObject("icons8-cancel-order-55", resourceCulture);
@@ -206,6 +216,26 @@ namespace StationeryStoreUILayer.Properties {
         internal static System.Drawing.Bitmap icons8_delete_user_55 {
             get {
                 object obj = ResourceManager.GetObject("icons8-delete-user-55", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_edit_text_file_45 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-edit-text-file-45", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_edit_text_file_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-edit-text-file-50", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

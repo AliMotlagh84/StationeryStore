@@ -1,4 +1,5 @@
-﻿using StationeryStoreInfrastructureLayer.Models;
+﻿using StationaryStoreUtility.Convertores.DateConvertors;
+using StationeryStoreInfrastructureLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,24 +10,47 @@ namespace StationerStoreApplicationLayer.Searchers.OrderSearchers.OrderSearchers
 {
     public class OrderSearcherByOrderDate : IOrderSearcherByOrderDate
     {
-        public IEnumerable<OrdersTable> SearchInOrdersByOrderDate(IEnumerable<OrdersTable> orders, DateTime? minDate = null, DateTime? maxDate = null)
+        IPersianToMiladiDateConvertor _persianToMiladiDateConvertor;
+
+        public OrderSearcherByOrderDate(IPersianToMiladiDateConvertor persianToMiladiDateConvertor)
         {
-            if (minDate == null && maxDate == null)
+            _persianToMiladiDateConvertor = persianToMiladiDateConvertor;
+        }
+        public IEnumerable<OrdersTable> SearchInOrdersByOrderDate(IEnumerable<OrdersTable> orders, string? minDate = null, string? maxDate = null)
+        {
+            DateTime _minDate;
+            DateTime _maxDate;
+            if (((maxDate == null) || (maxDate == "    /  /")) && ((minDate == null) || (minDate == "    /  /")))
             {
                 return orders;
             }
-            else if (maxDate == null)
+            if (((maxDate == null) || (maxDate == "    /  /")))
             {
-                return orders.Where(o => minDate <= o.Date);
+                _minDate = PersianToMiladi(minDate);
+
+                return orders.Where(o => _minDate <= o.Date);
             }
-            else if (minDate == null)
+            else if (((minDate == null) || (minDate == "    /  /")))
             {
-                return orders.Where(o => o.Date <= maxDate);
+                _maxDate = PersianToMiladi(maxDate);
+                return orders.Where(o => o.Date <= _maxDate);
+
             }
             else
             {
-                return orders.Where(o => minDate <= o.Date).Where(o => o.Date <= maxDate);
+                _minDate = PersianToMiladi(minDate);
+                _maxDate = PersianToMiladi(maxDate);
+                return orders.Where(o => _minDate <= o.Date).Where(o => o.Date <= _maxDate);
+
             }
+
+
+        }
+
+        private DateTime PersianToMiladi(string date)
+        {
+            return _persianToMiladiDateConvertor.PersianToMiladi(date);
         }
     }
+    
 }

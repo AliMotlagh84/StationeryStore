@@ -9,6 +9,6 @@ namespace StationerStoreApplicationLayer.Searchers.OrderSearchers.OrderSearchers
 {
     public interface IOrderSearcherByOrderDate
     {
-        IEnumerable<OrdersTable> SearchInOrdersByOrderDate(IEnumerable<OrdersTable> orders,DateTime? minDate = null , DateTime? maxDate = null);
+        IEnumerable<OrdersTable> SearchInOrdersByOrderDate(IEnumerable<OrdersTable> orders,string? minDate = null , string? maxDate = null);
     }
 }
