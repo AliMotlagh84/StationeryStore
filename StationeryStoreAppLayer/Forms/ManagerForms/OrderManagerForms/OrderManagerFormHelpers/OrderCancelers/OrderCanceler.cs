@@ -1,4 +1,5 @@
 ﻿using StationerStoreApplicationLayer.DataDeleter.OrdersDataDeleters;
+using StationerStoreApplicationLayer.Deleters.OrderDeleters;
 using StationerStoreApplicationLayer.Searchers.OrderSearchers;
 using StationeryStoreInfrastructureLayer.Models;
 using StationeryStoreUILayer.PublicHelpers.DataGeters.OrdersGeters;
@@ -10,22 +11,22 @@ using System.Threading.Tasks;
 
 namespace StationeryStoreUILayer.Forms.ManagerForms.OrderManagerForms.OrderManagerFormHelpers.OrderCancelingHandlers
 {
-    public class OrderCancelingHandler : IOrderCancelingHandler,
+    public class OrderCanceler : IOrderCanceler,
         IOrdersDataGeter,
         IOrderSearcher,
-        IOrderDataDeleter
+        IOrderDeleter
     {
         private IOrdersDataGeter _ordersDataGeter;
         private IOrderSearcher _orderSearcher;
-        private IOrderDataDeleter _orderDataDeleter;
+        private IOrderDeleter _orderDeleter;
 
-        public OrderCancelingHandler(IOrdersDataGeter ordersDataGeter,
+        public OrderCanceler(IOrdersDataGeter ordersDataGeter,
             IOrderSearcher orderSearcher,
-            IOrderDataDeleter orderDataDeleter)
+            IOrderDeleter orderDeleter)
         {
             _ordersDataGeter = ordersDataGeter;
             _orderSearcher = orderSearcher;
-            _orderDataDeleter = orderDataDeleter;
+            _orderDeleter = orderDeleter;
         }
 
         public void CancelOrder(int orderId)
@@ -38,20 +39,15 @@ namespace StationeryStoreUILayer.Forms.ManagerForms.OrderManagerForms.OrderManag
             {
                 if (MessageBox.Show("آیا از لغو این سفارش مطمئن هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    DeleteOrderData(order);
+                    DeleteOrder(order);
                     MessageBox.Show("سفارش با موفقیت لغو شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
 
-        public void DeleteOrderData(OrdersTable order)
+        public void DeleteOrder(OrdersTable order)
         {
-            _orderDataDeleter.DeleteOrderData(order);
-        }
-
-        public void DeleteOrderData(object orderId)
-        {
-           _orderDataDeleter.DeleteOrderData(orderId);
+            _orderDeleter.DeleteOrder(order);
         }
 
         public List<OrdersTable> GetOrdersData()

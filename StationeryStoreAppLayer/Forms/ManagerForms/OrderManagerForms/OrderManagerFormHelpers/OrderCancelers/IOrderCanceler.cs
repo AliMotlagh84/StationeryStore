@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StationeryStoreUILayer.Forms.ManagerForms.OrderManagerForms.OrderManagerFormHelpers.OrderCancelingHandlers
 {
-    public interface IOrderCancelingHandler
+    public interface IOrderCanceler
     {
         void CancelOrder(int orderId);
     }

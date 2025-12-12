@@ -32,7 +32,7 @@ namespace StationeryStoreUILayer.PublicHelpers.DgFillers
                 else
                     deliveryState = "در انتظار";
                 
-                dg.Rows.Add(order.OrderId, order.UserId, order.UserName, order.Amount,ConvertAsMiladi(order.Date), "کلیک کنید",deliveryState);
+                dg.Rows.Add(order.OrderId, order.UserId, order.UserName, order.Amount,ConvertAsMiladi(order.Date), deliveryState, "کلیک کنید");
             }
         }
 

@@ -88,3 +88,4 @@ D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فرو�
 D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\bin\Debug\net9.0-windows\StationerStoreApplicationLayer.pdb
 D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\StationeryStoreUILayer.Forms.ManagerForms.AdressesManagerForms.AdressesManagerForm.resources
 D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\StationeryStoreUILayer.Forms.ManagerForms.OrderManagerForms.OrderManagerForm.resources
+D:\برنامه نویسی\برنامه نویسی ویندوز\Projects\فروشگاه کوچک\StationeryStore\StationeryStoreAppLayer\obj\Debug\net9.0-windows\StationeryStoreUILayer.Forms.OrderInfoForms.OrderInfoForm.resources

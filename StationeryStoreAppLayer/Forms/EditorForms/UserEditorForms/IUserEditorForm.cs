@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreUILayer.Forms.UserEditorForms
+namespace StationeryStoreUILayer.Forms.EditorForms.UserEditorForms
 {
     public interface IUserEditorForm : IUserDataEditor,IUserDataBuilder
     {

@@ -1,7 +1,9 @@
 ﻿using StationaryStoreUtility.Convertores.DateConvertors;
 using StationerStoreApplicationLayer.DataDeleter.OrdersDataDeleters;
+using StationerStoreApplicationLayer.Deleters.OrderDeleters;
 using StationerStoreApplicationLayer.Searchers.OrderSearchers;
 using StationeryStoreInfrastructureLayer.Models;
+using StationeryStoreUILayer.Forms.ManagerForms.OrderManagerForms.OrderManagerFormHelpers.FormOpeners;
 using StationeryStoreUILayer.Forms.ManagerForms.OrderManagerForms.OrderManagerFormHelpers.OrderCancelingHandlers;
 using StationeryStoreUILayer.PublicHelpers.ComboBoxFiilers;
 using StationeryStoreUILayer.PublicHelpers.DataGeters.OrdersGeters;
@@ -27,7 +29,7 @@ namespace StationeryStoreUILayer.Forms.ManagerForms.OrderManagerForms
     public partial class OrderManagerForm : Form, IOrderManagerForm,
         IOrdersDataGeter,
         IOrderSearcher,
-        IOrderDataDeleter,
+        IOrderDeleter,
         IDgOrdersFiller,
         ITextBoxRestartor,
         IComboRestartor,
@@ -35,12 +37,13 @@ namespace StationeryStoreUILayer.Forms.ManagerForms.OrderManagerForms
         IMaskedTextBoxRestartor,
         IBoolComboFiller,
         INumericUdDefaultValueSeter,
-        IOrderCancelingHandler
+        IOrderCanceler,
+        IOrderInfoFormOpener
 
     {
         private IOrdersDataGeter _ordersDataGeter;
         private IOrderSearcher _orderSearcher;
-        private IOrderDataDeleter _orderDataDeleter;
+        private IOrderDeleter _orderDeleter;
         private IDgOrdersFiller _dgOrdersFiller;
         private ITextBoxRestartor _textBoxRestartor;
         private IComboRestartor _comboRestartor;
@@ -48,12 +51,13 @@ namespace StationeryStoreUILayer.Forms.ManagerForms.OrderManagerForms
         private IMaskedTextBoxRestartor _maskedTextBoxRestartor;
         private IBoolComboFiller _boolComboFiller;
         private INumericUdDefaultValueSeter _umericUdDefaultValueSeter;
-        private IOrderCancelingHandler _orderCancelingHandler;
+        private IOrderCanceler _orderCanceler;
+        private IOrderInfoFormOpener _orderInfoFormOpener;
 
         public OrderManagerForm(
             IOrdersDataGeter ordersDataGeter,
             IOrderSearcher orderSearcher,
-            IOrderDataDeleter orderDataDeleter,
+            IOrderDeleter orderDeleter,
             IDgOrdersFiller dgOrdersFiller,
             ITextBoxRestartor textBoxRestartor,
             IComboRestartor comboRestartor,
@@ -61,13 +65,14 @@ namespace StationeryStoreUILayer.Forms.ManagerForms.OrderManagerForms
             IMaskedTextBoxRestartor maskedTextBoxRestartor,
             IBoolComboFiller boolComboFiller,
             INumericUdDefaultValueSeter umericUdDefaultValueSeter,
-            IOrderCancelingHandler orderCancelingHandler
+            IOrderCanceler orderCanceler,
+            IOrderInfoFormOpener orderInfoFormOpener
             )
         {
             InitializeComponent();
             _ordersDataGeter = ordersDataGeter;
             _orderSearcher = orderSearcher;
-            _orderDataDeleter = orderDataDeleter;
+            _orderDeleter = orderDeleter;
             _dgOrdersFiller = dgOrdersFiller;
             _textBoxRestartor = textBoxRestartor;
             _comboRestartor = comboRestartor;
@@ -75,7 +80,8 @@ namespace StationeryStoreUILayer.Forms.ManagerForms.OrderManagerForms
             _maskedTextBoxRestartor = maskedTextBoxRestartor;
             _boolComboFiller = boolComboFiller;
             _umericUdDefaultValueSeter = umericUdDefaultValueSeter;
-            _orderCancelingHandler = orderCancelingHandler;
+            _orderCanceler = orderCanceler;
+            _orderInfoFormOpener = orderInfoFormOpener;
         }
 
         public void FillBoolCombo(ComboBox comboBox, string allDisplay, string trueDispaly, string falseDispaly)
@@ -149,23 +155,13 @@ namespace StationeryStoreUILayer.Forms.ManagerForms.OrderManagerForms
             FillDgOrders(DgOrders, SearchInOrders(GetOrdersData(), null, null, txtUserName.Text, MinDatetxt.Text, MaxDatetxt.Text, (long?)txtMinAmount.Value, (long?)txtMaxAmount.Value, (bool?)DeliveryStateCombo.SelectedValue));
         }
 
-        public void DeleteOrderData(OrdersTable order)
-        {
-            _orderDataDeleter.DeleteOrderData(order);
-        }
-
-        public void DeleteOrderData(object orderId)
-        {
-            _orderDataDeleter.DeleteOrderData(orderId);
-        }
-
         private void DeleteOrderBtn_Click(object sender, EventArgs e)
         {
             if (DgOrders.CurrentRow != null)
             {
                 if (MessageBox.Show("در صورت حذف یک سفارش در صورت  در حال انتظار بودن , سفارش لغو خواهد شد !!", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    DeleteOrderData(DgOrders.CurrentRow.Cells[0].Value);
+                    DeleteOrder(SearchInOrders(GetOrdersData(), (int)DgOrders.CurrentRow.Cells[0].Value).FirstOrDefault());
                     RefreshForm();
                 }
             }
@@ -183,7 +179,30 @@ namespace StationeryStoreUILayer.Forms.ManagerForms.OrderManagerForms
 
         public void CancelOrder(int orderId)
         {
-            _orderCancelingHandler.CancelOrder(orderId);
+            _orderCanceler.CancelOrder(orderId);
+        }
+
+
+        public void DeleteOrder(OrdersTable order)
+        {
+            _orderDeleter.DeleteOrder(order);
+        }
+
+        public void OpenOrderInfoForm(Form senderForm, OrdersTable order)
+        {
+            _orderInfoFormOpener.OpenOrderInfoForm(senderForm, order);
+        }
+
+        private void DgOrders_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DgOrders.CurrentRow != null)
+            {
+                if(DgOrders.CurrentCell.ColumnIndex == 6)
+                {
+                    var order = SearchInOrders(GetOrdersData(), (int)DgOrders.CurrentRow.Cells[0].Value).FirstOrDefault();
+                    OpenOrderInfoForm(this,order);
+                }
+            }
         }
     }
 }
