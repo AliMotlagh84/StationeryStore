@@ -10,27 +10,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StationerStoreApplicationLayer.Deleters.DraftOrderDeleters;
 
 namespace StationerStoreApplicationLayer.Deleters.ProductDeleters
 {
-    public class ProductDeleter : IProductDeleter, IProductDataDeleter, IDraftOrderDataGeter, IDraftOrderSearcher, IDraftOrderDataDeleter
+    public class ProductDeleter : IProductDeleter,
+        IProductDataDeleter,
+        IDraftOrderDataGeter,
+        IDraftOrderSearcher,
+        IDraftOrderDeleter
     {
 
         private IProductDataDeleter _productDataDeleter;
         private IDraftOrderDataGeter _draftOrderDataGeter;
         private IDraftOrderSearcher _draftOrderSearcher;
-        private IDraftOrderDataDeleter _draftOrderDataDeleter;
+        private IDraftOrderDeleter _draftOrderDeleter;
         public ProductDeleter(
             IProductDataDeleter productDataDeleter,
             IDraftOrderDataGeter draftOrderDataGeter,
             IDraftOrderSearcher draftOrderSearcher,
-            IDraftOrderDataDeleter draftOrderDataDeleter
+            IDraftOrderDeleter draftOrderDeleter
             )
         {
             _productDataDeleter = productDataDeleter;
             _draftOrderDataGeter = draftOrderDataGeter;
             _draftOrderSearcher = draftOrderSearcher;
-            _draftOrderDataDeleter = draftOrderDataDeleter;
+            _draftOrderDeleter = draftOrderDeleter;
         }
 
 
@@ -39,7 +44,7 @@ namespace StationerStoreApplicationLayer.Deleters.ProductDeleters
             var draftOrders = SearchInDraftOrders(GetDraftOrderData(),null,null,null,(int?)id);
             foreach (var draftOrder in draftOrders)
             {
-                DeleteDraftOrderData(draftOrder);
+                DeleteDrfatOrder(draftOrder);
             }
             DeleteProductData(id);
         }
@@ -50,20 +55,9 @@ namespace StationerStoreApplicationLayer.Deleters.ProductDeleters
             var draftOrders = SearchInDraftOrders(GetDraftOrderData(), null, null, null, product.ProductId);
             foreach (var draftOrder in draftOrders)
             {
-                DeleteDraftOrderData(draftOrder);
+                DeleteDrfatOrder(draftOrder);
             }
             DeleteProductData(product);
-        }
-
-        public void DeleteDraftOrderData(int darftOrderId)
-        {
-            _draftOrderDataDeleter.DeleteDraftOrderData(darftOrderId);
-
-        }
-
-        public void DeleteDraftOrderData(DraftOrdersTable draftOrder)
-        {
-            _draftOrderDataDeleter.DeleteDraftOrderData(draftOrder);
         }
 
 
@@ -85,6 +79,16 @@ namespace StationerStoreApplicationLayer.Deleters.ProductDeleters
         public List<DraftOrdersTable> SearchInDraftOrders(IEnumerable<DraftOrdersTable> draftOrders, int? id = null, int? userId = null, string? userName = null, int? prductId = null, string? productName = null, int? brandId = null, string? brandName = null, int? minRequestedCount = null, int? maxRequestedCount = null, long? minAmount = null, long? maxAmount = null, long? minTotalAmount = null, long? maxTotalAmount = null)
         {
             return _draftOrderSearcher.SearchInDraftOrders(draftOrders, id, userId, userName, prductId, productName, brandId, brandName, minRequestedCount, maxRequestedCount, minAmount, maxAmount, minTotalAmount, maxTotalAmount);
+        }
+
+        public void DeleteDrfatOrder(DraftOrdersTable draftOrder)
+        {
+            _draftOrderDeleter.DeleteDrfatOrder(draftOrder);
+        }
+
+        public void DeleteDrfatOrder(object draftOrderId)
+        {
+            _draftOrderDeleter.DeleteDrfatOrder(draftOrderId);
         }
     }
 }

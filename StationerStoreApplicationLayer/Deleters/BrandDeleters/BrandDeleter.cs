@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using StationerStoreApplicationLayer.Deleters.ProductDeleters;
+using StationerStoreApplicationLayer.Deleters.DraftOrderDeleters;
 
 namespace StationerStoreApplicationLayer.Deleters.BrandDeleters
 {
@@ -21,7 +22,7 @@ namespace StationerStoreApplicationLayer.Deleters.BrandDeleters
         IProductDeleter,
         IDraftOrderDataGeter,
         IDraftOrderSearcher,
-        IDraftOrderDataDeleter
+        IDraftOrderDeleter
 
 
     {
@@ -31,7 +32,7 @@ namespace StationerStoreApplicationLayer.Deleters.BrandDeleters
         private IProductDeleter _productDeleter;
         private IDraftOrderDataGeter _draftOrderDataGeter;
         private IDraftOrderSearcher _draftOrderSearcher;
-        private IDraftOrderDataDeleter _draftOrderDataDeleter;
+        private IDraftOrderDeleter _draftOrderDeleter;
         public BrandDeleter(
             IBrandDataDeleter brandDataDeleter,
             IProductsDataGeter productsDataGeter,
@@ -39,7 +40,7 @@ namespace StationerStoreApplicationLayer.Deleters.BrandDeleters
             IProductDeleter productDeleter,
             IDraftOrderDataGeter draftOrderDataGeter,
             IDraftOrderSearcher draftOrderSearcher,
-            IDraftOrderDataDeleter draftOrderDataDeleter
+            IDraftOrderDeleter draftOrderDeleter
             )
         {
             _brandDataDeleter = brandDataDeleter;
@@ -48,7 +49,7 @@ namespace StationerStoreApplicationLayer.Deleters.BrandDeleters
             _productDeleter = productDeleter;
             _draftOrderDataGeter = draftOrderDataGeter;
             _draftOrderSearcher = draftOrderSearcher;
-            _draftOrderDataDeleter = draftOrderDataDeleter;
+            _draftOrderDeleter = draftOrderDeleter;
         }
         public void DeleteBrand(BrandsTable brand)
         {
@@ -60,7 +61,7 @@ namespace StationerStoreApplicationLayer.Deleters.BrandDeleters
             var draftOrders = SearchInDraftOrders(GetDraftOrderData(),null,null,null,null,null,brand.BrandId,brand.BrandName);
             foreach (var draftOrder in draftOrders)
             {
-                DeleteDraftOrderData(draftOrder);
+                DeleteDrfatOrder(draftOrder);
             }
             DeleteBrandData(brand);
         }
@@ -75,7 +76,7 @@ namespace StationerStoreApplicationLayer.Deleters.BrandDeleters
             var draftOrders = SearchInDraftOrders(GetDraftOrderData(), null, null, null, null, null, (int)brandId);
             foreach (var draftOrder in draftOrders)
             {
-                DeleteDraftOrderData(draftOrder);
+                DeleteDrfatOrder(draftOrder);
             }
             DeleteBrandData(brandId);
         }
@@ -91,14 +92,15 @@ namespace StationerStoreApplicationLayer.Deleters.BrandDeleters
 
         }
 
-        public void DeleteDraftOrderData(int darftOrderId)
+
+        public void DeleteDrfatOrder(DraftOrdersTable draftOrder)
         {
-            _draftOrderDataDeleter.DeleteDraftOrderData(darftOrderId);
+            _draftOrderDeleter.DeleteDrfatOrder(draftOrder);
         }
 
-        public void DeleteDraftOrderData(DraftOrdersTable draftOrder)
+        public void DeleteDrfatOrder(object draftOrderId)
         {
-            _draftOrderDataDeleter.DeleteDraftOrderData(draftOrder);
+            _draftOrderDeleter.DeleteDrfatOrder(draftOrderId);
         }
 
         public void DeleteProduct(object id)
