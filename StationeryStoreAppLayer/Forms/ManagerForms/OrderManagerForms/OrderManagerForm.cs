@@ -1,5 +1,6 @@
 ﻿using StationaryStoreUtility.Convertores.DateConvertors;
 using StationerStoreApplicationLayer.DataDeleter.OrdersDataDeleters;
+using StationerStoreApplicationLayer.DataEditors.OrderDataEditor;
 using StationerStoreApplicationLayer.Deleters.OrderDeleters;
 using StationerStoreApplicationLayer.Searchers.OrderSearchers;
 using StationeryStoreInfrastructureLayer.Models;
@@ -30,6 +31,7 @@ namespace StationeryStoreUILayer.Forms.ManagerForms.OrderManagerForms
         IOrdersDataGeter,
         IOrderSearcher,
         IOrderDeleter,
+        IOrderDeliveryStateEditor,
         IDgOrdersFiller,
         ITextBoxRestartor,
         IComboRestartor,
@@ -44,6 +46,7 @@ namespace StationeryStoreUILayer.Forms.ManagerForms.OrderManagerForms
         private IOrdersDataGeter _ordersDataGeter;
         private IOrderSearcher _orderSearcher;
         private IOrderDeleter _orderDeleter;
+        private IOrderDeliveryStateEditor _orderDeliveryStateEditor;
         private IDgOrdersFiller _dgOrdersFiller;
         private ITextBoxRestartor _textBoxRestartor;
         private IComboRestartor _comboRestartor;
@@ -59,6 +62,7 @@ namespace StationeryStoreUILayer.Forms.ManagerForms.OrderManagerForms
             IOrderSearcher orderSearcher,
             IOrderDeleter orderDeleter,
             IDgOrdersFiller dgOrdersFiller,
+            IOrderDeliveryStateEditor orderDeliveryStateEditor,
             ITextBoxRestartor textBoxRestartor,
             IComboRestartor comboRestartor,
             INumericUdRestartor numericUdRestartor,
@@ -82,6 +86,7 @@ namespace StationeryStoreUILayer.Forms.ManagerForms.OrderManagerForms
             _umericUdDefaultValueSeter = umericUdDefaultValueSeter;
             _orderCanceler = orderCanceler;
             _orderInfoFormOpener = orderInfoFormOpener;
+            _orderDeliveryStateEditor = orderDeliveryStateEditor;
         }
 
         public void FillBoolCombo(ComboBox comboBox, string allDisplay, string trueDispaly, string falseDispaly)
@@ -197,12 +202,30 @@ namespace StationeryStoreUILayer.Forms.ManagerForms.OrderManagerForms
         {
             if (DgOrders.CurrentRow != null)
             {
-                if(DgOrders.CurrentCell.ColumnIndex == 6)
+                if (DgOrders.CurrentCell.ColumnIndex == 6)
                 {
                     var order = SearchInOrders(GetOrdersData(), (int)DgOrders.CurrentRow.Cells[0].Value).FirstOrDefault();
-                    OpenOrderInfoForm(this,order);
+                    OpenOrderInfoForm(this, order);
                 }
             }
+        }
+
+        private void ChangeDeliveryStateBtn_Click(object sender, EventArgs e)
+        {
+            if (DgOrders.CurrentRow != null)
+            {
+                EditDeliveryState(SearchInOrders(GetOrdersData(),(int)DgOrders.CurrentRow.Cells[0].Value).FirstOrDefault());
+                RefreshForm();
+            }
+            else
+            {
+                MessageBox.Show("سفارشی انتخاب نشده است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void EditDeliveryState(OrdersTable order)
+        {
+            _orderDeliveryStateEditor.EditDeliveryState(order);
         }
     }
 }

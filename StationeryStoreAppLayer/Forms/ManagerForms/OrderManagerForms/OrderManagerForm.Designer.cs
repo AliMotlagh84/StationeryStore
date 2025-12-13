@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             groupBox1 = new GroupBox();
             DeliveryStateCombo = new ComboBox();
             SearchBtn = new Button();
@@ -56,6 +56,7 @@
             RefreshBtn = new Button();
             DeleteOrderBtn = new Button();
             CancelOrderBtn = new Button();
+            ChangeDeliveryStateBtn = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtMaxAmount).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtMinAmount).BeginInit();
@@ -229,24 +230,24 @@
             DgOrders.AllowUserToDeleteRows = false;
             DgOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DgOrders.BackgroundColor = Color.LightSeaGreen;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            DgOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            DgOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             DgOrders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DgOrders.Columns.AddRange(new DataGridViewColumn[] { OrderId, OrderUserId, OrderUserName, OrderAmount, OrderDate, IsDelivered, OrderInfo });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            DgOrders.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            DgOrders.DefaultCellStyle = dataGridViewCellStyle4;
             DgOrders.Dock = DockStyle.Fill;
             DgOrders.Location = new Point(3, 23);
             DgOrders.Name = "DgOrders";
@@ -320,7 +321,7 @@
             RefreshBtn.ForeColor = Color.Indigo;
             RefreshBtn.Image = Properties.Resources.icons8_refresh_60;
             RefreshBtn.ImageAlign = ContentAlignment.TopCenter;
-            RefreshBtn.Location = new Point(484, 409);
+            RefreshBtn.Location = new Point(568, 409);
             RefreshBtn.Name = "RefreshBtn";
             RefreshBtn.Size = new Size(155, 86);
             RefreshBtn.TabIndex = 16;
@@ -336,7 +337,7 @@
             DeleteOrderBtn.ForeColor = Color.Maroon;
             DeleteOrderBtn.Image = Properties.Resources.icons8_remove_60;
             DeleteOrderBtn.ImageAlign = ContentAlignment.TopCenter;
-            DeleteOrderBtn.Location = new Point(317, 409);
+            DeleteOrderBtn.Location = new Point(401, 409);
             DeleteOrderBtn.Name = "DeleteOrderBtn";
             DeleteOrderBtn.Size = new Size(161, 86);
             DeleteOrderBtn.TabIndex = 17;
@@ -352,7 +353,7 @@
             CancelOrderBtn.ForeColor = Color.Maroon;
             CancelOrderBtn.Image = Properties.Resources.icons8_cancel_60;
             CancelOrderBtn.ImageAlign = ContentAlignment.TopCenter;
-            CancelOrderBtn.Location = new Point(150, 409);
+            CancelOrderBtn.Location = new Point(234, 409);
             CancelOrderBtn.Name = "CancelOrderBtn";
             CancelOrderBtn.Size = new Size(161, 86);
             CancelOrderBtn.TabIndex = 18;
@@ -361,12 +362,29 @@
             CancelOrderBtn.UseVisualStyleBackColor = false;
             CancelOrderBtn.Click += CancelOrderBtn_Click;
             // 
+            // ChangeDeliveryStateBtn
+            // 
+            ChangeDeliveryStateBtn.BackColor = Color.FromArgb(255, 255, 192);
+            ChangeDeliveryStateBtn.FlatStyle = FlatStyle.Popup;
+            ChangeDeliveryStateBtn.ForeColor = Color.Olive;
+            ChangeDeliveryStateBtn.Image = Properties.Resources.icons8_edit_text_file_50;
+            ChangeDeliveryStateBtn.ImageAlign = ContentAlignment.TopCenter;
+            ChangeDeliveryStateBtn.Location = new Point(67, 409);
+            ChangeDeliveryStateBtn.Name = "ChangeDeliveryStateBtn";
+            ChangeDeliveryStateBtn.Size = new Size(161, 86);
+            ChangeDeliveryStateBtn.TabIndex = 19;
+            ChangeDeliveryStateBtn.Text = "لغو سفارش";
+            ChangeDeliveryStateBtn.TextAlign = ContentAlignment.BottomCenter;
+            ChangeDeliveryStateBtn.UseVisualStyleBackColor = false;
+            ChangeDeliveryStateBtn.Click += ChangeDeliveryStateBtn_Click;
+            // 
             // OrderManagerForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Turquoise;
             ClientSize = new Size(793, 501);
+            Controls.Add(ChangeDeliveryStateBtn);
             Controls.Add(CancelOrderBtn);
             Controls.Add(RefreshBtn);
             Controls.Add(DeleteOrderBtn);
@@ -415,5 +433,6 @@
         private Button DeleteOrderBtn;
         private ComboBox DeliveryStateCombo;
         private Button CancelOrderBtn;
+        private Button ChangeDeliveryStateBtn;
     }
 }
