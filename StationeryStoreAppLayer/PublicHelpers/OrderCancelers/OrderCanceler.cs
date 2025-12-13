@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreUILayer.Forms.ManagerForms.OrderManagerForms.OrderManagerFormHelpers.OrderCancelingHandlers
+namespace StationeryStoreUILayer.PublicHelpers.OrderCancelers
 {
     public class OrderCanceler : IOrderCanceler,
         IOrdersDataGeter,

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationeryStoreUILayer.Forms.ManagerForms.OrderManagerForms.OrderManagerFormHelpers.FormOpeners
+namespace StationeryStoreUILayer.PublicHelpers.FormOpeners
 {
     public interface IOrderInfoFormOpener
     {

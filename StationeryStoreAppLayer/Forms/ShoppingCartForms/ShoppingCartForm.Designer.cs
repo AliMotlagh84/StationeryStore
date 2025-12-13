@@ -258,6 +258,7 @@
             OrdersFormBtn.Text = "مشاهده سفارشات من";
             OrdersFormBtn.TextAlign = ContentAlignment.BottomCenter;
             OrdersFormBtn.UseVisualStyleBackColor = false;
+            OrdersFormBtn.Click += OrdersFormBtn_Click;
             // 
             // AdressFormBtn
             // 

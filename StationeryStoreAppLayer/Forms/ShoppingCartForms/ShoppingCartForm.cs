@@ -28,7 +28,8 @@ namespace StationeryStoreUILayer.Forms.ShoppingCartForms
     IDgFiller,
     IDraftOrderRequestedCountEditorFormOpener,
     IAdressFormOpener,
-    IAdressChooserFormOpeningHandler
+    IAdressChooserFormOpeningHandler,
+    IOrderFormOpener
 
 
     {
@@ -44,6 +45,7 @@ namespace StationeryStoreUILayer.Forms.ShoppingCartForms
         private IDraftOrderRequestedCountEditorFormOpener _draftOrderRequestedCountEditorFormOpener;
         private IAdressFormOpener _adressFormOpener;
         private IAdressChooserFormOpeningHandler _adressChooserFormOpeningHandler;
+        private IOrderFormOpener _orderFormOpener;
 
         public ShoppingCartForm(
             IDraftOrderDataGeter draftOrderDataGeter,
@@ -53,7 +55,8 @@ namespace StationeryStoreUILayer.Forms.ShoppingCartForms
             IDgFiller dgFiller,
             IDraftOrderRequestedCountEditorFormOpener draftOrderRequestedCountEditorFormOpener,
             IAdressFormOpener adressFormOpener,
-            IAdressChooserFormOpeningHandler adressChooserFormOpeningHandler
+            IAdressChooserFormOpeningHandler adressChooserFormOpeningHandler,
+            IOrderFormOpener orderFormOpener
             )
         {
             InitializeComponent();
@@ -65,6 +68,7 @@ namespace StationeryStoreUILayer.Forms.ShoppingCartForms
             _draftOrderRequestedCountEditorFormOpener = draftOrderRequestedCountEditorFormOpener;
             _adressFormOpener = adressFormOpener;
             _adressChooserFormOpeningHandler = adressChooserFormOpeningHandler;
+            _orderFormOpener = orderFormOpener;
         }
 
         public DraftOrdersTable BuildDraftOrderData(int userId, string userName, int productId, string productName, int brandId, string brandName, long productAmount, int requestedCount, int? DraftOrderIdForEdit = null)
@@ -184,6 +188,17 @@ namespace StationeryStoreUILayer.Forms.ShoppingCartForms
         {
             HandleAdressChooserFormOpening(this, userInfo);
             RefreshForm();
+        }
+
+        private void OrdersFormBtn_Click(object sender, EventArgs e)
+        {
+          OpenOrderForm(this, userInfo);
+          RefreshForm() ;
+        }
+
+        public void OpenOrderForm(Form senderForm, UserTable userInfo)
+        {
+            _orderFormOpener.OpenOrderForm(senderForm, userInfo);
         }
     }
 }
