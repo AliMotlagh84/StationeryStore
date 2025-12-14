@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StationerStoreApplicationLayer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea0204b6ff89409fe96748ed747f87ad27ab084f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+67021d64847a0e93b5ea157a648557f22d3127e0")]
 [assembly: System.Reflection.AssemblyProductAttribute("StationerStoreApplicationLayer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StationerStoreApplicationLayer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

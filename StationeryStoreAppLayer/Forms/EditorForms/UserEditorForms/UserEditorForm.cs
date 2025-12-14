@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using StationeryStoreUILayer.Forms.EditorForms.UserEditorForms;
+using StationerStoreApplicationLayer.Editors.UserEditors;
 
 namespace StationeryStoreUILayer.Forms.UserEditorForms
 {
@@ -27,7 +28,7 @@ namespace StationeryStoreUILayer.Forms.UserEditorForms
     {
         private UserTable userInfo;
         private ITextBoxFiller _textBoxFiller;
-        private IUserDataEditor _userDataEditor;
+        private IUserEditor _userEditor;
         private IUserDataBuilder _userDataBuilder;
         private ITextValidator _textValidator;
         private IEmailValidator _emailValidator;
@@ -35,14 +36,14 @@ namespace StationeryStoreUILayer.Forms.UserEditorForms
         public UserEditorForm(
             ITextBoxFiller textBoxFiller,
             IUserDataBuilder userDataBuilder,
-            IUserDataEditor userDataEditor,
+            IUserEditor userEditor,
             ITextValidator textValidator,
             IEmailValidator emailValidator,
             IAppRestartor appRestartor)
         {
             InitializeComponent();
             _textBoxFiller = textBoxFiller;
-            _userDataEditor = userDataEditor;
+            _userEditor = userEditor;
             _userDataBuilder = userDataBuilder;
             _textValidator = textValidator;
             _emailValidator = emailValidator;
@@ -55,11 +56,6 @@ namespace StationeryStoreUILayer.Forms.UserEditorForms
         public UserTable BuildUserData(string userName, string userPassword, bool isAdmin, string? email, int? userIdForEdit)
         {
             return _userDataBuilder.BuildUserData(userName, userPassword, isAdmin, email, userIdForEdit);
-        }
-
-        public void EditUserData(UserTable userToEdit)
-        {
-            _userDataEditor.EditUserData(userToEdit);
         }
 
         public void FillTextBox(TextBox textBox, string text)
@@ -80,7 +76,7 @@ namespace StationeryStoreUILayer.Forms.UserEditorForms
                 if (ValidateEmail(NewEmaitxt.Text))
                 {
                     var newUserData = BuildUserData(userInfo.UserName, NewPasswordtxt.Text, userInfo.IsAdmin, NewEmaitxt.Text, userInfo.UserId);
-                    EditUserData(newUserData);
+                    EditUser(newUserData);
                     MessageBox.Show("اطلاعات با موفقیت ویرایش شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ResetApp();
                 }
@@ -109,6 +105,11 @@ namespace StationeryStoreUILayer.Forms.UserEditorForms
         public void ResetApp()
         {
             _appRestartor.ResetApp();
+        }
+
+        public void EditUser(UserTable userInfo)
+        {
+            _userEditor.EditUser(userInfo);
         }
     }
 }

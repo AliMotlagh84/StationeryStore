@@ -7,10 +7,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StationerStoreApplicationLayer.Editors.UserEditors;
 
 namespace StationeryStoreUILayer.Forms.EditorForms.UserEditorForms
 {
-    public interface IUserEditorForm : IUserDataEditor,IUserDataBuilder
+    public interface IUserEditorForm : IUserEditor,IUserDataBuilder
     {
          UserTable UserInfo { get; set; }
     }
