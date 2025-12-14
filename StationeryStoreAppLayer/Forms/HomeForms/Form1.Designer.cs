@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
             timer2 = new System.Windows.Forms.Timer(components);
             HeaderMenu = new ToolStrip();
             AdminLbl = new ToolStripLabel();
@@ -105,6 +105,7 @@
             DateValueLbl = new ToolStripLabel();
             TimeLbl = new ToolStripLabel();
             TimeValueLbl = new ToolStripLabel();
+            RestartAppBtn = new ToolStripButton();
             HeaderMenu.SuspendLayout();
             OrdersGB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DgOrders).BeginInit();
@@ -132,8 +133,9 @@
             // HeaderMenu
             // 
             HeaderMenu.AutoSize = false;
+            HeaderMenu.BackColor = Color.FromArgb(255, 224, 192);
             HeaderMenu.ImageScalingSize = new Size(20, 20);
-            HeaderMenu.Items.AddRange(new ToolStripItem[] { AdminLbl, LogOutBtn, EditUserFormBtn, ShoppingCartBtn, StoreManageBtn });
+            HeaderMenu.Items.AddRange(new ToolStripItem[] { AdminLbl, LogOutBtn, RestartAppBtn, EditUserFormBtn, ShoppingCartBtn, StoreManageBtn });
             HeaderMenu.Location = new Point(0, 0);
             HeaderMenu.Name = "HeaderMenu";
             HeaderMenu.Size = new Size(884, 64);
@@ -142,7 +144,8 @@
             // 
             // AdminLbl
             // 
-            AdminLbl.Image = StationeryStoreUILayer.Properties.Resources.icons8_user_50;
+            AdminLbl.BackColor = Color.Azure;
+            AdminLbl.Image = Properties.Resources.icons8_user_50;
             AdminLbl.ImageAlign = ContentAlignment.MiddleLeft;
             AdminLbl.ImageScaling = ToolStripItemImageScaling.None;
             AdminLbl.ImageTransparentColor = Color.Magenta;
@@ -154,7 +157,8 @@
             // 
             // LogOutBtn
             // 
-            LogOutBtn.Image = StationeryStoreUILayer.Properties.Resources.icons8_logout_33;
+            LogOutBtn.BackColor = Color.FromArgb(255, 192, 192);
+            LogOutBtn.Image = Properties.Resources.icons8_logout_33;
             LogOutBtn.ImageScaling = ToolStripItemImageScaling.None;
             LogOutBtn.ImageTransparentColor = Color.Magenta;
             LogOutBtn.Margin = new Padding(20, 1, 0, 2);
@@ -167,7 +171,8 @@
             // 
             // EditUserFormBtn
             // 
-            EditUserFormBtn.Image = StationeryStoreUILayer.Properties.Resources._1371475973_document_edit;
+            EditUserFormBtn.BackColor = Color.FromArgb(255, 255, 192);
+            EditUserFormBtn.Image = Properties.Resources.icons8_registration_35;
             EditUserFormBtn.ImageScaling = ToolStripItemImageScaling.None;
             EditUserFormBtn.ImageTransparentColor = Color.Magenta;
             EditUserFormBtn.Margin = new Padding(20, 1, 0, 2);
@@ -180,7 +185,8 @@
             // 
             // ShoppingCartBtn
             // 
-            ShoppingCartBtn.Image = StationeryStoreUILayer.Properties.Resources.icons8_fast_cart_40;
+            ShoppingCartBtn.BackColor = Color.FromArgb(192, 192, 255);
+            ShoppingCartBtn.Image = Properties.Resources.icons8_fast_cart_40;
             ShoppingCartBtn.ImageScaling = ToolStripItemImageScaling.None;
             ShoppingCartBtn.ImageTransparentColor = Color.Magenta;
             ShoppingCartBtn.Margin = new Padding(20, 1, 0, 2);
@@ -193,7 +199,8 @@
             // 
             // StoreManageBtn
             // 
-            StoreManageBtn.Image = StationeryStoreUILayer.Properties.Resources.icons8_store_45;
+            StoreManageBtn.BackColor = Color.FromArgb(255, 192, 128);
+            StoreManageBtn.Image = Properties.Resources.icons8_store_45;
             StoreManageBtn.ImageScaling = ToolStripItemImageScaling.None;
             StoreManageBtn.ImageTransparentColor = Color.Magenta;
             StoreManageBtn.Name = "StoreManageBtn";
@@ -205,6 +212,7 @@
             // 
             // OrdersGB
             // 
+            OrdersGB.BackColor = Color.FromArgb(255, 128, 0);
             OrdersGB.Controls.Add(DgOrders);
             OrdersGB.Location = new Point(0, 256);
             OrdersGB.Name = "OrdersGB";
@@ -218,24 +226,25 @@
             DgOrders.AllowUserToAddRows = false;
             DgOrders.AllowUserToDeleteRows = false;
             DgOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            DgOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            DgOrders.BackgroundColor = Color.FromArgb(255, 128, 0);
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = SystemColors.Control;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            DgOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             DgOrders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DgOrders.Columns.AddRange(new DataGridViewColumn[] { OrderId, OrderUserId, OrderUserName, OrderAmount, OrderDate, IsDelivered, OrderInfo });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            DgOrders.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            DgOrders.DefaultCellStyle = dataGridViewCellStyle8;
             DgOrders.Dock = DockStyle.Fill;
             DgOrders.Location = new Point(3, 23);
             DgOrders.Name = "DgOrders";
@@ -243,6 +252,7 @@
             DgOrders.RowHeadersWidth = 51;
             DgOrders.Size = new Size(863, 196);
             DgOrders.TabIndex = 0;
+            DgOrders.CellClick += DgOrders_CellClick;
             // 
             // OrderId
             // 
@@ -305,6 +315,7 @@
             // 
             IntroducingLbl.AutoEllipsis = true;
             IntroducingLbl.AutoSize = true;
+            IntroducingLbl.ForeColor = Color.FromArgb(192, 64, 0);
             IntroducingLbl.Location = new Point(795, 48);
             IntroducingLbl.Name = "IntroducingLbl";
             IntroducingLbl.RightToLeft = RightToLeft.Yes;
@@ -317,6 +328,7 @@
             UseLbl.AllowDrop = true;
             UseLbl.AutoEllipsis = true;
             UseLbl.AutoSize = true;
+            UseLbl.ForeColor = Color.FromArgb(192, 64, 0);
             UseLbl.Location = new Point(795, 96);
             UseLbl.Name = "UseLbl";
             UseLbl.RightToLeft = RightToLeft.Yes;
@@ -327,6 +339,7 @@
             // WelcomLbl
             // 
             WelcomLbl.AutoSize = true;
+            WelcomLbl.ForeColor = Color.FromArgb(192, 64, 0);
             WelcomLbl.Location = new Point(818, 0);
             WelcomLbl.Name = "WelcomLbl";
             WelcomLbl.RightToLeft = RightToLeft.No;
@@ -336,6 +349,7 @@
             // 
             // WelcomeGB
             // 
+            WelcomeGB.BackColor = Color.FromArgb(255, 192, 128);
             WelcomeGB.Controls.Add(tableLayoutPanel1);
             WelcomeGB.Location = new Point(0, 67);
             WelcomeGB.Name = "WelcomeGB";
@@ -363,6 +377,7 @@
             // 
             // NewProductsGB
             // 
+            NewProductsGB.BackColor = Color.FromArgb(255, 192, 128);
             NewProductsGB.Controls.Add(NewProductsSearchGB);
             NewProductsGB.Controls.Add(DGNewProducts);
             NewProductsGB.Location = new Point(3, 491);
@@ -374,6 +389,7 @@
             // 
             // NewProductsSearchGB
             // 
+            NewProductsSearchGB.BackColor = Color.FromArgb(255, 192, 128);
             NewProductsSearchGB.Controls.Add(NewBrandIdCombo);
             NewProductsSearchGB.Controls.Add(NewMaxAmounttxt);
             NewProductsSearchGB.Controls.Add(NewMinAmounttxt);
@@ -395,7 +411,9 @@
             // 
             // NewBrandIdCombo
             // 
+            NewBrandIdCombo.BackColor = Color.FromArgb(255, 128, 0);
             NewBrandIdCombo.DropDownStyle = ComboBoxStyle.DropDownList;
+            NewBrandIdCombo.ForeColor = Color.White;
             NewBrandIdCombo.FormattingEnabled = true;
             NewBrandIdCombo.Location = new Point(620, 83);
             NewBrandIdCombo.Name = "NewBrandIdCombo";
@@ -404,6 +422,8 @@
             // 
             // NewMaxAmounttxt
             // 
+            NewMaxAmounttxt.BackColor = Color.FromArgb(255, 128, 0);
+            NewMaxAmounttxt.ForeColor = Color.White;
             NewMaxAmounttxt.Location = new Point(399, 84);
             NewMaxAmounttxt.Maximum = new decimal(new int[] { 1569325056, 23283064, 0, 0 });
             NewMaxAmounttxt.Name = "NewMaxAmounttxt";
@@ -412,6 +432,8 @@
             // 
             // NewMinAmounttxt
             // 
+            NewMinAmounttxt.BackColor = Color.FromArgb(255, 128, 0);
+            NewMinAmounttxt.ForeColor = Color.White;
             NewMinAmounttxt.Location = new Point(398, 34);
             NewMinAmounttxt.Maximum = new decimal(new int[] { 1569325056, 23283064, 0, 0 });
             NewMinAmounttxt.Name = "NewMinAmounttxt";
@@ -429,7 +451,9 @@
             // 
             // NewAvailblityCombo
             // 
+            NewAvailblityCombo.BackColor = Color.FromArgb(255, 128, 0);
             NewAvailblityCombo.DropDownStyle = ComboBoxStyle.DropDownList;
+            NewAvailblityCombo.ForeColor = Color.White;
             NewAvailblityCombo.FormattingEnabled = true;
             NewAvailblityCombo.Location = new Point(189, 57);
             NewAvailblityCombo.Name = "NewAvailblityCombo";
@@ -465,16 +489,21 @@
             // 
             // NewProductsSearchBtn
             // 
+            NewProductsSearchBtn.BackColor = Color.FromArgb(255, 128, 0);
+            NewProductsSearchBtn.FlatStyle = FlatStyle.Popup;
+            NewProductsSearchBtn.ForeColor = Color.White;
             NewProductsSearchBtn.Location = new Point(6, 56);
             NewProductsSearchBtn.Name = "NewProductsSearchBtn";
             NewProductsSearchBtn.Size = new Size(131, 29);
             NewProductsSearchBtn.TabIndex = 4;
             NewProductsSearchBtn.Text = "جستوجو";
-            NewProductsSearchBtn.UseVisualStyleBackColor = true;
+            NewProductsSearchBtn.UseVisualStyleBackColor = false;
             NewProductsSearchBtn.Click += NewProductsSearchBtn_Click;
             // 
             // NewProductNametxt
             // 
+            NewProductNametxt.BackColor = Color.FromArgb(255, 128, 0);
+            NewProductNametxt.ForeColor = Color.White;
             NewProductNametxt.Location = new Point(620, 36);
             NewProductNametxt.Name = "NewProductNametxt";
             NewProductNametxt.Size = new Size(117, 27);
@@ -494,24 +523,25 @@
             DGNewProducts.AllowUserToAddRows = false;
             DGNewProducts.AllowUserToDeleteRows = false;
             DGNewProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            DGNewProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            DGNewProducts.BackgroundColor = Color.FromArgb(255, 128, 0);
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = SystemColors.Control;
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            DGNewProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             DGNewProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DGNewProducts.Columns.AddRange(new DataGridViewColumn[] { NewProductId, NewProductName, NewBrandId, NewBrandName, NewCount, NewAmount });
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            DGNewProducts.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = SystemColors.Window;
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle10.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
+            DGNewProducts.DefaultCellStyle = dataGridViewCellStyle10;
             DGNewProducts.Location = new Point(3, 148);
             DGNewProducts.Name = "DGNewProducts";
             DGNewProducts.ReadOnly = true;
@@ -571,6 +601,7 @@
             // 
             // ProductGB
             // 
+            ProductGB.BackColor = Color.FromArgb(255, 192, 128);
             ProductGB.Controls.Add(ProductsSearchGB);
             ProductGB.Controls.Add(DGPruducts);
             ProductGB.Location = new Point(5, 899);
@@ -582,6 +613,7 @@
             // 
             // ProductsSearchGB
             // 
+            ProductsSearchGB.BackColor = Color.FromArgb(255, 192, 128);
             ProductsSearchGB.Controls.Add(BarndIdCombo);
             ProductsSearchGB.Controls.Add(label5);
             ProductsSearchGB.Controls.Add(MaxDatetxt);
@@ -607,7 +639,9 @@
             // 
             // BarndIdCombo
             // 
+            BarndIdCombo.BackColor = Color.FromArgb(255, 128, 0);
             BarndIdCombo.DropDownStyle = ComboBoxStyle.DropDownList;
+            BarndIdCombo.ForeColor = Color.White;
             BarndIdCombo.FormattingEnabled = true;
             BarndIdCombo.Location = new Point(621, 84);
             BarndIdCombo.Name = "BarndIdCombo";
@@ -625,6 +659,8 @@
             // 
             // MaxDatetxt
             // 
+            MaxDatetxt.BackColor = Color.FromArgb(255, 128, 0);
+            MaxDatetxt.ForeColor = Color.White;
             MaxDatetxt.Location = new Point(6, 81);
             MaxDatetxt.Mask = "0000/00/00";
             MaxDatetxt.Name = "MaxDatetxt";
@@ -643,6 +679,8 @@
             // 
             // MinDatetxt
             // 
+            MinDatetxt.BackColor = Color.FromArgb(255, 128, 0);
+            MinDatetxt.ForeColor = Color.White;
             MinDatetxt.Location = new Point(189, 81);
             MinDatetxt.Mask = "0000/00/00";
             MinDatetxt.Name = "MinDatetxt";
@@ -652,6 +690,8 @@
             // 
             // MaxAmountTxt
             // 
+            MaxAmountTxt.BackColor = Color.FromArgb(255, 128, 0);
+            MaxAmountTxt.ForeColor = Color.White;
             MaxAmountTxt.Location = new Point(399, 84);
             MaxAmountTxt.Maximum = new decimal(new int[] { 1569325056, 23283064, 0, 0 });
             MaxAmountTxt.Name = "MaxAmountTxt";
@@ -660,6 +700,8 @@
             // 
             // MinAmounttxt
             // 
+            MinAmounttxt.BackColor = Color.FromArgb(255, 128, 0);
+            MinAmounttxt.ForeColor = Color.White;
             MinAmounttxt.Location = new Point(398, 34);
             MinAmounttxt.Maximum = new decimal(new int[] { 1569325056, 23283064, 0, 0 });
             MinAmounttxt.Name = "MinAmounttxt";
@@ -677,7 +719,9 @@
             // 
             // AvailablityCombo
             // 
+            AvailablityCombo.BackColor = Color.FromArgb(255, 128, 0);
             AvailablityCombo.DropDownStyle = ComboBoxStyle.DropDownList;
+            AvailablityCombo.ForeColor = Color.White;
             AvailablityCombo.FormattingEnabled = true;
             AvailablityCombo.Location = new Point(189, 34);
             AvailablityCombo.Name = "AvailablityCombo";
@@ -713,16 +757,21 @@
             // 
             // ProductsSearchBtn
             // 
+            ProductsSearchBtn.BackColor = Color.FromArgb(255, 128, 0);
+            ProductsSearchBtn.FlatStyle = FlatStyle.Popup;
+            ProductsSearchBtn.ForeColor = Color.White;
             ProductsSearchBtn.Location = new Point(6, 34);
             ProductsSearchBtn.Name = "ProductsSearchBtn";
             ProductsSearchBtn.Size = new Size(131, 29);
             ProductsSearchBtn.TabIndex = 4;
             ProductsSearchBtn.Text = "جستوجو";
-            ProductsSearchBtn.UseVisualStyleBackColor = true;
+            ProductsSearchBtn.UseVisualStyleBackColor = false;
             ProductsSearchBtn.Click += ProductsSearchBtn_Click;
             // 
             // txtProductName
             // 
+            txtProductName.BackColor = Color.FromArgb(255, 128, 0);
+            txtProductName.ForeColor = Color.White;
             txtProductName.Location = new Point(620, 36);
             txtProductName.Name = "txtProductName";
             txtProductName.Size = new Size(117, 27);
@@ -742,24 +791,25 @@
             DGPruducts.AllowUserToAddRows = false;
             DGPruducts.AllowUserToDeleteRows = false;
             DGPruducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = SystemColors.Control;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            DGPruducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            DGPruducts.BackgroundColor = Color.FromArgb(255, 128, 0);
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = SystemColors.Control;
+            dataGridViewCellStyle11.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle11.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.True;
+            DGPruducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             DGPruducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DGPruducts.Columns.AddRange(new DataGridViewColumn[] { ProductId, ProductName, BrandId, BrandName, Count, Amount });
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = SystemColors.Window;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            DGPruducts.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = SystemColors.Window;
+            dataGridViewCellStyle12.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle12.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.False;
+            DGPruducts.DefaultCellStyle = dataGridViewCellStyle12;
             DGPruducts.Location = new Point(0, 147);
             DGPruducts.Name = "DGPruducts";
             DGPruducts.ReadOnly = true;
@@ -820,6 +870,7 @@
             // 
             // Footer
             // 
+            Footer.BackColor = Color.FromArgb(255, 224, 192);
             Footer.Dock = DockStyle.Bottom;
             Footer.ImageScalingSize = new Size(20, 20);
             Footer.Items.AddRange(new ToolStripItem[] { DateLbl, DateValueLbl, TimeLbl, TimeValueLbl });
@@ -852,11 +903,26 @@
             TimeValueLbl.Size = new Size(111, 22);
             TimeValueLbl.Text = "toolStripLabel1";
             // 
+            // RestartAppBtn
+            // 
+            RestartAppBtn.BackColor = Color.SkyBlue;
+            RestartAppBtn.Image = Properties.Resources.icons8_restart_40;
+            RestartAppBtn.ImageScaling = ToolStripItemImageScaling.None;
+            RestartAppBtn.ImageTransparentColor = Color.Magenta;
+            RestartAppBtn.Margin = new Padding(20, 1, 0, 2);
+            RestartAppBtn.Name = "RestartAppBtn";
+            RestartAppBtn.Size = new Size(130, 61);
+            RestartAppBtn.Text = "ورود با حساب دیگر";
+            RestartAppBtn.TextAlign = ContentAlignment.BottomCenter;
+            RestartAppBtn.TextImageRelation = TextImageRelation.ImageAboveText;
+            RestartAppBtn.Click += RestartAppBtn_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
+            BackColor = Color.FromArgb(255, 224, 192);
             ClientSize = new Size(905, 897);
             Controls.Add(Footer);
             Controls.Add(ProductGB);
@@ -968,5 +1034,6 @@
         private DataGridViewTextBoxColumn OrderDate;
         private DataGridViewTextBoxColumn IsDelivered;
         private DataGridViewTextBoxColumn OrderInfo;
+        private ToolStripButton RestartAppBtn;
     }
 }

@@ -18,12 +18,16 @@ using StationeryStoreUILayer.AppManagers.AppClosers;
 using StationeryStoreUILayer.PublicHelpers.DataDeleter.UserDataDeleters;
 using StationeryStoreUILayer.Forms.StoreManagerForms;
 using StationerStoreApplicationLayer.Deleters.UserDeleters;
+using StationeryStoreUILayer.Forms.OrderInfoForms;
+using StationeryStoreUILayer.PublicHelpers.FormOpeners;
+using StationerStoreApplicationLayer.Searchers.OrderSearchers;
+using StationeryStoreUILayer.Forms.HomeForms.HomeFormHelper.DgOrdersFillingHandlers;
 
 namespace StationeryStoreUILayer
 {
     public partial class Form1 : Form, IHomeForm,
         IDgFiller,
-        IDgOrdersFiller,
+        IDgOrdersFillingHandler,
         IProductsDataGeter,
         IOrdersDataGeter,
         IBrandDataGeter,
@@ -40,7 +44,9 @@ namespace StationeryStoreUILayer
         IAppRestartor,
         IUserDeleter,
         IStoreManagerFormOpener,
-        IShoppingCartFormOpener
+        IShoppingCartFormOpener,
+        IOrderInfoFormOpener,
+        IOrderSearcher
     {
 
         private UserTable userInfo;
@@ -54,7 +60,7 @@ namespace StationeryStoreUILayer
         private IFormCloser _formCloser;
         private IFormManager _formManager;
         private IDgFiller _dgFiller;
-        private IDgOrdersFiller _dgOrdersFiller;
+        private IDgOrdersFillingHandler _dgOrdersFillingHandler;
         private IProductsDataGeter _productsGeter;
         private IOrdersDataGeter _ordersDataGeter;
         private INewProductsDataGeter _newProductsDataGeter;
@@ -71,6 +77,8 @@ namespace StationeryStoreUILayer
         private IUserDeleter _userDeleter;
         private IShoppingCartFormOpener _shoppingCartFormOpeners;
         private IStoreManagerFormOpener _storeMangerFormOpener;
+        private IOrderInfoFormOpener _orderInfoFormOpener;
+        private IOrderSearcher _orderSearcher;
 
         Form IHomeForm.SenderForm { get => senderForm; set => senderForm = value; }
         UserTable IHomeForm.UserInfo { get => userInfo; set => userInfo = value; }
@@ -84,7 +92,7 @@ namespace StationeryStoreUILayer
             IFormCloser formCloser,
             IFormManager formManager,
             IDgFiller dgFiller,
-            IDgOrdersFiller dgOrdersFiller,
+            IDgOrdersFillingHandler dgOrdersFillingHandler,
             IComboBoxFiller comboBoxFiller,
             IBoolComboFiller boolComboFiller,
             IProductsDataGeter productsGeter,
@@ -100,7 +108,9 @@ namespace StationeryStoreUILayer
             IAppRestartor appRestartor,
             IUserDeleter userDeleter,
             IStoreManagerFormOpener storeMangerFormOpener,
-            IShoppingCartFormOpener shoppingCartFormOpener
+            IShoppingCartFormOpener shoppingCartFormOpener,
+            IOrderInfoFormOpener orderInfoFormOpener,
+            IOrderSearcher orderSearcher
             )
         {
             InitializeComponent();
@@ -113,7 +123,7 @@ namespace StationeryStoreUILayer
             _formCloser = formCloser;
             _formManager = formManager;
             _dgFiller = dgFiller;
-            _dgOrdersFiller = dgOrdersFiller;
+            _dgOrdersFillingHandler = dgOrdersFillingHandler;
             _productsGeter = productsGeter;
             _ordersDataGeter = ordersDataGeter;
             _newProductsDataGeter = newProductsDataGeter;
@@ -130,6 +140,8 @@ namespace StationeryStoreUILayer
             _userDeleter = userDeleter;
             _storeMangerFormOpener = storeMangerFormOpener;
             _shoppingCartFormOpeners = shoppingCartFormOpener;
+            _orderInfoFormOpener = orderInfoFormOpener;
+            _orderSearcher = orderSearcher;
 
         }
 
@@ -148,7 +160,7 @@ namespace StationeryStoreUILayer
             //DGPruducts.DataSource = GetProducts();
             FillDg<ProductsTable>(DGPruducts, GetProductsData());
             FillDg<ProductsTable>(DGNewProducts, GetNewProductsData(7));
-            FillDgOrders(DgOrders, GetOrdersData());
+            HandleDgOrdersFilling(DgOrders, userInfo);
             FillCombo(BarndIdCombo, GetBrandsComboData(GetBrandsData()), "BrandName", "BrandId");
             FillCombo(NewBrandIdCombo, GetBrandsComboData(GetBrandsData()), "BrandName", "BrandId");
             FillBoolCombo(AvailablityCombo, "همه", "موجود", "ناموجود");
@@ -162,7 +174,7 @@ namespace StationeryStoreUILayer
         {
             FillDg<ProductsTable>(DGPruducts, GetProductsData());
             FillDg<ProductsTable>(DGNewProducts, GetNewProductsData(7));
-            FillDgOrders(DgOrders, GetOrdersData());
+            HandleDgOrdersFilling(DgOrders, userInfo);
             FillCombo(BarndIdCombo, GetBrandsComboData(GetBrandsData()), "BrandName", "BrandId");
             FillCombo(NewBrandIdCombo, GetBrandsComboData(GetBrandsData()), "BrandName", "BrandId");
             FillBoolCombo(AvailablityCombo, "همه", "موجود", "ناموجود");
@@ -223,11 +235,6 @@ namespace StationeryStoreUILayer
         public List<ProductsTable> GetProductsData()
         {
             return _productsGeter.GetProductsData();
-        }
-
-        public void FillDgOrders(DataGridView dg, List<OrdersTable> ordersData)
-        {
-            _dgOrdersFiller.FillDgOrders(dg, ordersData);
         }
 
         public List<OrdersTable> GetOrdersData()
@@ -298,7 +305,7 @@ namespace StationeryStoreUILayer
             OpenDraftOrderForm(GetSigleProduct(DGPruducts.CurrentRow.Cells[0].Value), userInfo);
             FillDg<ProductsTable>(DGPruducts, GetProductsData());
             FillDg<ProductsTable>(DGNewProducts, GetNewProductsData(7));
-            FillDgOrders(DgOrders, GetOrdersData());
+            HandleDgOrdersFilling(DgOrders, userInfo);
         }
 
         public void SetGroupBoxText(GroupBox gb, string text, bool? where = null)
@@ -352,13 +359,48 @@ namespace StationeryStoreUILayer
 
         private void ShoppingCartBtn_Click(object sender, EventArgs e)
         {
-            OpenShoppingCartForm(this,userInfo);
+            OpenShoppingCartForm(this, userInfo);
             RefreshForm();
         }
 
         public void OpenShoppingCartForm(Form senderForm, UserTable userInfo)
         {
             _shoppingCartFormOpeners.OpenShoppingCartForm(senderForm, userInfo);
+        }
+
+        private void DgOrders_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DgOrders.CurrentRow != null)
+            {
+                if (DgOrders.CurrentCell.ColumnIndex == 6)
+                {
+                    var order = SearchInOrders(GetOrdersData(), (int)DgOrders.CurrentRow.Cells[0].Value).FirstOrDefault();
+                    OpenOrderInfoForm(this, order);
+                }
+            }
+        }
+
+        public void OpenOrderInfoForm(Form senderForm, OrdersTable order)
+        {
+            _orderInfoFormOpener.OpenOrderInfoForm(senderForm, order);
+        }
+
+        public List<OrdersTable> SearchInOrders(IEnumerable<OrdersTable> orders, int? orderId = null, int? userId = null, string? userName = null, string? minDate = null, string? maxDate = null, long? minAmount = null, long? maxAmount = null, bool? deliveryState = null)
+        {
+            return _orderSearcher.SearchInOrders(orders, orderId, userId, userName, minDate, maxDate, minAmount, maxAmount, deliveryState);
+        }
+
+        public void HandleDgOrdersFilling(DataGridView dataGridView, UserTable userInfo)
+        {
+            _dgOrdersFillingHandler.HandleDgOrdersFilling(dataGridView, userInfo);
+        }
+
+        private void RestartAppBtn_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("آیا میخواهید با حساب دیگری وارد شوید؟","",MessageBoxButtons.YesNo,MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                ResetApp();
+            }
         }
     }
 }

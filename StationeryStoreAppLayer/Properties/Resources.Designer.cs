@@ -333,6 +333,26 @@ namespace StationeryStoreUILayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_registration_35 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-registration-35", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_registration_40 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-registration-40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_remove_60 {
             get {
                 object obj = ResourceManager.GetObject("icons8-remove-60", resourceCulture);
@@ -346,6 +366,16 @@ namespace StationeryStoreUILayer.Properties {
         internal static System.Drawing.Bitmap icons8_remove_tag_45 {
             get {
                 object obj = ResourceManager.GetObject("icons8-remove-tag-45", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_restart_40 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-restart-40", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
